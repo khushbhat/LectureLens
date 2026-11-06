@@ -1,0 +1,47 @@
+# LectureLens — CPU-friendly requirements (Python 3.10–3.12)
+# Install CPU-only torch FIRST (see README):
+#   pip install torch --index-url https://download.pytorch.org/whl/cpu
+torch>=2.2
+
+# Core
+pyyaml>=6.0
+python-dotenv>=1.0
+pydantic>=2.6
+numpy>=1.26
+pandas>=2.1
+tzdata>=2024.1            # zoneinfo on Windows (Gemini quota resets at midnight Pacific)
+requests>=2.31
+
+# Ingest / audio / transcript
+yt-dlp>=2025.1.1
+faster-whisper>=1.1.0
+
+# LLM providers (all free-tier)
+google-genai>=1.0.0
+groq>=0.11.0
+
+# Vision / OCR
+opencv-python-headless>=4.9
+imagehash>=4.3
+Pillow>=10.0
+easyocr>=1.7.1
+
+# NLP / embeddings / verification
+nltk>=3.8
+sentence-transformers>=3.0
+transformers>=4.40
+networkx>=3.2
+
+# Export
+fpdf2>=2.7.8
+
+# Evaluation
+rouge-score>=0.1.2
+bert-score>=0.3.13
+jiwer>=3.0
+matplotlib>=3.8
+krippendorff>=0.6.1
+
+# App / tests
+streamlit>=1.35
+pytest>=8.0
