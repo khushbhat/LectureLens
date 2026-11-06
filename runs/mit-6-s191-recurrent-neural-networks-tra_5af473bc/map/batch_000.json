@@ -1,0 +1,840 @@
+[
+  {
+    "segment_id": 0,
+    "segment_ids": [
+      0
+    ],
+    "title": "MIT 6.5191 — Introduction to Deep Learning",
+    "summary": "The instructor introduces the second lecture on deep sequence modeling, contrasting it with feed-forward models covered previously. Sequence modeling requires a different way of thinking because data is resolved in time.",
+    "key_points": [
+      {
+        "text": "The lecture focuses on deep sequence modeling, a powerful paradigm relevant for language models.",
+        "evidence": "speech"
+      },
+      {
+        "text": "Sequence modeling requires a different way of thinking because data is resolved in time compared to feed-forward models.",
+        "evidence": "speech"
+      }
+    ],
+    "concepts": [],
+    "formulas_or_code": [],
+    "examples": []
+  },
+  {
+    "segment_id": 1,
+    "segment_ids": [
+      1
+    ],
+    "title": "can you predict where it will go next?",
+    "summary": "Using a simple example of a ball in a 2D space, the lecture demonstrates that predicting the next position without historical context is a random guess. Providing a sequence of past information makes predicting the trajectory much easier.",
+    "key_points": [
+      {
+        "text": "Without prior information about a ball's history, predicting its next position is a random guess.",
+        "evidence": "speech"
+      },
+      {
+        "text": "Providing a sequence of past information makes predicting the trajectory much easier.",
+        "evidence": "speech"
+      }
+    ],
+    "concepts": [],
+    "formulas_or_code": [],
+    "examples": [
+      "Predicting the next position or trajectory of a ball in a 2D space."
+    ]
+  },
+  {
+    "segment_id": 2,
+    "segment_ids": [
+      2
+    ],
+    "title": "Sequences in the Wild",
+    "summary": "Sequential data is ubiquitous, appearing in forms such as audio waveforms, which can be split into chunks of sound waves, and text, which can be broken down into individual characters or words.",
+    "key_points": [
+      {
+        "text": "Audio waveforms represent sequences that can be split into chunks of sound waves.",
+        "evidence": "speech"
+      },
+      {
+        "text": "Text can be broken up into a sequence of individual characters or individual words.",
+        "evidence": "speech"
+      }
+    ],
+    "concepts": [],
+    "formulas_or_code": [],
+    "examples": [
+      "Audio waveforms",
+      "Text broken into characters or words"
+    ]
+  },
+  {
+    "segment_id": 3,
+    "segment_ids": [
+      3
+    ],
+    "title": "Sequences in the Wild",
+    "summary": "Sequential data spans multiple domains including medical signals, financial time series like the stock market, biology, chemistry, life sciences, movement patterns, videos, and weather.",
+    "key_points": [
+      {
+        "text": "Sequential data appears in medical signals, financial time series, biological sequences, movement patterns, videos, and weather.",
+        "evidence": "both"
+      }
+    ],
+    "concepts": [],
+    "formulas_or_code": [],
+    "examples": [
+      "Medical signals",
+      "Financial time series (stock market)",
+      "Biological sequences",
+      "Videos",
+      "Weather"
+    ]
+  },
+  {
+    "segment_id": 4,
+    "segment_ids": [
+      4
+    ],
+    "title": "Sequences in the Wild",
+    "summary": "Real-world problems can be approached from a sequential modeling perspective, raising the question of what tasks neural networks can be trained to facilitate in this context.",
+    "key_points": [
+      {
+        "text": "Real-world problems can be framed using a sequential modeling perspective.",
+        "evidence": "speech"
+      }
+    ],
+    "concepts": [],
+    "formulas_or_code": [],
+    "examples": []
+  },
+  {
+    "segment_id": 5,
+    "segment_ids": [
+      5
+    ],
+    "title": "Sequence Modeling Applications",
+    "summary": "Sequence modeling tasks include binary classification (such as predicting whether a student passes a class), sentiment classification (mapping text/tweets to an emotion class label), and image captioning (mapping a single image input to a sequence of descriptive text output).",
+    "key_points": [
+      {
+        "text": "Binary classification maps inputs to a 0-1 prediction, such as predicting if a student passes a class.",
+        "evidence": "both"
+      },
+      {
+        "text": "Sentiment classification assigns an emotion or sentiment class label to a body of text like a tweet.",
+        "evidence": "both"
+      },
+      {
+        "text": "Image captioning takes an image as input and produces a sequence of text describing the image content.",
+        "evidence": "both"
+      }
+    ],
+    "concepts": [],
+    "formulas_or_code": [],
+    "examples": [
+      "Binary classification: predicting 'Will pass this class?' for a student",
+      "Sentiment classification: assigning emotion labels to tweets",
+      "Image captioning: generating text for an image of a baseball player throwing a ball"
+    ]
+  },
+  {
+    "segment_id": 6,
+    "segment_ids": [
+      6
+    ],
+    "title": "Sequence Modeling Applications",
+    "summary": "Sequence modeling also covers many-to-many tasks, such as machine translation, which maps a sequence of text or audio from one language to another.",
+    "key_points": [
+      {
+        "text": "Many-to-many tasks involve mapping multiple inputs to multiple outputs, such as machine translation.",
+        "evidence": "both"
+      }
+    ],
+    "concepts": [],
+    "formulas_or_code": [],
+    "examples": [
+      "Machine translation (translating text or audio from one language to another)"
+    ]
+  },
+  {
+    "segment_id": 7,
+    "segment_ids": [
+      7
+    ],
+    "title": "Neurons with Recurrence",
+    "summary": "The lecture introduces neurons with recurrence, enabling them to process time-resolved or sequential data one step at a time, connecting back to the foundational perceptron model.",
+    "key_points": [
+      {
+        "text": "Neurons with recurrence can process time-resolved or sequential data one step at a time.",
+        "evidence": "speech"
+      },
+      {
+        "text": "The lecture builds foundation intuition starting from the perceptron.",
+        "evidence": "both"
+      }
+    ],
+    "concepts": [],
+    "formulas_or_code": [],
+    "examples": []
+  },
+  {
+    "segment_id": 8,
+    "segment_ids": [
+      8
+    ],
+    "title": "The Perceptron Revisited",
+    "summary": "The perceptron takes a set of inputs (x1 through xm), multiplies each by a weight, and passes them through a non-linear activation function to produce an output Y-hat.",
+    "key_points": [
+      {
+        "text": "The perceptron takes inputs x1 through xm, multiplies them by weights, applies a non-linear activation function, and produces an output Y-hat.",
+        "evidence": "speech"
+      }
+    ],
+    "concepts": [
+      {
+        "term": "Perceptron",
+        "definition": "A foundational building block of neural networks that takes multiple inputs, multiplies them by weights, and applies a non-linear activation function to produce an output."
+      }
+    ],
+    "formulas_or_code": [],
+    "examples": []
+  },
+  {
+    "segment_id": 9,
+    "segment_ids": [
+      9
+    ],
+    "title": "Feed-Forward Networks Revisited",
+    "summary": "Feed-forward layers map multi-dimensional inputs to multi-dimensional outputs, but process data at only a single time step without a notion of sequence or time.",
+    "key_points": [
+      {
+        "text": "Feed-forward networks can map multi-dimensional input (xt in Rm) to multi-dimensional output (yt in Rn).",
+        "evidence": "both"
+      },
+      {
+        "text": "Standard feed-forward networks process information from just one time step without a notion of time or sequence.",
+        "evidence": "speech"
+      }
+    ],
+    "concepts": [],
+    "formulas_or_code": [],
+    "examples": []
+  },
+  {
+    "segment_id": 10,
+    "segment_ids": [
+      10
+    ],
+    "title": "Handling Individual Time Steps",
+    "summary": "Rotating the feed-forward model diagram allows viewing sequential data applied time step by time step.",
+    "key_points": [
+      {
+        "text": "Sequential data can be processed by applying a feed-forward model repeatedly over individual time steps.",
+        "evidence": "speech"
+      }
+    ],
+    "concepts": [],
+    "formulas_or_code": [],
+    "examples": []
+  },
+  {
+    "segment_id": 11,
+    "segment_ids": [
+      11
+    ],
+    "title": "Handling Individual Time Steps",
+    "summary": "Applying a neural network to isolated time steps treats each input independently, failing to capture relationships between current inputs and past time steps like t-1 or t-2.",
+    "key_points": [
+      {
+        "text": "Applying a neural network to isolated time steps (yt = f(xt)) treats time steps in isolation without connecting past history.",
+        "evidence": "both"
+      },
+      {
+        "text": "Sequential data requires relating inputs at time step t to past time steps to make better predictions.",
+        "evidence": "speech"
+      }
+    ],
+    "concepts": [],
+    "formulas_or_code": [
+      "yt = f(xt)"
+    ],
+    "examples": []
+  },
+  {
+    "segment_id": 12,
+    "segment_ids": [
+      12
+    ],
+    "title": "Neurons with Recurrence",
+    "summary": "To preserve and carry forward information, the network links computations across time by introducing an internal state variable (h) maintained by the network itself.",
+    "key_points": [
+      {
+        "text": "An internal state variable, denoted as h, is maintained by the neural network and passed from time step to time step as memory.",
+        "evidence": "speech"
+      }
+    ],
+    "concepts": [],
+    "formulas_or_code": [],
+    "examples": []
+  },
+  {
+    "segment_id": 13,
+    "segment_ids": [
+      13
+    ],
+    "title": "Neurons with Recurrence",
+    "summary": "Predictions at a given time step depend not only on the current input, but also on the past memory or state captured in variable h of t minus 1.",
+    "key_points": [
+      {
+        "text": "The prediction at a time step is a function of both the current input and the past state/memory (ht-1).",
+        "evidence": "both"
+      }
+    ],
+    "concepts": [],
+    "formulas_or_code": [
+      "f(xt, ht_1)"
+    ],
+    "examples": []
+  },
+  {
+    "segment_id": 14,
+    "segment_ids": [
+      14
+    ],
+    "title": "Neurons with Recurrence",
+    "summary": "Recurrence links past computations to predictions at a particular time step within a single network, described via a recurrence relation and visualized as a looping cycle or unrolled across time.",
+    "key_points": [
+      {
+        "text": "Recurrence connects information from past computations to predictions at a specific time step using a single network.",
+        "evidence": "speech"
+      },
+      {
+        "text": "Recurrent neural networks (RNNs) maintain an internal state ht updated per time step to inform predicted outputs.",
+        "evidence": "speech"
+      }
+    ],
+    "concepts": [
+      {
+        "term": "Recurrent Neural Networks (RNNs)",
+        "definition": "A large class of neural networks that maintain an internal state updated at each time step as a sequence is processed dynamically."
+      }
+    ],
+    "formulas_or_code": [],
+    "examples": []
+  },
+  {
+    "segment_id": 15,
+    "segment_ids": [
+      15
+    ],
+    "title": "Recurrent Neural Networks (RNNs)",
+    "summary": "RNNs formalize the internal cell state ht through a recurrence relation parameterized by a set of learnable weights, depending on the current input and old state, using the same function at every time step.",
+    "key_points": [
+      {
+        "text": "The cell state ht is a function defined by a set of weights w that depends on the input and the old state.",
+        "evidence": "both"
+      },
+      {
+        "text": "The same function and set of parameters are used at every time step.",
+        "evidence": "both"
+      }
+    ],
+    "concepts": [],
+    "formulas_or_code": [
+      "ht = f(w, xt, ht_1)"
+    ],
+    "examples": []
+  },
+  {
+    "segment_id": 16,
+    "segment_ids": [
+      16
+    ],
+    "title": "RNN Intuition",
+    "summary": "An RNN pseudocode example initializes hidden state to zero, iterates word by word through a sentence, and generates a prediction and hidden state update per word to predict the next word.",
+    "key_points": [
+      {
+        "text": "Next word prediction can be approached by iterating word by word through a sentence and updating the hidden state recursively.",
+        "evidence": "speech"
+      }
+    ],
+    "concepts": [],
+    "formulas_or_code": [],
+    "examples": [
+      "Next word prediction using sentence text sequences"
+    ]
+  },
+  {
+    "segment_id": 17,
+    "segment_ids": [
+      17
+    ],
+    "title": "RNN State Update and Output",
+    "summary": "Mathematically, the hidden state update applies a hyperbolic tangent non-linearity to the sum of weight matrix multiplications on the past hidden state and input vector. The output prediction transforms the hidden state using another weight matrix.",
+    "key_points": [
+      {
+        "text": "The hidden state update is computed as ht = tanh(Whh * ht-1 + Wxh * xt).",
+        "evidence": "both"
+      },
+      {
+        "text": "Weight matrices are learned and updated over the course of training via gradient descent.",
+        "evidence": "speech"
+      }
+    ],
+    "concepts": [],
+    "formulas_or_code": [
+      "ht = tanh(Whh * ht-1 + Wxh * xt)",
+      "yt = y_hat = Wh * ht"
+    ],
+    "examples": []
+  },
+  {
+    "segment_id": 18,
+    "segment_ids": [
+      18
+    ],
+    "title": "RNNs: Computational Graph Across Time",
+    "summary": "An RNN's recurrent loop can be unrolled step by step across time steps to visualize its computational graph.",
+    "key_points": [
+      {
+        "text": "An RNN can be represented as a computational graph unrolled across time.",
+        "evidence": "both"
+      }
+    ],
+    "concepts": [],
+    "formulas_or_code": [],
+    "examples": []
+  },
+  {
+    "segment_id": 19,
+    "segment_ids": [
+      19
+    ],
+    "title": "RNNs: Computational Graph Across Time",
+    "summary": "When unrolled across time from step zero to T, the same weight matrices (Wxh, Whh, Why) are reused at every time step.",
+    "key_points": [
+      {
+        "text": "The same weight matrices are reused at every time step when unrolling across time.",
+        "evidence": "both"
+      }
+    ],
+    "concepts": [],
+    "formulas_or_code": [],
+    "examples": []
+  },
+  {
+    "segment_id": 20,
+    "segment_ids": [
+      20
+    ],
+    "title": "RNNs: Computational Graph Across Time",
+    "summary": "During a forward pass, predictions are generated at each time step, allowing a loss to be computed at each step and summed together for an overall sequence predictive loss.",
+    "key_points": [
+      {
+        "text": "A forward pass generates predictions at each time step, allowing loss computation at each step to sum into an overall sequence loss.",
+        "evidence": "speech"
+      }
+    ],
+    "concepts": [],
+    "formulas_or_code": [],
+    "examples": []
+  },
+  {
+    "segment_id": 21,
+    "segment_ids": [
+      21
+    ],
+    "title": "RNNs from Scratch in TensorFlow",
+    "summary": "An RNN can be implemented from scratch by initializing weight matrices, setting up an RNN class, and defining a call function for the forward pass computation.",
+    "key_points": [
+      {
+        "text": "RNNs can be implemented from scratch by initializing weight matrices and defining the forward pass call function.",
+        "evidence": "speech"
+      }
+    ],
+    "concepts": [],
+    "formulas_or_code": [],
+    "examples": []
+  },
+  {
+    "segment_id": 22,
+    "segment_ids": [
+      22
+    ],
+    "title": "RNNs from Scratch in TensorFlow",
+    "summary": "The forward pass transitions from input to prediction, computing loss and updating parameters during training.",
+    "key_points": [
+      {
+        "text": "Forward passes take inputs to predictions to compute losses during training.",
+        "evidence": "speech"
+      }
+    ],
+    "concepts": [],
+    "formulas_or_code": [],
+    "examples": []
+  },
+  {
+    "segment_id": 23,
+    "segment_ids": [
+      23
+    ],
+    "title": "RNNs from Scratch in TensorFlow",
+    "summary": "The computation updates the hidden state, computes the output, and returns both values, though building RNN units from scratch is rarely done in practice.",
+    "key_points": [
+      {
+        "text": "The recurrent cell updates the hidden state, computes the output, and returns current and hidden states.",
+        "evidence": "speech"
+      }
+    ],
+    "concepts": [],
+    "formulas_or_code": [],
+    "examples": []
+  },
+  {
+    "segment_id": 24,
+    "segment_ids": [
+      24
+    ],
+    "title": "RNN Implementation: TensorFlow & PyTorch",
+    "summary": "Machine learning frameworks like TensorFlow (tf.keras.layers.SimpleRNN) and PyTorch (torch.nn.RNN) provide built-in implementations of RNN layers.",
+    "key_points": [
+      {
+        "text": "TensorFlow provides SimpleRNN via tf.keras.layers.",
+        "evidence": "both"
+      },
+      {
+        "text": "PyTorch provides RNN via torch.nn.",
+        "evidence": "both"
+      }
+    ],
+    "concepts": [],
+    "formulas_or_code": [
+      "from tf.keras.layers import SimpleRNN",
+      "model = SimpleRNN(rnn_units)",
+      "from torch.nn import RNN",
+      "model = RNN(input_size, rnn_units)"
+    ],
+    "examples": []
+  },
+  {
+    "segment_id": 25,
+    "segment_ids": [
+      25
+    ],
+    "title": "RNNs for Sequence Modeling",
+    "summary": "Sequence modeling tasks encompass classification, captioning, text generation, and sequence-to-sequence translation, many of which are formulated as many-to-many problems.",
+    "key_points": [
+      {
+        "text": "Generative applications like language modeling and machine translation are often formulated as many-to-many problems.",
+        "evidence": "speech"
+      }
+    ],
+    "concepts": [],
+    "formulas_or_code": [],
+    "examples": [
+      "Sentiment classification",
+      "Binary classification",
+      "Text generation",
+      "Image captioning",
+      "Translation",
+      "Music generation",
+      "Forecasting"
+    ]
+  },
+  {
+    "segment_id": 26,
+    "segment_ids": [
+      26
+    ],
+    "title": "Sequence Modeling Problem: Predict the Next Word",
+    "summary": "Next word prediction serves as the foundational problem for large and small language models, guiding the core design criteria for neural network sequence architectures.",
+    "key_points": [
+      {
+        "text": "Next word prediction is the basis for essentially all language models today.",
+        "evidence": "speech"
+      }
+    ],
+    "concepts": [],
+    "formulas_or_code": [],
+    "examples": [
+      "\"This morning took my cat for a walk\""
+    ]
+  },
+  {
+    "segment_id": 27,
+    "segment_ids": [
+      27
+    ],
+    "title": "Sequence Modeling Problem: Predict the Next Word",
+    "summary": "Neural networks cannot interpret raw words and require numerical inputs, necessitating tokenization or mapping to numerical representations before model processing.",
+    "key_points": [
+      {
+        "text": "Neural networks cannot interpret words and require numerical inputs.",
+        "evidence": "both"
+      },
+      {
+        "text": "Tokenization processes language data into numerical input representations.",
+        "evidence": "speech"
+      }
+    ],
+    "concepts": [
+      {
+        "term": "Tokenization",
+        "definition": "The process of converting language data (words or characters) into numerical representations or indices for neural network processing."
+      }
+    ],
+    "formulas_or_code": [],
+    "examples": [
+      "Input word \"deep\" predicting next word \"learning\""
+    ]
+  },
+  {
+    "segment_id": 28,
+    "segment_ids": [
+      28
+    ],
+    "title": "Encoding Language for a Neural Network",
+    "summary": "Words are mapped to indices via a vocabulary corpus and transformed using embeddings. While one-hot embeddings lack semantic richness, learned embedding schemes map frequently co-occurring chunks of language to capture semantic relationships.",
+    "key_points": [
+      {
+        "text": "Vocabulary mapping transforms a corpus of words from word-to-index to index-to-fixed-sized vector.",
+        "evidence": "both"
+      },
+      {
+        "text": "One-hot embeddings are naive and do not capture semantic structure, whereas learned embeddings capture semantic relationships.",
+        "evidence": "speech"
+      },
+      {
+        "text": "Neural networks always operate on numerical inputs regardless of data modality.",
+        "evidence": "speech"
+      }
+    ],
+    "concepts": [
+      {
+        "term": "Embedding",
+        "definition": "A transformation of word indices into fixed-size vectors that can capture semantic relationships and structure."
+      },
+      {
+        "term": "One-hot embedding",
+        "definition": "A naive vector representation where a single bit is flipped to 1 based on word index and 0 elsewhere."
+      }
+    ],
+    "formulas_or_code": [
+      "\"cat\" = [0, 1, 0, 0, 0, 0]"
+    ],
+    "examples": [
+      "Mapping words like walk, morning, cat into one-hot or learned embedding vectors"
+    ]
+  },
+  {
+    "segment_id": 29,
+    "segment_ids": [
+      29
+    ],
+    "title": "Handle Variable Sequence Lengths",
+    "summary": "Sequence modeling requires handling variable sequence lengths (short, medium, or long sentences). Feed-forward networks break down due to fixed input sizes, whereas state-based models like RNNs are inherently designed for variable-length inputs.",
+    "key_points": [
+      {
+        "text": "Sequence models must handle variable lengths of sequences, which breaks feed-forward networks due to fixed inputs.",
+        "evidence": "speech"
+      },
+      {
+        "text": "State-based RNN models are inherently designed to process variable length inputs step by step.",
+        "evidence": "speech"
+      }
+    ],
+    "concepts": [],
+    "formulas_or_code": [],
+    "examples": [
+      "Short sentence: \"The food was great\"",
+      "Medium sentence: \"We visited a restaurant for lunch\"",
+      "Long sentence: \"We were hungry but cleaned the house before eating\""
+    ]
+  },
+  {
+    "segment_id": 30,
+    "segment_ids": [
+      30
+    ],
+    "title": "Model Long-Term Dependencies",
+    "summary": "Sequence models need to capture long-term dependencies, requiring information from the distant past in a sentence to accurately predict downstream words.",
+    "key_points": [
+      {
+        "text": "Neural networks need information from the distant past to accurately predict correct words further downstream in a sequence.",
+        "evidence": "both"
+      }
+    ],
+    "concepts": [],
+    "formulas_or_code": [],
+    "examples": [
+      "\"France is where I grew up; but now I live in Boston; I speak fluent [French].\""
+    ]
+  },
+  {
+    "segment_id": 31,
+    "segment_ids": [
+      31
+    ],
+    "title": "Capture Differences in Sequence Order",
+    "summary": "Sequence order matters; flipping the order of words in a sentence can completely alter its meaning while using the exact same words.",
+    "key_points": [
+      {
+        "text": "Differences in sequence order can completely alter what is represented in a sample.",
+        "evidence": "speech"
+      }
+    ],
+    "concepts": [],
+    "formulas_or_code": [],
+    "examples": [
+      "\"The food was good, not bad at all\" versus \"The food was bad, not good at all\""
+    ]
+  },
+  {
+    "segment_id": 32,
+    "segment_ids": [
+      32
+    ],
+    "title": "Sequence Modeling: Design Criteria",
+    "summary": "RNNs meet sequence modeling design criteria by handling variable-length sequences, tracking long-term dependencies via internal states, maintaining order via step-by-step processing, and sharing parameters across the sequence.",
+    "key_points": [
+      {
+        "text": "Sequence modeling requires handling variable-length sequences, tracking long-term dependencies, maintaining information about order, and sharing parameters across the sequence.",
+        "evidence": "both"
+      },
+      {
+        "text": "Recurrent Neural Networks (RNNs) meet these sequence modeling design criteria.",
+        "evidence": "both"
+      }
+    ],
+    "concepts": [],
+    "formulas_or_code": [],
+    "examples": []
+  },
+  {
+    "segment_id": 33,
+    "segment_ids": [
+      33
+    ],
+    "title": "Backpropagation Through Time (BPTT)",
+    "summary": "RNN training relies on backpropagation, starting with a forward pass from input to output to generate predictions, followed by backpropagating gradients to update model parameters.",
+    "key_points": [
+      {
+        "text": "Training feed-forward and recurrent models involves an initial forward pass followed by backpropagating gradients.",
+        "evidence": "speech"
+      }
+    ],
+    "concepts": [],
+    "formulas_or_code": [],
+    "examples": []
+  },
+  {
+    "segment_id": 34,
+    "segment_ids": [
+      34
+    ],
+    "title": "Recall: Backpropagation in Feed Forward Models",
+    "summary": "The backpropagation algorithm takes the derivative (gradient) of the loss with respect to each parameter and shifts parameters to minimize the loss.",
+    "key_points": [
+      {
+        "text": "The backpropagation algorithm takes the derivative (gradient) of the loss with respect to each parameter.",
+        "evidence": "both"
+      },
+      {
+        "text": "Parameters are shifted in order to minimize loss.",
+        "evidence": "both"
+      }
+    ],
+    "concepts": [],
+    "formulas_or_code": [],
+    "examples": []
+  },
+  {
+    "segment_id": 35,
+    "segment_ids": [
+      35
+    ],
+    "title": "RNNs: Backpropagation Through Time",
+    "summary": "Backpropagation through time (BPTT) extends backpropagation across individual time steps from the current step back to the beginning of the sequence, involving repeated multiplications with weight matrix Wh.",
+    "key_points": [
+      {
+        "text": "In RNNs, error is backpropagated across individual time steps from the current position back to the beginning of the sequence.",
+        "evidence": "speech"
+      },
+      {
+        "text": "Gradients flow across time via repeated matrix multiplications with weight matrix W.",
+        "evidence": "speech"
+      }
+    ],
+    "concepts": [
+      {
+        "term": "Backpropagation Through Time (BPTT)",
+        "definition": "The algorithm for training RNNs where error is backpropagated across individual time steps from the current point back to the beginning of the sequence."
+      }
+    ],
+    "formulas_or_code": [],
+    "examples": []
+  },
+  {
+    "segment_id": 36,
+    "segment_ids": [
+      36
+    ],
+    "title": "Standard RNN Gradient Flow: Exploding Gradients",
+    "summary": "Computing the gradient with respect to the initial state involves many repeated factors of Whh, which can cause values to blow up quickly (exploding gradients). Gradient clipping is used to scale back big gradients.",
+    "key_points": [
+      {
+        "text": "Computing the gradient with respect to h0 involves many factors of Whh repeated gradient computations.",
+        "evidence": "both"
+      },
+      {
+        "text": "Large weight matrix values can cause exploding gradients.",
+        "evidence": "both"
+      },
+      {
+        "text": "Gradient clipping scales big gradients to mitigate exploding gradients.",
+        "evidence": "both"
+      }
+    ],
+    "concepts": [
+      {
+        "term": "Exploding gradients",
+        "definition": "A training issue where repeated multiplications of large weight matrices during backpropagation cause gradient values to blow up rapidly."
+      },
+      {
+        "term": "Gradient clipping",
+        "definition": "A technique to scale back big gradient values to a maximum threshold."
+      }
+    ],
+    "formulas_or_code": [],
+    "examples": []
+  },
+  {
+    "segment_id": 37,
+    "segment_ids": [
+      37
+    ],
+    "title": "Standard RNN Gradient Flow: Vanishing Gradients",
+    "summary": "Conversely, small weight matrices result in repeated multiplications of small values that shrink the gradient signal (vanishing gradient problem). Mitigation strategies include activation functions, gradient clipping, and proper weight initialization.",
+    "key_points": [
+      {
+        "text": "Repeated multiplications of very small weights cause the vanishing gradient problem.",
+        "evidence": "both"
+      },
+      {
+        "text": "Solutions for gradient flow issues include activation functions, gradient clipping, weight initialization, and network architecture.",
+        "evidence": "slide"
+      },
+      {
+        "text": "Internal state variable h0 is dependent on the weight matrix parameter and input.",
+        "evidence": "speech"
+      }
+    ],
+    "concepts": [
+      {
+        "term": "Vanishing gradients",
+        "definition": "A training issue where repeated multiplications of small weight matrices cause gradients to shrink, leaving very little signal to learn from."
+      }
+    ],
+    "formulas_or_code": [],
+    "examples": []
+  }
+]

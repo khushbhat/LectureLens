@@ -1,0 +1,173 @@
+{
+  "study_notes_markdown": "## Welcome back. Today we study gradient\n\n- Welcome back.\n- Today we study gradient descent, the workforce optimization algorithm behind most of machine learning.\n- We will see what it does, why it works, and how to choose its settings.\n\n## The size of the step is\n\n- The size of the step is controlled by the learning rate.\n- Choosing the learning rate matters a lot.\n- If it is too large, the iterates oscillate or even diverge.",
+  "revision_questions": {
+    "mcq": [
+      {
+        "question": "Which statement was made in the lecture? (1)",
+        "options": [
+          "Welcome back.",
+          "None of these",
+          "All of these",
+          "Not discussed"
+        ],
+        "answer": "A",
+        "explanation": "Stated in the lecture."
+      },
+      {
+        "question": "Which statement was made in the lecture? (2)",
+        "options": [
+          "Today we study gradient descent, the workforce optimization algorithm behind most of machine learning.",
+          "None of these",
+          "All of these",
+          "Not discussed"
+        ],
+        "answer": "A",
+        "explanation": "Stated in the lecture."
+      },
+      {
+        "question": "Which statement was made in the lecture? (3)",
+        "options": [
+          "We will see what it does, why it works, and how to choose its settings.",
+          "None of these",
+          "All of these",
+          "Not discussed"
+        ],
+        "answer": "A",
+        "explanation": "Stated in the lecture."
+      },
+      {
+        "question": "Which statement was made in the lecture? (4)",
+        "options": [
+          "The size of the step is controlled by the learning rate.",
+          "None of these",
+          "All of these",
+          "Not discussed"
+        ],
+        "answer": "A",
+        "explanation": "Stated in the lecture."
+      },
+      {
+        "question": "Which statement was made in the lecture? (5)",
+        "options": [
+          "Choosing the learning rate matters a lot.",
+          "None of these",
+          "All of these",
+          "Not discussed"
+        ],
+        "answer": "A",
+        "explanation": "Stated in the lecture."
+      }
+    ],
+    "short_answer": [
+      {
+        "question": "Explain: Welcome back.",
+        "answer": "Welcome back."
+      },
+      {
+        "question": "Explain: Today we study gradient descent, the workforce optimization algorithm behind mos",
+        "answer": "Today we study gradient descent, the workforce optimization algorithm behind most of machine learning."
+      },
+      {
+        "question": "Explain: We will see what it does, why it works, and how to choose its settings.",
+        "answer": "We will see what it does, why it works, and how to choose its settings."
+      },
+      {
+        "question": "Explain: The size of the step is controlled by the learning rate.",
+        "answer": "The size of the step is controlled by the learning rate."
+      },
+      {
+        "question": "Explain: Choosing the learning rate matters a lot.",
+        "answer": "Choosing the learning rate matters a lot."
+      }
+    ]
+  },
+  "title": "Welcome back. Today we study gradient",
+  "concise_summary": "Welcome back. Today we study gradient descent, the workforce optimization algorithm behind most of machine learning. The size of the step is controlled by the learning rate. Choosing the learning rate matters a lot.",
+  "detailed_summary": "Welcome back. Today we study gradient descent, the workforce optimization algorithm behind most of machine learning. The size of the step is controlled by the learning rate. Choosing the learning rate matters a lot.",
+  "key_points": [
+    {
+      "text": "Welcome back.",
+      "segment_ids": [
+        0
+      ],
+      "evidence": "speech",
+      "start": 0.0,
+      "end": 42.5,
+      "status": null,
+      "support_score": null,
+      "evidence_text": null,
+      "evidence_source": null,
+      "evidence_time": null
+    },
+    {
+      "text": "Today we study gradient descent, the workforce optimization algorithm behind most of machine learning.",
+      "segment_ids": [
+        0
+      ],
+      "evidence": "speech",
+      "start": 0.0,
+      "end": 42.5,
+      "status": null,
+      "support_score": null,
+      "evidence_text": null,
+      "evidence_source": null,
+      "evidence_time": null
+    },
+    {
+      "text": "The size of the step is controlled by the learning rate.",
+      "segment_ids": [
+        1
+      ],
+      "evidence": "speech",
+      "start": 42.5,
+      "end": 96.29,
+      "status": null,
+      "support_score": null,
+      "evidence_text": null,
+      "evidence_source": null,
+      "evidence_time": null
+    },
+    {
+      "text": "Choosing the learning rate matters a lot.",
+      "segment_ids": [
+        1
+      ],
+      "evidence": "speech",
+      "start": 42.5,
+      "end": 96.29,
+      "status": null,
+      "support_score": null,
+      "evidence_text": null,
+      "evidence_source": null,
+      "evidence_time": null
+    }
+  ],
+  "glossary": [
+    {
+      "term": "Welcome back. Today we study gradient",
+      "definition": "Welcome back."
+    },
+    {
+      "term": "The size of the step is",
+      "definition": "The size of the step is controlled by the learning rate."
+    }
+  ],
+  "chapters": [
+    {
+      "title": "Welcome back. Today we study gradient",
+      "segment_ids": [
+        0
+      ],
+      "start": 0.0,
+      "end": 42.5
+    },
+    {
+      "title": "The size of the step is",
+      "segment_ids": [
+        1
+      ],
+      "start": 42.5,
+      "end": 96.29
+    }
+  ]
+}

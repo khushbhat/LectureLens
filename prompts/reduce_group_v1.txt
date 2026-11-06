@@ -1,0 +1,14 @@
+TASK: reduce_group
+PROMPT_VERSION: reduce_group_v1
+
+Below is a JSON list of summaries of consecutive parts of ONE lecture ({{time_range}}). Condense them into 1–{{max_items}} topic sections (merge parts that cover the same topic, keep chronological order).
+
+For each section return: segment_ids (ALL segment ids it covers, taken from the inputs' "segment_ids" / "segment_id"), segment_id (the first of them), title, summary (3–6 sentences), key_points (the most important 4–8, keep each point's "evidence" value), concepts (deduplicated), formulas_or_code (keep exact), examples.
+
+Rules: use only the input; never drop a formula, definition or slide-only ("evidence": "slide") point that matters; do not invent anything.
+
+Return JSON: {"segments": [{"segment_id": 0, "segment_ids": [0, 1], "title": "", "summary": "", "key_points": [{"text": "", "evidence": "both"}], "concepts": [{"term": "", "definition": ""}], "formulas_or_code": [], "examples": []}]}
+
+=== INPUT ===
+{{items}}
+=== END INPUT ===

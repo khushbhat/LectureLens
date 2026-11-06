@@ -1,0 +1,22 @@
+[0:00] Welcome back.
+[0:01] Today we study gradient descent, the workforce optimization algorithm behind most of machine
+[0:07] learning.
+[0:08] We will see what it does, why it works, and how to choose its settings.
+[0:16] Training a model means minimizing a loss function over its parameters.
+[0:20] A common choice is the mean squared error between predictions and targets.
+[0:25] If the loss is convex, every local minimum is also a global minimum.
+[0:32] The idea is simple.
+[0:34] Compute the gradient of the loss, which points in the direction of steepest increase,
+[0:39] and take a small step in the opposite direction.
+[0:42] The size of the step is controlled by the learning rate.
+[0:48] Choosing the learning rate matters a lot.
+[0:50] If it is too large, the iterates oscillate or even diverge.
+[0:54] If it is too small, training converges very slowly.
+[0:59] In practice we often decrease it over time.
+[1:04] the full gradient on a large data set is expensive.
+[1:08] Stochastic gradient descent estimates it from a small mini batch of examples.
+[1:13] The estimate is noisy, but each step is much cheaper, so overall training is faster.
+[1:21] To summarize, gradient descent repeatedly steps along the negative gradient, the learning
+[1:26] rate controls the step size, and stochastic gradient descent makes each step cheap by
+[1:31] using mini batches.
+[1:34] time we will look at regularization.

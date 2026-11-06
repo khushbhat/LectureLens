@@ -1,0 +1,3131 @@
+1
+00:00:11,220 --> 00:00:14,980
+All right, I think we can circle back and get started here.
+
+2
+00:00:14,980 --> 00:00:19,540
+So I'm Ava and welcome to lecture two of Success 191.
+
+3
+00:00:19,540 --> 00:00:23,580
+And we're going to focus today in this talk on sequence modeling,
+
+4
+00:00:23,580 --> 00:00:26,500
+which is a very, very powerful and general paradigm
+
+5
+00:00:26,500 --> 00:00:29,060
+that has become super relevant today,
+
+6
+00:00:29,060 --> 00:00:33,620
+especially with the onset of these very powerful language models.
+
+7
+00:00:33,620 --> 00:00:37,540
+And so just about an hour ago, Alexander introduced us
+
+8
+00:00:37,540 --> 00:00:40,700
+to this idea of neural networks and built the intuition
+
+9
+00:00:40,700 --> 00:00:43,220
+about neural networks from the bottom up.
+
+10
+00:00:43,220 --> 00:00:46,060
+And we focus specifically on these class of models
+
+11
+00:00:46,060 --> 00:00:48,100
+known as feed-forward models.
+
+12
+00:00:48,100 --> 00:00:51,300
+And so when we turn our attention to applying neural networks
+
+13
+00:00:51,300 --> 00:00:54,740
+to sequential processing and sequential modeling of data,
+
+14
+00:00:54,740 --> 00:00:58,180
+we'll see how this modeling paradigm requires
+
+15
+00:00:58,180 --> 00:00:59,740
+a different way of thinking, right?
+
+16
+00:00:59,740 --> 00:01:03,660
+Because we now have data that's resolved in time.
+
+17
+00:01:03,660 --> 00:01:07,260
+And we'll go through similarly to build up the intuition
+
+18
+00:01:07,260 --> 00:01:09,300
+and the modeling framework step-by-step
+
+19
+00:01:09,300 --> 00:01:10,380
+from the ground up.
+
+20
+00:01:11,380 --> 00:01:13,820
+So with that, we're going to start again
+
+21
+00:01:13,820 --> 00:01:15,740
+with a very intuitive example,
+
+22
+00:01:15,740 --> 00:01:18,060
+which as you'll see throughout the course,
+
+23
+00:01:18,060 --> 00:01:19,780
+is kind of one of our things
+
+24
+00:01:19,780 --> 00:01:21,940
+that we really hold very near and dear
+
+25
+00:01:21,940 --> 00:01:25,660
+in terms of building up intuition about these concepts.
+
+26
+00:01:25,660 --> 00:01:28,940
+So to do that, let's start with this very simple example
+
+27
+00:01:28,940 --> 00:01:32,060
+where I've given you an image of a ball
+
+28
+00:01:32,060 --> 00:01:34,300
+in a 2D space here.
+
+29
+00:01:34,300 --> 00:01:35,740
+And I'm going to ask you, okay,
+
+30
+00:01:35,740 --> 00:01:40,860
+can you predict where it will go next?
+
+31
+00:01:40,860 --> 00:01:44,100
+Without any prior information about the ball's history,
+
+32
+00:01:44,100 --> 00:01:46,900
+anything that you say is going to be a guess
+
+33
+00:01:46,900 --> 00:01:50,860
+on its next position, a guess, a random proposal
+
+34
+00:01:50,860 --> 00:01:53,580
+about where the ball is going to travel to.
+
+35
+00:01:53,580 --> 00:01:56,940
+However, in addition to the current location of the ball,
+
+36
+00:01:56,940 --> 00:02:01,460
+I were to give you a sequence of information back in time
+
+37
+00:02:01,460 --> 00:02:05,140
+and ask you to use this in context to now predict
+
+38
+00:02:05,140 --> 00:02:07,820
+where the ball is going to travel to next,
+
+39
+00:02:07,820 --> 00:02:10,100
+the problem now becomes much easier.
+
+40
+00:02:10,100 --> 00:02:12,100
+And I think we can all agree on what's
+
+41
+00:02:12,100 --> 00:02:15,620
+the most likely next path or trajectory of the ball
+
+42
+00:02:15,620 --> 00:02:16,980
+in this problem.
+
+43
+00:02:16,980 --> 00:02:19,980
+So this is really the core idea behind many sequence
+
+44
+00:02:19,980 --> 00:02:23,300
+modeling problems, where we have this data that's
+
+45
+00:02:23,300 --> 00:02:26,180
+resolved in time, or can be modeled
+
+46
+00:02:26,180 --> 00:02:27,820
+as a sequence of information.
+
+47
+00:02:27,820 --> 00:02:32,340
+And we want to make a prediction about the state of the system.
+
+48
+00:02:32,340 --> 00:02:35,100
+And so beyond that simple example, sequential data
+
+49
+00:02:35,100 --> 00:02:38,580
+as Alexander mentioned is truly all around us, right?
+
+50
+00:02:38,580 --> 00:02:42,180
+As I'm speaking and I'm projecting these audio waveforms,
+
+51
+00:02:42,180 --> 00:02:44,500
+that is a sequence that can be split up
+
+52
+00:02:44,500 --> 00:02:47,820
+into a series of chunks of sound waves.
+
+53
+00:02:47,820 --> 00:02:50,740
+Similarly with text, we can think about
+
+54
+00:02:50,740 --> 00:02:53,340
+breaking that text up into a sequence
+
+55
+00:02:53,340 --> 00:02:58,140
+of individual characters or individual words.
+
+56
+00:02:58,140 --> 00:03:01,020
+And beyond these examples, sequential data
+
+57
+00:03:01,020 --> 00:03:02,980
+is really, really all around us,
+
+58
+00:03:02,980 --> 00:03:06,620
+from medical signals to financial time series,
+
+59
+00:03:06,620 --> 00:03:11,140
+like modeling the stark market, to biology and chemistry
+
+60
+00:03:11,140 --> 00:03:14,580
+and the life sciences and thinking about biological sequences
+
+61
+00:03:14,580 --> 00:03:17,340
+and modalities, to patterns of movement,
+
+62
+00:03:17,340 --> 00:03:20,660
+to videos, to weather, all around us
+
+63
+00:03:20,660 --> 00:03:22,660
+there are these problems that can be thought of
+
+64
+00:03:22,660 --> 00:03:24,940
+from a sequential modeling perspective.
+
+65
+00:03:25,940 --> 00:03:28,500
+And so that gives us a concrete notion
+
+66
+00:03:28,500 --> 00:03:31,740
+of how we can bring this idea of sequence modeling
+
+67
+00:03:31,740 --> 00:03:33,320
+to the real world.
+
+68
+00:03:33,320 --> 00:03:36,980
+But what are some tasks that we now could think about
+
+69
+00:03:36,980 --> 00:03:41,740
+training neural networks to facilitate in this context?
+
+70
+00:03:41,740 --> 00:03:45,060
+In lecture one, we talked about this simple example
+
+71
+00:03:45,060 --> 00:03:47,780
+of classification, binary classification.
+
+72
+00:03:47,780 --> 00:03:51,180
+Yes or no, will I pass this class,
+
+73
+00:03:51,180 --> 00:03:54,940
+given a student as input, produce a zero-one prediction
+
+74
+00:03:54,940 --> 00:03:57,180
+about pass versus fail?
+
+75
+00:03:57,180 --> 00:04:00,940
+We can also do similar classification type problems
+
+76
+00:04:00,940 --> 00:04:03,660
+or tasks with sequences, right?
+
+77
+00:04:03,660 --> 00:04:07,700
+We can think about taking a body of text, let's say a tweet,
+
+78
+00:04:07,700 --> 00:04:10,700
+and assigning a emotion or a sentiment
+
+79
+00:04:10,700 --> 00:04:14,580
+as a class label to that text.
+
+80
+00:04:14,580 --> 00:04:16,660
+On the other hand, we could go rather
+
+81
+00:04:16,660 --> 00:04:19,100
+from sequence to one output.
+
+82
+00:04:19,100 --> 00:04:23,020
+We could have one input and produce a sequence of output.
+
+83
+00:04:23,020 --> 00:04:25,780
+So say in the image captioning world
+
+84
+00:04:25,780 --> 00:04:29,220
+or the vision language world, where given an image,
+
+85
+00:04:29,220 --> 00:04:35,660
+we want to train a neural network to produce text describing the content of that image that
+
+86
+00:04:35,660 --> 00:04:39,820
+also falls into this paradigm of sequence modeling.
+
+87
+00:04:39,820 --> 00:04:44,780
+And also we can think about many inputs going to many outputs.
+
+88
+00:04:44,780 --> 00:04:50,780
+So if you want to translate text or audio from one language to another, we have to do this
+
+89
+00:04:50,780 --> 00:04:58,780
+transformation of learning a function to map English text to, let's say, text in Mandarin.
+
+90
+00:04:58,780 --> 00:05:07,020
+So these are some three examples of core types of modeling tasks we can bring to the sequence
+
+91
+00:05:07,020 --> 00:05:08,700
+modeling world.
+
+92
+00:05:08,700 --> 00:05:15,180
+So today we're going to think about these types of problems and we're going to build up intuition
+
+93
+00:05:15,180 --> 00:05:20,700
+about how we can actually define different types of neural network architectures to tackle
+
+94
+00:05:20,700 --> 00:05:27,420
+the unique features of these types of sequence modeling problems.
+
+95
+00:05:27,420 --> 00:05:34,300
+So the first core part of this lecture is going to be around this idea of building neurons
+
+96
+00:05:34,300 --> 00:05:40,860
+that have a notion of recurrence that allows them to process time resolved or sequential
+
+97
+00:05:40,860 --> 00:05:43,600
+data one step at a time.
+
+98
+00:05:43,600 --> 00:05:48,820
+And I think this topic is something that when I was first learning machine learning and
+
+99
+00:05:48,820 --> 00:05:53,500
+deep learning was something I myself had a struggle to wrap my head around.
+
+100
+00:05:53,500 --> 00:06:00,300
+And so what we've tried to do with this next block of content is really build a fundamental
+
+101
+00:06:00,300 --> 00:06:07,020
+intuition about how this concept works, building from the ground up and connecting back to
+
+102
+00:06:07,020 --> 00:06:13,740
+what Alexander introduced with feed-forward models to actually build up that intuition effectively.
+
+103
+00:06:13,740 --> 00:06:17,820
+So to do that, let's first go back to the perceptron, right?
+
+104
+00:06:17,820 --> 00:06:25,130
+building block of neural networks and go step by step to the sequence modeling world.
+
+105
+00:06:25,130 --> 00:06:29,210
+When we looked at the perceptron, we had this kind of diagram, right?
+
+106
+00:06:29,210 --> 00:06:36,090
+This function where we have a set of inputs, let's call them x1 through xm, and we have
+
+107
+00:06:36,090 --> 00:06:43,650
+an individual perceptron unit that takes these inputs, multiplies each of them by a weight,
+
+108
+00:06:43,650 --> 00:06:51,850
+non-linearity, non-linear activation function to produce an output Y-Hab.
+
+109
+00:06:51,850 --> 00:06:58,250
+And so we saw that we can have multiple inputs going in to this perceptron, and you can
+
+110
+00:06:58,250 --> 00:07:02,050
+think of these as inputs at a particular time.
+
+111
+00:07:02,050 --> 00:07:08,730
+We also saw how we can stack these individual perceptrons together to build out a layer
+
+112
+00:07:08,730 --> 00:07:10,730
+of a neural network.
+
+113
+00:07:10,730 --> 00:07:15,810
+So what you're seeing here is that extension, right, where in green we have this layer of
+
+114
+00:07:15,810 --> 00:07:24,250
+individual perceptrons where we can map multi-dimensional input to a multi-dimensional output.
+
+115
+00:07:24,250 --> 00:07:31,010
+But so far even though we have a multi-dimensional input, does this have a notion of time steps
+
+116
+00:07:31,010 --> 00:07:32,490
+or of sequence?
+
+117
+00:07:32,490 --> 00:07:34,530
+No, not yet.
+
+118
+00:07:34,530 --> 00:07:40,690
+And so to get there, let's take this diagram and collapse it down and simplify it a bit.
+
+119
+00:07:40,690 --> 00:07:46,690
+So all I'm showing you here is that inner layer of the stack of perceptrons collapsed
+
+120
+00:07:46,690 --> 00:07:51,370
+into this layer-wise block, right, shown here in green.
+
+121
+00:07:51,370 --> 00:07:59,210
+And our inputs are going to be x of t, x at some time step t, and they're going to be
+
+122
+00:07:59,210 --> 00:08:04,490
+fed into this layer and producing an output y hat.
+
+123
+00:08:04,490 --> 00:08:08,890
+But we're still just considering the input at a particular time step.
+
+124
+00:08:08,890 --> 00:08:12,570
+and we're denoting that by the marker, little t.
+
+125
+00:08:12,570 --> 00:08:15,230
+This is nothing different than what we saw
+
+126
+00:08:15,230 --> 00:08:16,570
+in the first lecture, right?
+
+127
+00:08:16,570 --> 00:08:20,130
+We're just beginning to get this notion
+
+128
+00:08:20,130 --> 00:08:22,210
+that this is processing information
+
+129
+00:08:22,210 --> 00:08:23,570
+from just one time step.
+
+130
+00:08:24,770 --> 00:08:27,510
+Now, let's flip this on its side.
+
+131
+00:08:27,510 --> 00:08:30,570
+So we've just rotated this 90 degrees,
+
+132
+00:08:30,570 --> 00:08:32,690
+in perfector going into the layer,
+
+133
+00:08:32,690 --> 00:08:34,290
+getting our output vector.
+
+134
+00:08:35,250 --> 00:08:38,850
+What if we had this sequential data over time?
+
+135
+00:08:38,850 --> 00:08:41,890
+And let's say we took our same feet forward model
+
+136
+00:08:41,890 --> 00:08:45,330
+and tried to apply it time step by time step
+
+137
+00:08:45,330 --> 00:08:47,450
+over and over again.
+
+138
+00:08:47,450 --> 00:08:50,210
+If we did that, we would see something like this
+
+139
+00:08:50,210 --> 00:08:55,050
+where at time step zero, we take our input,
+
+140
+00:08:55,050 --> 00:08:57,690
+pass it through our no network layer,
+
+141
+00:08:57,690 --> 00:09:00,210
+produce an output y hat.
+
+142
+00:09:00,210 --> 00:09:03,130
+We did this at time step one, do the same thing,
+
+143
+00:09:03,130 --> 00:09:05,890
+pass in the input, produce an output,
+
+144
+00:09:05,890 --> 00:09:09,210
+at time step two, so on.
+
+145
+00:09:09,210 --> 00:09:12,850
+And even if we did this time step to time step,
+
+146
+00:09:12,850 --> 00:09:15,650
+we'd be applying our neural network function
+
+147
+00:09:15,650 --> 00:09:18,650
+to the inputs and predicting outputs.
+
+148
+00:09:18,650 --> 00:09:20,690
+But still, they're not connected at all, right?
+
+149
+00:09:20,690 --> 00:09:23,090
+These time steps are isolated.
+
+150
+00:09:23,090 --> 00:09:26,390
+We're just treating x of 0 at time step 0,
+
+151
+00:09:26,390 --> 00:09:30,610
+x of 1, at time step 1, so on and so forth.
+
+152
+00:09:30,610 --> 00:09:34,130
+But really the core thing with sequential data
+
+153
+00:09:34,130 --> 00:09:40,970
+is that there is some relation between the inputs at time step t to the inputs at time
+
+154
+00:09:40,970 --> 00:09:45,370
+step t minus 1, t minus 2, and so on and so forth.
+
+155
+00:09:45,370 --> 00:09:47,530
+Just like the example with the ball.
+
+156
+00:09:47,530 --> 00:09:52,690
+If we treat the time steps in isolation, we have no information about the past trajectory
+
+157
+00:09:52,690 --> 00:09:53,890
+of the ball.
+
+158
+00:09:53,890 --> 00:09:59,250
+But if we connect the time steps together, then we can use that past history to make a better
+
+159
+00:09:59,250 --> 00:10:00,010
+prediction
+
+160
+00:10:00,010 --> 00:10:04,160
+about the current state or the future state.
+
+161
+00:10:04,160 --> 00:10:10,280
+And so this to concretize this a little more, what that is saying is that the predicted
+
+162
+00:10:10,280 --> 00:10:18,360
+output at a later time step, say T equals 2, should depend somehow on the inputs at the
+
+163
+00:10:18,360 --> 00:10:23,880
+prior time steps, say x of 1, x of 0.
+
+164
+00:10:23,880 --> 00:10:33,560
+And so we want a way to preserve this information and carry it forward to make predictions at later time steps.
+
+165
+00:10:33,560 --> 00:10:45,480
+And the idea behind doing this is to link and relate the network's computations at the particular time step to the past history of the prior time steps.
+
+166
+00:10:45,480 --> 00:10:49,560
+So let's try by doing exactly that.
+
+167
+00:10:49,560 --> 00:10:58,060
+What this diagram is now showing is by connecting these outputs and the states at these past
+
+168
+00:10:58,060 --> 00:11:04,760
+time steps, we're linking the computation of the network across time.
+
+169
+00:11:04,760 --> 00:11:11,240
+Specifically we can introduce this notion of an internal state of the network.
+
+170
+00:11:11,240 --> 00:11:18,320
+And we're going to denote this using the variable H, where this is going to be actually maintained
+
+171
+00:11:18,320 --> 00:11:23,760
+by the neural network itself and pass on time step to time step.
+
+172
+00:11:23,760 --> 00:11:30,040
+So we get this idea of sort of memory of this internal state of the neural network that's
+
+173
+00:11:30,040 --> 00:11:38,960
+going to depend not only on the past computations but also the input at that time step.
+
+174
+00:11:38,960 --> 00:11:45,860
+What this means very concretely is when the network makes a prediction at time step
+
+175
+00:11:45,860 --> 00:11:52,860
+that's going to be a function of not only the input at that time step,
+
+176
+00:11:52,860 --> 00:11:59,860
+but also the past memory or the state that's captured in this variable of state,
+
+177
+00:11:59,860 --> 00:12:03,860
+H of T minus 1. So that past memory.
+
+178
+00:12:03,860 --> 00:12:06,860
+And you can see that concretely in this example in the middle,
+
+179
+00:12:06,860 --> 00:12:11,860
+where prediction at time step 1 depends on input at time step 1,
+
+180
+00:12:11,860 --> 00:12:16,420
+step one, as well as the past state.
+
+181
+00:12:16,420 --> 00:12:21,740
+And so this is the score idea of what we think of as recurrence.
+
+182
+00:12:21,740 --> 00:12:25,940
+Meaning simply, how can we link in just one network, right?
+
+183
+00:12:25,940 --> 00:12:31,020
+The network is not, you know, we're not creating new networks
+
+184
+00:12:31,020 --> 00:12:31,820
+per time set.
+
+185
+00:12:31,820 --> 00:12:33,620
+It's still one network.
+
+186
+00:12:33,620 --> 00:12:37,620
+But we're connecting the information from the past computations
+
+187
+00:12:37,620 --> 00:12:41,540
+to the predictions at a particular time set.
+
+188
+00:12:41,540 --> 00:12:44,180
+And so because this output, this prediction,
+
+189
+00:12:44,180 --> 00:12:48,500
+is a function of both the current input and the past memory,
+
+190
+00:12:48,500 --> 00:12:53,260
+we describe these neural networks via this recurrence relation.
+
+191
+00:12:53,260 --> 00:12:56,660
+And so you can show this on the left here
+
+192
+00:12:56,660 --> 00:12:59,940
+where we have this notion of a cycle, this looping,
+
+193
+00:12:59,940 --> 00:13:03,440
+which shows that h of t is being recurrently
+
+194
+00:13:03,440 --> 00:13:07,060
+provided to the network at these different time steps
+
+195
+00:13:07,060 --> 00:13:09,060
+to make the predictions.
+
+196
+00:13:09,060 --> 00:13:12,000
+And on the right, we just see that kind of rolled out
+
+197
+00:13:12,000 --> 00:13:13,220
+over these time steps.
+
+198
+00:13:13,220 --> 00:13:17,360
+It's in a way to me, it's a clearer visualization
+
+199
+00:13:17,360 --> 00:13:19,120
+of what is actually going on.
+
+200
+00:13:20,460 --> 00:13:24,760
+And so this core idea of maintaining an internal state,
+
+201
+00:13:24,760 --> 00:13:28,700
+HFT, updating it per individual time steps
+
+202
+00:13:28,700 --> 00:13:32,380
+and using that to inform the predicted output
+
+203
+00:13:32,380 --> 00:13:37,100
+is the core intuitive idea behind a very large class
+
+204
+00:13:37,100 --> 00:13:42,100
+of neural networks called recurrent neural networks or RNNs.
+
+205
+00:13:42,860 --> 00:13:45,140
+And this is really the key to understanding
+
+206
+00:13:45,140 --> 00:13:47,820
+these frameworks of RNNs.
+
+207
+00:13:47,820 --> 00:13:49,940
+So we're going to continue to build up
+
+208
+00:13:49,940 --> 00:13:53,540
+from this foundation to gain more and more understanding
+
+209
+00:13:53,540 --> 00:13:56,340
+about the behavior of these neural networks.
+
+210
+00:13:57,420 --> 00:14:00,220
+So let's formalize this a bit more.
+
+211
+00:14:00,220 --> 00:14:03,740
+Right, as we saw, this core idea is to maintain
+
+212
+00:14:03,740 --> 00:14:10,460
+internal state, updated at each time set that this as the sequence is processed dynamically.
+
+213
+00:14:11,260 --> 00:14:17,740
+And so the way we do this is via this recurrence relation, which defines how that update actually
+
+214
+00:14:17,740 --> 00:14:26,940
+occurs per unit time. Making this more concrete, this notion of this cell state, H of T,
+
+215
+00:14:26,940 --> 00:14:33,940
+is going to be a function parameterized by a set of weights, just like with Fienette Forward Networks,
+
+216
+00:14:33,940 --> 00:14:38,940
+just like with any network we're going to see throughout this course, right?
+
+217
+00:14:38,940 --> 00:14:43,940
+We always define these updates according to these learnable sets of weights,
+
+218
+00:14:43,940 --> 00:14:51,940
+and that state update depends on the current input and the prior state from the prior time step.
+
+219
+00:14:51,940 --> 00:14:53,440
+Right?
+
+220
+00:14:53,440 --> 00:14:58,900
+Cell state is a function defined by a set of weights w that
+
+221
+00:14:58,900 --> 00:15:03,340
+depends on the input and the old state.
+
+222
+00:15:03,340 --> 00:15:07,020
+And with an RNN type model, we use that same function
+
+223
+00:15:07,020 --> 00:15:10,260
+in set of parameters at every time step.
+
+224
+00:15:10,260 --> 00:15:13,140
+And when we actually train the model, as we'll see,
+
+225
+00:15:13,140 --> 00:15:18,180
+those weights get updated per training step.
+
+226
+00:15:18,180 --> 00:15:21,780
+So another way to get more intuition from this
+
+227
+00:15:21,780 --> 00:15:25,220
+is also to look at an example in pseudocode.
+
+228
+00:15:25,220 --> 00:15:27,820
+So let's go through that through the algorithm
+
+229
+00:15:27,820 --> 00:15:31,140
+for the state update of these state-based models
+
+230
+00:15:31,140 --> 00:15:34,820
+and get a better sense of how these networks work.
+
+231
+00:15:34,820 --> 00:15:38,060
+So we start by initializing the state to something,
+
+232
+00:15:38,060 --> 00:15:42,020
+let's say, 0, 0, 0.
+
+233
+00:15:42,020 --> 00:15:45,860
+And our prediction here is going to look at text.
+
+234
+00:15:45,860 --> 00:15:49,740
+Text data, we break it up into a sequence of words.
+
+235
+00:15:49,740 --> 00:15:55,100
+And our task is to predict the next word in the sentence.
+
+236
+00:15:55,100 --> 00:15:59,860
+So we take our input sentence and we take our initialized RNN
+
+237
+00:15:59,860 --> 00:16:01,940
+with its initialized state.
+
+238
+00:16:01,940 --> 00:16:05,980
+And then we iterate time step by time step word by word
+
+239
+00:16:05,980 --> 00:16:10,540
+in that sentence and call a function of the RNN
+
+240
+00:16:10,540 --> 00:16:15,300
+to generate a prediction and update the hidden state per word,
+
+241
+00:16:15,300 --> 00:16:17,300
+right, per time step.
+
+242
+00:16:17,300 --> 00:16:19,980
+And at the end, once we've stepped through all the words
+
+243
+00:16:19,980 --> 00:16:23,580
+so far in the sentence, we can get a prediction for the next
+
+244
+00:16:23,580 --> 00:16:28,060
+word by taking the output of the RNN at that last time step.
+
+245
+00:16:30,060 --> 00:16:33,740
+So this is really a core idea behind this idea
+
+246
+00:16:33,740 --> 00:16:35,740
+of next word prediction.
+
+247
+00:16:35,740 --> 00:16:40,980
+One way to approach it is by going step by step, word by word
+
+248
+00:16:40,980 --> 00:16:43,420
+through a sentence and predicting the,
+
+249
+00:16:43,420 --> 00:16:48,420
+and learning this relation kind of recursively over time.
+
+250
+00:16:49,660 --> 00:16:53,220
+So as we kind of saw with an RNN,
+
+251
+00:16:53,220 --> 00:16:57,740
+we need to update both the state and predict an output.
+
+252
+00:16:57,740 --> 00:17:02,740
+So to take this to the last level of concreteness
+
+253
+00:17:03,060 --> 00:17:06,320
+and bring a little bit math into this,
+
+254
+00:17:06,320 --> 00:17:09,900
+our relationship here is we're given this input vector.
+
+255
+00:17:09,900 --> 00:17:12,380
+We first update the hidden state
+
+256
+00:17:12,380 --> 00:17:17,060
+And we're going to apply a function to do this.
+
+257
+00:17:17,060 --> 00:17:20,900
+To break this down, it maybe looks a little intimidating at first
+
+258
+00:17:20,900 --> 00:17:24,100
+with multiple variables here, multiple weights.
+
+259
+00:17:24,100 --> 00:17:28,180
+But it's really very similar to the neural net operations
+
+260
+00:17:28,180 --> 00:17:31,740
+that we saw in lecture one that Alexander introduced.
+
+261
+00:17:31,740 --> 00:17:34,620
+Just like before, we have multiplications
+
+262
+00:17:34,620 --> 00:17:36,220
+by weight matrices, right?
+
+263
+00:17:36,220 --> 00:17:40,620
+Sets of weights that are applied to both the past hidden state
+
+264
+00:17:40,620 --> 00:17:44,260
+and the input, and we take those something together
+
+265
+00:17:44,260 --> 00:17:47,020
+and apply a non-linear activation function, right?
+
+266
+00:17:47,020 --> 00:17:51,020
+That's the tan H hyperbolic tangent function here.
+
+267
+00:17:51,020 --> 00:17:54,420
+And that gives our hidden state update.
+
+268
+00:17:54,420 --> 00:17:56,820
+And to do the output prediction,
+
+269
+00:17:56,820 --> 00:18:01,660
+we take another weight matrix and transform the hidden state
+
+270
+00:18:01,660 --> 00:18:03,740
+and predict the output.
+
+271
+00:18:03,740 --> 00:18:07,100
+And importantly, right, these three sets of weight matrices
+
+272
+00:18:07,100 --> 00:18:08,780
+are learned.
+
+273
+00:18:08,780 --> 00:18:10,660
+We start them, we initialize them,
+
+274
+00:18:10,660 --> 00:18:13,500
+and over the course of the training of the RNN,
+
+275
+00:18:13,500 --> 00:18:16,900
+we update the parameters of these weight matrices
+
+276
+00:18:16,900 --> 00:18:20,340
+through gradient descent and the similar algorithms
+
+277
+00:18:20,340 --> 00:18:22,420
+of training the neural network
+
+278
+00:18:22,420 --> 00:18:24,660
+that we saw in lecture one.
+
+279
+00:18:26,020 --> 00:18:28,580
+So putting this all together, right?
+
+280
+00:18:28,580 --> 00:18:31,580
+How does this come together?
+
+281
+00:18:31,580 --> 00:18:36,260
+We have our RNN with this recurrent loop-like relation,
+
+282
+00:18:36,260 --> 00:18:44,260
+And we saw that we can unroll this step by step across these time steps and visualize the RNN that way.
+
+283
+00:18:44,260 --> 00:18:56,260
+When we do that, we break it down from time step zero to time step one, so on and so forth, all the way up to time step T, whatever the length of the input is.
+
+284
+00:18:56,260 --> 00:19:04,260
+And across all these steps, we're making these predictions at these individual time steps.
+
+285
+00:19:04,260 --> 00:19:12,420
+We can make the weight matrices explicit, showing the weight matrix that maps input to the hidden state,
+
+286
+00:19:12,420 --> 00:19:17,060
+the hidden state weight matrix as well as the output.
+
+287
+00:19:17,060 --> 00:19:24,290
+And we reuse the same matrices that every time step.
+
+288
+00:19:24,290 --> 00:19:29,970
+When we make a forward pass, a call through the model to actually generate the prediction,
+
+289
+00:19:29,970 --> 00:19:35,770
+because we're generating predictions at each time step, that means we can compute a loss
+
+290
+00:19:35,770 --> 00:19:38,130
+at each individual time set.
+
+291
+00:19:38,130 --> 00:19:41,690
+And we can sum them together to get an overall loss
+
+292
+00:19:41,690 --> 00:19:44,770
+that gives us the whole predictive loss
+
+293
+00:19:44,770 --> 00:19:47,850
+over the entire sequence.
+
+294
+00:19:47,850 --> 00:19:50,410
+So that gives us a broken down way
+
+295
+00:19:50,410 --> 00:19:54,450
+of how this RNN forward pass, a call to the model,
+
+296
+00:19:54,450 --> 00:19:56,810
+actually occurs in practice.
+
+297
+00:19:58,410 --> 00:20:02,410
+We can go through and look at how we could implement this
+
+298
+00:20:02,410 --> 00:20:06,410
+from scratch in a framework like TensorFlow,
+
+299
+00:20:06,410 --> 00:20:09,410
+where we begin by initializing these weight matrices
+
+300
+00:20:09,410 --> 00:20:12,410
+initializing a class for the RNN,
+
+301
+00:20:12,410 --> 00:20:15,410
+and defining this forward pass computation
+
+302
+00:20:15,410 --> 00:20:18,410
+and what we call the call function,
+
+303
+00:20:18,410 --> 00:20:21,410
+which is effectively how you call the neural network.
+
+304
+00:20:21,410 --> 00:20:24,410
+How do you make a forward pass going from input
+
+305
+00:20:24,410 --> 00:20:32,170
+to prediction and using that prediction to get during training to compute a loss and update the loss.
+
+306
+00:20:32,170 --> 00:20:39,010
+And so, again, to reiterate this computation, right, we update the hidden state,
+
+307
+00:20:39,010 --> 00:20:43,250
+we compute the output and return both values back.
+
+308
+00:20:43,250 --> 00:20:49,250
+In practice though, right, very rarely will you actually, or maybe almost never,
+
+309
+00:20:49,250 --> 00:20:53,690
+build up a RNN unit from scratch.
+
+310
+00:20:53,690 --> 00:20:59,330
+In fact, in both TensorFlow and PyTorch and common ML frameworks,
+
+311
+00:20:59,330 --> 00:21:05,530
+there are existing implementations built in, where you can just use these RNN
+
+312
+00:21:05,530 --> 00:21:09,010
+layers in practice in defining your neural network.
+
+313
+00:21:09,010 --> 00:21:16,530
+And you'll get hands-on experience doing this in software lab 1, starting today.
+
+314
+00:21:16,530 --> 00:21:20,230
+Okay, so to recap and put these elements together,
+
+315
+00:21:20,230 --> 00:21:23,310
+we saw that with RNNs, we can,
+
+316
+00:21:23,310 --> 00:21:25,030
+and sequence modeling in general,
+
+317
+00:21:25,030 --> 00:21:27,830
+we have this idea of different types of tasks
+
+318
+00:21:27,830 --> 00:21:30,510
+or problem formulations we can tackle.
+
+319
+00:21:30,510 --> 00:21:32,750
+We can do classification tasks,
+
+320
+00:21:32,750 --> 00:21:36,550
+we can do captioning tasks or text generation tasks,
+
+321
+00:21:36,550 --> 00:21:40,150
+we can do sequence to sequence translation tasks.
+
+322
+00:21:40,150 --> 00:21:44,630
+And that is really with a lot of these generative applications,
+
+323
+00:21:44,630 --> 00:21:50,830
+like in language modeling, machine translation, natural language processing, many of these
+
+324
+00:21:50,830 --> 00:21:55,510
+can be formulated according to these many to many problems.
+
+325
+00:21:55,510 --> 00:21:59,710
+And you'll get hands-on experience with this.
+
+326
+00:21:59,710 --> 00:22:08,590
+So to make this more concrete in terms of what this actually means in terms of a real
+
+327
+00:22:08,590 --> 00:22:12,390
+use case or problem in the real world.
+
+328
+00:22:12,390 --> 00:22:17,270
+I want to focus on a very, very pertinent sequence modeling
+
+329
+00:22:17,270 --> 00:22:21,950
+problem, which is the basis for basically all language models,
+
+330
+00:22:21,950 --> 00:22:25,550
+large language models, small language models that we see today,
+
+331
+00:22:25,550 --> 00:22:29,270
+which is this notion of next word prediction.
+
+332
+00:22:29,270 --> 00:22:31,550
+And we're going to use next word prediction
+
+333
+00:22:31,550 --> 00:22:36,910
+to think about and work through core design criteria
+
+334
+00:22:36,910 --> 00:22:40,430
+that we want to build out in any sort of neural network
+
+335
+00:22:40,430 --> 00:22:43,470
+that we build for a sequence modeling problem.
+
+336
+00:22:43,470 --> 00:22:45,790
+And this is a really important task,
+
+337
+00:22:45,790 --> 00:22:49,190
+not only because of the relevance of next word prediction,
+
+338
+00:22:49,190 --> 00:22:52,430
+but in general in thinking about your own deep learning
+
+339
+00:22:52,430 --> 00:22:56,990
+applications or work or research that may be relevant to you,
+
+340
+00:22:56,990 --> 00:23:00,510
+relating those problems back to design criteria
+
+341
+00:23:00,510 --> 00:23:02,910
+in terms of the architectures you choose
+
+342
+00:23:02,910 --> 00:23:05,710
+and the approach you actually take.
+
+343
+00:23:05,710 --> 00:23:12,910
+So, let's say we have this sentence, this morning I took my cat for a walk.
+
+344
+00:23:12,910 --> 00:23:21,030
+The task of next word prediction is given some set of words, let's say this morning I took
+
+345
+00:23:21,030 --> 00:23:26,710
+my cat for a, predict the next word in the sentence.
+
+346
+00:23:26,710 --> 00:23:31,190
+And so to do this, the very first thing we have to consider, whether we're using an
+
+347
+00:23:31,190 --> 00:23:33,790
+and RNN or any other sort of neural network
+
+348
+00:23:33,790 --> 00:23:37,430
+is how are we actually going to represent this data,
+
+349
+00:23:37,430 --> 00:23:39,530
+language data, to the model.
+
+350
+00:23:40,950 --> 00:23:44,870
+The way that we can formalize this is,
+
+351
+00:23:44,870 --> 00:23:48,790
+let's say we have a model and we input the word deep
+
+352
+00:23:48,790 --> 00:23:50,910
+and we want to use the neural network
+
+353
+00:23:50,910 --> 00:23:54,110
+to predict the next word learning.
+
+354
+00:23:54,110 --> 00:23:56,030
+What could be the issue here?
+
+355
+00:23:56,030 --> 00:23:59,510
+If we're just trying to pass in words to the model,
+
+356
+00:23:59,510 --> 00:24:07,190
+Will this actually work if not how can we make this work in terms of the data itself?
+
+357
+00:24:07,190 --> 00:24:10,190
+Yes.
+
+358
+00:24:10,190 --> 00:24:11,510
+You have to tokenize the words.
+
+359
+00:24:11,510 --> 00:24:26,660
+Can you say more about what that means?
+
+360
+00:24:26,660 --> 00:24:27,660
+Right.
+
+361
+00:24:27,660 --> 00:24:32,420
+So it gets closer to this idea of can we embed something about the concept of the word
+
+362
+00:24:32,420 --> 00:24:35,980
+to represent the model?
+
+363
+00:24:35,980 --> 00:24:42,060
+It actually is a step earlier than that, which is we can't straight pass in, you know,
+
+364
+00:24:42,060 --> 00:24:47,500
+characters to the model, they have to be represented numerically somehow, right?
+
+365
+00:24:47,500 --> 00:24:54,460
+Because ultimately all these neural networks are, they're operating on numerical data.
+
+366
+00:24:54,460 --> 00:24:59,020
+And so tokenization is one way that we can think about doing this.
+
+367
+00:24:59,020 --> 00:25:08,380
+But regardless of what strategy we use, we have to process the language data to a numerical input.
+
+368
+00:25:08,380 --> 00:25:12,580
+where we have a vector or an array or an index of numbers
+
+369
+00:25:12,580 --> 00:25:15,140
+to the model that represents, let's say,
+
+370
+00:25:15,140 --> 00:25:20,140
+the sequence of words and get a prediction of something
+
+371
+00:25:20,540 --> 00:25:24,940
+that represents the next word but is in numerical form.
+
+372
+00:25:24,940 --> 00:25:27,740
+And then we can map this back to the language space
+
+373
+00:25:27,740 --> 00:25:30,860
+to actually get what the word prediction was.
+
+374
+00:25:30,860 --> 00:25:34,700
+And so to formalize this, how do we actually do this?
+
+375
+00:25:34,700 --> 00:25:38,020
+This gets to this idea that you raise in your answer
+
+376
+00:25:38,020 --> 00:25:47,020
+transforming the words into some numerical representation and tokenization gives us one strategy to do that.
+
+377
+00:25:47,020 --> 00:25:53,020
+So this is a concept of, in general, of an embedding or an encoding.
+
+378
+00:25:53,020 --> 00:26:00,020
+And ideally we want this embedding to represent something about the semantic content of the words, right?
+
+379
+00:26:00,020 --> 00:26:07,460
+right? Because language has this very rich structure, so something like learning and education
+
+380
+00:26:07,460 --> 00:26:14,340
+maybe are mapped closer together than learning and tennis, right? So the approach for doing this
+
+381
+00:26:14,340 --> 00:26:21,060
+is to consider the complete vocabulary or the corpus of words that are present in our language.
+
+382
+00:26:21,780 --> 00:26:29,940
+And first start by mapping these words to individual unique indices. Then where do we go from
+
+383
+00:26:29,940 --> 00:26:37,820
+there. A naive approach would be to just map an index to a fixed length vector where you
+
+384
+00:26:37,820 --> 00:26:46,540
+have a single one-hot bit flip where that represents the identity of the word based on the index
+
+385
+00:26:46,540 --> 00:26:53,460
+that's a one versus zero elsewhere. But this is not very informative, right? Because of
+
+386
+00:26:53,460 --> 00:26:58,260
+the fact that we're not capturing anything about the semantics and this rich structure
+
+387
+00:26:58,260 --> 00:27:00,500
+that's present in language.
+
+388
+00:27:00,500 --> 00:27:03,940
+And so a more intelligent way to go about this
+
+389
+00:27:03,940 --> 00:27:06,940
+is to leverage some sort of embedding scheme
+
+390
+00:27:06,940 --> 00:27:11,780
+where there is capture of these semantic relationships.
+
+391
+00:27:11,780 --> 00:27:15,660
+And so this is in general learning and embedding
+
+392
+00:27:15,660 --> 00:27:20,180
+or learning a tokenization strategy to capture this.
+
+393
+00:27:20,180 --> 00:27:24,300
+And in language models today, there are very popular schemes
+
+394
+00:27:24,300 --> 00:27:29,540
+that basically effectively map chunks of words
+
+395
+00:27:29,540 --> 00:27:33,220
+and chunks of language that occur frequently together
+
+396
+00:27:33,220 --> 00:27:36,620
+to certain parts of this embedding space
+
+397
+00:27:36,620 --> 00:27:39,020
+so that we can capture those relationships
+
+398
+00:27:39,020 --> 00:27:42,380
+in terms of co-occurrence of particular characters
+
+399
+00:27:42,380 --> 00:27:46,860
+or words or chunks in the vocabulary.
+
+400
+00:27:46,860 --> 00:27:48,940
+So this is really the core idea.
+
+401
+00:27:48,940 --> 00:27:51,540
+But the fundamental point that I want to convey
+
+402
+00:27:51,540 --> 00:27:54,860
+is that in all cases, in all examples
+
+403
+00:27:54,860 --> 00:27:57,060
+that we see throughout this class,
+
+404
+00:27:57,060 --> 00:28:00,380
+neural networks operate on numerical inputs.
+
+405
+00:28:00,380 --> 00:28:02,620
+So regardless of your data modality,
+
+406
+00:28:02,620 --> 00:28:05,700
+you have to think about a way to map that data
+
+407
+00:28:05,700 --> 00:28:08,740
+into numerical input to be processed
+
+408
+00:28:08,740 --> 00:28:13,740
+and represented in a way that the neural network can handle.
+
+409
+00:28:14,820 --> 00:28:18,100
+Okay, so that's design criteria number one, right?
+
+410
+00:28:18,100 --> 00:28:21,100
+We need a way to map to numerical inputs,
+
+411
+00:28:21,100 --> 00:28:24,620
+And ideally, we want this mapping to capture something
+
+412
+00:28:24,620 --> 00:28:27,940
+about the structure of language.
+
+413
+00:28:27,940 --> 00:28:31,820
+The second sort of design criteria that's critical for sequence
+
+414
+00:28:31,820 --> 00:28:34,940
+modeling and this next word prediction task
+
+415
+00:28:34,940 --> 00:28:39,260
+is being able to handle variable lengths of sequences.
+
+416
+00:28:39,260 --> 00:28:42,940
+Short sentence, medium sentence, long sentence,
+
+417
+00:28:42,940 --> 00:28:46,020
+doesn't matter, we should be able to operate over all
+
+418
+00:28:46,020 --> 00:28:50,050
+of these types of inputs.
+
+419
+00:28:50,050 --> 00:28:53,130
+Feed forward networks break down here, right?
+
+420
+00:28:53,130 --> 00:28:56,970
+Because of the fact that there's a fixed number of inputs.
+
+421
+00:28:56,970 --> 00:29:00,490
+But something like a state-based model like an RNN
+
+422
+00:29:00,490 --> 00:29:04,130
+where we're processing the data time step by time step
+
+423
+00:29:04,130 --> 00:29:09,530
+is inherently designed to process these variable length inputs.
+
+424
+00:29:09,530 --> 00:29:13,490
+A final criteria that we want to think about
+
+425
+00:29:13,490 --> 00:29:17,090
+is capturing these dependencies and relationships
+
+426
+00:29:17,090 --> 00:29:21,090
+that can occur in sequence data like language.
+
+427
+00:29:21,090 --> 00:29:24,790
+Oftentimes, there's really core information up front
+
+428
+00:29:24,790 --> 00:29:28,330
+in the sentence that informs the next word prediction
+
+429
+00:29:28,330 --> 00:29:30,690
+super downstream in the sentence.
+
+430
+00:29:30,690 --> 00:29:33,890
+And we want to be able to capture this effectively.
+
+431
+00:29:34,890 --> 00:29:39,490
+And finally, sequence data is sequential for a reason.
+
+432
+00:29:39,490 --> 00:29:42,290
+That means that differences in the order
+
+433
+00:29:42,290 --> 00:29:45,530
+can completely alter the, you know,
+
+434
+00:29:45,530 --> 00:29:49,730
+what is actually represented in that sample.
+
+435
+00:29:49,730 --> 00:29:53,130
+The food was good, not bad at all, means great.
+
+436
+00:29:53,130 --> 00:29:53,970
+Good food.
+
+437
+00:29:53,970 --> 00:29:56,280
+But if we flip the order of the words in the sentence,
+
+438
+00:29:56,280 --> 00:29:58,120
+we've completely flipped the meaning.
+
+439
+00:29:58,120 --> 00:30:02,040
+The exact words are the same, order matters.
+
+440
+00:30:02,040 --> 00:30:07,440
+And so RNNs are one way to start to get at tackling
+
+441
+00:30:07,440 --> 00:30:11,240
+these design criteria because they can handle variable length
+
+442
+00:30:11,240 --> 00:30:12,680
+sequences.
+
+443
+00:30:12,680 --> 00:30:15,080
+Through this notion of the internal state,
+
+444
+00:30:15,080 --> 00:30:18,240
+we have some way of tracking and preserving
+
+445
+00:30:18,240 --> 00:30:20,760
+information about these dependencies.
+
+446
+00:30:20,760 --> 00:30:25,320
+We're processing the data step by step, so we have a notion of order.
+
+447
+00:30:25,320 --> 00:30:31,560
+And we have this weight sharing that allows this build up of memory over time in the RNN
+
+448
+00:30:31,560 --> 00:30:35,780
+to be able to capture those dependencies.
+
+449
+00:30:35,780 --> 00:30:46,780
+Okay, so the final piece of RNN content that we'll talk about is how we actually train RNNs in practice.
+
+450
+00:30:46,780 --> 00:30:50,980
+And that's based on the core neural network training algorithm
+
+451
+00:30:50,980 --> 00:30:55,020
+that Alexander introduced which is back propagation.
+
+452
+00:30:55,020 --> 00:30:58,100
+So let's do a refresher of how we actually
+
+453
+00:30:58,100 --> 00:31:00,620
+train these feed forward models.
+
+454
+00:31:00,620 --> 00:31:04,580
+We have an input, and we first make a forward pass
+
+455
+00:31:04,580 --> 00:31:07,500
+through the network from input to output
+
+456
+00:31:07,500 --> 00:31:10,100
+to generate a prediction.
+
+457
+00:31:10,100 --> 00:31:12,860
+And then to actually compute the loss,
+
+458
+00:31:12,860 --> 00:31:19,020
+update the parameters of the model, the weights in the model, we backpropagate gradients
+
+459
+00:31:19,020 --> 00:31:25,460
+back through the network where the algorithm was to take the derivative of the loss with
+
+460
+00:31:25,460 --> 00:31:33,140
+respect to the parameters or the weights in the network and then shifting the parameters
+
+461
+00:31:33,140 --> 00:31:37,500
+in order to minimize this loss.
+
+462
+00:31:37,500 --> 00:31:43,500
+Now, let's say we are going to extend this to the context of RNNs.
+
+463
+00:31:43,500 --> 00:31:48,380
+As we saw with RNNs, we have this step-by-step sequential processing.
+
+464
+00:31:48,380 --> 00:31:54,940
+So we can predict outputs at each time step, meaning we can get a loss at each time step,
+
+465
+00:31:54,940 --> 00:32:01,580
+and we can get an aggregate loss by summing the losses at these individual time steps.
+
+466
+00:32:01,580 --> 00:32:07,460
+Now in order to back propagate and make updates to the network, we need to do
+
+467
+00:32:07,460 --> 00:32:09,820
+this over time as well.
+
+468
+00:32:09,820 --> 00:32:13,660
+So instead of backpropagating error through a single feed
+
+469
+00:32:13,660 --> 00:32:17,700
+forward network at a single time step, in RNNs,
+
+470
+00:32:17,700 --> 00:32:21,740
+we backpropagate across these individual time steps
+
+471
+00:32:21,740 --> 00:32:25,900
+and then across time steps from where we are currently back
+
+472
+00:32:25,900 --> 00:32:28,180
+to the beginning of the sequence.
+
+473
+00:32:28,180 --> 00:32:32,100
+And so this is the formulation of this algorithm
+
+474
+00:32:32,100 --> 00:32:36,540
+for training RNNs called backpropagation through time
+
+475
+00:32:36,540 --> 00:32:41,420
+because error is flowing back through time from where we are currently in the sequence
+
+476
+00:32:41,420 --> 00:32:46,700
+back to the beginning time step one or time step zero.
+
+477
+00:32:46,700 --> 00:32:51,660
+And so taking a closer look at how these gradients flow,
+
+478
+00:32:51,660 --> 00:32:57,300
+we actually have to make these very repeated matrix multiplications
+
+479
+00:32:57,300 --> 00:33:05,300
+with the weight matrix W to make because of these cell state updates requiring this passing
+
+480
+00:33:05,300 --> 00:33:08,140
+of the weight matrix WH.
+
+481
+00:33:08,140 --> 00:33:10,940
+And in practice, this can get a little tricky
+
+482
+00:33:10,940 --> 00:33:14,020
+because computing the gradient back with respect
+
+483
+00:33:14,020 --> 00:33:17,460
+to the state at the very first time step zero
+
+484
+00:33:17,460 --> 00:33:22,500
+involves many, many repeated factors of WH of H
+
+485
+00:33:22,500 --> 00:33:25,260
+and repeated gradient computations.
+
+486
+00:33:25,260 --> 00:33:29,620
+In practice, if the values of this weight matrix are large,
+
+487
+00:33:29,620 --> 00:33:32,460
+things can blow up very quickly, in problem
+
+488
+00:33:32,460 --> 00:33:34,260
+that we call exploding gradients.
+
+489
+00:33:34,260 --> 00:33:38,060
+And so often in practice, you'll actually clip the values
+
+490
+00:33:38,060 --> 00:33:42,100
+of the gradients to some maximum so that you can scale
+
+491
+00:33:42,100 --> 00:33:44,100
+back big gradients.
+
+492
+00:33:44,100 --> 00:33:46,380
+You can also have the inverse problem
+
+493
+00:33:46,380 --> 00:33:50,140
+where if the way matrix ends up being very small,
+
+494
+00:33:50,140 --> 00:33:52,980
+you have repeated multiplications of something
+
+495
+00:33:52,980 --> 00:33:54,780
+very small and things shrink.
+
+496
+00:33:54,780 --> 00:33:58,620
+And then you get very, very little signal to actually learn
+
+497
+00:33:58,620 --> 00:33:59,500
+on.
+
+498
+00:33:59,500 --> 00:34:03,300
+And this is known as the vanishing gradient problem.
+
+499
+00:34:03,300 --> 00:34:10,020
+And there are as well practical tricks in terms of solutions and
+
+500
+00:34:10,020 --> 00:34:14,840
+implementations that people use to mitigate this problem.
+
+501
+00:34:14,840 --> 00:34:15,600
+Yes, questions?
+
+502
+00:34:15,600 --> 00:34:25,750
+So each zero is neither an explicit parameter nor an input.
+
+503
+00:34:25,750 --> 00:34:30,670
+Right, it's this internal state variable, if you will.
+
+504
+00:34:30,670 --> 00:34:36,670
+And it is dependent on the weight matrix parameter and the input.
+
+505
+00:34:36,670 --> 00:34:48,370
+So if you think about the input as being a variable, H0 is a variable that depends on computation involving the weight matrices W.
+
+506
+00:34:48,370 --> 00:35:01,370
+Okay. So in practice, right, this vanishing gradient problem has real implications in particular with respect to our ability to track long term dependencies in the data.
+
+507
+00:35:02,370 --> 00:35:08,290
+And I won't spend too much time on this, but just to give you a sense, when we multiply
+
+508
+00:35:08,290 --> 00:35:16,530
+many of these small gradient values or matrix values together, it biases the model to try
+
+509
+00:35:16,530 --> 00:35:23,810
+to capture the shorter term things, because further back you're going to have more propagation
+
+510
+00:35:23,810 --> 00:35:27,610
+of error and more of this vanishing problem.
+
+511
+00:35:27,610 --> 00:35:34,930
+And so while this allows for effective capture of dependencies that are relatively short-term,
+
+512
+00:35:34,930 --> 00:35:41,410
+it poses a problem for important longer-term dependencies where the input length can grow
+
+513
+00:35:41,410 --> 00:35:48,010
+very long in terms of number of time steps and becomes problematic for the RNN to actually
+
+514
+00:35:48,010 --> 00:35:52,370
+keep track of these longer-term dependencies.
+
+515
+00:35:52,370 --> 00:36:00,370
+So in practice, there has been a lot of architecture development around these RNN style models.
+
+516
+00:36:00,370 --> 00:36:06,770
+And in particular, there's this notion of making the internal computation of the RNN more
+
+517
+00:36:06,770 --> 00:36:14,690
+complex to better control the flow of information and the state update equation itself.
+
+518
+00:36:14,690 --> 00:36:22,770
+And one really pioneering solution to this was many years ago, a group led by Yurgen Schmitt
+
+519
+00:36:22,770 --> 00:36:23,770
+Hubert.
+
+520
+00:36:23,770 --> 00:36:31,250
+I introduced this mechanism called Long Short-term Memory that was really a foundational
+
+521
+00:36:31,250 --> 00:36:39,850
+advance in terms of better controlling for these state updates in architectures like RNNs.
+
+522
+00:36:39,850 --> 00:36:45,590
+So brief no on applications of these networks and in particular the one that you're going
+
+523
+00:36:45,590 --> 00:36:53,170
+to experiment with in software lab 1 which is this multi output generation problem focusing
+
+524
+00:36:53,170 --> 00:36:56,450
+on this task of music generation.
+
+525
+00:36:56,450 --> 00:37:03,330
+And every year I like to highlight this example from a few years ago now but the capabilities
+
+526
+00:37:03,330 --> 00:37:08,730
+of deep learning and AI for music generation have now become actually quite remarkable.
+
+527
+00:37:08,730 --> 00:37:14,770
+But still, this is one of my favorite examples where the classical composer, Franz Schubert,
+
+528
+00:37:14,770 --> 00:37:20,690
+had a very symphony that he called his unfinished symphony in a few years back.
+
+529
+00:37:20,690 --> 00:37:28,310
+There was an effort to actually train a recurrent based model on his music to predict and
+
+530
+00:37:28,310 --> 00:37:32,250
+generate new music to finish his unfinished symphony.
+
+531
+00:37:32,250 --> 00:37:54,890
+So this is a sample of that AI-generated third movement, which is pretty compelling, I think,
+
+532
+00:37:54,890 --> 00:37:56,610
+from a musical perspective.
+
+533
+00:37:56,610 --> 00:38:01,690
+And actually, remarkably, I think the quality has even continued to improve.
+
+534
+00:38:01,690 --> 00:38:06,210
+You will actually experiment with these same concepts in software lab 1, which I think
+
+535
+00:38:06,210 --> 00:38:08,890
+is really cool and exciting.
+
+536
+00:38:08,890 --> 00:38:13,810
+And so I'll leave the applications at that for the purposes of time.
+
+537
+00:38:13,810 --> 00:38:20,810
+and hopefully give you enough of a teaser to motivate entries into software lab 1 competition.
+
+538
+00:38:20,810 --> 00:38:28,810
+Okay, so in the final 15 minutes or so, we're going to move beyond recurrent models and think really about
+
+539
+00:38:28,810 --> 00:38:37,810
+taking a step back to, again, the design criteria and capabilities of that we desire with sequence modeling.
+
+540
+00:38:37,810 --> 00:38:41,850
+And thinking about what are the limitations of RNNs
+
+541
+00:38:41,850 --> 00:38:43,170
+from a technical perspective
+
+542
+00:38:43,170 --> 00:38:46,010
+and how this has motivated new advances
+
+543
+00:38:46,010 --> 00:38:49,290
+in architectures for a sequence modeling.
+
+544
+00:38:49,290 --> 00:38:52,650
+So the first fundamental limitation of RNNs
+
+545
+00:38:52,650 --> 00:38:55,770
+is that they have this encoding bottleneck
+
+546
+00:38:55,770 --> 00:38:59,090
+that's imposed by this notion of the internal state,
+
+547
+00:38:59,090 --> 00:39:01,090
+H of T, this variable.
+
+548
+00:39:01,090 --> 00:39:03,530
+We are trying to pack as much information
+
+549
+00:39:03,530 --> 00:39:07,290
+about the dependencies and the structure of the data
+
+550
+00:39:07,290 --> 00:39:14,330
+into that internal state, HFT, and use this to carry forward time step by step.
+
+551
+00:39:14,330 --> 00:39:19,730
+Relatedly, right, when we process the data time step by time step, this can be pretty
+
+552
+00:39:19,730 --> 00:39:20,730
+slow.
+
+553
+00:39:20,730 --> 00:39:27,210
+We have to take the individual inputs, the individual slices as individual slices.
+
+554
+00:39:27,210 --> 00:39:30,330
+And so it's not really paralyzable.
+
+555
+00:39:30,330 --> 00:39:36,530
+And as a result of these two elements, especially that encoding bottleneck, the RNN can really
+
+556
+00:39:36,530 --> 00:39:44,370
+quickly run into memory issues in terms of how long of a dependency is it able to capture.
+
+557
+00:39:44,370 --> 00:39:50,970
+And so if we go back again to our fundamental goal of sequence modeling, we want to take
+
+558
+00:39:50,970 --> 00:39:56,480
+a input that's represented as a sequence and learn some set of features
+
+559
+00:39:57,120 --> 00:40:04,720
+that then map to a sequence of outputs. And RNNs use this notion of a recurrence relation and
+
+560
+00:40:04,720 --> 00:40:13,200
+this step-by-step modeling to try to track these dependencies. But they have these three key bottlenecks
+
+561
+00:40:13,200 --> 00:40:19,520
+that I mentioned. Ideally, we don't have that encoding bottleneck and we're able to look
+
+562
+00:40:19,520 --> 00:40:27,040
+at this sequence globally as a continuous stream of information, but still able to capture
+
+563
+00:40:27,040 --> 00:40:34,320
+local relationships and dependencies in the data. Ideally, we don't have to handle the sequence
+
+564
+00:40:34,320 --> 00:40:40,800
+time step by time step. We're able to parallelize very efficiently so that we can handle long
+
+565
+00:40:40,800 --> 00:40:48,520
+bodies of input. And we want to have this notion of long memory. And so with that experiment
+
+566
+00:40:48,520 --> 00:40:55,520
+and a question is, what if we eliminated the need for recurrence entirely? How could
+
+567
+00:40:55,520 --> 00:41:04,440
+we possibly approach this? One naive approach would be to kind of squash everything together.
+
+568
+00:41:04,440 --> 00:41:12,600
+take one vector input and take the data from all the time points, concatenate them as
+
+569
+00:41:12,600 --> 00:41:16,400
+one input vector, a single input.
+
+570
+00:41:16,400 --> 00:41:22,080
+And feed this into the model and calculate some feature vector and use that to generate
+
+571
+00:41:22,080 --> 00:41:27,160
+an output which we hope makes sense and is sensible.
+
+572
+00:41:27,160 --> 00:41:33,680
+But yes, while we've eliminated this recurrence, we've eliminated this step by step processing
+
+573
+00:41:33,680 --> 00:41:36,840
+this is not going to be scalable, right?
+
+574
+00:41:36,840 --> 00:41:40,600
+Because if we were to build out a dense network to do this,
+
+575
+00:41:40,600 --> 00:41:45,880
+this quickly gets very, very large as the sequence length grows.
+
+576
+00:41:45,880 --> 00:41:48,960
+Importantly, we've lost the order information
+
+577
+00:41:48,960 --> 00:41:52,280
+because those dependencies are gone.
+
+578
+00:41:52,280 --> 00:41:55,560
+And because of that, there's no temporal dependency,
+
+579
+00:41:55,560 --> 00:41:58,920
+so how can we really build out memory?
+
+580
+00:41:58,920 --> 00:42:01,760
+And so that's because when we have
+
+581
+00:42:01,760 --> 00:42:07,840
+fully connected or concatenated inputs. There's no notion of how do we actually pick out and
+
+582
+00:42:07,840 --> 00:42:15,280
+attend to the parts in that input that are going to be important. And so several years ago now there
+
+583
+00:42:15,280 --> 00:42:23,120
+was this breakthrough idea in this field of this notion of can we devise mathematically a way for
+
+584
+00:42:23,120 --> 00:42:30,560
+the network to learn how to pick up and identify those dependencies locally and also globally that
+
+585
+00:42:30,560 --> 00:42:34,080
+that are going to be important in the sequence overall.
+
+586
+00:42:34,080 --> 00:42:36,680
+And this is the notion of attention.
+
+587
+00:42:36,680 --> 00:42:39,520
+And this is a very powerful mechanism
+
+588
+00:42:39,520 --> 00:42:43,160
+for learning in sequence modeling applications
+
+589
+00:42:43,160 --> 00:42:47,800
+and is really the backbone of the transformer architecture.
+
+590
+00:42:47,800 --> 00:42:51,880
+So if you know GPT or other models like BERT,
+
+591
+00:42:51,880 --> 00:42:56,040
+the T in all of these acronyms stands for transformer.
+
+592
+00:42:56,040 --> 00:43:00,200
+And the foundational mechanism behind these transformers
+
+593
+00:43:00,200 --> 00:43:02,800
+is the attention operation.
+
+594
+00:43:02,800 --> 00:43:07,280
+And to me, a very, very elegant and intuitive idea
+
+595
+00:43:07,280 --> 00:43:08,640
+and we're going to break it down
+
+596
+00:43:08,640 --> 00:43:11,000
+both from the intuition point of view
+
+597
+00:43:11,000 --> 00:43:13,960
+and also the math to show you how that works.
+
+598
+00:43:15,160 --> 00:43:18,800
+So the core intuition behind attention
+
+599
+00:43:18,800 --> 00:43:22,800
+is can the neural network learn to identify
+
+600
+00:43:22,800 --> 00:43:26,000
+what parts of an input within itself
+
+601
+00:43:26,000 --> 00:43:29,760
+are most important to representing that input?
+
+602
+00:43:29,760 --> 00:43:36,960
+And I think it's often easier to start with a visual example rather than a text example.
+
+603
+00:43:36,960 --> 00:43:42,000
+But when we think about attention, we can immediately look at this picture and pick out
+
+604
+00:43:42,000 --> 00:43:44,840
+the important parts.
+
+605
+00:43:44,840 --> 00:43:50,760
+One naive way to do this would be to scan the data, pixel by pixel, go across it.
+
+606
+00:43:50,760 --> 00:43:55,320
+But all of us intuitively, we maybe don't necessarily do this.
+
+607
+00:43:55,320 --> 00:44:01,200
+We don't eyeball left or right, we can immediately pick out the important parts.
+
+608
+00:44:01,200 --> 00:44:08,040
+And so the core idea behind this is if we want to identify which parts to attend to, that's
+
+609
+00:44:08,040 --> 00:44:09,360
+step one.
+
+610
+00:44:09,360 --> 00:44:16,080
+And then we use that identification to extract the features or the actual content of the input
+
+611
+00:44:16,080 --> 00:44:20,560
+that have high attention scores or high attention values.
+
+612
+00:44:20,560 --> 00:44:25,940
+And it's really this first part of the problem that's the core, which is very similar to this
+
+613
+00:44:25,940 --> 00:44:28,060
+notion of search.
+
+614
+00:44:28,060 --> 00:44:35,020
+So if we were to do an example walkthrough, let's say many of you probably had this question
+
+615
+00:44:35,020 --> 00:44:39,620
+of how can I learn more about AI and deep learning and neural networks?
+
+616
+00:44:39,620 --> 00:44:45,500
+One way you could approach this in addition to coming to this class is to go to the internet,
+
+617
+00:44:45,500 --> 00:44:52,500
+to something like YouTube and search for videos there that are relevant to this topic of neural
+
+618
+00:44:52,500 --> 00:44:55,260
+networks and deep learning.
+
+619
+00:44:55,260 --> 00:44:59,420
+And so YouTube right is a giant database of many, many videos.
+
+620
+00:44:59,420 --> 00:45:05,740
+How do you actually find and attend to the relevant videos in this database?
+
+621
+00:45:05,740 --> 00:45:09,700
+You're going to go in and put a query in deep learning.
+
+622
+00:45:09,700 --> 00:45:17,000
+And we want to be able to extract some key information about each of these videos that
+
+623
+00:45:17,000 --> 00:45:19,540
+are in this data base.
+
+624
+00:45:19,540 --> 00:45:24,980
+So all of these videos have a title, think about it as the key.
+
+625
+00:45:24,980 --> 00:45:32,260
+And ideally, to complete the search problem, you want to find an overlap, semantically,
+
+626
+00:45:32,260 --> 00:45:37,260
+between your search query and key.
+
+627
+00:45:37,260 --> 00:45:41,720
+the indices of these videos in these databases.
+
+628
+00:45:41,720 --> 00:45:48,220
+And so you're going to compute what we think of practically as some sort of waiting or
+
+629
+00:45:48,220 --> 00:45:54,780
+an attention mask, how similar is each of these keys to your query.
+
+630
+00:45:54,780 --> 00:45:58,660
+And we can do this step by step in this example.
+
+631
+00:45:58,660 --> 00:46:05,560
+A beautiful C-chartle may be very elegant and natural but not similar to the query of deep
+
+632
+00:46:05,560 --> 00:46:13,240
+learning. A video from six years ago about introduction to deep learning. Yes, relevant.
+
+633
+00:46:13,240 --> 00:46:20,440
+A video about the best fade away in all of basketball from the late and great Kobe Bryant.
+
+634
+00:46:20,440 --> 00:46:25,200
+Also very important but not relevant to the query.
+
+635
+00:46:25,200 --> 00:46:32,400
+And so now we've identified the relevant feature or the part of the data. And we want to extract
+
+636
+00:46:32,400 --> 00:46:37,080
+the video itself, what that we want to pay attention to.
+
+637
+00:46:37,080 --> 00:46:39,040
+And this we call the value.
+
+638
+00:46:39,040 --> 00:46:42,920
+And because the search was implemented with a good attention
+
+639
+00:46:42,920 --> 00:46:46,640
+mechanism, we've pulled out best deep learning course,
+
+640
+00:46:46,640 --> 00:46:48,520
+which of course is ours.
+
+641
+00:46:48,520 --> 00:46:50,320
+And I'm sure all of you can relate to this
+
+642
+00:46:50,320 --> 00:46:53,320
+because you're here sitting in this class.
+
+643
+00:46:53,320 --> 00:46:57,000
+And so really, this is an intuition that explains
+
+644
+00:46:57,000 --> 00:47:01,960
+this what this attention operation is actually doing.
+
+645
+00:47:01,960 --> 00:47:09,040
+So to formalize this in practice, how self-attention works in neural networks like transformers.
+
+646
+00:47:09,040 --> 00:47:10,920
+The goal is exactly the same.
+
+647
+00:47:10,920 --> 00:47:16,920
+We want to identify and attend to parts of an input, which can be a sequence of data that
+
+648
+00:47:16,920 --> 00:47:19,000
+are going to be important.
+
+649
+00:47:19,000 --> 00:47:23,840
+So breaking this down, let's say we have this input sentence, he tossed the tennis ball
+
+650
+00:47:23,840 --> 00:47:25,600
+to serve.
+
+651
+00:47:25,600 --> 00:47:31,800
+First, we want to eliminate recurrence, but preserve information about order.
+
+652
+00:47:31,800 --> 00:47:37,720
+If we're going to feed the data in all at once, we still want a way to encode or represent
+
+653
+00:47:37,720 --> 00:47:40,280
+these positional relationships.
+
+654
+00:47:40,280 --> 00:47:50,160
+And so in practice with attention, there's something that's called a positional embedding
+
+655
+00:47:50,160 --> 00:47:56,360
+that's used to represent the input that's given into an attention mechanism.
+
+656
+00:47:56,360 --> 00:48:02,800
+And we're not going to go into great details about how this position aware encoding is actually
+
+657
+00:48:02,800 --> 00:48:03,800
+implemented.
+
+658
+00:48:03,800 --> 00:48:09,280
+But the core thing that I'd like for you to take away is that mathematically we can use
+
+659
+00:48:09,280 --> 00:48:15,880
+this to preserve some information about the positional relationships in this sequence
+
+660
+00:48:15,880 --> 00:48:18,040
+input.
+
+661
+00:48:18,040 --> 00:48:24,800
+The next is really this core step of these three components, query, key, and value.
+
+662
+00:48:24,800 --> 00:48:29,240
+And there are the fundamental components of the attention mechanism.
+
+663
+00:48:29,240 --> 00:48:34,040
+And so we're going to take that position embedding, which is representing our sequence input
+
+664
+00:48:34,040 --> 00:48:35,760
+all at once.
+
+665
+00:48:35,760 --> 00:48:41,040
+And in this case, in this example, we're going to look at self-attention, meaning in
+
+666
+00:48:41,040 --> 00:48:48,760
+an individual sequence input, can we identify those core relationships in that sequence input
+
+667
+00:48:48,760 --> 00:48:51,410
+itself?
+
+668
+00:48:51,410 --> 00:48:59,850
+To extract that, we're going to do three transformations of this embedding to get our query, our key, and our value.
+
+669
+00:48:59,850 --> 00:49:11,810
+The first is a query, and it's going to be done by a learned layer that transforms the positional embedding into a query matrix.
+
+670
+00:49:11,810 --> 00:49:17,690
+And similarly, we will have another learned layer for the key matrix, and
+
+671
+00:49:17,690 --> 00:49:21,690
+third learned layer for the value matrix.
+
+672
+00:49:21,690 --> 00:49:27,450
+Importantly note that the positional embedding is the same for all these three.
+
+673
+00:49:27,450 --> 00:49:33,290
+But those three layers, and therefore the three transformed outputs of query key and
+
+674
+00:49:33,290 --> 00:49:36,890
+value are going to be different, capturing different information.
+
+675
+00:49:38,650 --> 00:49:42,650
+Now we need to actually compute the attention score.
+
+676
+00:49:42,650 --> 00:49:46,090
+How similar is that query to the key?
+
+677
+00:49:46,090 --> 00:49:48,090
+How can we identify those most?
+
+678
+00:49:48,090 --> 00:49:50,120
+important parts?
+
+679
+00:49:50,120 --> 00:49:54,160
+The way we can do this is to compute a mathematical similarity
+
+680
+00:49:54,160 --> 00:49:57,400
+between these two matrices.
+
+681
+00:49:57,400 --> 00:50:02,460
+And mathematically, we can do that through an operation
+
+682
+00:50:02,460 --> 00:50:06,200
+simply that is related to, based on the dot product.
+
+683
+00:50:06,200 --> 00:50:09,320
+Right? So if we have two vectors in space,
+
+684
+00:50:09,320 --> 00:50:12,040
+let's say we represent the query vector in blue
+
+685
+00:50:12,040 --> 00:50:16,320
+and the key vector in orange, using the dot product,
+
+686
+00:50:16,320 --> 00:50:20,880
+we can compute how aligned they are in space.
+
+687
+00:50:20,880 --> 00:50:23,760
+And so we take the dot product between the query
+
+688
+00:50:23,760 --> 00:50:27,000
+and the key and scale it to get this notion
+
+689
+00:50:27,000 --> 00:50:29,280
+of a similarity metric.
+
+690
+00:50:29,280 --> 00:50:32,880
+And this is also known as the cosine similarity, right?
+
+691
+00:50:34,280 --> 00:50:36,160
+And so fundamentally, right,
+
+692
+00:50:36,160 --> 00:50:40,160
+we can apply the same operation to matrices,
+
+693
+00:50:40,160 --> 00:50:46,960
+this dot product and this scaling to get us this similarity metric.
+
+694
+00:50:46,960 --> 00:50:53,400
+If we visualize what the result of this operation could mean, remember we're trying to compute
+
+695
+00:50:53,400 --> 00:50:59,600
+self-attention, meaning within the sequence he tossed the tennis ball to serve, what are
+
+696
+00:50:59,600 --> 00:51:06,160
+the components of that sequence that relate more strongly to each other versus others?
+
+697
+00:51:06,160 --> 00:51:13,480
+If we were to learn attention over this compute attention score over this input, we could look
+
+698
+00:51:13,480 --> 00:51:20,480
+like we could get something similar to this, where in this matrix we for each position
+
+699
+00:51:20,480 --> 00:51:22,880
+right we compute a score.
+
+700
+00:51:22,880 --> 00:51:28,040
+Along the diagonal is going to have the highest relation because the words are the same.
+
+701
+00:51:28,040 --> 00:51:34,480
+But the words that are more semantically related and relationally related should also have
+
+702
+00:51:34,480 --> 00:51:39,600
+high scores, for example, between ball and toss.
+
+703
+00:51:39,600 --> 00:51:45,240
+And so when we compute this stop product of the querying the key, apply the scaling.
+
+704
+00:51:45,240 --> 00:51:52,000
+We finally apply a function, the softmax, to squash these values between zero and one.
+
+705
+00:51:52,000 --> 00:51:54,840
+And this gives us our attention weight.
+
+706
+00:51:54,840 --> 00:52:02,240
+And when you look at the entries of an attention matrix, this gives you a notion of the relative
+
+707
+00:52:02,240 --> 00:52:08,560
+importance of parts of that sequence of input relative to each other.
+
+708
+00:52:08,560 --> 00:52:14,760
+And this attention-weighting is finally what we use to actually extract the features out
+
+709
+00:52:14,760 --> 00:52:21,240
+by multiplying this with the value to get the final output.
+
+710
+00:52:21,240 --> 00:52:26,840
+So putting this all together, right, the core idea of using this attention-weighting to
+
+711
+00:52:26,840 --> 00:52:30,180
+to identify the parts of importance,
+
+712
+00:52:30,180 --> 00:52:34,240
+multiplying it with the value to extract those features,
+
+713
+00:52:34,240 --> 00:52:37,240
+puts us in a great place to now bring this forward,
+
+714
+00:52:37,240 --> 00:52:40,960
+this attention mechanism as a part of a neural network.
+
+715
+00:52:40,960 --> 00:52:43,040
+So to recap, our goal again,
+
+716
+00:52:43,040 --> 00:52:46,160
+identify and attend to the most important features
+
+717
+00:52:46,160 --> 00:52:48,160
+in a sequence input.
+
+718
+00:52:48,160 --> 00:52:50,500
+Architecturally, what this looks like
+
+719
+00:52:50,500 --> 00:52:53,400
+is we take the sequence positional encoding,
+
+720
+00:52:53,400 --> 00:52:55,280
+we have three copies.
+
+721
+00:52:55,280 --> 00:53:03,200
+We have three learned neural network layers that allow for transformation of these encodings
+
+722
+00:53:03,200 --> 00:53:06,400
+to the query key in value.
+
+723
+00:53:06,400 --> 00:53:13,000
+We can use this to compute the similarity score by computing these attention weights between
+
+724
+00:53:13,000 --> 00:53:20,800
+the query and the key, scaling it, applying the softmax to get values between 0 and 1,
+
+725
+00:53:20,800 --> 00:53:26,120
+And finally, extracting the features with high attention via the multiplication with the
+
+726
+00:53:26,120 --> 00:53:29,080
+value matrix.
+
+727
+00:53:29,080 --> 00:53:34,880
+And so together, this operations that I'm showing in the right are the basis of what we call
+
+728
+00:53:34,880 --> 00:53:40,680
+an attention head that can plug into a larger network architecture.
+
+729
+00:53:40,680 --> 00:53:47,640
+And so modern transformers use this attention operation to compute this very similar type
+
+730
+00:53:47,640 --> 00:53:54,600
+of relation to learn these patterns of importance in sequential data.
+
+731
+00:53:54,600 --> 00:53:59,960
+And this is really the core building block of the transformer architecture.
+
+732
+00:53:59,960 --> 00:54:04,640
+What's really powerful is that it's very, very parallelizable.
+
+733
+00:54:04,640 --> 00:54:10,960
+And we can also put together multiple attention heads, stacking them together within one network
+
+734
+00:54:10,960 --> 00:54:15,440
+to identify and learn different patterns of importance.
+
+735
+00:54:15,440 --> 00:54:22,000
+And so you can think of this intuitively as maybe we have multiple attention heads in the
+
+736
+00:54:22,000 --> 00:54:28,240
+network where visually we can pick out Ironman but we can also pick out this building that
+
+737
+00:54:28,240 --> 00:54:33,080
+you know he's hopefully not going to crash into and this alien spaceship looming in the
+
+738
+00:54:33,080 --> 00:54:34,080
+background.
+
+739
+00:54:34,080 --> 00:54:35,080
+Right.
+
+740
+00:54:35,080 --> 00:54:41,040
+So this is just very I want to emphasize that this is an intuitive example to ground you but
+
+741
+00:54:41,040 --> 00:54:45,540
+conceptually this idea of stacking these attention heads is very,
+
+742
+00:54:45,540 --> 00:54:49,540
+very practical in terms of building out these transformer architectures.
+
+743
+00:54:50,640 --> 00:54:58,340
+So today it's truly remarkable how far this architecture has come in terms of
+
+744
+00:54:58,340 --> 00:55:03,340
+the capabilities that we have seen as a result of not only that innovation,
+
+745
+00:55:03,340 --> 00:55:05,340
+but many innovations that have followed.
+
+746
+00:55:05,340 --> 00:55:14,340
+And it's not just in natural language and transformer LLM's like GPT, but also in other domains as well.
+
+747
+00:55:14,340 --> 00:55:25,340
+In biology, in thinking about sequences like proteins or DNA, and how we can learn relationships using transformer-based architectures,
+
+748
+00:55:25,340 --> 00:55:29,100
+and even in the visual domain, where vision transformers
+
+749
+00:55:29,100 --> 00:55:32,840
+have become perhaps the dominant architecture
+
+750
+00:55:32,840 --> 00:55:37,020
+for looking at computer vision and visual data
+
+751
+00:55:37,020 --> 00:55:39,980
+as we'll learn about in lecture three tomorrow.
+
+752
+00:55:41,180 --> 00:55:44,100
+So with that concludes this lecture
+
+753
+00:55:44,100 --> 00:55:46,740
+and to summarize the key points, right?
+
+754
+00:55:46,740 --> 00:55:48,840
+We talked about sequence modeling
+
+755
+00:55:48,840 --> 00:55:51,540
+as this broad class of tasks
+
+756
+00:55:51,540 --> 00:55:53,980
+that are very relevant across domains.
+
+757
+00:55:53,980 --> 00:55:57,460
+We learned about RNNs and how they're well suited
+
+758
+00:55:57,460 --> 00:56:00,780
+and how we can build out this recurrence relation,
+
+759
+00:56:00,780 --> 00:56:02,860
+train them using back propagation,
+
+760
+00:56:04,100 --> 00:56:07,760
+applications to music generation, text generation,
+
+761
+00:56:07,760 --> 00:56:10,180
+translation, beyond.
+
+762
+00:56:10,180 --> 00:56:13,180
+And finally, we talked about the limitations
+
+763
+00:56:13,180 --> 00:56:16,420
+of RNNs in terms of the encoding bottleneck
+
+764
+00:56:16,420 --> 00:56:20,500
+and how this has motivated advances in attention
+
+765
+00:56:20,500 --> 00:56:23,540
+to model sequences without recurrence.
+
+766
+00:56:23,980 --> 00:56:30,860
+So with that, we're going to close the lecture portion and a couple of logistics notes
+
+767
+00:56:30,860 --> 00:56:32,360
+and announcements.
+
+768
+00:56:32,360 --> 00:56:39,580
+So the final hour of the class each day, three to four PM is dedicated to an office hours
+
+769
+00:56:39,580 --> 00:56:45,020
+style session where we will be available to answer your questions.
+
+770
+00:56:45,020 --> 00:56:48,220
+You'll have time to work on the software labs.
+
+771
+00:56:48,220 --> 00:56:53,540
+We also have our amazing TAs here to help you with practical questions getting started
+
+772
+00:56:53,540 --> 00:56:55,220
+with the software labs.
+
+773
+00:56:55,220 --> 00:57:00,020
+And the labs are all available on this link by GitHub
+
+774
+00:57:00,020 --> 00:57:03,580
+and the instructions for starting to execute them
+
+775
+00:57:03,580 --> 00:57:05,140
+are there.
+
+776
+00:57:05,140 --> 00:57:09,420
+And finally, John has been, as you meant earlier,
+
+777
+00:57:09,420 --> 00:57:12,900
+has been very, very gracious in hosting our kickoff
+
+778
+00:57:12,900 --> 00:57:15,460
+social tonight at 5 p.m.
+
+779
+00:57:15,460 --> 00:57:18,820
+If you have a registered already, please do so.
+
+780
+00:57:18,820 --> 00:57:21,740
+So we can help keep track of who's coming.
+
+781
+00:57:21,740 --> 00:57:27,260
+And it's just down the road, one Kendall Square, and there'll be free food and drinks provided.
+
+782
+00:57:27,260 --> 00:57:28,900
+So hope to see you there.
+
+783
+00:57:28,900 --> 00:57:30,380
+And thank you so much for your attention.

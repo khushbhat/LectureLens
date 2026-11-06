@@ -1,0 +1,2267 @@
+{
+  "sentences": [
+    {
+      "text": "All right, I think we can circle back and get started here.",
+      "start": 11.22,
+      "end": 14.98,
+      "id": 0
+    },
+    {
+      "text": "So I'm Ava and welcome to lecture two of Success 191.",
+      "start": 14.98,
+      "end": 19.54,
+      "id": 1
+    },
+    {
+      "text": "And we're going to focus today in this talk on sequence modeling, which is a very powerful and general paradigm that has become super relevant today, especially with the onset of these very powerful language models.",
+      "start": 19.54,
+      "end": 33.62,
+      "id": 2
+    },
+    {
+      "text": "And so just about an hour ago, Alexander introduced us to this idea of neural networks and built the intuition about neural networks from the bottom up.",
+      "start": 33.62,
+      "end": 43.22,
+      "id": 3
+    },
+    {
+      "text": "And we focus specifically on these class of models known as feed-forward models.",
+      "start": 43.22,
+      "end": 48.1,
+      "id": 4
+    },
+    {
+      "text": "And so when we turn our attention to applying neural networks to sequential processing and sequential modeling of data, we'll see how this modeling paradigm requires a different way of thinking, right?",
+      "start": 48.1,
+      "end": 59.74,
+      "id": 5
+    },
+    {
+      "text": "Because we now have data that's resolved in time.",
+      "start": 59.74,
+      "end": 63.66,
+      "id": 6
+    },
+    {
+      "text": "And we'll go through similarly to build up the intuition and the modeling framework step-by-step from the ground up.",
+      "start": 63.66,
+      "end": 70.38,
+      "id": 7
+    },
+    {
+      "text": "So with that, we're going to start again with a very intuitive example, which as you'll see throughout the course, is kind of one of our things that we really hold very near and dear in terms of building up intuition about these concepts.",
+      "start": 71.38,
+      "end": 85.66,
+      "id": 8
+    },
+    {
+      "text": "So to do that, let's start with this very simple example where I've given you an image of a ball in a 2D space here.",
+      "start": 85.66,
+      "end": 94.3,
+      "id": 9
+    },
+    {
+      "text": "And I'm going to ask you, okay, can you predict where it will go next?",
+      "start": 94.3,
+      "end": 100.86,
+      "id": 10
+    },
+    {
+      "text": "Without any prior information about the ball's history, anything that you say is going to be a guess on its next position, a guess, a random proposal about where the ball is going to travel to.",
+      "start": 100.86,
+      "end": 113.58,
+      "id": 11
+    },
+    {
+      "text": "However, in addition to the current location of the ball, I were to give you a sequence of information back in time and ask you to use this in context to now predict where the ball is going to travel to next, the problem now becomes much easier.",
+      "start": 113.58,
+      "end": 130.1,
+      "id": 12
+    },
+    {
+      "text": "And I think we can all agree on what's the most likely next path or trajectory of the ball in this problem.",
+      "start": 130.1,
+      "end": 136.98,
+      "id": 13
+    },
+    {
+      "text": "So this is really the core idea behind many sequence modeling problems, where we have this data that's resolved in time, or can be modeled as a sequence of information.",
+      "start": 136.98,
+      "end": 147.82,
+      "id": 14
+    },
+    {
+      "text": "And we want to make a prediction about the state of the system.",
+      "start": 147.82,
+      "end": 152.34,
+      "id": 15
+    },
+    {
+      "text": "And so beyond that simple example, sequential data as Alexander mentioned is truly all around us, right?",
+      "start": 152.34,
+      "end": 158.58,
+      "id": 16
+    },
+    {
+      "text": "As I'm speaking and I'm projecting these audio waveforms, that is a sequence that can be split up into a series of chunks of sound waves.",
+      "start": 158.58,
+      "end": 167.82,
+      "id": 17
+    },
+    {
+      "text": "Similarly with text, we can think about breaking that text up into a sequence of individual characters or individual words.",
+      "start": 167.82,
+      "end": 178.14,
+      "id": 18
+    },
+    {
+      "text": "And beyond these examples, sequential data is really all around us, from medical signals to financial time series, like modeling the stark market, to biology and chemistry and the life sciences and thinking about biological sequences and modalities, to patterns of movement, to videos, to",
+      "start": 178.14,
+      "end": 198.76,
+      "id": 19
+    },
+    {
+      "text": "weather, all around us there are these problems that can be thought of from a sequential modeling perspective.",
+      "start": 198.76,
+      "end": 204.94,
+      "id": 20
+    },
+    {
+      "text": "And so that gives us a concrete notion of how we can bring this idea of sequence modeling to the real world.",
+      "start": 205.94,
+      "end": 213.32,
+      "id": 21
+    },
+    {
+      "text": "But what are some tasks that we now could think about training neural networks to facilitate in this context?",
+      "start": 213.32,
+      "end": 221.74,
+      "id": 22
+    },
+    {
+      "text": "In lecture one, we talked about this simple example of classification, binary classification.",
+      "start": 221.74,
+      "end": 227.78,
+      "id": 23
+    },
+    {
+      "text": "Yes or no, will I pass this class, given a student as input, produce a zero-one prediction about pass versus fail?",
+      "start": 227.78,
+      "end": 237.18,
+      "id": 24
+    },
+    {
+      "text": "We can also do similar classification type problems or tasks with sequences, right?",
+      "start": 237.18,
+      "end": 243.66,
+      "id": 25
+    },
+    {
+      "text": "We can think about taking a body of text, let's say a tweet, and assigning a emotion or a sentiment as a class label to that text.",
+      "start": 243.66,
+      "end": 254.58,
+      "id": 26
+    },
+    {
+      "text": "On the other hand, we could go rather from sequence to one output.",
+      "start": 254.58,
+      "end": 259.1,
+      "id": 27
+    },
+    {
+      "text": "We could have one input and produce a sequence of output.",
+      "start": 259.1,
+      "end": 263.02,
+      "id": 28
+    },
+    {
+      "text": "So say in the image captioning world or the vision language world, where given an image, we want to train a neural network to produce text describing the content of that image that also falls into this paradigm of sequence modeling.",
+      "start": 263.02,
+      "end": 279.82,
+      "id": 29
+    },
+    {
+      "text": "And also we can think about many inputs going to many outputs.",
+      "start": 279.82,
+      "end": 284.78,
+      "id": 30
+    },
+    {
+      "text": "So if you want to translate text or audio from one language to another, we have to do this transformation of learning a function to map English text to, let's say, text in Mandarin.",
+      "start": 284.78,
+      "end": 298.78,
+      "id": 31
+    },
+    {
+      "text": "So these are some three examples of core types of modeling tasks we can bring to the sequence modeling world.",
+      "start": 298.78,
+      "end": 308.7,
+      "id": 32
+    },
+    {
+      "text": "So today we're going to think about these types of problems and we're going to build up intuition about how we can actually define different types of neural network architectures to tackle the unique features of these types of sequence modeling problems.",
+      "start": 308.7,
+      "end": 327.42,
+      "id": 33
+    },
+    {
+      "text": "So the first core part of this lecture is going to be around this idea of building neurons that have a notion of recurrence that allows them to process time resolved or sequential data one step at a time.",
+      "start": 327.42,
+      "end": 343.6,
+      "id": 34
+    },
+    {
+      "text": "And I think this topic is something that when I was first learning machine learning and deep learning was something I myself had a struggle to wrap my head around.",
+      "start": 343.6,
+      "end": 353.5,
+      "id": 35
+    },
+    {
+      "text": "And so what we've tried to do with this next block of content is really build a fundamental intuition about how this concept works, building from the ground up and connecting back to what Alexander introduced with feed-forward models to actually build up that intuition effectively.",
+      "start": 353.5,
+      "end": 373.74,
+      "id": 36
+    },
+    {
+      "text": "So to do that, let's first go back to the perceptron, right?",
+      "start": 373.74,
+      "end": 377.82,
+      "id": 37
+    },
+    {
+      "text": "building block of neural networks and go step by step to the sequence modeling world.",
+      "start": 377.82,
+      "end": 385.13,
+      "id": 38
+    },
+    {
+      "text": "When we looked at the perceptron, we had this kind of diagram, right?",
+      "start": 385.13,
+      "end": 389.21,
+      "id": 39
+    },
+    {
+      "text": "This function where we have a set of inputs, let's call them x1 through xm, and we have an individual perceptron unit that takes these inputs, multiplies each of them by a weight, non-linearity, non-linear activation function to produce an output Y-Hab.",
+      "start": 389.21,
+      "end": 411.85,
+      "id": 40
+    },
+    {
+      "text": "And so we saw that we can have multiple inputs going in to this perceptron, and you can think of these as inputs at a particular time.",
+      "start": 411.85,
+      "end": 422.05,
+      "id": 41
+    },
+    {
+      "text": "We also saw how we can stack these individual perceptrons together to build out a layer of a neural network.",
+      "start": 422.05,
+      "end": 430.73,
+      "id": 42
+    },
+    {
+      "text": "So what you're seeing here is that extension, right, where in green we have this layer of individual perceptrons where we can map multi-dimensional input to a multi-dimensional output.",
+      "start": 430.73,
+      "end": 444.25,
+      "id": 43
+    },
+    {
+      "text": "But so far even though we have a multi-dimensional input, does this have a notion of time steps or of sequence?",
+      "start": 444.25,
+      "end": 452.49,
+      "id": 44
+    },
+    {
+      "text": "No, not yet.",
+      "start": 452.49,
+      "end": 454.53,
+      "id": 45
+    },
+    {
+      "text": "And so to get there, let's take this diagram and collapse it down and simplify it a bit.",
+      "start": 454.53,
+      "end": 460.69,
+      "id": 46
+    },
+    {
+      "text": "So all I'm showing you here is that inner layer of the stack of perceptrons collapsed into this layer-wise block, right, shown here in green.",
+      "start": 460.69,
+      "end": 471.37,
+      "id": 47
+    },
+    {
+      "text": "And our inputs are going to be x of t, x at some time step t, and they're going to be fed into this layer and producing an output y hat.",
+      "start": 471.37,
+      "end": 484.49,
+      "id": 48
+    },
+    {
+      "text": "But we're still just considering the input at a particular time step.",
+      "start": 484.49,
+      "end": 488.89,
+      "id": 49
+    },
+    {
+      "text": "and we're denoting that by the marker, little t. This is nothing different than what we saw in the first lecture, right?",
+      "start": 488.89,
+      "end": 496.57,
+      "id": 50
+    },
+    {
+      "text": "We're just beginning to get this notion that this is processing information from just one time step.",
+      "start": 496.57,
+      "end": 503.57,
+      "id": 51
+    },
+    {
+      "text": "Now, let's flip this on its side.",
+      "start": 504.77,
+      "end": 507.51,
+      "id": 52
+    },
+    {
+      "text": "So we've just rotated this 90 degrees, in perfector going into the layer, getting our output vector.",
+      "start": 507.51,
+      "end": 514.29,
+      "id": 53
+    },
+    {
+      "text": "What if we had this sequential data over time?",
+      "start": 515.25,
+      "end": 518.85,
+      "id": 54
+    },
+    {
+      "text": "And let's say we took our same feet forward model and tried to apply it time step by time step over and over again.",
+      "start": 518.85,
+      "end": 527.45,
+      "id": 55
+    },
+    {
+      "text": "If we did that, we would see something like this where at time step zero, we take our input, pass it through our no network layer, produce an output y hat.",
+      "start": 527.45,
+      "end": 540.21,
+      "id": 56
+    },
+    {
+      "text": "We did this at time step one, do the same thing, pass in the input, produce an output, at time step two, so on.",
+      "start": 540.21,
+      "end": 549.21,
+      "id": 57
+    },
+    {
+      "text": "And even if we did this time step to time step, we'd be applying our neural network function to the inputs and predicting outputs.",
+      "start": 549.21,
+      "end": 558.65,
+      "id": 58
+    },
+    {
+      "text": "But still, they're not connected at all, right?",
+      "start": 558.65,
+      "end": 560.69,
+      "id": 59
+    },
+    {
+      "text": "These time steps are isolated.",
+      "start": 560.69,
+      "end": 563.09,
+      "id": 60
+    },
+    {
+      "text": "We're just treating x of 0 at time step 0, x of 1, at time step 1, so on and so forth.",
+      "start": 563.09,
+      "end": 570.61,
+      "id": 61
+    },
+    {
+      "text": "But really the core thing with sequential data is that there is some relation between the inputs at time step t to the inputs at time step t minus 1, t minus 2, and so on and so forth.",
+      "start": 570.61,
+      "end": 585.37,
+      "id": 62
+    },
+    {
+      "text": "Just like the example with the ball.",
+      "start": 585.37,
+      "end": 587.53,
+      "id": 63
+    },
+    {
+      "text": "If we treat the time steps in isolation, we have no information about the past trajectory of the ball.",
+      "start": 587.53,
+      "end": 593.89,
+      "id": 64
+    },
+    {
+      "text": "But if we connect the time steps together, then we can use that past history to make a better prediction about the current state or the future state.",
+      "start": 593.89,
+      "end": 604.16,
+      "id": 65
+    },
+    {
+      "text": "And so this to concretize this a little more, what that is saying is that the predicted output at a later time step, say T equals 2, should depend somehow on the inputs at the prior time steps, say x of 1, x of 0.",
+      "start": 604.16,
+      "end": 623.88,
+      "id": 66
+    },
+    {
+      "text": "And so we want a way to preserve this information and carry it forward to make predictions at later time steps.",
+      "start": 623.88,
+      "end": 633.56,
+      "id": 67
+    },
+    {
+      "text": "And the idea behind doing this is to link and relate the network's computations at the particular time step to the past history of the prior time steps.",
+      "start": 633.56,
+      "end": 645.48,
+      "id": 68
+    },
+    {
+      "text": "So let's try by doing exactly that.",
+      "start": 645.48,
+      "end": 649.56,
+      "id": 69
+    },
+    {
+      "text": "What this diagram is now showing is by connecting these outputs and the states at these past time steps, we're linking the computation of the network across time.",
+      "start": 649.56,
+      "end": 664.76,
+      "id": 70
+    },
+    {
+      "text": "Specifically we can introduce this notion of an internal state of the network.",
+      "start": 664.76,
+      "end": 671.24,
+      "id": 71
+    },
+    {
+      "text": "And we're going to denote this using the variable H, where this is going to be actually maintained by the neural network itself and pass on time step to time step.",
+      "start": 671.24,
+      "end": 683.76,
+      "id": 72
+    },
+    {
+      "text": "So we get this idea of sort of memory of this internal state of the neural network that's going to depend not only on the past computations but also the input at that time step.",
+      "start": 683.76,
+      "end": 698.96,
+      "id": 73
+    },
+    {
+      "text": "What this means very concretely is when the network makes a prediction at time step that's going to be a function of not only the input at that time step, but also the past memory or the state that's captured in this variable of state, H of T minus 1.",
+      "start": 698.96,
+      "end": 722.08,
+      "id": 74
+    },
+    {
+      "text": "So that past memory.",
+      "start": 722.08,
+      "end": 723.86,
+      "id": 75
+    },
+    {
+      "text": "And you can see that concretely in this example in the middle, where prediction at time step 1 depends on input at time step 1, step one, as well as the past state.",
+      "start": 723.86,
+      "end": 736.42,
+      "id": 76
+    },
+    {
+      "text": "And so this is the score idea of what we think of as recurrence.",
+      "start": 736.42,
+      "end": 741.74,
+      "id": 77
+    },
+    {
+      "text": "Meaning simply, how can we link in just one network, right?",
+      "start": 741.74,
+      "end": 745.94,
+      "id": 78
+    },
+    {
+      "text": "The network is not, we're not creating new networks per time set.",
+      "start": 745.94,
+      "end": 751.82,
+      "id": 79
+    },
+    {
+      "text": "It's still one network.",
+      "start": 751.82,
+      "end": 753.62,
+      "id": 80
+    },
+    {
+      "text": "But we're connecting the information from the past computations to the predictions at a particular time set.",
+      "start": 753.62,
+      "end": 761.54,
+      "id": 81
+    },
+    {
+      "text": "And so because this output, this prediction, is a function of both the current input and the past memory, we describe these neural networks via this recurrence relation.",
+      "start": 761.54,
+      "end": 773.26,
+      "id": 82
+    },
+    {
+      "text": "And so you can show this on the left here where we have this notion of a cycle, this looping, which shows that h of t is being recurrently provided to the network at these different time steps to make the predictions.",
+      "start": 773.26,
+      "end": 789.06,
+      "id": 83
+    },
+    {
+      "text": "And on the right, we just see that kind of rolled out over these time steps.",
+      "start": 789.06,
+      "end": 793.22,
+      "id": 84
+    },
+    {
+      "text": "It's in a way to me, it's a clearer visualization of what is actually going on.",
+      "start": 793.22,
+      "end": 799.12,
+      "id": 85
+    },
+    {
+      "text": "And so this core idea of maintaining an internal state, HFT, updating it per individual time steps and using that to inform the predicted output is the core intuitive idea behind a very large class of neural networks called recurrent neural networks or RNNs.",
+      "start": 800.46,
+      "end": 822.1,
+      "id": 86
+    },
+    {
+      "text": "And this is really the key to understanding these frameworks of RNNs.",
+      "start": 822.86,
+      "end": 827.82,
+      "id": 87
+    },
+    {
+      "text": "So we're going to continue to build up from this foundation to gain more and more understanding about the behavior of these neural networks.",
+      "start": 827.82,
+      "end": 836.34,
+      "id": 88
+    },
+    {
+      "text": "So let's formalize this a bit more.",
+      "start": 837.42,
+      "end": 840.22,
+      "id": 89
+    },
+    {
+      "text": "Right, as we saw, this core idea is to maintain internal state, updated at each time set that this as the sequence is processed dynamically.",
+      "start": 840.22,
+      "end": 850.46,
+      "id": 90
+    },
+    {
+      "text": "And so the way we do this is via this recurrence relation, which defines how that update actually occurs per unit time.",
+      "start": 851.26,
+      "end": 859.9,
+      "id": 91
+    },
+    {
+      "text": "Making this more concrete, this notion of this cell state, H of T, is going to be a function parameterized by a set of weights, just like with Fienette Forward Networks, just like with any network we're going to see throughout this course, right?",
+      "start": 859.9,
+      "end": 878.94,
+      "id": 92
+    },
+    {
+      "text": "We always define these updates according to these learnable sets of weights, and that state update depends on the current input and the prior state from the prior time step.",
+      "start": 878.94,
+      "end": 891.94,
+      "id": 93
+    },
+    {
+      "text": "Right?",
+      "start": 891.94,
+      "end": 893.44,
+      "id": 94
+    },
+    {
+      "text": "Cell state is a function defined by a set of weights w that depends on the input and the old state.",
+      "start": 893.44,
+      "end": 903.34,
+      "id": 95
+    },
+    {
+      "text": "And with an RNN type model, we use that same function in set of parameters at every time step.",
+      "start": 903.34,
+      "end": 910.26,
+      "id": 96
+    },
+    {
+      "text": "And when we actually train the model, as we'll see, those weights get updated per training step.",
+      "start": 910.26,
+      "end": 918.18,
+      "id": 97
+    },
+    {
+      "text": "So another way to get more intuition from this is also to look at an example in pseudocode.",
+      "start": 918.18,
+      "end": 925.22,
+      "id": 98
+    },
+    {
+      "text": "So let's go through that through the algorithm for the state update of these state-based models and get a better sense of how these networks work.",
+      "start": 925.22,
+      "end": 934.82,
+      "id": 99
+    },
+    {
+      "text": "So we start by initializing the state to something, let's say, 0.",
+      "start": 934.82,
+      "end": 942.02,
+      "id": 100
+    },
+    {
+      "text": "And our prediction here is going to look at text.",
+      "start": 942.02,
+      "end": 945.86,
+      "id": 101
+    },
+    {
+      "text": "Text data, we break it up into a sequence of words.",
+      "start": 945.86,
+      "end": 949.74,
+      "id": 102
+    },
+    {
+      "text": "And our task is to predict the next word in the sentence.",
+      "start": 949.74,
+      "end": 955.1,
+      "id": 103
+    },
+    {
+      "text": "So we take our input sentence and we take our initialized RNN with its initialized state.",
+      "start": 955.1,
+      "end": 961.94,
+      "id": 104
+    },
+    {
+      "text": "And then we iterate time step by time step word by word in that sentence and call a function of the RNN to generate a prediction and update the hidden state per word, right, per time step.",
+      "start": 961.94,
+      "end": 977.3,
+      "id": 105
+    },
+    {
+      "text": "And at the end, once we've stepped through all the words so far in the sentence, we can get a prediction for the next word by taking the output of the RNN at that last time step.",
+      "start": 977.3,
+      "end": 988.06,
+      "id": 106
+    },
+    {
+      "text": "So this is really a core idea behind this idea of next word prediction.",
+      "start": 990.06,
+      "end": 995.74,
+      "id": 107
+    },
+    {
+      "text": "One way to approach it is by going step by step, word by word through a sentence and predicting the, and learning this relation kind of recursively over time.",
+      "start": 995.74,
+      "end": 1008.42,
+      "id": 108
+    },
+    {
+      "text": "So as we kind of saw with an RNN, we need to update both the state and predict an output.",
+      "start": 1009.66,
+      "end": 1017.74,
+      "id": 109
+    },
+    {
+      "text": "So to take this to the last level of concreteness and bring a little bit math into this, our relationship here is we're given this input vector.",
+      "start": 1017.74,
+      "end": 1029.9,
+      "id": 110
+    },
+    {
+      "text": "We first update the hidden state And we're going to apply a function to do this.",
+      "start": 1029.9,
+      "end": 1037.06,
+      "id": 111
+    },
+    {
+      "text": "To break this down, it maybe looks a little intimidating at first with multiple variables here, multiple weights.",
+      "start": 1037.06,
+      "end": 1044.1,
+      "id": 112
+    },
+    {
+      "text": "But it's really very similar to the neural net operations that we saw in lecture one that Alexander introduced.",
+      "start": 1044.1,
+      "end": 1051.74,
+      "id": 113
+    },
+    {
+      "text": "Just like before, we have multiplications by weight matrices, right?",
+      "start": 1051.74,
+      "end": 1056.22,
+      "id": 114
+    },
+    {
+      "text": "Sets of weights that are applied to both the past hidden state and the input, and we take those something together and apply a non-linear activation function, right?",
+      "start": 1056.22,
+      "end": 1067.02,
+      "id": 115
+    },
+    {
+      "text": "That's the tan H hyperbolic tangent function here.",
+      "start": 1067.02,
+      "end": 1071.02,
+      "id": 116
+    },
+    {
+      "text": "And that gives our hidden state update.",
+      "start": 1071.02,
+      "end": 1074.42,
+      "id": 117
+    },
+    {
+      "text": "And to do the output prediction, we take another weight matrix and transform the hidden state and predict the output.",
+      "start": 1074.42,
+      "end": 1083.74,
+      "id": 118
+    },
+    {
+      "text": "And importantly, right, these three sets of weight matrices are learned.",
+      "start": 1083.74,
+      "end": 1088.78,
+      "id": 119
+    },
+    {
+      "text": "We start them, we initialize them, and over the course of the training of the RNN, we update the parameters of these weight matrices through gradient descent and the similar algorithms of training the neural network that we saw in lecture one.",
+      "start": 1088.78,
+      "end": 1104.66,
+      "id": 120
+    },
+    {
+      "text": "So putting this all together, right?",
+      "start": 1106.02,
+      "end": 1108.58,
+      "id": 121
+    },
+    {
+      "text": "How does this come together?",
+      "start": 1108.58,
+      "end": 1111.58,
+      "id": 122
+    },
+    {
+      "text": "We have our RNN with this recurrent loop-like relation, And we saw that we can unroll this step by step across these time steps and visualize the RNN that way.",
+      "start": 1111.58,
+      "end": 1124.26,
+      "id": 123
+    },
+    {
+      "text": "When we do that, we break it down from time step zero to time step one, so on and so forth, all the way up to time step T, whatever the length of the input is.",
+      "start": 1124.26,
+      "end": 1136.26,
+      "id": 124
+    },
+    {
+      "text": "And across all these steps, we're making these predictions at these individual time steps.",
+      "start": 1136.26,
+      "end": 1144.26,
+      "id": 125
+    },
+    {
+      "text": "We can make the weight matrices explicit, showing the weight matrix that maps input to the hidden state, the hidden state weight matrix as well as the output.",
+      "start": 1144.26,
+      "end": 1157.06,
+      "id": 126
+    },
+    {
+      "text": "And we reuse the same matrices that every time step.",
+      "start": 1157.06,
+      "end": 1164.29,
+      "id": 127
+    },
+    {
+      "text": "When we make a forward pass, a call through the model to actually generate the prediction, because we're generating predictions at each time step, that means we can compute a loss at each individual time set.",
+      "start": 1164.29,
+      "end": 1178.13,
+      "id": 128
+    },
+    {
+      "text": "And we can sum them together to get an overall loss that gives us the whole predictive loss over the entire sequence.",
+      "start": 1178.13,
+      "end": 1187.85,
+      "id": 129
+    },
+    {
+      "text": "So that gives us a broken down way of how this RNN forward pass, a call to the model, actually occurs in practice.",
+      "start": 1187.85,
+      "end": 1196.81,
+      "id": 130
+    },
+    {
+      "text": "We can go through and look at how we could implement this from scratch in a framework like TensorFlow, where we begin by initializing these weight matrices initializing a class for the RNN, and defining this forward pass computation and what we call the call",
+      "start": 1198.41,
+      "end": 1217.98,
+      "id": 131
+    },
+    {
+      "text": "function, which is effectively how you call the neural network.",
+      "start": 1217.98,
+      "end": 1221.41,
+      "id": 132
+    },
+    {
+      "text": "How do you make a forward pass going from input to prediction and using that prediction to get during training to compute a loss and update the loss.",
+      "start": 1221.41,
+      "end": 1232.17,
+      "id": 133
+    },
+    {
+      "text": "And so, again, to reiterate this computation, right, we update the hidden state, we compute the output and return both values back.",
+      "start": 1232.17,
+      "end": 1243.25,
+      "id": 134
+    },
+    {
+      "text": "In practice though, right, very rarely will you actually, or maybe almost never, build up a RNN unit from scratch.",
+      "start": 1243.25,
+      "end": 1253.69,
+      "id": 135
+    },
+    {
+      "text": "In fact, in both TensorFlow and PyTorch and common ML frameworks, there are existing implementations built in, where you can just use these RNN layers in practice in defining your neural network.",
+      "start": 1253.69,
+      "end": 1269.01,
+      "id": 136
+    },
+    {
+      "text": "And you'll get hands-on experience doing this in software lab 1, starting today.",
+      "start": 1269.01,
+      "end": 1276.53,
+      "id": 137
+    },
+    {
+      "text": "Okay, so to recap and put these elements together, we saw that with RNNs, we can, and sequence modeling in general, we have this idea of different types of tasks or problem formulations we can tackle.",
+      "start": 1276.53,
+      "end": 1290.51,
+      "id": 138
+    },
+    {
+      "text": "We can do classification tasks, we can do captioning tasks or text generation tasks, we can do sequence to sequence translation tasks.",
+      "start": 1290.51,
+      "end": 1300.15,
+      "id": 139
+    },
+    {
+      "text": "And that is really with a lot of these generative applications, like in language modeling, machine translation, natural language processing, many of these can be formulated according to these many to many problems.",
+      "start": 1300.15,
+      "end": 1315.51,
+      "id": 140
+    },
+    {
+      "text": "And you'll get hands-on experience with this.",
+      "start": 1315.51,
+      "end": 1319.71,
+      "id": 141
+    },
+    {
+      "text": "So to make this more concrete in terms of what this actually means in terms of a real use case or problem in the real world.",
+      "start": 1319.71,
+      "end": 1332.39,
+      "id": 142
+    },
+    {
+      "text": "I want to focus on a very pertinent sequence modeling problem, which is the basis for basically all language models, large language models, small language models that we see today, which is this notion of next word prediction.",
+      "start": 1332.39,
+      "end": 1349.27,
+      "id": 143
+    },
+    {
+      "text": "And we're going to use next word prediction to think about and work through core design criteria that we want to build out in any sort of neural network that we build for a sequence modeling problem.",
+      "start": 1349.27,
+      "end": 1363.47,
+      "id": 144
+    },
+    {
+      "text": "And this is a really important task, not only because of the relevance of next word prediction, but in general in thinking about your own deep learning applications or work or research that may be relevant to you, relating those problems back to design criteria",
+      "start": 1363.47,
+      "end": 1380.51,
+      "id": 145
+    },
+    {
+      "text": "in terms of the architectures you choose and the approach you actually take.",
+      "start": 1380.51,
+      "end": 1385.71,
+      "id": 146
+    },
+    {
+      "text": "So, let's say we have this sentence, this morning I took my cat for a walk.",
+      "start": 1385.71,
+      "end": 1392.91,
+      "id": 147
+    },
+    {
+      "text": "The task of next word prediction is given some set of words, let's say this morning I took my cat for a, predict the next word in the sentence.",
+      "start": 1392.91,
+      "end": 1406.71,
+      "id": 148
+    },
+    {
+      "text": "And so to do this, the very first thing we have to consider, whether we're using an and RNN or any other sort of neural network is how are we actually going to represent this data, language data, to the model.",
+      "start": 1406.71,
+      "end": 1419.53,
+      "id": 149
+    },
+    {
+      "text": "The way that we can formalize this is, let's say we have a model and we input the word deep and we want to use the neural network to predict the next word learning.",
+      "start": 1420.95,
+      "end": 1434.11,
+      "id": 150
+    },
+    {
+      "text": "What could be the issue here?",
+      "start": 1434.11,
+      "end": 1436.03,
+      "id": 151
+    },
+    {
+      "text": "If we're just trying to pass in words to the model, Will this actually work if not how can we make this work in terms of the data itself?",
+      "start": 1436.03,
+      "end": 1447.19,
+      "id": 152
+    },
+    {
+      "text": "Yes.",
+      "start": 1447.19,
+      "end": 1450.19,
+      "id": 153
+    },
+    {
+      "text": "You have to tokenize the words.",
+      "start": 1450.19,
+      "end": 1451.51,
+      "id": 154
+    },
+    {
+      "text": "Can you say more about what that means?",
+      "start": 1451.51,
+      "end": 1466.66,
+      "id": 155
+    },
+    {
+      "text": "Right.",
+      "start": 1466.66,
+      "end": 1467.66,
+      "id": 156
+    },
+    {
+      "text": "So it gets closer to this idea of can we embed something about the concept of the word to represent the model?",
+      "start": 1467.66,
+      "end": 1475.98,
+      "id": 157
+    },
+    {
+      "text": "It actually is a step earlier than that, which is we can't straight pass in, characters to the model, they have to be represented numerically somehow, right?",
+      "start": 1475.98,
+      "end": 1487.5,
+      "id": 158
+    },
+    {
+      "text": "Because ultimately all these neural networks are, they're operating on numerical data.",
+      "start": 1487.5,
+      "end": 1494.46,
+      "id": 159
+    },
+    {
+      "text": "And so tokenization is one way that we can think about doing this.",
+      "start": 1494.46,
+      "end": 1499.02,
+      "id": 160
+    },
+    {
+      "text": "But regardless of what strategy we use, we have to process the language data to a numerical input.",
+      "start": 1499.02,
+      "end": 1508.38,
+      "id": 161
+    },
+    {
+      "text": "where we have a vector or an array or an index of numbers to the model that represents, let's say, the sequence of words and get a prediction of something that represents the next word but is in numerical form.",
+      "start": 1508.38,
+      "end": 1524.94,
+      "id": 162
+    },
+    {
+      "text": "And then we can map this back to the language space to actually get what the word prediction was.",
+      "start": 1524.94,
+      "end": 1530.86,
+      "id": 163
+    },
+    {
+      "text": "And so to formalize this, how do we actually do this?",
+      "start": 1530.86,
+      "end": 1534.7,
+      "id": 164
+    },
+    {
+      "text": "This gets to this idea that you raise in your answer transforming the words into some numerical representation and tokenization gives us one strategy to do that.",
+      "start": 1534.7,
+      "end": 1547.02,
+      "id": 165
+    },
+    {
+      "text": "So this is a concept of, in general, of an embedding or an encoding.",
+      "start": 1547.02,
+      "end": 1553.02,
+      "id": 166
+    },
+    {
+      "text": "And ideally we want this embedding to represent something about the semantic content of the words, right?",
+      "start": 1553.02,
+      "end": 1560.02,
+      "id": 167
+    },
+    {
+      "text": "right?",
+      "start": 1560.02,
+      "end": 1560.55,
+      "id": 168
+    },
+    {
+      "text": "Because language has this very rich structure, so something like learning and education maybe are mapped closer together than learning and tennis, right?",
+      "start": 1560.55,
+      "end": 1571.76,
+      "id": 169
+    },
+    {
+      "text": "So the approach for doing this is to consider the complete vocabulary or the corpus of words that are present in our language.",
+      "start": 1571.76,
+      "end": 1581.06,
+      "id": 170
+    },
+    {
+      "text": "And first start by mapping these words to individual unique indices.",
+      "start": 1581.78,
+      "end": 1587.06,
+      "id": 171
+    },
+    {
+      "text": "Then where do we go from there.",
+      "start": 1587.06,
+      "end": 1590.38,
+      "id": 172
+    },
+    {
+      "text": "A naive approach would be to just map an index to a fixed length vector where you have a single one-hot bit flip where that represents the identity of the word based on the index that's a one versus zero elsewhere.",
+      "start": 1590.38,
+      "end": 1609.31,
+      "id": 173
+    },
+    {
+      "text": "But this is not very informative, right?",
+      "start": 1609.31,
+      "end": 1612.54,
+      "id": 174
+    },
+    {
+      "text": "Because of the fact that we're not capturing anything about the semantics and this rich structure that's present in language.",
+      "start": 1612.54,
+      "end": 1620.5,
+      "id": 175
+    },
+    {
+      "text": "And so a more intelligent way to go about this is to leverage some sort of embedding scheme where there is capture of these semantic relationships.",
+      "start": 1620.5,
+      "end": 1631.78,
+      "id": 176
+    },
+    {
+      "text": "And so this is in general learning and embedding or learning a tokenization strategy to capture this.",
+      "start": 1631.78,
+      "end": 1640.18,
+      "id": 177
+    },
+    {
+      "text": "And in language models today, there are very popular schemes that basically effectively map chunks of words and chunks of language that occur frequently together to certain parts of this embedding space so that we can capture those relationships in terms of co-occurrence of particular",
+      "start": 1640.18,
+      "end": 1661.9,
+      "id": 178
+    },
+    {
+      "text": "characters or words or chunks in the vocabulary.",
+      "start": 1661.9,
+      "end": 1666.86,
+      "id": 179
+    },
+    {
+      "text": "So this is really the core idea.",
+      "start": 1666.86,
+      "end": 1668.94,
+      "id": 180
+    },
+    {
+      "text": "But the fundamental point that I want to convey is that in all cases, in all examples that we see throughout this class, neural networks operate on numerical inputs.",
+      "start": 1668.94,
+      "end": 1680.38,
+      "id": 181
+    },
+    {
+      "text": "So regardless of your data modality, you have to think about a way to map that data into numerical input to be processed and represented in a way that the neural network can handle.",
+      "start": 1680.38,
+      "end": 1693.74,
+      "id": 182
+    },
+    {
+      "text": "Okay, so that's design criteria number one, right?",
+      "start": 1694.82,
+      "end": 1698.1,
+      "id": 183
+    },
+    {
+      "text": "We need a way to map to numerical inputs, And ideally, we want this mapping to capture something about the structure of language.",
+      "start": 1698.1,
+      "end": 1707.94,
+      "id": 184
+    },
+    {
+      "text": "The second sort of design criteria that's critical for sequence modeling and this next word prediction task is being able to handle variable lengths of sequences.",
+      "start": 1707.94,
+      "end": 1719.26,
+      "id": 185
+    },
+    {
+      "text": "Short sentence, medium sentence, long sentence, doesn't matter, we should be able to operate over all of these types of inputs.",
+      "start": 1719.26,
+      "end": 1730.05,
+      "id": 186
+    },
+    {
+      "text": "Feed forward networks break down here, right?",
+      "start": 1730.05,
+      "end": 1733.13,
+      "id": 187
+    },
+    {
+      "text": "Because of the fact that there's a fixed number of inputs.",
+      "start": 1733.13,
+      "end": 1736.97,
+      "id": 188
+    },
+    {
+      "text": "But something like a state-based model like an RNN where we're processing the data time step by time step is inherently designed to process these variable length inputs.",
+      "start": 1736.97,
+      "end": 1749.53,
+      "id": 189
+    },
+    {
+      "text": "A final criteria that we want to think about is capturing these dependencies and relationships that can occur in sequence data like language.",
+      "start": 1749.53,
+      "end": 1761.09,
+      "id": 190
+    },
+    {
+      "text": "Oftentimes, there's really core information up front in the sentence that informs the next word prediction super downstream in the sentence.",
+      "start": 1761.09,
+      "end": 1770.69,
+      "id": 191
+    },
+    {
+      "text": "And we want to be able to capture this effectively.",
+      "start": 1770.69,
+      "end": 1773.89,
+      "id": 192
+    },
+    {
+      "text": "And finally, sequence data is sequential for a reason.",
+      "start": 1774.89,
+      "end": 1779.49,
+      "id": 193
+    },
+    {
+      "text": "That means that differences in the order can completely alter the, what is actually represented in that sample.",
+      "start": 1779.49,
+      "end": 1789.73,
+      "id": 194
+    },
+    {
+      "text": "The food was good, not bad at all, means great.",
+      "start": 1789.73,
+      "end": 1793.13,
+      "id": 195
+    },
+    {
+      "text": "Good food.",
+      "start": 1793.13,
+      "end": 1793.97,
+      "id": 196
+    },
+    {
+      "text": "But if we flip the order of the words in the sentence, we've completely flipped the meaning.",
+      "start": 1793.97,
+      "end": 1798.12,
+      "id": 197
+    },
+    {
+      "text": "The exact words are the same, order matters.",
+      "start": 1798.12,
+      "end": 1802.04,
+      "id": 198
+    },
+    {
+      "text": "And so RNNs are one way to start to get at tackling these design criteria because they can handle variable length sequences.",
+      "start": 1802.04,
+      "end": 1812.68,
+      "id": 199
+    },
+    {
+      "text": "Through this notion of the internal state, we have some way of tracking and preserving information about these dependencies.",
+      "start": 1812.68,
+      "end": 1820.76,
+      "id": 200
+    },
+    {
+      "text": "We're processing the data step by step, so we have a notion of order.",
+      "start": 1820.76,
+      "end": 1825.32,
+      "id": 201
+    },
+    {
+      "text": "And we have this weight sharing that allows this build up of memory over time in the RNN to be able to capture those dependencies.",
+      "start": 1825.32,
+      "end": 1835.78,
+      "id": 202
+    },
+    {
+      "text": "Okay, so the final piece of RNN content that we'll talk about is how we actually train RNNs in practice.",
+      "start": 1835.78,
+      "end": 1846.78,
+      "id": 203
+    },
+    {
+      "text": "And that's based on the core neural network training algorithm that Alexander introduced which is back propagation.",
+      "start": 1846.78,
+      "end": 1855.02,
+      "id": 204
+    },
+    {
+      "text": "So let's do a refresher of how we actually train these feed forward models.",
+      "start": 1855.02,
+      "end": 1860.62,
+      "id": 205
+    },
+    {
+      "text": "We have an input, and we first make a forward pass through the network from input to output to generate a prediction.",
+      "start": 1860.62,
+      "end": 1870.1,
+      "id": 206
+    },
+    {
+      "text": "And then to actually compute the loss, update the parameters of the model, the weights in the model, we backpropagate gradients back through the network where the algorithm was to take the derivative of the loss with respect to the parameters or the weights in",
+      "start": 1870.1,
+      "end": 1889.56,
+      "id": 207
+    },
+    {
+      "text": "the network and then shifting the parameters in order to minimize this loss.",
+      "start": 1889.56,
+      "end": 1897.5,
+      "id": 208
+    },
+    {
+      "text": "Now, let's say we are going to extend this to the context of RNNs.",
+      "start": 1897.5,
+      "end": 1903.5,
+      "id": 209
+    },
+    {
+      "text": "As we saw with RNNs, we have this step-by-step sequential processing.",
+      "start": 1903.5,
+      "end": 1908.38,
+      "id": 210
+    },
+    {
+      "text": "So we can predict outputs at each time step, meaning we can get a loss at each time step, and we can get an aggregate loss by summing the losses at these individual time steps.",
+      "start": 1908.38,
+      "end": 1921.58,
+      "id": 211
+    },
+    {
+      "text": "Now in order to back propagate and make updates to the network, we need to do this over time as well.",
+      "start": 1921.58,
+      "end": 1929.82,
+      "id": 212
+    },
+    {
+      "text": "So instead of backpropagating error through a single feed forward network at a single time step, in RNNs, we backpropagate across these individual time steps and then across time steps from where we are currently back to the beginning of the sequence.",
+      "start": 1929.82,
+      "end": 1948.18,
+      "id": 213
+    },
+    {
+      "text": "And so this is the formulation of this algorithm for training RNNs called backpropagation through time because error is flowing back through time from where we are currently in the sequence back to the beginning time step one or time step zero.",
+      "start": 1948.18,
+      "end": 1966.7,
+      "id": 214
+    },
+    {
+      "text": "And so taking a closer look at how these gradients flow, we actually have to make these very repeated matrix multiplications with the weight matrix W to make because of these cell state updates requiring this passing of the weight matrix WH.",
+      "start": 1966.7,
+      "end": 1988.14,
+      "id": 215
+    },
+    {
+      "text": "And in practice, this can get a little tricky because computing the gradient back with respect to the state at the very first time step zero involves many repeated factors of WH of H and repeated gradient computations.",
+      "start": 1988.14,
+      "end": 2005.26,
+      "id": 216
+    },
+    {
+      "text": "In practice, if the values of this weight matrix are large, things can blow up very quickly, in problem that we call exploding gradients.",
+      "start": 2005.26,
+      "end": 2014.26,
+      "id": 217
+    },
+    {
+      "text": "And so often in practice, you'll actually clip the values of the gradients to some maximum so that you can scale back big gradients.",
+      "start": 2014.26,
+      "end": 2024.1,
+      "id": 218
+    },
+    {
+      "text": "You can also have the inverse problem where if the way matrix ends up being very small, you have repeated multiplications of something very small and things shrink.",
+      "start": 2024.1,
+      "end": 2034.78,
+      "id": 219
+    },
+    {
+      "text": "And then you get very little signal to actually learn on.",
+      "start": 2034.78,
+      "end": 2039.5,
+      "id": 220
+    },
+    {
+      "text": "And this is known as the vanishing gradient problem.",
+      "start": 2039.5,
+      "end": 2043.3,
+      "id": 221
+    },
+    {
+      "text": "And there are as well practical tricks in terms of solutions and implementations that people use to mitigate this problem.",
+      "start": 2043.3,
+      "end": 2054.84,
+      "id": 222
+    },
+    {
+      "text": "Yes, questions?",
+      "start": 2054.84,
+      "end": 2055.6,
+      "id": 223
+    },
+    {
+      "text": "So each zero is neither an explicit parameter nor an input.",
+      "start": 2055.6,
+      "end": 2065.75,
+      "id": 224
+    },
+    {
+      "text": "Right, it's this internal state variable, if you will.",
+      "start": 2065.75,
+      "end": 2070.67,
+      "id": 225
+    },
+    {
+      "text": "And it is dependent on the weight matrix parameter and the input.",
+      "start": 2070.67,
+      "end": 2076.67,
+      "id": 226
+    },
+    {
+      "text": "So if you think about the input as being a variable, H0 is a variable that depends on computation involving the weight matrices W. Okay.",
+      "start": 2076.67,
+      "end": 2088.85,
+      "id": 227
+    },
+    {
+      "text": "So in practice, right, this vanishing gradient problem has real implications in particular with respect to our ability to track long term dependencies in the data.",
+      "start": 2088.85,
+      "end": 2101.37,
+      "id": 228
+    },
+    {
+      "text": "And I won't spend too much time on this, but just to give you a sense, when we multiply many of these small gradient values or matrix values together, it biases the model to try to capture the shorter term things, because further back you're",
+      "start": 2102.37,
+      "end": 2121.38,
+      "id": 229
+    },
+    {
+      "text": "going to have more propagation of error and more of this vanishing problem.",
+      "start": 2121.38,
+      "end": 2127.61,
+      "id": 230
+    },
+    {
+      "text": "And so while this allows for effective capture of dependencies that are relatively short-term, it poses a problem for important longer-term dependencies where the input length can grow very long in terms of number of time steps and becomes problematic for the RNN to actually keep track of these longer-term dependencies.",
+      "start": 2127.61,
+      "end": 2152.37,
+      "id": 231
+    },
+    {
+      "text": "So in practice, there has been a lot of architecture development around these RNN style models.",
+      "start": 2152.37,
+      "end": 2160.37,
+      "id": 232
+    },
+    {
+      "text": "And in particular, there's this notion of making the internal computation of the RNN more complex to better control the flow of information and the state update equation itself.",
+      "start": 2160.37,
+      "end": 2174.69,
+      "id": 233
+    },
+    {
+      "text": "And one really pioneering solution to this was many years ago, a group led by Yurgen Schmitt Hubert.",
+      "start": 2174.69,
+      "end": 2183.77,
+      "id": 234
+    },
+    {
+      "text": "I introduced this mechanism called Long Short-term Memory that was really a foundational advance in terms of better controlling for these state updates in architectures like RNNs.",
+      "start": 2183.77,
+      "end": 2199.85,
+      "id": 235
+    },
+    {
+      "text": "So brief no on applications of these networks and in particular the one that you're going to experiment with in software lab 1 which is this multi output generation problem focusing on this task of music generation.",
+      "start": 2199.85,
+      "end": 2216.45,
+      "id": 236
+    },
+    {
+      "text": "And every year I like to highlight this example from a few years ago now but the capabilities of deep learning and AI for music generation have now become actually quite remarkable.",
+      "start": 2216.45,
+      "end": 2228.73,
+      "id": 237
+    },
+    {
+      "text": "But still, this is one of my favorite examples where the classical composer, Franz Schubert, had a very symphony that he called his unfinished symphony in a few years back.",
+      "start": 2228.73,
+      "end": 2240.69,
+      "id": 238
+    },
+    {
+      "text": "There was an effort to actually train a recurrent based model on his music to predict and generate new music to finish his unfinished symphony.",
+      "start": 2240.69,
+      "end": 2252.25,
+      "id": 239
+    },
+    {
+      "text": "So this is a sample of that AI-generated third movement, which is pretty compelling, I think, from a musical perspective.",
+      "start": 2252.25,
+      "end": 2276.61,
+      "id": 240
+    },
+    {
+      "text": "And actually, remarkably, I think the quality has even continued to improve.",
+      "start": 2276.61,
+      "end": 2281.69,
+      "id": 241
+    },
+    {
+      "text": "You will actually experiment with these same concepts in software lab 1, which I think is really cool and exciting.",
+      "start": 2281.69,
+      "end": 2288.89,
+      "id": 242
+    },
+    {
+      "text": "And so I'll leave the applications at that for the purposes of time.",
+      "start": 2288.89,
+      "end": 2293.81,
+      "id": 243
+    },
+    {
+      "text": "and hopefully give you enough of a teaser to motivate entries into software lab 1 competition.",
+      "start": 2293.81,
+      "end": 2300.81,
+      "id": 244
+    },
+    {
+      "text": "Okay, so in the final 15 minutes or so, we're going to move beyond recurrent models and think really about taking a step back to, again, the design criteria and capabilities of that we desire with sequence modeling.",
+      "start": 2300.81,
+      "end": 2317.81,
+      "id": 245
+    },
+    {
+      "text": "And thinking about what are the limitations of RNNs from a technical perspective and how this has motivated new advances in architectures for a sequence modeling.",
+      "start": 2317.81,
+      "end": 2329.29,
+      "id": 246
+    },
+    {
+      "text": "So the first fundamental limitation of RNNs is that they have this encoding bottleneck that's imposed by this notion of the internal state, H of T, this variable.",
+      "start": 2329.29,
+      "end": 2341.09,
+      "id": 247
+    },
+    {
+      "text": "We are trying to pack as much information about the dependencies and the structure of the data into that internal state, HFT, and use this to carry forward time step by step.",
+      "start": 2341.09,
+      "end": 2354.33,
+      "id": 248
+    },
+    {
+      "text": "Relatedly, right, when we process the data time step by time step, this can be pretty slow.",
+      "start": 2354.33,
+      "end": 2360.73,
+      "id": 249
+    },
+    {
+      "text": "We have to take the individual inputs, the individual slices as individual slices.",
+      "start": 2360.73,
+      "end": 2367.21,
+      "id": 250
+    },
+    {
+      "text": "And so it's not really paralyzable.",
+      "start": 2367.21,
+      "end": 2370.33,
+      "id": 251
+    },
+    {
+      "text": "And as a result of these two elements, especially that encoding bottleneck, the RNN can really quickly run into memory issues in terms of how long of a dependency is it able to capture.",
+      "start": 2370.33,
+      "end": 2384.37,
+      "id": 252
+    },
+    {
+      "text": "And so if we go back again to our fundamental goal of sequence modeling, we want to take a input that's represented as a sequence and learn some set of features that then map to a sequence of outputs.",
+      "start": 2384.37,
+      "end": 2400.5,
+      "id": 253
+    },
+    {
+      "text": "And RNNs use this notion of a recurrence relation and this step-by-step modeling to try to track these dependencies.",
+      "start": 2400.5,
+      "end": 2409.49,
+      "id": 254
+    },
+    {
+      "text": "But they have these three key bottlenecks that I mentioned.",
+      "start": 2409.49,
+      "end": 2414.46,
+      "id": 255
+    },
+    {
+      "text": "Ideally, we don't have that encoding bottleneck and we're able to look at this sequence globally as a continuous stream of information, but still able to capture local relationships and dependencies in the data.",
+      "start": 2414.46,
+      "end": 2430.44,
+      "id": 256
+    },
+    {
+      "text": "Ideally, we don't have to handle the sequence time step by time step.",
+      "start": 2430.44,
+      "end": 2436.23,
+      "id": 257
+    },
+    {
+      "text": "We're able to parallelize very efficiently so that we can handle long bodies of input.",
+      "start": 2436.23,
+      "end": 2442.09,
+      "id": 258
+    },
+    {
+      "text": "And we want to have this notion of long memory.",
+      "start": 2442.09,
+      "end": 2446.38,
+      "id": 259
+    },
+    {
+      "text": "And so with that experiment and a question is, what if we eliminated the need for recurrence entirely?",
+      "start": 2446.38,
+      "end": 2454.59,
+      "id": 260
+    },
+    {
+      "text": "How could we possibly approach this?",
+      "start": 2454.59,
+      "end": 2457.9,
+      "id": 261
+    },
+    {
+      "text": "One naive approach would be to kind of squash everything together.",
+      "start": 2457.9,
+      "end": 2464.44,
+      "id": 262
+    },
+    {
+      "text": "take one vector input and take the data from all the time points, concatenate them as one input vector, a single input.",
+      "start": 2464.44,
+      "end": 2476.4,
+      "id": 263
+    },
+    {
+      "text": "And feed this into the model and calculate some feature vector and use that to generate an output which we hope makes sense and is sensible.",
+      "start": 2476.4,
+      "end": 2487.16,
+      "id": 264
+    },
+    {
+      "text": "But yes, while we've eliminated this recurrence, we've eliminated this step by step processing this is not going to be scalable, right?",
+      "start": 2487.16,
+      "end": 2496.84,
+      "id": 265
+    },
+    {
+      "text": "Because if we were to build out a dense network to do this, this quickly gets very large as the sequence length grows.",
+      "start": 2496.84,
+      "end": 2505.88,
+      "id": 266
+    },
+    {
+      "text": "Importantly, we've lost the order information because those dependencies are gone.",
+      "start": 2505.88,
+      "end": 2512.28,
+      "id": 267
+    },
+    {
+      "text": "And because of that, there's no temporal dependency, so how can we really build out memory?",
+      "start": 2512.28,
+      "end": 2518.92,
+      "id": 268
+    },
+    {
+      "text": "And so that's because when we have fully connected or concatenated inputs.",
+      "start": 2518.92,
+      "end": 2523.66,
+      "id": 269
+    },
+    {
+      "text": "There's no notion of how do we actually pick out and attend to the parts in that input that are going to be important.",
+      "start": 2523.66,
+      "end": 2532.68,
+      "id": 270
+    },
+    {
+      "text": "And so several years ago now there was this breakthrough idea in this field of this notion of can we devise mathematically a way for the network to learn how to pick up and identify those dependencies locally and also globally that that are going to be important in the sequence overall.",
+      "start": 2532.68,
+      "end": 2554.08,
+      "id": 271
+    },
+    {
+      "text": "And this is the notion of attention.",
+      "start": 2554.08,
+      "end": 2556.68,
+      "id": 272
+    },
+    {
+      "text": "And this is a very powerful mechanism for learning in sequence modeling applications and is really the backbone of the transformer architecture.",
+      "start": 2556.68,
+      "end": 2567.8,
+      "id": 273
+    },
+    {
+      "text": "So if GPT or other models like BERT, the T in all of these acronyms stands for transformer.",
+      "start": 2567.8,
+      "end": 2576.04,
+      "id": 274
+    },
+    {
+      "text": "And the foundational mechanism behind these transformers is the attention operation.",
+      "start": 2576.04,
+      "end": 2582.8,
+      "id": 275
+    },
+    {
+      "text": "And to me, a very elegant and intuitive idea and we're going to break it down both from the intuition point of view and also the math to show you how that works.",
+      "start": 2582.8,
+      "end": 2593.96,
+      "id": 276
+    },
+    {
+      "text": "So the core intuition behind attention is can the neural network learn to identify what parts of an input within itself are most important to representing that input?",
+      "start": 2595.16,
+      "end": 2609.76,
+      "id": 277
+    },
+    {
+      "text": "And I think it's often easier to start with a visual example rather than a text example.",
+      "start": 2609.76,
+      "end": 2616.96,
+      "id": 278
+    },
+    {
+      "text": "But when we think about attention, we can immediately look at this picture and pick out the important parts.",
+      "start": 2616.96,
+      "end": 2624.84,
+      "id": 279
+    },
+    {
+      "text": "One naive way to do this would be to scan the data, pixel by pixel, go across it.",
+      "start": 2624.84,
+      "end": 2630.76,
+      "id": 280
+    },
+    {
+      "text": "But all of us intuitively, we maybe don't necessarily do this.",
+      "start": 2630.76,
+      "end": 2635.32,
+      "id": 281
+    },
+    {
+      "text": "We don't eyeball left or right, we can immediately pick out the important parts.",
+      "start": 2635.32,
+      "end": 2641.2,
+      "id": 282
+    },
+    {
+      "text": "And so the core idea behind this is if we want to identify which parts to attend to, that's step one.",
+      "start": 2641.2,
+      "end": 2649.36,
+      "id": 283
+    },
+    {
+      "text": "And then we use that identification to extract the features or the actual content of the input that have high attention scores or high attention values.",
+      "start": 2649.36,
+      "end": 2660.56,
+      "id": 284
+    },
+    {
+      "text": "And it's really this first part of the problem that's the core, which is very similar to this notion of search.",
+      "start": 2660.56,
+      "end": 2668.06,
+      "id": 285
+    },
+    {
+      "text": "So if we were to do an example walkthrough, let's say many of you probably had this question of how can I learn more about AI and deep learning and neural networks?",
+      "start": 2668.06,
+      "end": 2679.62,
+      "id": 286
+    },
+    {
+      "text": "One way you could approach this in addition to coming to this class is to go to the internet, to something like YouTube and search for videos there that are relevant to this topic of neural networks and deep learning.",
+      "start": 2679.62,
+      "end": 2695.26,
+      "id": 287
+    },
+    {
+      "text": "And so YouTube right is a giant database of many videos.",
+      "start": 2695.26,
+      "end": 2699.42,
+      "id": 288
+    },
+    {
+      "text": "How do you actually find and attend to the relevant videos in this database?",
+      "start": 2699.42,
+      "end": 2705.74,
+      "id": 289
+    },
+    {
+      "text": "You're going to go in and put a query in deep learning.",
+      "start": 2705.74,
+      "end": 2709.7,
+      "id": 290
+    },
+    {
+      "text": "And we want to be able to extract some key information about each of these videos that are in this data base.",
+      "start": 2709.7,
+      "end": 2719.54,
+      "id": 291
+    },
+    {
+      "text": "So all of these videos have a title, think about it as the key.",
+      "start": 2719.54,
+      "end": 2724.98,
+      "id": 292
+    },
+    {
+      "text": "And ideally, to complete the search problem, you want to find an overlap, semantically, between your search query and key.",
+      "start": 2724.98,
+      "end": 2737.26,
+      "id": 293
+    },
+    {
+      "text": "the indices of these videos in these databases.",
+      "start": 2737.26,
+      "end": 2741.72,
+      "id": 294
+    },
+    {
+      "text": "And so you're going to compute what we think of practically as some sort of waiting or an attention mask, how similar is each of these keys to your query.",
+      "start": 2741.72,
+      "end": 2754.78,
+      "id": 295
+    },
+    {
+      "text": "And we can do this step by step in this example.",
+      "start": 2754.78,
+      "end": 2758.66,
+      "id": 296
+    },
+    {
+      "text": "A beautiful C-chartle may be very elegant and natural but not similar to the query of deep learning.",
+      "start": 2758.66,
+      "end": 2766.11,
+      "id": 297
+    },
+    {
+      "text": "A video from six years ago about introduction to deep learning.",
+      "start": 2766.11,
+      "end": 2772.14,
+      "id": 298
+    },
+    {
+      "text": "Yes, relevant.",
+      "start": 2772.14,
+      "end": 2773.24,
+      "id": 299
+    },
+    {
+      "text": "A video about the best fade away in all of basketball from the late and great Kobe Bryant.",
+      "start": 2773.24,
+      "end": 2780.44,
+      "id": 300
+    },
+    {
+      "text": "Also very important but not relevant to the query.",
+      "start": 2780.44,
+      "end": 2785.2,
+      "id": 301
+    },
+    {
+      "text": "And so now we've identified the relevant feature or the part of the data.",
+      "start": 2785.2,
+      "end": 2790.51,
+      "id": 302
+    },
+    {
+      "text": "And we want to extract the video itself, what that we want to pay attention to.",
+      "start": 2790.51,
+      "end": 2797.08,
+      "id": 303
+    },
+    {
+      "text": "And this we call the value.",
+      "start": 2797.08,
+      "end": 2799.04,
+      "id": 304
+    },
+    {
+      "text": "And because the search was implemented with a good attention mechanism, we've pulled out best deep learning course, which of course is ours.",
+      "start": 2799.04,
+      "end": 2808.52,
+      "id": 305
+    },
+    {
+      "text": "And I'm sure all of you can relate to this because you're here sitting in this class.",
+      "start": 2808.52,
+      "end": 2813.32,
+      "id": 306
+    },
+    {
+      "text": "And so really, this is an intuition that explains this what this attention operation is actually doing.",
+      "start": 2813.32,
+      "end": 2821.96,
+      "id": 307
+    },
+    {
+      "text": "So to formalize this in practice, how self-attention works in neural networks like transformers.",
+      "start": 2821.96,
+      "end": 2829.04,
+      "id": 308
+    },
+    {
+      "text": "The goal is exactly the same.",
+      "start": 2829.04,
+      "end": 2830.92,
+      "id": 309
+    },
+    {
+      "text": "We want to identify and attend to parts of an input, which can be a sequence of data that are going to be important.",
+      "start": 2830.92,
+      "end": 2839.0,
+      "id": 310
+    },
+    {
+      "text": "So breaking this down, let's say we have this input sentence, he tossed the tennis ball to serve.",
+      "start": 2839.0,
+      "end": 2845.6,
+      "id": 311
+    },
+    {
+      "text": "First, we want to eliminate recurrence, but preserve information about order.",
+      "start": 2845.6,
+      "end": 2851.8,
+      "id": 312
+    },
+    {
+      "text": "If we're going to feed the data in all at once, we still want a way to encode or represent these positional relationships.",
+      "start": 2851.8,
+      "end": 2860.28,
+      "id": 313
+    },
+    {
+      "text": "And so in practice with attention, there's something that's called a positional embedding that's used to represent the input that's given into an attention mechanism.",
+      "start": 2860.28,
+      "end": 2876.36,
+      "id": 314
+    },
+    {
+      "text": "And we're not going to go into great details about how this position aware encoding is actually implemented.",
+      "start": 2876.36,
+      "end": 2883.8,
+      "id": 315
+    },
+    {
+      "text": "But the core thing that I'd like for you to take away is that mathematically we can use this to preserve some information about the positional relationships in this sequence input.",
+      "start": 2883.8,
+      "end": 2898.04,
+      "id": 316
+    },
+    {
+      "text": "The next is really this core step of these three components, query, key, and value.",
+      "start": 2898.04,
+      "end": 2904.8,
+      "id": 317
+    },
+    {
+      "text": "And there are the fundamental components of the attention mechanism.",
+      "start": 2904.8,
+      "end": 2909.24,
+      "id": 318
+    },
+    {
+      "text": "And so we're going to take that position embedding, which is representing our sequence input all at once.",
+      "start": 2909.24,
+      "end": 2915.76,
+      "id": 319
+    },
+    {
+      "text": "And in this case, in this example, we're going to look at self-attention, meaning in an individual sequence input, can we identify those core relationships in that sequence input itself?",
+      "start": 2915.76,
+      "end": 2931.41,
+      "id": 320
+    },
+    {
+      "text": "To extract that, we're going to do three transformations of this embedding to get our query, our key, and our value.",
+      "start": 2931.41,
+      "end": 2939.85,
+      "id": 321
+    },
+    {
+      "text": "The first is a query, and it's going to be done by a learned layer that transforms the positional embedding into a query matrix.",
+      "start": 2939.85,
+      "end": 2951.81,
+      "id": 322
+    },
+    {
+      "text": "And similarly, we will have another learned layer for the key matrix, and third learned layer for the value matrix.",
+      "start": 2951.81,
+      "end": 2961.69,
+      "id": 323
+    },
+    {
+      "text": "Importantly note that the positional embedding is the same for all these three.",
+      "start": 2961.69,
+      "end": 2967.45,
+      "id": 324
+    },
+    {
+      "text": "But those three layers, and therefore the three transformed outputs of query key and value are going to be different, capturing different information.",
+      "start": 2967.45,
+      "end": 2976.89,
+      "id": 325
+    },
+    {
+      "text": "Now we need to actually compute the attention score.",
+      "start": 2978.65,
+      "end": 2982.65,
+      "id": 326
+    },
+    {
+      "text": "How similar is that query to the key?",
+      "start": 2982.65,
+      "end": 2986.09,
+      "id": 327
+    },
+    {
+      "text": "How can we identify those most?",
+      "start": 2986.09,
+      "end": 2988.09,
+      "id": 328
+    },
+    {
+      "text": "important parts?",
+      "start": 2988.09,
+      "end": 2990.12,
+      "id": 329
+    },
+    {
+      "text": "The way we can do this is to compute a mathematical similarity between these two matrices.",
+      "start": 2990.12,
+      "end": 2997.4,
+      "id": 330
+    },
+    {
+      "text": "And mathematically, we can do that through an operation simply that is related to, based on the dot product.",
+      "start": 2997.4,
+      "end": 3006.2,
+      "id": 331
+    },
+    {
+      "text": "Right?",
+      "start": 3006.2,
+      "end": 3006.55,
+      "id": 332
+    },
+    {
+      "text": "So if we have two vectors in space, let's say we represent the query vector in blue and the key vector in orange, using the dot product, we can compute how aligned they are in space.",
+      "start": 3006.55,
+      "end": 3020.88,
+      "id": 333
+    },
+    {
+      "text": "And so we take the dot product between the query and the key and scale it to get this notion of a similarity metric.",
+      "start": 3020.88,
+      "end": 3029.28,
+      "id": 334
+    },
+    {
+      "text": "And this is also known as the cosine similarity, right?",
+      "start": 3029.28,
+      "end": 3032.88,
+      "id": 335
+    },
+    {
+      "text": "And so fundamentally, right, we can apply the same operation to matrices, this dot product and this scaling to get us this similarity metric.",
+      "start": 3034.28,
+      "end": 3046.96,
+      "id": 336
+    },
+    {
+      "text": "If we visualize what the result of this operation could mean, remember we're trying to compute self-attention, meaning within the sequence he tossed the tennis ball to serve, what are the components of that sequence that relate more strongly to each other versus others?",
+      "start": 3046.96,
+      "end": 3066.16,
+      "id": 337
+    },
+    {
+      "text": "If we were to learn attention over this compute attention score over this input, we could look like we could get something similar to this, where in this matrix we for each position right we compute a score.",
+      "start": 3066.16,
+      "end": 3082.88,
+      "id": 338
+    },
+    {
+      "text": "Along the diagonal is going to have the highest relation because the words are the same.",
+      "start": 3082.88,
+      "end": 3088.04,
+      "id": 339
+    },
+    {
+      "text": "But the words that are more semantically related and relationally related should also have high scores, for example, between ball and toss.",
+      "start": 3088.04,
+      "end": 3099.6,
+      "id": 340
+    },
+    {
+      "text": "And so when we compute this stop product of the querying the key, apply the scaling.",
+      "start": 3099.6,
+      "end": 3105.24,
+      "id": 341
+    },
+    {
+      "text": "We finally apply a function, the softmax, to squash these values between zero and one.",
+      "start": 3105.24,
+      "end": 3112.0,
+      "id": 342
+    },
+    {
+      "text": "And this gives us our attention weight.",
+      "start": 3112.0,
+      "end": 3114.84,
+      "id": 343
+    },
+    {
+      "text": "And when you look at the entries of an attention matrix, this gives you a notion of the relative importance of parts of that sequence of input relative to each other.",
+      "start": 3114.84,
+      "end": 3128.56,
+      "id": 344
+    },
+    {
+      "text": "And this attention-weighting is finally what we use to actually extract the features out by multiplying this with the value to get the final output.",
+      "start": 3128.56,
+      "end": 3141.24,
+      "id": 345
+    },
+    {
+      "text": "So putting this all together, right, the core idea of using this attention-weighting to to identify the parts of importance, multiplying it with the value to extract those features, puts us in a great place to now bring this forward, this attention mechanism as a part of a neural network.",
+      "start": 3141.24,
+      "end": 3160.96,
+      "id": 346
+    },
+    {
+      "text": "So to recap, our goal again, identify and attend to the most important features in a sequence input.",
+      "start": 3160.96,
+      "end": 3168.16,
+      "id": 347
+    },
+    {
+      "text": "Architecturally, what this looks like is we take the sequence positional encoding, we have three copies.",
+      "start": 3168.16,
+      "end": 3175.28,
+      "id": 348
+    },
+    {
+      "text": "We have three learned neural network layers that allow for transformation of these encodings to the query key in value.",
+      "start": 3175.28,
+      "end": 3186.4,
+      "id": 349
+    },
+    {
+      "text": "We can use this to compute the similarity score by computing these attention weights between the query and the key, scaling it, applying the softmax to get values between 0 and 1, And finally, extracting the features with high attention via the multiplication with the value matrix.",
+      "start": 3186.4,
+      "end": 3209.08,
+      "id": 350
+    },
+    {
+      "text": "And so together, this operations that I'm showing in the right are the basis of what we call an attention head that can plug into a larger network architecture.",
+      "start": 3209.08,
+      "end": 3220.68,
+      "id": 351
+    },
+    {
+      "text": "And so modern transformers use this attention operation to compute this very similar type of relation to learn these patterns of importance in sequential data.",
+      "start": 3220.68,
+      "end": 3234.6,
+      "id": 352
+    },
+    {
+      "text": "And this is really the core building block of the transformer architecture.",
+      "start": 3234.6,
+      "end": 3239.96,
+      "id": 353
+    },
+    {
+      "text": "What's really powerful is that it's very parallelizable.",
+      "start": 3239.96,
+      "end": 3244.64,
+      "id": 354
+    },
+    {
+      "text": "And we can also put together multiple attention heads, stacking them together within one network to identify and learn different patterns of importance.",
+      "start": 3244.64,
+      "end": 3255.44,
+      "id": 355
+    },
+    {
+      "text": "And so you can think of this intuitively as maybe we have multiple attention heads in the network where visually we can pick out Ironman but we can also pick out this building that he's hopefully not going to crash into and this alien spaceship looming in the background.",
+      "start": 3255.44,
+      "end": 3274.08,
+      "id": 356
+    },
+    {
+      "text": "Right.",
+      "start": 3274.08,
+      "end": 3275.08,
+      "id": 357
+    },
+    {
+      "text": "So this is just very I want to emphasize that this is an intuitive example to ground you but conceptually this idea of stacking these attention heads is very, very practical in terms of building out these transformer architectures.",
+      "start": 3275.08,
+      "end": 3289.54,
+      "id": 358
+    },
+    {
+      "text": "So today it's truly remarkable how far this architecture has come in terms of the capabilities that we have seen as a result of not only that innovation, but many innovations that have followed.",
+      "start": 3290.64,
+      "end": 3305.34,
+      "id": 359
+    },
+    {
+      "text": "And it's not just in natural language and transformer LLM's like GPT, but also in other domains as well.",
+      "start": 3305.34,
+      "end": 3314.34,
+      "id": 360
+    },
+    {
+      "text": "In biology, in thinking about sequences like proteins or DNA, and how we can learn relationships using transformer-based architectures, and even in the visual domain, where vision transformers have become perhaps the dominant architecture for looking at computer vision and visual data as we'll learn about in lecture three tomorrow.",
+      "start": 3314.34,
+      "end": 3339.98,
+      "id": 361
+    },
+    {
+      "text": "So with that concludes this lecture and to summarize the key points, right?",
+      "start": 3341.18,
+      "end": 3346.74,
+      "id": 362
+    },
+    {
+      "text": "We talked about sequence modeling as this broad class of tasks that are very relevant across domains.",
+      "start": 3346.74,
+      "end": 3353.98,
+      "id": 363
+    },
+    {
+      "text": "We learned about RNNs and how they're well suited and how we can build out this recurrence relation, train them using back propagation, applications to music generation, text generation, translation, beyond.",
+      "start": 3353.98,
+      "end": 3370.18,
+      "id": 364
+    },
+    {
+      "text": "And finally, we talked about the limitations of RNNs in terms of the encoding bottleneck and how this has motivated advances in attention to model sequences without recurrence.",
+      "start": 3370.18,
+      "end": 3383.54,
+      "id": 365
+    },
+    {
+      "text": "So with that, we're going to close the lecture portion and a couple of logistics notes and announcements.",
+      "start": 3383.98,
+      "end": 3392.36,
+      "id": 366
+    },
+    {
+      "text": "So the final hour of the class each day, three to four PM is dedicated to an office hours style session where we will be available to answer your questions.",
+      "start": 3392.36,
+      "end": 3405.02,
+      "id": 367
+    },
+    {
+      "text": "You'll have time to work on the software labs.",
+      "start": 3405.02,
+      "end": 3408.22,
+      "id": 368
+    },
+    {
+      "text": "We also have our amazing TAs here to help you with practical questions getting started with the software labs.",
+      "start": 3408.22,
+      "end": 3415.22,
+      "id": 369
+    },
+    {
+      "text": "And the labs are all available on this link by GitHub and the instructions for starting to execute them are there.",
+      "start": 3415.22,
+      "end": 3425.14,
+      "id": 370
+    },
+    {
+      "text": "And finally, John has been, as you meant earlier, has been very gracious in hosting our kickoff social tonight at 5 p.m.",
+      "start": 3425.14,
+      "end": 3435.46,
+      "id": 371
+    },
+    {
+      "text": "If you have a registered already, please do so.",
+      "start": 3435.46,
+      "end": 3438.82,
+      "id": 372
+    },
+    {
+      "text": "So we can help keep track of who's coming.",
+      "start": 3438.82,
+      "end": 3441.74,
+      "id": 373
+    },
+    {
+      "text": "And it's just down the road, one Kendall Square, and there'll be free food and drinks provided.",
+      "start": 3441.74,
+      "end": 3447.26,
+      "id": 374
+    },
+    {
+      "text": "So hope to see you there.",
+      "start": 3447.26,
+      "end": 3448.9,
+      "id": 375
+    },
+    {
+      "text": "And thank you so much for your attention.",
+      "start": 3448.9,
+      "end": 3450.38,
+      "id": 376
+    }
+  ],
+  "text": "All right, I think we can circle back and get started here. So I'm Ava and welcome to lecture two of Success 191. And we're going to focus today in this talk on sequence modeling, which is a very powerful and general paradigm that has become super relevant today, especially with the onset of these very powerful language models. And so just about an hour ago, Alexander introduced us to this idea of neural networks and built the intuition about neural networks from the bottom up. And we focus specifically on these class of models known as feed-forward models. And so when we turn our attention to applying neural networks to sequential processing and sequential modeling of data, we'll see how this modeling paradigm requires a different way of thinking, right? Because we now have data that's resolved in time. And we'll go through similarly to build up the intuition and the modeling framework step-by-step from the ground up. So with that, we're going to start again with a very intuitive example, which as you'll see throughout the course, is kind of one of our things that we really hold very near and dear in terms of building up intuition about these concepts. So to do that, let's start with this very simple example where I've given you an image of a ball in a 2D space here. And I'm going to ask you, okay, can you predict where it will go next? Without any prior information about the ball's history, anything that you say is going to be a guess on its next position, a guess, a random proposal about where the ball is going to travel to. However, in addition to the current location of the ball, I were to give you a sequence of information back in time and ask you to use this in context to now predict where the ball is going to travel to next, the problem now becomes much easier. And I think we can all agree on what's the most likely next path or trajectory of the ball in this problem. So this is really the core idea behind many sequence modeling problems, where we have this data that's resolved in time, or can be modeled as a sequence of information. And we want to make a prediction about the state of the system. And so beyond that simple example, sequential data as Alexander mentioned is truly all around us, right? As I'm speaking and I'm projecting these audio waveforms, that is a sequence that can be split up into a series of chunks of sound waves. Similarly with text, we can think about breaking that text up into a sequence of individual characters or individual words. And beyond these examples, sequential data is really all around us, from medical signals to financial time series, like modeling the stark market, to biology and chemistry and the life sciences and thinking about biological sequences and modalities, to patterns of movement, to videos, to weather, all around us there are these problems that can be thought of from a sequential modeling perspective. And so that gives us a concrete notion of how we can bring this idea of sequence modeling to the real world. But what are some tasks that we now could think about training neural networks to facilitate in this context? In lecture one, we talked about this simple example of classification, binary classification. Yes or no, will I pass this class, given a student as input, produce a zero-one prediction about pass versus fail? We can also do similar classification type problems or tasks with sequences, right? We can think about taking a body of text, let's say a tweet, and assigning a emotion or a sentiment as a class label to that text. On the other hand, we could go rather from sequence to one output. We could have one input and produce a sequence of output. So say in the image captioning world or the vision language world, where given an image, we want to train a neural network to produce text describing the content of that image that also falls into this paradigm of sequence modeling. And also we can think about many inputs going to many outputs. So if you want to translate text or audio from one language to another, we have to do this transformation of learning a function to map English text to, let's say, text in Mandarin. So these are some three examples of core types of modeling tasks we can bring to the sequence modeling world. So today we're going to think about these types of problems and we're going to build up intuition about how we can actually define different types of neural network architectures to tackle the unique features of these types of sequence modeling problems. So the first core part of this lecture is going to be around this idea of building neurons that have a notion of recurrence that allows them to process time resolved or sequential data one step at a time. And I think this topic is something that when I was first learning machine learning and deep learning was something I myself had a struggle to wrap my head around. And so what we've tried to do with this next block of content is really build a fundamental intuition about how this concept works, building from the ground up and connecting back to what Alexander introduced with feed-forward models to actually build up that intuition effectively. So to do that, let's first go back to the perceptron, right? building block of neural networks and go step by step to the sequence modeling world. When we looked at the perceptron, we had this kind of diagram, right? This function where we have a set of inputs, let's call them x1 through xm, and we have an individual perceptron unit that takes these inputs, multiplies each of them by a weight, non-linearity, non-linear activation function to produce an output Y-Hab. And so we saw that we can have multiple inputs going in to this perceptron, and you can think of these as inputs at a particular time. We also saw how we can stack these individual perceptrons together to build out a layer of a neural network. So what you're seeing here is that extension, right, where in green we have this layer of individual perceptrons where we can map multi-dimensional input to a multi-dimensional output. But so far even though we have a multi-dimensional input, does this have a notion of time steps or of sequence? No, not yet. And so to get there, let's take this diagram and collapse it down and simplify it a bit. So all I'm showing you here is that inner layer of the stack of perceptrons collapsed into this layer-wise block, right, shown here in green. And our inputs are going to be x of t, x at some time step t, and they're going to be fed into this layer and producing an output y hat. But we're still just considering the input at a particular time step. and we're denoting that by the marker, little t. This is nothing different than what we saw in the first lecture, right? We're just beginning to get this notion that this is processing information from just one time step. Now, let's flip this on its side. So we've just rotated this 90 degrees, in perfector going into the layer, getting our output vector. What if we had this sequential data over time? And let's say we took our same feet forward model and tried to apply it time step by time step over and over again. If we did that, we would see something like this where at time step zero, we take our input, pass it through our no network layer, produce an output y hat. We did this at time step one, do the same thing, pass in the input, produce an output, at time step two, so on. And even if we did this time step to time step, we'd be applying our neural network function to the inputs and predicting outputs. But still, they're not connected at all, right? These time steps are isolated. We're just treating x of 0 at time step 0, x of 1, at time step 1, so on and so forth. But really the core thing with sequential data is that there is some relation between the inputs at time step t to the inputs at time step t minus 1, t minus 2, and so on and so forth. Just like the example with the ball. If we treat the time steps in isolation, we have no information about the past trajectory of the ball. But if we connect the time steps together, then we can use that past history to make a better prediction about the current state or the future state. And so this to concretize this a little more, what that is saying is that the predicted output at a later time step, say T equals 2, should depend somehow on the inputs at the prior time steps, say x of 1, x of 0. And so we want a way to preserve this information and carry it forward to make predictions at later time steps. And the idea behind doing this is to link and relate the network's computations at the particular time step to the past history of the prior time steps. So let's try by doing exactly that. What this diagram is now showing is by connecting these outputs and the states at these past time steps, we're linking the computation of the network across time. Specifically we can introduce this notion of an internal state of the network. And we're going to denote this using the variable H, where this is going to be actually maintained by the neural network itself and pass on time step to time step. So we get this idea of sort of memory of this internal state of the neural network that's going to depend not only on the past computations but also the input at that time step. What this means very concretely is when the network makes a prediction at time step that's going to be a function of not only the input at that time step, but also the past memory or the state that's captured in this variable of state, H of T minus 1. So that past memory. And you can see that concretely in this example in the middle, where prediction at time step 1 depends on input at time step 1, step one, as well as the past state. And so this is the score idea of what we think of as recurrence. Meaning simply, how can we link in just one network, right? The network is not, we're not creating new networks per time set. It's still one network. But we're connecting the information from the past computations to the predictions at a particular time set. And so because this output, this prediction, is a function of both the current input and the past memory, we describe these neural networks via this recurrence relation. And so you can show this on the left here where we have this notion of a cycle, this looping, which shows that h of t is being recurrently provided to the network at these different time steps to make the predictions. And on the right, we just see that kind of rolled out over these time steps. It's in a way to me, it's a clearer visualization of what is actually going on. And so this core idea of maintaining an internal state, HFT, updating it per individual time steps and using that to inform the predicted output is the core intuitive idea behind a very large class of neural networks called recurrent neural networks or RNNs. And this is really the key to understanding these frameworks of RNNs. So we're going to continue to build up from this foundation to gain more and more understanding about the behavior of these neural networks. So let's formalize this a bit more. Right, as we saw, this core idea is to maintain internal state, updated at each time set that this as the sequence is processed dynamically. And so the way we do this is via this recurrence relation, which defines how that update actually occurs per unit time. Making this more concrete, this notion of this cell state, H of T, is going to be a function parameterized by a set of weights, just like with Fienette Forward Networks, just like with any network we're going to see throughout this course, right? We always define these updates according to these learnable sets of weights, and that state update depends on the current input and the prior state from the prior time step. Right? Cell state is a function defined by a set of weights w that depends on the input and the old state. And with an RNN type model, we use that same function in set of parameters at every time step. And when we actually train the model, as we'll see, those weights get updated per training step. So another way to get more intuition from this is also to look at an example in pseudocode. So let's go through that through the algorithm for the state update of these state-based models and get a better sense of how these networks work. So we start by initializing the state to something, let's say, 0. And our prediction here is going to look at text. Text data, we break it up into a sequence of words. And our task is to predict the next word in the sentence. So we take our input sentence and we take our initialized RNN with its initialized state. And then we iterate time step by time step word by word in that sentence and call a function of the RNN to generate a prediction and update the hidden state per word, right, per time step. And at the end, once we've stepped through all the words so far in the sentence, we can get a prediction for the next word by taking the output of the RNN at that last time step. So this is really a core idea behind this idea of next word prediction. One way to approach it is by going step by step, word by word through a sentence and predicting the, and learning this relation kind of recursively over time. So as we kind of saw with an RNN, we need to update both the state and predict an output. So to take this to the last level of concreteness and bring a little bit math into this, our relationship here is we're given this input vector. We first update the hidden state And we're going to apply a function to do this. To break this down, it maybe looks a little intimidating at first with multiple variables here, multiple weights. But it's really very similar to the neural net operations that we saw in lecture one that Alexander introduced. Just like before, we have multiplications by weight matrices, right? Sets of weights that are applied to both the past hidden state and the input, and we take those something together and apply a non-linear activation function, right? That's the tan H hyperbolic tangent function here. And that gives our hidden state update. And to do the output prediction, we take another weight matrix and transform the hidden state and predict the output. And importantly, right, these three sets of weight matrices are learned. We start them, we initialize them, and over the course of the training of the RNN, we update the parameters of these weight matrices through gradient descent and the similar algorithms of training the neural network that we saw in lecture one. So putting this all together, right? How does this come together? We have our RNN with this recurrent loop-like relation, And we saw that we can unroll this step by step across these time steps and visualize the RNN that way. When we do that, we break it down from time step zero to time step one, so on and so forth, all the way up to time step T, whatever the length of the input is. And across all these steps, we're making these predictions at these individual time steps. We can make the weight matrices explicit, showing the weight matrix that maps input to the hidden state, the hidden state weight matrix as well as the output. And we reuse the same matrices that every time step. When we make a forward pass, a call through the model to actually generate the prediction, because we're generating predictions at each time step, that means we can compute a loss at each individual time set. And we can sum them together to get an overall loss that gives us the whole predictive loss over the entire sequence. So that gives us a broken down way of how this RNN forward pass, a call to the model, actually occurs in practice. We can go through and look at how we could implement this from scratch in a framework like TensorFlow, where we begin by initializing these weight matrices initializing a class for the RNN, and defining this forward pass computation and what we call the call function, which is effectively how you call the neural network. How do you make a forward pass going from input to prediction and using that prediction to get during training to compute a loss and update the loss. And so, again, to reiterate this computation, right, we update the hidden state, we compute the output and return both values back. In practice though, right, very rarely will you actually, or maybe almost never, build up a RNN unit from scratch. In fact, in both TensorFlow and PyTorch and common ML frameworks, there are existing implementations built in, where you can just use these RNN layers in practice in defining your neural network. And you'll get hands-on experience doing this in software lab 1, starting today. Okay, so to recap and put these elements together, we saw that with RNNs, we can, and sequence modeling in general, we have this idea of different types of tasks or problem formulations we can tackle. We can do classification tasks, we can do captioning tasks or text generation tasks, we can do sequence to sequence translation tasks. And that is really with a lot of these generative applications, like in language modeling, machine translation, natural language processing, many of these can be formulated according to these many to many problems. And you'll get hands-on experience with this. So to make this more concrete in terms of what this actually means in terms of a real use case or problem in the real world. I want to focus on a very pertinent sequence modeling problem, which is the basis for basically all language models, large language models, small language models that we see today, which is this notion of next word prediction. And we're going to use next word prediction to think about and work through core design criteria that we want to build out in any sort of neural network that we build for a sequence modeling problem. And this is a really important task, not only because of the relevance of next word prediction, but in general in thinking about your own deep learning applications or work or research that may be relevant to you, relating those problems back to design criteria in terms of the architectures you choose and the approach you actually take. So, let's say we have this sentence, this morning I took my cat for a walk. The task of next word prediction is given some set of words, let's say this morning I took my cat for a, predict the next word in the sentence. And so to do this, the very first thing we have to consider, whether we're using an and RNN or any other sort of neural network is how are we actually going to represent this data, language data, to the model. The way that we can formalize this is, let's say we have a model and we input the word deep and we want to use the neural network to predict the next word learning. What could be the issue here? If we're just trying to pass in words to the model, Will this actually work if not how can we make this work in terms of the data itself? Yes. You have to tokenize the words. Can you say more about what that means? Right. So it gets closer to this idea of can we embed something about the concept of the word to represent the model? It actually is a step earlier than that, which is we can't straight pass in, characters to the model, they have to be represented numerically somehow, right? Because ultimately all these neural networks are, they're operating on numerical data. And so tokenization is one way that we can think about doing this. But regardless of what strategy we use, we have to process the language data to a numerical input. where we have a vector or an array or an index of numbers to the model that represents, let's say, the sequence of words and get a prediction of something that represents the next word but is in numerical form. And then we can map this back to the language space to actually get what the word prediction was. And so to formalize this, how do we actually do this? This gets to this idea that you raise in your answer transforming the words into some numerical representation and tokenization gives us one strategy to do that. So this is a concept of, in general, of an embedding or an encoding. And ideally we want this embedding to represent something about the semantic content of the words, right? right? Because language has this very rich structure, so something like learning and education maybe are mapped closer together than learning and tennis, right? So the approach for doing this is to consider the complete vocabulary or the corpus of words that are present in our language. And first start by mapping these words to individual unique indices. Then where do we go from there. A naive approach would be to just map an index to a fixed length vector where you have a single one-hot bit flip where that represents the identity of the word based on the index that's a one versus zero elsewhere. But this is not very informative, right? Because of the fact that we're not capturing anything about the semantics and this rich structure that's present in language. And so a more intelligent way to go about this is to leverage some sort of embedding scheme where there is capture of these semantic relationships. And so this is in general learning and embedding or learning a tokenization strategy to capture this. And in language models today, there are very popular schemes that basically effectively map chunks of words and chunks of language that occur frequently together to certain parts of this embedding space so that we can capture those relationships in terms of co-occurrence of particular characters or words or chunks in the vocabulary. So this is really the core idea. But the fundamental point that I want to convey is that in all cases, in all examples that we see throughout this class, neural networks operate on numerical inputs. So regardless of your data modality, you have to think about a way to map that data into numerical input to be processed and represented in a way that the neural network can handle. Okay, so that's design criteria number one, right? We need a way to map to numerical inputs, And ideally, we want this mapping to capture something about the structure of language. The second sort of design criteria that's critical for sequence modeling and this next word prediction task is being able to handle variable lengths of sequences. Short sentence, medium sentence, long sentence, doesn't matter, we should be able to operate over all of these types of inputs. Feed forward networks break down here, right? Because of the fact that there's a fixed number of inputs. But something like a state-based model like an RNN where we're processing the data time step by time step is inherently designed to process these variable length inputs. A final criteria that we want to think about is capturing these dependencies and relationships that can occur in sequence data like language. Oftentimes, there's really core information up front in the sentence that informs the next word prediction super downstream in the sentence. And we want to be able to capture this effectively. And finally, sequence data is sequential for a reason. That means that differences in the order can completely alter the, what is actually represented in that sample. The food was good, not bad at all, means great. Good food. But if we flip the order of the words in the sentence, we've completely flipped the meaning. The exact words are the same, order matters. And so RNNs are one way to start to get at tackling these design criteria because they can handle variable length sequences. Through this notion of the internal state, we have some way of tracking and preserving information about these dependencies. We're processing the data step by step, so we have a notion of order. And we have this weight sharing that allows this build up of memory over time in the RNN to be able to capture those dependencies. Okay, so the final piece of RNN content that we'll talk about is how we actually train RNNs in practice. And that's based on the core neural network training algorithm that Alexander introduced which is back propagation. So let's do a refresher of how we actually train these feed forward models. We have an input, and we first make a forward pass through the network from input to output to generate a prediction. And then to actually compute the loss, update the parameters of the model, the weights in the model, we backpropagate gradients back through the network where the algorithm was to take the derivative of the loss with respect to the parameters or the weights in the network and then shifting the parameters in order to minimize this loss. Now, let's say we are going to extend this to the context of RNNs. As we saw with RNNs, we have this step-by-step sequential processing. So we can predict outputs at each time step, meaning we can get a loss at each time step, and we can get an aggregate loss by summing the losses at these individual time steps. Now in order to back propagate and make updates to the network, we need to do this over time as well. So instead of backpropagating error through a single feed forward network at a single time step, in RNNs, we backpropagate across these individual time steps and then across time steps from where we are currently back to the beginning of the sequence. And so this is the formulation of this algorithm for training RNNs called backpropagation through time because error is flowing back through time from where we are currently in the sequence back to the beginning time step one or time step zero. And so taking a closer look at how these gradients flow, we actually have to make these very repeated matrix multiplications with the weight matrix W to make because of these cell state updates requiring this passing of the weight matrix WH. And in practice, this can get a little tricky because computing the gradient back with respect to the state at the very first time step zero involves many repeated factors of WH of H and repeated gradient computations. In practice, if the values of this weight matrix are large, things can blow up very quickly, in problem that we call exploding gradients. And so often in practice, you'll actually clip the values of the gradients to some maximum so that you can scale back big gradients. You can also have the inverse problem where if the way matrix ends up being very small, you have repeated multiplications of something very small and things shrink. And then you get very little signal to actually learn on. And this is known as the vanishing gradient problem. And there are as well practical tricks in terms of solutions and implementations that people use to mitigate this problem. Yes, questions? So each zero is neither an explicit parameter nor an input. Right, it's this internal state variable, if you will. And it is dependent on the weight matrix parameter and the input. So if you think about the input as being a variable, H0 is a variable that depends on computation involving the weight matrices W. Okay. So in practice, right, this vanishing gradient problem has real implications in particular with respect to our ability to track long term dependencies in the data. And I won't spend too much time on this, but just to give you a sense, when we multiply many of these small gradient values or matrix values together, it biases the model to try to capture the shorter term things, because further back you're going to have more propagation of error and more of this vanishing problem. And so while this allows for effective capture of dependencies that are relatively short-term, it poses a problem for important longer-term dependencies where the input length can grow very long in terms of number of time steps and becomes problematic for the RNN to actually keep track of these longer-term dependencies. So in practice, there has been a lot of architecture development around these RNN style models. And in particular, there's this notion of making the internal computation of the RNN more complex to better control the flow of information and the state update equation itself. And one really pioneering solution to this was many years ago, a group led by Yurgen Schmitt Hubert. I introduced this mechanism called Long Short-term Memory that was really a foundational advance in terms of better controlling for these state updates in architectures like RNNs. So brief no on applications of these networks and in particular the one that you're going to experiment with in software lab 1 which is this multi output generation problem focusing on this task of music generation. And every year I like to highlight this example from a few years ago now but the capabilities of deep learning and AI for music generation have now become actually quite remarkable. But still, this is one of my favorite examples where the classical composer, Franz Schubert, had a very symphony that he called his unfinished symphony in a few years back. There was an effort to actually train a recurrent based model on his music to predict and generate new music to finish his unfinished symphony. So this is a sample of that AI-generated third movement, which is pretty compelling, I think, from a musical perspective. And actually, remarkably, I think the quality has even continued to improve. You will actually experiment with these same concepts in software lab 1, which I think is really cool and exciting. And so I'll leave the applications at that for the purposes of time. and hopefully give you enough of a teaser to motivate entries into software lab 1 competition. Okay, so in the final 15 minutes or so, we're going to move beyond recurrent models and think really about taking a step back to, again, the design criteria and capabilities of that we desire with sequence modeling. And thinking about what are the limitations of RNNs from a technical perspective and how this has motivated new advances in architectures for a sequence modeling. So the first fundamental limitation of RNNs is that they have this encoding bottleneck that's imposed by this notion of the internal state, H of T, this variable. We are trying to pack as much information about the dependencies and the structure of the data into that internal state, HFT, and use this to carry forward time step by step. Relatedly, right, when we process the data time step by time step, this can be pretty slow. We have to take the individual inputs, the individual slices as individual slices. And so it's not really paralyzable. And as a result of these two elements, especially that encoding bottleneck, the RNN can really quickly run into memory issues in terms of how long of a dependency is it able to capture. And so if we go back again to our fundamental goal of sequence modeling, we want to take a input that's represented as a sequence and learn some set of features that then map to a sequence of outputs. And RNNs use this notion of a recurrence relation and this step-by-step modeling to try to track these dependencies. But they have these three key bottlenecks that I mentioned. Ideally, we don't have that encoding bottleneck and we're able to look at this sequence globally as a continuous stream of information, but still able to capture local relationships and dependencies in the data. Ideally, we don't have to handle the sequence time step by time step. We're able to parallelize very efficiently so that we can handle long bodies of input. And we want to have this notion of long memory. And so with that experiment and a question is, what if we eliminated the need for recurrence entirely? How could we possibly approach this? One naive approach would be to kind of squash everything together. take one vector input and take the data from all the time points, concatenate them as one input vector, a single input. And feed this into the model and calculate some feature vector and use that to generate an output which we hope makes sense and is sensible. But yes, while we've eliminated this recurrence, we've eliminated this step by step processing this is not going to be scalable, right? Because if we were to build out a dense network to do this, this quickly gets very large as the sequence length grows. Importantly, we've lost the order information because those dependencies are gone. And because of that, there's no temporal dependency, so how can we really build out memory? And so that's because when we have fully connected or concatenated inputs. There's no notion of how do we actually pick out and attend to the parts in that input that are going to be important. And so several years ago now there was this breakthrough idea in this field of this notion of can we devise mathematically a way for the network to learn how to pick up and identify those dependencies locally and also globally that that are going to be important in the sequence overall. And this is the notion of attention. And this is a very powerful mechanism for learning in sequence modeling applications and is really the backbone of the transformer architecture. So if GPT or other models like BERT, the T in all of these acronyms stands for transformer. And the foundational mechanism behind these transformers is the attention operation. And to me, a very elegant and intuitive idea and we're going to break it down both from the intuition point of view and also the math to show you how that works. So the core intuition behind attention is can the neural network learn to identify what parts of an input within itself are most important to representing that input? And I think it's often easier to start with a visual example rather than a text example. But when we think about attention, we can immediately look at this picture and pick out the important parts. One naive way to do this would be to scan the data, pixel by pixel, go across it. But all of us intuitively, we maybe don't necessarily do this. We don't eyeball left or right, we can immediately pick out the important parts. And so the core idea behind this is if we want to identify which parts to attend to, that's step one. And then we use that identification to extract the features or the actual content of the input that have high attention scores or high attention values. And it's really this first part of the problem that's the core, which is very similar to this notion of search. So if we were to do an example walkthrough, let's say many of you probably had this question of how can I learn more about AI and deep learning and neural networks? One way you could approach this in addition to coming to this class is to go to the internet, to something like YouTube and search for videos there that are relevant to this topic of neural networks and deep learning. And so YouTube right is a giant database of many videos. How do you actually find and attend to the relevant videos in this database? You're going to go in and put a query in deep learning. And we want to be able to extract some key information about each of these videos that are in this data base. So all of these videos have a title, think about it as the key. And ideally, to complete the search problem, you want to find an overlap, semantically, between your search query and key. the indices of these videos in these databases. And so you're going to compute what we think of practically as some sort of waiting or an attention mask, how similar is each of these keys to your query. And we can do this step by step in this example. A beautiful C-chartle may be very elegant and natural but not similar to the query of deep learning. A video from six years ago about introduction to deep learning. Yes, relevant. A video about the best fade away in all of basketball from the late and great Kobe Bryant. Also very important but not relevant to the query. And so now we've identified the relevant feature or the part of the data. And we want to extract the video itself, what that we want to pay attention to. And this we call the value. And because the search was implemented with a good attention mechanism, we've pulled out best deep learning course, which of course is ours. And I'm sure all of you can relate to this because you're here sitting in this class. And so really, this is an intuition that explains this what this attention operation is actually doing. So to formalize this in practice, how self-attention works in neural networks like transformers. The goal is exactly the same. We want to identify and attend to parts of an input, which can be a sequence of data that are going to be important. So breaking this down, let's say we have this input sentence, he tossed the tennis ball to serve. First, we want to eliminate recurrence, but preserve information about order. If we're going to feed the data in all at once, we still want a way to encode or represent these positional relationships. And so in practice with attention, there's something that's called a positional embedding that's used to represent the input that's given into an attention mechanism. And we're not going to go into great details about how this position aware encoding is actually implemented. But the core thing that I'd like for you to take away is that mathematically we can use this to preserve some information about the positional relationships in this sequence input. The next is really this core step of these three components, query, key, and value. And there are the fundamental components of the attention mechanism. And so we're going to take that position embedding, which is representing our sequence input all at once. And in this case, in this example, we're going to look at self-attention, meaning in an individual sequence input, can we identify those core relationships in that sequence input itself? To extract that, we're going to do three transformations of this embedding to get our query, our key, and our value. The first is a query, and it's going to be done by a learned layer that transforms the positional embedding into a query matrix. And similarly, we will have another learned layer for the key matrix, and third learned layer for the value matrix. Importantly note that the positional embedding is the same for all these three. But those three layers, and therefore the three transformed outputs of query key and value are going to be different, capturing different information. Now we need to actually compute the attention score. How similar is that query to the key? How can we identify those most? important parts? The way we can do this is to compute a mathematical similarity between these two matrices. And mathematically, we can do that through an operation simply that is related to, based on the dot product. Right? So if we have two vectors in space, let's say we represent the query vector in blue and the key vector in orange, using the dot product, we can compute how aligned they are in space. And so we take the dot product between the query and the key and scale it to get this notion of a similarity metric. And this is also known as the cosine similarity, right? And so fundamentally, right, we can apply the same operation to matrices, this dot product and this scaling to get us this similarity metric. If we visualize what the result of this operation could mean, remember we're trying to compute self-attention, meaning within the sequence he tossed the tennis ball to serve, what are the components of that sequence that relate more strongly to each other versus others? If we were to learn attention over this compute attention score over this input, we could look like we could get something similar to this, where in this matrix we for each position right we compute a score. Along the diagonal is going to have the highest relation because the words are the same. But the words that are more semantically related and relationally related should also have high scores, for example, between ball and toss. And so when we compute this stop product of the querying the key, apply the scaling. We finally apply a function, the softmax, to squash these values between zero and one. And this gives us our attention weight. And when you look at the entries of an attention matrix, this gives you a notion of the relative importance of parts of that sequence of input relative to each other. And this attention-weighting is finally what we use to actually extract the features out by multiplying this with the value to get the final output. So putting this all together, right, the core idea of using this attention-weighting to to identify the parts of importance, multiplying it with the value to extract those features, puts us in a great place to now bring this forward, this attention mechanism as a part of a neural network. So to recap, our goal again, identify and attend to the most important features in a sequence input. Architecturally, what this looks like is we take the sequence positional encoding, we have three copies. We have three learned neural network layers that allow for transformation of these encodings to the query key in value. We can use this to compute the similarity score by computing these attention weights between the query and the key, scaling it, applying the softmax to get values between 0 and 1, And finally, extracting the features with high attention via the multiplication with the value matrix. And so together, this operations that I'm showing in the right are the basis of what we call an attention head that can plug into a larger network architecture. And so modern transformers use this attention operation to compute this very similar type of relation to learn these patterns of importance in sequential data. And this is really the core building block of the transformer architecture. What's really powerful is that it's very parallelizable. And we can also put together multiple attention heads, stacking them together within one network to identify and learn different patterns of importance. And so you can think of this intuitively as maybe we have multiple attention heads in the network where visually we can pick out Ironman but we can also pick out this building that he's hopefully not going to crash into and this alien spaceship looming in the background. Right. So this is just very I want to emphasize that this is an intuitive example to ground you but conceptually this idea of stacking these attention heads is very, very practical in terms of building out these transformer architectures. So today it's truly remarkable how far this architecture has come in terms of the capabilities that we have seen as a result of not only that innovation, but many innovations that have followed. And it's not just in natural language and transformer LLM's like GPT, but also in other domains as well. In biology, in thinking about sequences like proteins or DNA, and how we can learn relationships using transformer-based architectures, and even in the visual domain, where vision transformers have become perhaps the dominant architecture for looking at computer vision and visual data as we'll learn about in lecture three tomorrow. So with that concludes this lecture and to summarize the key points, right? We talked about sequence modeling as this broad class of tasks that are very relevant across domains. We learned about RNNs and how they're well suited and how we can build out this recurrence relation, train them using back propagation, applications to music generation, text generation, translation, beyond. And finally, we talked about the limitations of RNNs in terms of the encoding bottleneck and how this has motivated advances in attention to model sequences without recurrence. So with that, we're going to close the lecture portion and a couple of logistics notes and announcements. So the final hour of the class each day, three to four PM is dedicated to an office hours style session where we will be available to answer your questions. You'll have time to work on the software labs. We also have our amazing TAs here to help you with practical questions getting started with the software labs. And the labs are all available on this link by GitHub and the instructions for starting to execute them are there. And finally, John has been, as you meant earlier, has been very gracious in hosting our kickoff social tonight at 5 p.m. If you have a registered already, please do so. So we can help keep track of who's coming. And it's just down the road, one Kendall Square, and there'll be free food and drinks provided. So hope to see you there. And thank you so much for your attention."
+}

@@ -1,0 +1,587 @@
+1
+00:00:00,220 --> 00:00:02,750
+In the previous lectures we have been studying about
+
+2
+00:00:02,750 --> 00:00:04,570
+different aspects of operating system.
+
+3
+00:00:04,570 --> 00:00:06,620
+And what we had mostly seen was
+
+4
+00:00:06,620 --> 00:00:10,440
+the introduction to operating system and also operating system structures.
+
+5
+00:00:10,440 --> 00:00:15,150
+Now, moving on to one of the most important part of operating system
+
+6
+00:00:15,150 --> 00:00:17,460
+which is process management.
+
+7
+00:00:17,460 --> 00:00:21,200
+You must have heard this term many times processes and threads.
+
+8
+00:00:21,200 --> 00:00:25,150
+So, in this lecture we will be trying to get an introductory idea
+
+9
+00:00:25,150 --> 00:00:28,970
+and understanding of what are processes and threads.
+
+10
+00:00:28,970 --> 00:00:34,710
+And usually people are confused many times between the processes and threads.
+
+11
+00:00:34,710 --> 00:00:39,240
+So, we will try to understand what these are and what are their differences.
+
+12
+00:00:39,240 --> 00:00:42,930
+So, first of all before we understand processes,
+
+13
+00:00:42,930 --> 00:00:46,440
+let us first try to understand how a program is developed.
+
+14
+00:00:46,480 --> 00:00:49,110
+So, whenever you want to make a program,
+
+15
+00:00:49,110 --> 00:00:50,040
+what you do is,
+
+16
+00:00:50,080 --> 00:00:53,200
+you first write the program in some high level languages.
+
+17
+00:00:53,280 --> 00:00:56,570
+For example, let's say you write the program in C,
+
+18
+00:00:56,570 --> 00:00:58,570
+C++, JAVA or something like that.
+
+19
+00:00:58,570 --> 00:01:01,150
+And that program is written in a high level language.
+
+20
+00:01:01,150 --> 00:01:03,110
+Now, we know at the basic level
+
+21
+00:01:03,110 --> 00:01:05,950
+computer does not understand the high level language.
+
+22
+00:01:05,950 --> 00:01:09,910
+But it understands only the binary codes, which are 0's and 1's.
+
+23
+00:01:09,910 --> 00:01:13,240
+So, the program has to be converted to binary code.
+
+24
+00:01:13,240 --> 00:01:17,820
+So, for that using a compiler, you compile your program and it helps to
+
+25
+00:01:17,820 --> 00:01:22,800
+convert that program into machine code which is understandable by your machine.
+
+26
+00:01:22,840 --> 00:01:23,370
+Alright!
+
+27
+00:01:23,370 --> 00:01:25,680
+So, after that you have your program
+
+28
+00:01:25,680 --> 00:01:29,020
+which is converted into a binary executable code
+
+29
+00:01:29,020 --> 00:01:30,660
+and it is ready for execution.
+
+30
+00:01:30,660 --> 00:01:35,280
+But it is not enough to just have that binary code for a program to execute
+
+31
+00:01:35,280 --> 00:01:39,060
+or for a program to tell the computer what it wants to do.
+
+32
+00:01:39,060 --> 00:01:40,970
+So, what it has to do is,
+
+33
+00:01:40,970 --> 00:01:42,970
+it has to be loaded into the memory,
+
+34
+00:01:42,970 --> 00:01:48,130
+and for a program to execute, it needs some resources of the computer system.
+
+35
+00:01:48,130 --> 00:01:51,510
+So, who will allocate the resources?
+
+36
+00:01:51,510 --> 00:01:53,510
+What is the brain that works behind all these?
+
+37
+00:01:53,510 --> 00:01:57,200
+It is the operating system, which we have been discussing so far.
+
+38
+00:01:57,200 --> 00:02:01,640
+So, the operating system will help in loading that executable program
+
+39
+00:02:01,640 --> 00:02:04,170
+into the memory and allocate its resources
+
+40
+00:02:04,170 --> 00:02:07,370
+and then the program will begin its execution.
+
+41
+00:02:07,370 --> 00:02:07,950
+Alright!
+
+42
+00:02:07,950 --> 00:02:12,840
+So, we first have a program which is written and is ready for execution
+
+43
+00:02:12,840 --> 00:02:16,620
+but till that time it is just a passive entity.
+
+44
+00:02:16,620 --> 00:02:19,280
+That means it just sit there without doing anything.
+
+45
+00:02:19,280 --> 00:02:23,240
+But the moment it begins execution, at that instance
+
+46
+00:02:23,240 --> 00:02:26,660
+we call that program as a process.
+
+47
+00:02:26,660 --> 00:02:31,420
+So, a process can be thought of as a program in execution.
+
+48
+00:02:31,420 --> 00:02:36,530
+When a program starts execution, at that time we call it a process.
+
+49
+00:02:36,530 --> 00:02:41,420
+So, when it is not executing, it is just a program sitting there and doing nothing.
+
+50
+00:02:41,420 --> 00:02:46,930
+But the moment it begins execution, at that time we call it a process.
+
+51
+00:02:46,930 --> 00:02:48,710
+So, in the earlier computers
+
+52
+00:02:48,710 --> 00:02:52,260
+it supported only one process or one program at a time.
+
+53
+00:02:52,260 --> 00:02:54,930
+But in today's computer it supports
+
+54
+00:02:54,930 --> 00:02:58,480
+multiple processes or programs running at the same time.
+
+55
+00:02:58,480 --> 00:03:03,460
+And even one single program can have many processes associated with it.
+
+56
+00:03:03,460 --> 00:03:08,260
+So, when a program begins its execution at that time it is known as the process.
+
+57
+00:03:08,260 --> 00:03:10,930
+So, now let's try to understand what are threads?
+
+58
+00:03:10,930 --> 00:03:17,020
+So, thread is actually the basic unit of a process which is in execution.
+
+59
+00:03:17,020 --> 00:03:18,750
+So, this is how we can define it.
+
+60
+00:03:18,750 --> 00:03:22,570
+A thread is the unit of execution within a process.
+
+61
+00:03:22,570 --> 00:03:26,570
+A process can have anywhere from just one thread to many threads.
+
+62
+00:03:26,570 --> 00:03:28,840
+So, we already understood what is a process?
+
+63
+00:03:28,840 --> 00:03:31,950
+When a program is executing it is called a process.
+
+64
+00:03:31,950 --> 00:03:35,820
+And a thread is the unit of execution within a process.
+
+65
+00:03:35,820 --> 00:03:40,710
+So, within a process there may be one or more units of its execution
+
+66
+00:03:40,710 --> 00:03:43,200
+and those units are known as threads.
+
+67
+00:03:43,200 --> 00:03:45,200
+And again in earlier systems,
+
+68
+00:03:45,200 --> 00:03:47,200
+one process had only thread.
+
+69
+00:03:47,200 --> 00:03:53,370
+But now a single process has many threads or many units of execution within it.
+
+70
+00:03:53,370 --> 00:03:57,640
+So, a process can have anywhere from one thread to many threads.
+
+71
+00:03:57,640 --> 00:04:01,200
+So, that is the difference between a process and a thread.
+
+72
+00:04:01,200 --> 00:04:02,750
+If you look at this diagram,
+
+73
+00:04:02,750 --> 00:04:07,020
+I hope you should be able to visualize and understand what it actually means.
+
+74
+00:04:07,020 --> 00:04:10,170
+So, here we call this entire thing as a process.
+
+75
+00:04:10,170 --> 00:04:13,550
+When a program begins its executions, it becomes the process.
+
+76
+00:04:13,550 --> 00:04:18,040
+And within this process there are certain units of executions.
+
+77
+00:04:18,040 --> 00:04:20,750
+And each unit is known as a thread.
+
+78
+00:04:20,800 --> 00:04:23,240
+So, these are all the units or the threads,
+
+79
+00:04:23,240 --> 00:04:26,170
+which are under execution within this process.
+
+80
+00:04:26,170 --> 00:04:29,730
+Now if you want to see the processes which are in execution in your system,
+
+81
+00:04:29,730 --> 00:04:32,840
+you can see it by using your task manager in your Windows.
+
+82
+00:04:32,840 --> 00:04:34,840
+You can open up the task manager,
+
+83
+00:04:34,840 --> 00:04:37,640
+and you can see which are the programs that are loaded
+
+84
+00:04:37,640 --> 00:04:40,310
+and what are the process that are executing.
+
+85
+00:04:40,310 --> 00:04:42,310
+So, let me how you an example of that.
+
+86
+00:04:42,310 --> 00:04:45,060
+So, here this is a screen shot of my 'task manager'.
+
+87
+00:04:45,060 --> 00:04:49,110
+If you open up your task manager and look at this application tab,
+
+88
+00:04:49,110 --> 00:04:52,170
+we can see which are the programs that are running.
+
+89
+00:04:52,170 --> 00:04:54,660
+So, here I have three programs running over here.
+
+90
+00:04:54,660 --> 00:04:56,660
+And here we have the 'processes' tab.
+
+91
+00:04:56,660 --> 00:04:58,970
+so, if you click on the 'processes' tab,
+
+92
+00:04:58,970 --> 00:05:02,710
+you can see what are the processes running in your system.
+
+93
+00:05:02,710 --> 00:05:06,130
+So, if you click this, you come to this window over here,
+
+94
+00:05:06,130 --> 00:05:10,260
+where you can see that there are all these processes are running in your system.
+
+95
+00:05:10,260 --> 00:05:12,000
+So, for example if you look here
+
+96
+00:05:12,040 --> 00:05:15,370
+you can see that there is Chromium browser running over here.
+
+97
+00:05:15,370 --> 00:05:17,820
+And if you look at the processes tab,
+
+98
+00:05:17,820 --> 00:05:22,260
+we see that there is not only one process associated with this
+
+99
+00:05:22,310 --> 00:05:25,550
+chromium browser but there are multiple processes.
+
+100
+00:05:25,550 --> 00:05:28,530
+For example you can see there is chrome.exe here.
+
+101
+00:05:28,530 --> 00:05:30,040
+It is also here.
+
+102
+00:05:30,040 --> 00:05:32,750
+There are quite a few events over here.
+
+103
+00:05:32,750 --> 00:05:33,510
+So, we see that
+
+104
+00:05:33,510 --> 00:05:37,280
+there are multiple processes associated with a single program.
+
+105
+00:05:37,330 --> 00:05:41,110
+And this is the memory that it is using which is shown over here.
+
+106
+00:05:41,110 --> 00:05:42,220
+So, this is just an example
+
+107
+00:05:42,220 --> 00:05:46,080
+of how you can see the program and processes running in your system.
+
+108
+00:05:46,080 --> 00:05:48,080
+Because if you see what is happening,
+
+109
+00:05:48,080 --> 00:05:51,020
+it become more interesting for you to learn and understand
+
+110
+00:05:51,020 --> 00:05:52,480
+what is happening.
+
+111
+00:05:52,530 --> 00:05:54,880
+So, here we have seen the processes.
+
+112
+00:05:54,880 --> 00:05:57,330
+But we did not see any threads over here.
+
+113
+00:05:57,330 --> 00:06:00,840
+So, if you want to see the threads that are also there in your system,
+
+114
+00:06:00,840 --> 00:06:04,170
+then you can use a program known as process explorer.
+
+115
+00:06:04,170 --> 00:06:05,460
+You can download that program
+
+116
+00:06:05,460 --> 00:06:08,660
+and it wiill show you even the threads that are running
+
+117
+00:06:08,660 --> 00:06:11,060
+for each program and for each process.
+
+118
+00:06:11,060 --> 00:06:13,950
+So, this is how the process explorer looks like.
+
+119
+00:06:13,950 --> 00:06:14,970
+You can download this.
+
+120
+00:06:14,970 --> 00:06:16,570
+It is a very small application.
+
+121
+00:06:16,570 --> 00:06:18,000
+You can download and install it.
+
+122
+00:06:18,000 --> 00:06:21,910
+And you can see that these are the processes as we saw before.
+
+123
+00:06:21,910 --> 00:06:23,110
+So, for example,
+
+124
+00:06:23,110 --> 00:06:26,480
+here I have the chrome.exe process running over here.
+
+125
+00:06:26,480 --> 00:06:29,110
+And if you right click on this and go to the properties
+
+126
+00:06:29,110 --> 00:06:31,110
+then you can see the threads.
+
+127
+00:06:31,110 --> 00:06:33,150
+So, here you will get this window
+
+128
+00:06:33,150 --> 00:06:35,150
+and if you click on this threads tab,
+
+129
+00:06:35,150 --> 00:06:37,640
+you can see that these are the threads,
+
+130
+00:06:37,730 --> 00:06:41,330
+which are the unit of execution for this particular process
+
+131
+00:06:41,330 --> 00:06:43,550
+and which are running over here.
+
+132
+00:06:43,550 --> 00:06:49,370
+So, these many threads are running within this process chrome.exe.
+
+133
+00:06:49,370 --> 00:06:51,060
+So, in this way you can see
+
+134
+00:06:51,060 --> 00:06:53,950
+the processes and the threads that are running in your system.
+
+135
+00:06:53,950 --> 00:06:55,860
+So, I hope with this visual example
+
+136
+00:06:55,860 --> 00:06:57,640
+it was more clear to you,
+
+137
+00:06:57,680 --> 00:06:58,750
+what are processes?
+
+138
+00:06:58,750 --> 00:06:59,730
+And what are threads?
+
+139
+00:06:59,730 --> 00:07:01,280
+And how they work.
+
+140
+00:07:01,280 --> 00:07:03,280
+So, this was just and basic introduction of
+
+141
+00:07:03,280 --> 00:07:05,280
+what are processes and what are threads.
+
+142
+00:07:05,280 --> 00:07:08,260
+And how we can differentiate between a process and a thread.
+
+143
+00:07:08,260 --> 00:07:12,220
+So, this process is a very important topic in operating system.
+
+144
+00:07:12,220 --> 00:07:14,620
+And we will be studying this in more details
+
+145
+00:07:14,620 --> 00:07:16,480
+and many topics are there under this
+
+146
+00:07:16,480 --> 00:07:18,800
+which we will be discussing in the coming lectures.
+
+147
+00:07:18,800 --> 00:07:21,150
+Thank you for watching and see you in the next one.

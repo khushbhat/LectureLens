@@ -1,0 +1,14 @@
+# PLACEHOLDER key concepts (one per line)
+gradient descent
+loss function
+mean squared error
+convex
+learning rate
+gradient
+divergence
+cosine annealing
+Adam
+stochastic gradient descent
+mini-batch
+momentum
+epoch

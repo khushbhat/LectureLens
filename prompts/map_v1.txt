@@ -1,0 +1,32 @@
+TASK: map
+PROMPT_VERSION: map_v1
+
+Below are consecutive segments of a lecture. Each segment pairs the slide that was on screen (OCR text, may be noisy) with what the lecturer said while it was shown:
+
+[SEGMENT k | start–end]
+SLIDE: <slide title — slide text lines separated by " | ">   ("(none)" if no slide text)
+SPEECH: <transcript>
+
+For EVERY segment, produce one entry with:
+- segment_id: the k of that segment (integer)
+- title: a short topic title (prefer the slide title if it is meaningful)
+- summary: 2–4 sentences on what is taught in this segment
+- key_points: 2–6 important points; each {"text": ..., "evidence": "slide" | "speech" | "both"} — "slide" if the point comes only from slide text, "speech" if only from speech, "both" if slide and speech agree
+- concepts: technical terms introduced or used, each {"term": ..., "definition": ...} (definition from the content; "" if not defined)
+- formulas_or_code: formulas, equations, algorithms or code exactly as shown/spoken (empty list if none)
+- examples: concrete examples, case studies or numbers used to illustrate (empty list if none)
+
+Rules:
+1. Use ONLY the given content. Do not add outside knowledge.
+2. Keep formulas, code, numbers and technical terms exact. When slide text and speech agree, prefer the slide wording for definitions and formulas.
+3. Slide-only information (e.g. bullet points never read aloud) IS important: include it, marked evidence "slide".
+4. OCR text can contain garbage (random characters, broken words, logos, page numbers). Ignore anything that is not meaningful; fix obvious OCR spacing errors only when certain.
+5. Ignore greetings, administrivia and filler unless they carry course content.
+6. State the content directly and concisely (no "The lecturer says..." phrasing).
+
+Return JSON exactly in this shape:
+{"segments": [{"segment_id": 0, "title": "", "summary": "", "key_points": [{"text": "", "evidence": "both"}], "concepts": [{"term": "", "definition": ""}], "formulas_or_code": [], "examples": []}]}
+
+=== INPUT ===
+{{segments}}
+=== END INPUT ===

@@ -1,0 +1,113 @@
+{
+  "sentences": [
+    {
+      "text": "Welcome back.",
+      "start": 0.0,
+      "end": 1.8,
+      "id": 0
+    },
+    {
+      "text": "Today we study gradient descent, the workforce optimization algorithm behind most of machine learning.",
+      "start": 1.8,
+      "end": 8.96,
+      "id": 1
+    },
+    {
+      "text": "We will see what it does, why it works, and how to choose its settings.",
+      "start": 8.96,
+      "end": 16.09,
+      "id": 2
+    },
+    {
+      "text": "Training a model means minimizing a loss function over its parameters.",
+      "start": 16.09,
+      "end": 20.41,
+      "id": 3
+    },
+    {
+      "text": "A common choice is the mean squared error between predictions and targets.",
+      "start": 20.41,
+      "end": 25.25,
+      "id": 4
+    },
+    {
+      "text": "If the loss is convex, every local minimum is also a global minimum.",
+      "start": 25.25,
+      "end": 32.1,
+      "id": 5
+    },
+    {
+      "text": "The idea is simple.",
+      "start": 32.1,
+      "end": 34.4,
+      "id": 6
+    },
+    {
+      "text": "Compute the gradient of the loss, which points in the direction of steepest increase, and take a small step in the opposite direction.",
+      "start": 34.4,
+      "end": 42.5,
+      "id": 7
+    },
+    {
+      "text": "The size of the step is controlled by the learning rate.",
+      "start": 42.5,
+      "end": 48.02,
+      "id": 8
+    },
+    {
+      "text": "Choosing the learning rate matters a lot.",
+      "start": 48.02,
+      "end": 50.54,
+      "id": 9
+    },
+    {
+      "text": "If it is too large, the iterates oscillate or even diverge.",
+      "start": 50.54,
+      "end": 54.86,
+      "id": 10
+    },
+    {
+      "text": "If it is too small, training converges very slowly.",
+      "start": 54.86,
+      "end": 59.18,
+      "id": 11
+    },
+    {
+      "text": "In practice we often decrease it over time.",
+      "start": 59.18,
+      "end": 64.39,
+      "id": 12
+    },
+    {
+      "text": "the full gradient on a large data set is expensive.",
+      "start": 64.39,
+      "end": 68.79,
+      "id": 13
+    },
+    {
+      "text": "Stochastic gradient descent estimates it from a small mini batch of examples.",
+      "start": 68.79,
+      "end": 73.55,
+      "id": 14
+    },
+    {
+      "text": "The estimate is noisy, but each step is much cheaper, so overall training is faster.",
+      "start": 73.55,
+      "end": 81.53,
+      "id": 15
+    },
+    {
+      "text": "To summarize, gradient descent repeatedly steps along the negative gradient, the learning rate controls the step size, and stochastic gradient descent makes each step cheap by using mini batches.",
+      "start": 81.53,
+      "end": 94.29,
+      "id": 16
+    },
+    {
+      "text": "time we will look at regularization.",
+      "start": 94.29,
+      "end": 96.29,
+      "id": 17
+    }
+  ],
+  "text": "Welcome back. Today we study gradient descent, the workforce optimization algorithm behind most of machine learning. We will see what it does, why it works, and how to choose its settings. Training a model means minimizing a loss function over its parameters. A common choice is the mean squared error between predictions and targets. If the loss is convex, every local minimum is also a global minimum. The idea is simple. Compute the gradient of the loss, which points in the direction of steepest increase, and take a small step in the opposite direction. The size of the step is controlled by the learning rate. Choosing the learning rate matters a lot. If it is too large, the iterates oscillate or even diverge. If it is too small, training converges very slowly. In practice we often decrease it over time. the full gradient on a large data set is expensive. Stochastic gradient descent estimates it from a small mini batch of examples. The estimate is noisy, but each step is much cheaper, so overall training is faster. To summarize, gradient descent repeatedly steps along the negative gradient, the learning rate controls the step size, and stochastic gradient descent makes each step cheap by using mini batches. time we will look at regularization."
+}

@@ -1,0 +1,38 @@
+{
+ "stages": {
+  "ingest": {
+   "status": "done",
+   "kind": "youtube",
+   "duration": 371.0,
+   "captions": "manual",
+   "seconds": 23.52
+  },
+  "transcribe": {
+   "status": "done",
+   "source": "captions:manual",
+   "segments": 147,
+   "real_time_factor": 0.0,
+   "seconds": 0.03
+  },
+  "preprocess": {
+   "status": "done",
+   "sentences": 51,
+   "words": 976,
+   "seconds": 0.03
+  },
+  "keyframes": {
+   "status": "done",
+   "keyframes": 24,
+   "frames_sampled": 185,
+   "seconds": 76.74
+  },
+  "ocr": {
+   "status": "done",
+   "slides": 14,
+   "visual_mode": "low",
+   "text_slides": 3,
+   "text_coverage": 0.1,
+   "seconds": 47.32
+  }
+ }
+}

@@ -1,0 +1,59 @@
+{
+  "mode": "slide-aligned",
+  "segments": [
+    {
+      "segment_id": 0,
+      "start": 0.0,
+      "end": 46.0,
+      "slide_ids": [
+        0,
+        1
+      ],
+      "sentence_ids": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "words": 105
+    },
+    {
+      "segment_id": 1,
+      "start": 46.0,
+      "end": 68.0,
+      "slide_ids": [
+        2
+      ],
+      "sentence_ids": [
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "words": 45
+    },
+    {
+      "segment_id": 2,
+      "start": 68.0,
+      "end": 137.86,
+      "slide_ids": [
+        3,
+        4,
+        5
+      ],
+      "sentence_ids": [
+        14,
+        15,
+        16,
+        17
+      ],
+      "words": 62
+    }
+  ]
+}

@@ -1,0 +1,204 @@
+{
+  "visual_mode": "high",
+  "slides": [
+    {
+      "slide_id": 0,
+      "start": 0.0,
+      "end": 22.0,
+      "title": "Gradient Descent for Machine Learning",
+      "text": "Gradient Descent for Machine Learning\nLecture 4: Optimization\nIntroduction to Machine Learning",
+      "ocr_confidence": 0.932,
+      "thumbnail": "keyframes\\thumb_000.jpg",
+      "frame": "keyframes\\slide_000.png",
+      "lines": [
+        {
+          "text": "Gradient Descent for Machine Learning",
+          "conf": 0.826
+        },
+        {
+          "text": "Lecture 4: Optimization",
+          "conf": 0.988
+        },
+        {
+          "text": "Introduction to Machine Learning",
+          "conf": 0.981
+        }
+      ],
+      "merged_from": [
+        0
+      ]
+    },
+    {
+      "slide_id": 1,
+      "start": 22.0,
+      "end": 46.0,
+      "title": "The Optimization Problem",
+      "text": "The Optimization Problem\nMinimize loss L(w) over parameters W\nMean squared error: L(w) = In sum (y_i - W x_i)^2\nConvex VS non-convex objectives",
+      "ocr_confidence": 0.781,
+      "thumbnail": "keyframes\\thumb_001.jpg",
+      "frame": "keyframes\\slide_001.png",
+      "lines": [
+        {
+          "text": "The Optimization Problem",
+          "conf": 1.0
+        },
+        {
+          "text": "Minimize loss L(w) over parameters W",
+          "conf": 0.836
+        },
+        {
+          "text": "Mean squared error: L(w) = In sum (y_i - W x_i)^2",
+          "conf": 0.616
+        },
+        {
+          "text": "Convex VS non-convex objectives",
+          "conf": 0.67
+        }
+      ],
+      "merged_from": [
+        1
+      ]
+    },
+    {
+      "slide_id": 2,
+      "start": 46.0,
+      "end": 68.0,
+      "title": "The Update Rule",
+      "text": "The Update Rule\nW <- W eta grad L(w)\neta = learning rate\nGradient points uphill: step the opposite way",
+      "ocr_confidence": 0.952,
+      "thumbnail": "keyframes\\thumb_002.jpg",
+      "frame": "keyframes\\slide_002.png",
+      "lines": [
+        {
+          "text": "The Update Rule",
+          "conf": 0.951
+        },
+        {
+          "text": "W <- W eta grad L(w)",
+          "conf": 0.873
+        },
+        {
+          "text": "eta = learning rate",
+          "conf": 0.991
+        },
+        {
+          "text": "Gradient points uphill: step the opposite way",
+          "conf": 0.995
+        }
+      ],
+      "merged_from": [
+        2
+      ]
+    },
+    {
+      "slide_id": 3,
+      "start": 68.0,
+      "end": 90.0,
+      "title": "Choosing the Learning Rate",
+      "text": "Choosing the Learning Rate\nToo large: divergence oscillation\nToo small: slow convergence\nLearning rate schedules: step decay, cosine annealing\nAdaptive methods: Adam, RMSProp",
+      "ocr_confidence": 0.821,
+      "thumbnail": "keyframes\\thumb_003.jpg",
+      "frame": "keyframes\\slide_003.png",
+      "lines": [
+        {
+          "text": "Choosing the Learning Rate",
+          "conf": 0.685
+        },
+        {
+          "text": "Too large: divergence oscillation",
+          "conf": 0.952
+        },
+        {
+          "text": "Too small: slow convergence",
+          "conf": 0.855
+        },
+        {
+          "text": "Learning rate schedules: step decay, cosine annealing",
+          "conf": 0.852
+        },
+        {
+          "text": "Adaptive methods: Adam, RMSProp",
+          "conf": 0.762
+        }
+      ],
+      "merged_from": [
+        3
+      ]
+    },
+    {
+      "slide_id": 4,
+      "start": 90.0,
+      "end": 114.0,
+      "title": "Stochastic Gradient Descent",
+      "text": "Stochastic Gradient Descent\nUse a mini-batch instead of the full dataset\nNoisy but cheap gradient estimate\nBatch size 32 to 256 is typical\nEpoch one pass over the training data",
+      "ocr_confidence": 0.826,
+      "thumbnail": "keyframes\\thumb_004.jpg",
+      "frame": "keyframes\\slide_004.png",
+      "lines": [
+        {
+          "text": "Stochastic Gradient Descent",
+          "conf": 0.747
+        },
+        {
+          "text": "Use a mini-batch instead of the full dataset",
+          "conf": 0.557
+        },
+        {
+          "text": "Noisy but cheap gradient estimate",
+          "conf": 1.0
+        },
+        {
+          "text": "Batch size 32 to 256 is typical",
+          "conf": 0.867
+        },
+        {
+          "text": "Epoch one pass over the training data",
+          "conf": 0.959
+        }
+      ],
+      "merged_from": [
+        4
+      ]
+    },
+    {
+      "slide_id": 5,
+      "start": 114.0,
+      "end": 137.86,
+      "title": "Summary",
+      "text": "Summary\nGradient descent follows the negative gradient\nLearning rate controls step size\nSGD uses mini-batches\nMomentum accelerates convergence",
+      "ocr_confidence": 0.859,
+      "thumbnail": "keyframes\\thumb_005.jpg",
+      "frame": "keyframes\\slide_005.png",
+      "lines": [
+        {
+          "text": "Summary",
+          "conf": 0.993
+        },
+        {
+          "text": "Gradient descent follows the negative gradient",
+          "conf": 0.941
+        },
+        {
+          "text": "Learning rate controls step size",
+          "conf": 0.753
+        },
+        {
+          "text": "SGD uses mini-batches",
+          "conf": 0.712
+        },
+        {
+          "text": "Momentum accelerates convergence",
+          "conf": 0.895
+        }
+      ],
+      "merged_from": [
+        5
+      ]
+    }
+  ],
+  "stats": {
+    "text_slides": 6,
+    "text_coverage": 1.0
+  },
+  "engine": "easyocr"
+}

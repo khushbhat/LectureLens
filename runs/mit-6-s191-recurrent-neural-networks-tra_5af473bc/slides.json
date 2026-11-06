@@ -1,0 +1,3955 @@
+{
+  "visual_mode": "high",
+  "slides": [
+    {
+      "slide_id": 0,
+      "start": 0.0,
+      "end": 6.0,
+      "title": "",
+      "text": "",
+      "ocr_confidence": 0.0,
+      "thumbnail": "keyframes/thumb_000.jpg",
+      "frame": "keyframes/slide_000.png",
+      "lines": [],
+      "merged_from": [
+        0
+      ]
+    },
+    {
+      "slide_id": 1,
+      "start": 6.0,
+      "end": 12.0,
+      "title": "MIT 6.5191",
+      "text": "MIT 6.5191\nIntroduction to Deep Learning\nLecture 2: Deep Sequence Modeling\nAva Amini\n2026 Edition",
+      "ocr_confidence": 0.923,
+      "thumbnail": "keyframes/thumb_001.jpg",
+      "frame": "keyframes/slide_001.png",
+      "lines": [
+        {
+          "text": "MIT 6.5191",
+          "conf": 0.918
+        },
+        {
+          "text": "Introduction to Deep Learning",
+          "conf": 0.984
+        },
+        {
+          "text": "Lecture 2: Deep Sequence Modeling",
+          "conf": 0.998
+        },
+        {
+          "text": "Ava Amini",
+          "conf": 0.98
+        },
+        {
+          "text": "2026 Edition",
+          "conf": 0.736
+        }
+      ],
+      "merged_from": [
+        1
+      ]
+    },
+    {
+      "slide_id": 2,
+      "start": 12.0,
+      "end": 86.0,
+      "title": "Deep Sequence Modeling",
+      "text": "SUBSCRIBEI\nDeep Sequence Modeling\nAva Amini\nMIT Introduction to Deep Learning\nJanuary 5,2026\nIntroToDeepLearning com\nMIT Introducton Dccp Lcaming 'EEcs\n0 introtodccplcarningcom @MITLecpLcaminz",
+      "ocr_confidence": 0.788,
+      "thumbnail": "keyframes/thumb_003.jpg",
+      "frame": "keyframes/slide_003.png",
+      "lines": [
+        {
+          "text": "SUBSCRIBEI",
+          "conf": 0.802
+        },
+        {
+          "text": "Deep Sequence Modeling",
+          "conf": 0.924
+        },
+        {
+          "text": "Ava Amini",
+          "conf": 0.631
+        },
+        {
+          "text": "MIT Introduction to Deep Learning",
+          "conf": 0.987
+        },
+        {
+          "text": "January 5,2026",
+          "conf": 0.832
+        },
+        {
+          "text": "IntroToDeepLearning com",
+          "conf": 0.737
+        },
+        {
+          "text": "MIT Introducton Dccp Lcaming 'EEcs",
+          "conf": 0.808
+        },
+        {
+          "text": "0 introtodccplcarningcom @MITLecpLcaminz",
+          "conf": 0.579
+        }
+      ],
+      "merged_from": [
+        2,
+        3,
+        4,
+        5,
+        6
+      ]
+    },
+    {
+      "slide_id": 3,
+      "start": 86.0,
+      "end": 152.0,
+      "title": "can you predict where it will go next?",
+      "text": "Given an image of a ball; Learning Deep\ncan you predict where it will go next?\n22?\nIntro ToDeepLearning com",
+      "ocr_confidence": 0.74,
+      "thumbnail": "keyframes/thumb_009.jpg",
+      "frame": "keyframes/slide_009.png",
+      "lines": [
+        {
+          "text": "Given an image of a ball; Learning Deep",
+          "conf": 0.956
+        },
+        {
+          "text": "can you predict where it will go next?",
+          "conf": 0.774
+        },
+        {
+          "text": "22?",
+          "conf": 0.453
+        },
+        {
+          "text": "Intro ToDeepLearning com",
+          "conf": 0.775
+        }
+      ],
+      "merged_from": [
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ]
+    },
+    {
+      "slide_id": 4,
+      "start": 152.0,
+      "end": 176.0,
+      "title": "Sequences in the Wild Deep",
+      "text": "Sequences in the Wild Deep\n6 S | 9\nIntroduction to Deep Learning\nText Intro ToDeepLearning com\n4526",
+      "ocr_confidence": 0.819,
+      "thumbnail": "keyframes/thumb_017.jpg",
+      "frame": "keyframes/slide_017.png",
+      "lines": [
+        {
+          "text": "Sequences in the Wild Deep",
+          "conf": 1.0
+        },
+        {
+          "text": "6 S | 9",
+          "conf": 0.931
+        },
+        {
+          "text": "Introduction to Deep Learning",
+          "conf": 0.801
+        },
+        {
+          "text": "Text Intro ToDeepLearning com",
+          "conf": 0.876
+        },
+        {
+          "text": "4526",
+          "conf": 0.489
+        }
+      ],
+      "merged_from": [
+        14,
+        15,
+        16,
+        17
+      ]
+    },
+    {
+      "slide_id": 5,
+      "start": 176.0,
+      "end": 188.0,
+      "title": "Sequences in the Wild Deep",
+      "text": "Sequences in the Wild Deep\ncharacter: S\nword: Introduction to Deep Learning\nText Intro ToDeepLearning com",
+      "ocr_confidence": 0.93,
+      "thumbnail": "keyframes/thumb_018.jpg",
+      "frame": "keyframes/slide_018.png",
+      "lines": [
+        {
+          "text": "Sequences in the Wild Deep",
+          "conf": 0.927
+        },
+        {
+          "text": "character: S",
+          "conf": 0.943
+        },
+        {
+          "text": "word: Introduction to Deep Learning",
+          "conf": 0.977
+        },
+        {
+          "text": "Text Intro ToDeepLearning com",
+          "conf": 0.873
+        }
+      ],
+      "merged_from": [
+        18,
+        19
+      ]
+    },
+    {
+      "slide_id": 6,
+      "start": 188.0,
+      "end": 194.0,
+      "title": "Sequences in the Wild Deep",
+      "text": "Sequences in the Wild Deep\nword: Introduct Learning\nIntroToDeepLearning com\nnom",
+      "ocr_confidence": 0.843,
+      "thumbnail": "keyframes/thumb_020.jpg",
+      "frame": "keyframes/slide_020.png",
+      "lines": [
+        {
+          "text": "Sequences in the Wild Deep",
+          "conf": 0.946
+        },
+        {
+          "text": "word: Introduct Learning",
+          "conf": 0.998
+        },
+        {
+          "text": "IntroToDeepLearning com",
+          "conf": 0.98
+        },
+        {
+          "text": "nom",
+          "conf": 0.447
+        }
+      ],
+      "merged_from": [
+        20
+      ]
+    },
+    {
+      "slide_id": 7,
+      "start": 194.0,
+      "end": 222.0,
+      "title": "Sequences in the Wild Deep",
+      "text": "Sequences in the Wild Deep\n08, 2019\nIntroToDeepLearning-com",
+      "ocr_confidence": 0.936,
+      "thumbnail": "keyframes/thumb_021.jpg",
+      "frame": "keyframes/slide_021.png",
+      "lines": [
+        {
+          "text": "Sequences in the Wild Deep",
+          "conf": 0.999
+        },
+        {
+          "text": "08, 2019",
+          "conf": 0.977
+        },
+        {
+          "text": "IntroToDeepLearning-com",
+          "conf": 0.833
+        }
+      ],
+      "merged_from": [
+        21
+      ]
+    },
+    {
+      "slide_id": 8,
+      "start": 222.0,
+      "end": 280.0,
+      "title": "Sequence Modeling Applications Deep",
+      "text": "Sequence Modeling Applications Deep\nOne to One Many t0 One One Many\nBinary lassification Sentiment Classification Image Captioning\nIntro ToDeepLearning com\npass tnis class?'\nStudent Pass? baseball player throws ball;\"",
+      "ocr_confidence": 0.84,
+      "thumbnail": "keyframes/thumb_024.jpg",
+      "frame": "keyframes/slide_024.png",
+      "lines": [
+        {
+          "text": "Sequence Modeling Applications Deep",
+          "conf": 0.989
+        },
+        {
+          "text": "One to One Many t0 One One Many",
+          "conf": 0.93
+        },
+        {
+          "text": "Binary lassification Sentiment Classification Image Captioning",
+          "conf": 0.905
+        },
+        {
+          "text": "Intro ToDeepLearning com",
+          "conf": 0.816
+        },
+        {
+          "text": "pass tnis class?'",
+          "conf": 0.596
+        },
+        {
+          "text": "Student Pass? baseball player throws ball;\"",
+          "conf": 0.807
+        }
+      ],
+      "merged_from": [
+        22,
+        23,
+        24
+      ]
+    },
+    {
+      "slide_id": 9,
+      "start": 280.0,
+      "end": 326.0,
+      "title": "Sequence Modeling Applications Deep",
+      "text": "Sequence Modeling Applications Deep\nOne to One Many t0 One One Many Many to Many\nBinary Classification Sentiment Classification Image Captioning Machine Translation\nIntroToDeepLearning com\n\"Will pass tnis class?'\nStudent Pass? basepall player throws ball\"",
+      "ocr_confidence": 0.89,
+      "thumbnail": "keyframes/thumb_025.jpg",
+      "frame": "keyframes/slide_025.png",
+      "lines": [
+        {
+          "text": "Sequence Modeling Applications Deep",
+          "conf": 0.912
+        },
+        {
+          "text": "One to One Many t0 One One Many Many to Many",
+          "conf": 0.905
+        },
+        {
+          "text": "Binary Classification Sentiment Classification Image Captioning Machine Translation",
+          "conf": 0.856
+        },
+        {
+          "text": "IntroToDeepLearning com",
+          "conf": 0.977
+        },
+        {
+          "text": "\"Will pass tnis class?'",
+          "conf": 0.744
+        },
+        {
+          "text": "Student Pass? basepall player throws ball\"",
+          "conf": 0.945
+        }
+      ],
+      "merged_from": [
+        25,
+        26
+      ]
+    },
+    {
+      "slide_id": 10,
+      "start": 326.0,
+      "end": 382.0,
+      "title": "Deep",
+      "text": "Deep\nNeurons with Recurrence\nIntro ToDeepLearning com",
+      "ocr_confidence": 0.901,
+      "thumbnail": "keyframes/thumb_031.jpg",
+      "frame": "keyframes/slide_031.png",
+      "lines": [
+        {
+          "text": "Deep",
+          "conf": 1.0
+        },
+        {
+          "text": "Neurons with Recurrence",
+          "conf": 0.911
+        },
+        {
+          "text": "Intro ToDeepLearning com",
+          "conf": 0.792
+        }
+      ],
+      "merged_from": [
+        27,
+        28,
+        29,
+        30,
+        31
+      ]
+    },
+    {
+      "slide_id": 11,
+      "start": 382.0,
+      "end": 420.0,
+      "title": "The Perceptron Revisited Deep",
+      "text": "The Perceptron Revisited Deep\nx(m)\nIntro ToDeepLearning com\n4526",
+      "ocr_confidence": 0.714,
+      "thumbnail": "keyframes/thumb_032.jpg",
+      "frame": "keyframes/slide_032.png",
+      "lines": [
+        {
+          "text": "The Perceptron Revisited Deep",
+          "conf": 0.999
+        },
+        {
+          "text": "x(m)",
+          "conf": 0.682
+        },
+        {
+          "text": "Intro ToDeepLearning com",
+          "conf": 0.756
+        },
+        {
+          "text": "4526",
+          "conf": 0.419
+        }
+      ],
+      "merged_from": [
+        32
+      ]
+    },
+    {
+      "slide_id": 12,
+      "start": 420.0,
+      "end": 504.0,
+      "title": "Feed-Forward Networks Revisited Deep",
+      "text": "Feed-Forward Networks Revisited Deep\nxt € Rm Yt € Rn IntroToDeepLearning- com\n4526",
+      "ocr_confidence": 0.75,
+      "thumbnail": "keyframes/thumb_034.jpg",
+      "frame": "keyframes/slide_034.png",
+      "lines": [
+        {
+          "text": "Feed-Forward Networks Revisited Deep",
+          "conf": 0.901
+        },
+        {
+          "text": "xt € Rm Yt € Rn IntroToDeepLearning- com",
+          "conf": 0.886
+        },
+        {
+          "text": "4526",
+          "conf": 0.464
+        }
+      ],
+      "merged_from": [
+        33,
+        34
+      ]
+    },
+    {
+      "slide_id": 13,
+      "start": 504.0,
+      "end": 532.0,
+      "title": "Handling Individual Time Steps SUBSCRIBED)",
+      "text": "Handling Individual Time Steps SUBSCRIBED)\noutput\nvector\ninput Xt\nvector\nIntroToDeepLearning com\nJHE 4526",
+      "ocr_confidence": 0.887,
+      "thumbnail": "keyframes/thumb_036.jpg",
+      "frame": "keyframes/slide_036.png",
+      "lines": [
+        {
+          "text": "Handling Individual Time Steps SUBSCRIBED)",
+          "conf": 0.854
+        },
+        {
+          "text": "output",
+          "conf": 1.0
+        },
+        {
+          "text": "vector",
+          "conf": 1.0
+        },
+        {
+          "text": "input Xt",
+          "conf": 0.998
+        },
+        {
+          "text": "vector",
+          "conf": 1.0
+        },
+        {
+          "text": "IntroToDeepLearning com",
+          "conf": 0.938
+        },
+        {
+          "text": "JHE 4526",
+          "conf": 0.418
+        }
+      ],
+      "merged_from": [
+        35,
+        36,
+        37
+      ]
+    },
+    {
+      "slide_id": 14,
+      "start": 532.0,
+      "end": 628.0,
+      "title": "Handling Individual Time Steps Deep",
+      "text": "Handling Individual Time Steps Deep\noutput\nvector\ninput\nvector Xt Xo X1 X2\nYt = f(xt) IntroToDeepLearning- com\nJE 4526",
+      "ocr_confidence": 0.887,
+      "thumbnail": "keyframes/thumb_043.jpg",
+      "frame": "keyframes/slide_043.png",
+      "lines": [
+        {
+          "text": "Handling Individual Time Steps Deep",
+          "conf": 0.983
+        },
+        {
+          "text": "output",
+          "conf": 1.0
+        },
+        {
+          "text": "vector",
+          "conf": 1.0
+        },
+        {
+          "text": "input",
+          "conf": 0.998
+        },
+        {
+          "text": "vector Xt Xo X1 X2",
+          "conf": 0.879
+        },
+        {
+          "text": "Yt = f(xt) IntroToDeepLearning- com",
+          "conf": 0.74
+        },
+        {
+          "text": "JE 4526",
+          "conf": 0.609
+        }
+      ],
+      "merged_from": [
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48
+      ]
+    },
+    {
+      "slide_id": 15,
+      "start": 628.0,
+      "end": 700.0,
+      "title": "Neurons with Recurrence Deep",
+      "text": "Neurons with Recurrence Deep\noutput\nvector\nho\ninput\nvector Xt Xo X2\nIntro ToDeepLearning com",
+      "ocr_confidence": 0.893,
+      "thumbnail": "keyframes/thumb_050.jpg",
+      "frame": "keyframes/slide_050.png",
+      "lines": [
+        {
+          "text": "Neurons with Recurrence Deep",
+          "conf": 0.884
+        },
+        {
+          "text": "output",
+          "conf": 1.0
+        },
+        {
+          "text": "vector",
+          "conf": 1.0
+        },
+        {
+          "text": "ho",
+          "conf": 1.0
+        },
+        {
+          "text": "input",
+          "conf": 0.807
+        },
+        {
+          "text": "vector Xt Xo X2",
+          "conf": 0.784
+        },
+        {
+          "text": "Intro ToDeepLearning com",
+          "conf": 0.773
+        }
+      ],
+      "merged_from": [
+        49,
+        50,
+        51
+      ]
+    },
+    {
+      "slide_id": 16,
+      "start": 700.0,
+      "end": 750.0,
+      "title": "Neurons with Recurrence Deep",
+      "text": "Neurons with Recurrence Deep\noutput\nvector\nho\nvector input Xt Xo X2\nf(xt' ht_1) Intro ToDeepLearning com\noutput input past memory\nJE",
+      "ocr_confidence": 0.841,
+      "thumbnail": "keyframes/thumb_054.jpg",
+      "frame": "keyframes/slide_054.png",
+      "lines": [
+        {
+          "text": "Neurons with Recurrence Deep",
+          "conf": 0.879
+        },
+        {
+          "text": "output",
+          "conf": 1.0
+        },
+        {
+          "text": "vector",
+          "conf": 1.0
+        },
+        {
+          "text": "ho",
+          "conf": 0.999
+        },
+        {
+          "text": "vector input Xt Xo X2",
+          "conf": 0.849
+        },
+        {
+          "text": "f(xt' ht_1) Intro ToDeepLearning com",
+          "conf": 0.689
+        },
+        {
+          "text": "output input past memory",
+          "conf": 0.952
+        },
+        {
+          "text": "JE",
+          "conf": 0.359
+        }
+      ],
+      "merged_from": [
+        52,
+        53,
+        54
+      ]
+    },
+    {
+      "slide_id": 17,
+      "start": 750.0,
+      "end": 816.0,
+      "title": "Neurons with Recurrence Deep",
+      "text": "Neurons with Recurrence Deep\noutput\nvector\nho\nrecurrent cell\ninput\nvector Xo X2\nf(xt' ht_1) IntroToDeepLearning com\noutput input past memory\n4526",
+      "ocr_confidence": 0.874,
+      "thumbnail": "keyframes/thumb_056.jpg",
+      "frame": "keyframes/slide_056.png",
+      "lines": [
+        {
+          "text": "Neurons with Recurrence Deep",
+          "conf": 0.861
+        },
+        {
+          "text": "output",
+          "conf": 1.0
+        },
+        {
+          "text": "vector",
+          "conf": 1.0
+        },
+        {
+          "text": "ho",
+          "conf": 1.0
+        },
+        {
+          "text": "recurrent cell",
+          "conf": 1.0
+        },
+        {
+          "text": "input",
+          "conf": 0.999
+        },
+        {
+          "text": "vector Xo X2",
+          "conf": 0.795
+        },
+        {
+          "text": "f(xt' ht_1) IntroToDeepLearning com",
+          "conf": 0.739
+        },
+        {
+          "text": "output input past memory",
+          "conf": 0.974
+        },
+        {
+          "text": "4526",
+          "conf": 0.374
+        }
+      ],
+      "merged_from": [
+        55,
+        56
+      ]
+    },
+    {
+      "slide_id": 18,
+      "start": 816.0,
+      "end": 836.0,
+      "title": "Deep",
+      "text": "Deep\nRecurrent Neural Networks (RNNs)\nIntro ToDeepLearning com",
+      "ocr_confidence": 0.856,
+      "thumbnail": "keyframes/thumb_058.jpg",
+      "frame": "keyframes/slide_058.png",
+      "lines": [
+        {
+          "text": "Deep",
+          "conf": 1.0
+        },
+        {
+          "text": "Recurrent Neural Networks (RNNs)",
+          "conf": 0.809
+        },
+        {
+          "text": "Intro ToDeepLearning com",
+          "conf": 0.759
+        }
+      ],
+      "merged_from": [
+        57,
+        58
+      ]
+    },
+    {
+      "slide_id": 19,
+      "start": 836.0,
+      "end": 924.0,
+      "title": "Recurrent Neural Networks (RNNs) Deep",
+      "text": "Recurrent Neural Networks (RNNs) Deep\noutput vector Yt Apply & recurrence relation at every\ntime step to process sequence:\nht fwl Xt ht_1\nRNN cell state function input old state\nnt with weights\nNote: the same function and set of\ninput vector Xt parameters are used at every time step\nIntro ToDeepLearning com\nRNNs have state; ht, that is updated at each time step as sequence is processed",
+      "ocr_confidence": 0.868,
+      "thumbnail": "keyframes/thumb_063.jpg",
+      "frame": "keyframes/slide_063.png",
+      "lines": [
+        {
+          "text": "Recurrent Neural Networks (RNNs) Deep",
+          "conf": 0.981
+        },
+        {
+          "text": "output vector Yt Apply & recurrence relation at every",
+          "conf": 0.872
+        },
+        {
+          "text": "time step to process sequence:",
+          "conf": 0.82
+        },
+        {
+          "text": "ht fwl Xt ht_1",
+          "conf": 0.857
+        },
+        {
+          "text": "RNN cell state function input old state",
+          "conf": 0.878
+        },
+        {
+          "text": "nt with weights",
+          "conf": 0.837
+        },
+        {
+          "text": "Note: the same function and set of",
+          "conf": 0.871
+        },
+        {
+          "text": "input vector Xt parameters are used at every time step",
+          "conf": 0.962
+        },
+        {
+          "text": "Intro ToDeepLearning com",
+          "conf": 0.784
+        },
+        {
+          "text": "RNNs have state; ht, that is updated at each time step as sequence is processed",
+          "conf": 0.817
+        }
+      ],
+      "merged_from": [
+        59,
+        60,
+        61,
+        62,
+        63
+      ]
+    },
+    {
+      "slide_id": 20,
+      "start": 924.0,
+      "end": 1008.0,
+      "title": "RNN Intuition Deep",
+      "text": "RNN Intuition Deep\nMy_rrn RNN () output vector Yt\nhidden state [C, 0, 0, 0]\nsentence \"love\" _ \"recurrent\" \"ceural\"]\nfor word sentence: RNN\npredic ction, hidden state (word, hidden state) recurrent cell ht\nrext_word predicticn predic ction\nnetworksi\"\ninput vector\nIntroToDeepLearning com\nDecp Lcanirg\nBintrotedp",
+      "ocr_confidence": 0.781,
+      "thumbnail": "keyframes/thumb_066.jpg",
+      "frame": "keyframes/slide_066.png",
+      "lines": [
+        {
+          "text": "RNN Intuition Deep",
+          "conf": 0.988
+        },
+        {
+          "text": "My_rrn RNN () output vector Yt",
+          "conf": 0.627
+        },
+        {
+          "text": "hidden state [C, 0, 0, 0]",
+          "conf": 0.939
+        },
+        {
+          "text": "sentence \"love\" _ \"recurrent\" \"ceural\"]",
+          "conf": 0.827
+        },
+        {
+          "text": "for word sentence: RNN",
+          "conf": 0.984
+        },
+        {
+          "text": "predic ction, hidden state (word, hidden state) recurrent cell ht",
+          "conf": 0.913
+        },
+        {
+          "text": "rext_word predicticn predic ction",
+          "conf": 0.77
+        },
+        {
+          "text": "networksi\"",
+          "conf": 0.63
+        },
+        {
+          "text": "input vector",
+          "conf": 0.999
+        },
+        {
+          "text": "IntroToDeepLearning com",
+          "conf": 0.854
+        },
+        {
+          "text": "Decp Lcanirg",
+          "conf": 0.489
+        },
+        {
+          "text": "Bintrotedp",
+          "conf": 0.356
+        }
+      ],
+      "merged_from": [
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70,
+        71
+      ]
+    },
+    {
+      "slide_id": 21,
+      "start": 1008.0,
+      "end": 1108.0,
+      "title": "RNN State Update and Output Deep",
+      "text": "RNN State Update and Output Deep\noutput vector Yt Output Vector\nYt whyht\nUpdate Hidden State\nRNN nt ht = tanh(Whhht-1 + Wthxt)\nInput Vector\ninput vector Xt Xt\nIntroToDeepLearning-com\n4526",
+      "ocr_confidence": 0.851,
+      "thumbnail": "keyframes/thumb_079.jpg",
+      "frame": "keyframes/slide_079.png",
+      "lines": [
+        {
+          "text": "RNN State Update and Output Deep",
+          "conf": 0.923
+        },
+        {
+          "text": "output vector Yt Output Vector",
+          "conf": 0.889
+        },
+        {
+          "text": "Yt whyht",
+          "conf": 0.614
+        },
+        {
+          "text": "Update Hidden State",
+          "conf": 0.968
+        },
+        {
+          "text": "RNN nt ht = tanh(Whhht-1 + Wthxt)",
+          "conf": 0.857
+        },
+        {
+          "text": "Input Vector",
+          "conf": 0.991
+        },
+        {
+          "text": "input vector Xt Xt",
+          "conf": 0.987
+        },
+        {
+          "text": "IntroToDeepLearning-com",
+          "conf": 0.938
+        },
+        {
+          "text": "4526",
+          "conf": 0.49
+        }
+      ],
+      "merged_from": [
+        72,
+        73,
+        74,
+        75,
+        76,
+        77,
+        78,
+        79
+      ]
+    },
+    {
+      "slide_id": 22,
+      "start": 1108.0,
+      "end": 1116.0,
+      "title": "RNNs: Computational Graph Across Time Deep",
+      "text": "RNNs: Computational Graph Across Time Deep\nRNN\nIntro ToDeepLearning com\n1526",
+      "ocr_confidence": 0.778,
+      "thumbnail": "keyframes/thumb_080.jpg",
+      "frame": "keyframes/slide_080.png",
+      "lines": [
+        {
+          "text": "RNNs: Computational Graph Across Time Deep",
+          "conf": 0.987
+        },
+        {
+          "text": "RNN",
+          "conf": 1.0
+        },
+        {
+          "text": "Intro ToDeepLearning com",
+          "conf": 0.75
+        },
+        {
+          "text": "1526",
+          "conf": 0.377
+        }
+      ],
+      "merged_from": [
+        80
+      ]
+    },
+    {
+      "slide_id": 23,
+      "start": 1116.0,
+      "end": 1122.0,
+      "title": "RNNs: Computational Graph Across Time Deep",
+      "text": "RNNs: Computational Graph Across Time Deep\nRNN Represent as computational graph unrolled across time\nIntroToDeepLearning com",
+      "ocr_confidence": 0.955,
+      "thumbnail": "keyframes/thumb_081.jpg",
+      "frame": "keyframes/slide_081.png",
+      "lines": [
+        {
+          "text": "RNNs: Computational Graph Across Time Deep",
+          "conf": 0.987
+        },
+        {
+          "text": "RNN Represent as computational graph unrolled across time",
+          "conf": 0.898
+        },
+        {
+          "text": "IntroToDeepLearning com",
+          "conf": 0.979
+        }
+      ],
+      "merged_from": [
+        81
+      ]
+    },
+    {
+      "slide_id": 24,
+      "start": 1122.0,
+      "end": 1128.0,
+      "title": "RNNs: Computational Graph Across Time Deep",
+      "text": "RNNs: Computational Graph Across Time Deep\nRNN\nIntro ToDeepLearning com",
+      "ocr_confidence": 0.923,
+      "thumbnail": "keyframes/thumb_082.jpg",
+      "frame": "keyframes/slide_082.png",
+      "lines": [
+        {
+          "text": "RNNs: Computational Graph Across Time Deep",
+          "conf": 0.988
+        },
+        {
+          "text": "RNN",
+          "conf": 1.0
+        },
+        {
+          "text": "Intro ToDeepLearning com",
+          "conf": 0.782
+        }
+      ],
+      "merged_from": [
+        82
+      ]
+    },
+    {
+      "slide_id": 25,
+      "start": 1128.0,
+      "end": 1170.0,
+      "title": "RNNs: Computational Graph Across Time Deep",
+      "text": "RNNs: Computational Graph Across Time Deep\nRe-use the same weight matrices at every time step\nWhy Why Why Why\nRNN\nWzh W xh Wxh Wxh\nIntro ToDeepLearning com",
+      "ocr_confidence": 0.909,
+      "thumbnail": "keyframes/thumb_084.jpg",
+      "frame": "keyframes/slide_084.png",
+      "lines": [
+        {
+          "text": "RNNs: Computational Graph Across Time Deep",
+          "conf": 0.989
+        },
+        {
+          "text": "Re-use the same weight matrices at every time step",
+          "conf": 0.994
+        },
+        {
+          "text": "Why Why Why Why",
+          "conf": 0.991
+        },
+        {
+          "text": "RNN",
+          "conf": 1.0
+        },
+        {
+          "text": "Wzh W xh Wxh Wxh",
+          "conf": 0.733
+        },
+        {
+          "text": "Intro ToDeepLearning com",
+          "conf": 0.745
+        }
+      ],
+      "merged_from": [
+        83,
+        84
+      ]
+    },
+    {
+      "slide_id": 26,
+      "start": 1170.0,
+      "end": 1198.0,
+      "title": "RNNs: Computational Graph Across Time Deep",
+      "text": "RNNs: Computational Graph Across Time Deep\nForward pass Learning\nW hx Why W hy Why\nRNN\nWzh W xh Wxh Wxh\nIntro ToDeepLearning com\n4526",
+      "ocr_confidence": 0.801,
+      "thumbnail": "keyframes/thumb_085.jpg",
+      "frame": "keyframes/slide_085.png",
+      "lines": [
+        {
+          "text": "RNNs: Computational Graph Across Time Deep",
+          "conf": 0.908
+        },
+        {
+          "text": "Forward pass Learning",
+          "conf": 0.999
+        },
+        {
+          "text": "W hx Why W hy Why",
+          "conf": 0.791
+        },
+        {
+          "text": "RNN",
+          "conf": 1.0
+        },
+        {
+          "text": "Wzh W xh Wxh Wxh",
+          "conf": 0.682
+        },
+        {
+          "text": "Intro ToDeepLearning com",
+          "conf": 0.788
+        },
+        {
+          "text": "4526",
+          "conf": 0.44
+        }
+      ],
+      "merged_from": [
+        85,
+        86
+      ]
+    },
+    {
+      "slide_id": 27,
+      "start": 1198.0,
+      "end": 1226.0,
+      "title": "RNNs from Scratch in TensorFlow Deep",
+      "text": "RNNs from Scratch in TensorFlow Deep\nLayer) Learning\ndim}\nGolf)\noutput vector Yt\nInitiallze veight\nunita, dim))\n3e11 3011\niddcn Statc\nRNN\nCalligel ht\nUpdate cle idden atate recurrent cell\n581+\nEhe cutput\ninput vector\nIntroToDeepLearning com\nRetuci che cuirent and hidden\nself\nDecp Lcarirg",
+      "ocr_confidence": 0.711,
+      "thumbnail": "keyframes/thumb_087.jpg",
+      "frame": "keyframes/slide_087.png",
+      "lines": [
+        {
+          "text": "RNNs from Scratch in TensorFlow Deep",
+          "conf": 0.998
+        },
+        {
+          "text": "Layer) Learning",
+          "conf": 0.991
+        },
+        {
+          "text": "dim}",
+          "conf": 0.607
+        },
+        {
+          "text": "Golf)",
+          "conf": 0.592
+        },
+        {
+          "text": "output vector Yt",
+          "conf": 0.762
+        },
+        {
+          "text": "Initiallze veight",
+          "conf": 0.577
+        },
+        {
+          "text": "unita, dim))",
+          "conf": 0.55
+        },
+        {
+          "text": "3e11 3011",
+          "conf": 0.55
+        },
+        {
+          "text": "iddcn Statc",
+          "conf": 0.498
+        },
+        {
+          "text": "RNN",
+          "conf": 1.0
+        },
+        {
+          "text": "Calligel ht",
+          "conf": 0.777
+        },
+        {
+          "text": "Update cle idden atate recurrent cell",
+          "conf": 0.76
+        },
+        {
+          "text": "581+",
+          "conf": 0.54
+        },
+        {
+          "text": "Ehe cutput",
+          "conf": 0.612
+        },
+        {
+          "text": "input vector",
+          "conf": 0.999
+        },
+        {
+          "text": "IntroToDeepLearning com",
+          "conf": 0.813
+        },
+        {
+          "text": "Retuci che cuirent and hidden",
+          "conf": 0.619
+        },
+        {
+          "text": "self",
+          "conf": 0.721
+        },
+        {
+          "text": "Decp Lcarirg",
+          "conf": 0.538
+        }
+      ],
+      "merged_from": [
+        87
+      ]
+    },
+    {
+      "slide_id": 28,
+      "start": 1226.0,
+      "end": 1232.0,
+      "title": "RNNs from Scratch in TensorFlow Deep",
+      "text": "RNNs from Scratch in TensorFlow Deep\nLayer) Learning\nLni dim}\nGolf)\noutput vector Yt\nInitiallze\nunit?, dim))\n3e11 3011\niddcn\nRNN\nrecurrent cell ht\nidden\ncomcute the cutput\ninput vector\nIntroToDeepLearning com\nRetuci current and hidden Jtate\nself\nDecp Lcanirg",
+      "ocr_confidence": 0.731,
+      "thumbnail": "keyframes/thumb_088.jpg",
+      "frame": "keyframes/slide_088.png",
+      "lines": [
+        {
+          "text": "RNNs from Scratch in TensorFlow Deep",
+          "conf": 0.99
+        },
+        {
+          "text": "Layer) Learning",
+          "conf": 0.989
+        },
+        {
+          "text": "Lni dim}",
+          "conf": 0.499
+        },
+        {
+          "text": "Golf)",
+          "conf": 0.38
+        },
+        {
+          "text": "output vector Yt",
+          "conf": 0.8
+        },
+        {
+          "text": "Initiallze",
+          "conf": 0.575
+        },
+        {
+          "text": "unit?, dim))",
+          "conf": 0.73
+        },
+        {
+          "text": "3e11 3011",
+          "conf": 0.446
+        },
+        {
+          "text": "iddcn",
+          "conf": 0.635
+        },
+        {
+          "text": "RNN",
+          "conf": 1.0
+        },
+        {
+          "text": "recurrent cell ht",
+          "conf": 0.942
+        },
+        {
+          "text": "idden",
+          "conf": 0.636
+        },
+        {
+          "text": "comcute the cutput",
+          "conf": 0.724
+        },
+        {
+          "text": "input vector",
+          "conf": 0.999
+        },
+        {
+          "text": "IntroToDeepLearning com",
+          "conf": 0.822
+        },
+        {
+          "text": "Retuci current and hidden Jtate",
+          "conf": 0.624
+        },
+        {
+          "text": "self",
+          "conf": 0.758
+        },
+        {
+          "text": "Decp Lcanirg",
+          "conf": 0.61
+        }
+      ],
+      "merged_from": [
+        88
+      ]
+    },
+    {
+      "slide_id": 29,
+      "start": 1232.0,
+      "end": 1254.0,
+      "title": "RNNs from Scratch in TensorFlow Deep",
+      "text": "RNNs from Scratch in TensorFlow Deep\nLayer) Learning\ndim}\nGolf)\noutput vector Yt\nInitiallze welght satrices\n3e11 3011\nidccn\nRNN\nrecurrent cell ht\ncutput\ninput vector\nIntroToDeepLearning com\ncurrent and hidden gtate\nself\nDecp Lcanirg",
+      "ocr_confidence": 0.732,
+      "thumbnail": "keyframes/thumb_089.jpg",
+      "frame": "keyframes/slide_089.png",
+      "lines": [
+        {
+          "text": "RNNs from Scratch in TensorFlow Deep",
+          "conf": 0.997
+        },
+        {
+          "text": "Layer) Learning",
+          "conf": 0.839
+        },
+        {
+          "text": "dim}",
+          "conf": 0.73
+        },
+        {
+          "text": "Golf)",
+          "conf": 0.492
+        },
+        {
+          "text": "output vector Yt",
+          "conf": 0.798
+        },
+        {
+          "text": "Initiallze welght satrices",
+          "conf": 0.701
+        },
+        {
+          "text": "3e11 3011",
+          "conf": 0.516
+        },
+        {
+          "text": "idccn",
+          "conf": 0.58
+        },
+        {
+          "text": "RNN",
+          "conf": 1.0
+        },
+        {
+          "text": "recurrent cell ht",
+          "conf": 0.955
+        },
+        {
+          "text": "cutput",
+          "conf": 0.747
+        },
+        {
+          "text": "input vector",
+          "conf": 0.999
+        },
+        {
+          "text": "IntroToDeepLearning com",
+          "conf": 0.845
+        },
+        {
+          "text": "current and hidden gtate",
+          "conf": 0.586
+        },
+        {
+          "text": "self",
+          "conf": 0.352
+        },
+        {
+          "text": "Decp Lcanirg",
+          "conf": 0.569
+        }
+      ],
+      "merged_from": [
+        89
+      ]
+    },
+    {
+      "slide_id": 30,
+      "start": 1254.0,
+      "end": 1274.0,
+      "title": "RNN Implementation: TensorFlow & PyTorch Deep",
+      "text": "RNN Implementation: TensorFlow & PyTorch Deep\nfrom tf keras. layers import SimpleRNN\nmodel SimpleRNN (rnn_units) output vector Yt\nRNN\nfrom torch nn import RNN recurrent cell ht\nmodel RNN (input_ size, rnn units)\ninput vector\nIntroToDeepLearning com\nDecp Lcanirg",
+      "ocr_confidence": 0.909,
+      "thumbnail": "keyframes/thumb_090.jpg",
+      "frame": "keyframes/slide_090.png",
+      "lines": [
+        {
+          "text": "RNN Implementation: TensorFlow & PyTorch Deep",
+          "conf": 0.989
+        },
+        {
+          "text": "from tf keras. layers import SimpleRNN",
+          "conf": 0.872
+        },
+        {
+          "text": "model SimpleRNN (rnn_units) output vector Yt",
+          "conf": 0.874
+        },
+        {
+          "text": "RNN",
+          "conf": 1.0
+        },
+        {
+          "text": "from torch nn import RNN recurrent cell ht",
+          "conf": 0.96
+        },
+        {
+          "text": "model RNN (input_ size, rnn units)",
+          "conf": 0.992
+        },
+        {
+          "text": "input vector",
+          "conf": 0.999
+        },
+        {
+          "text": "IntroToDeepLearning com",
+          "conf": 0.866
+        },
+        {
+          "text": "Decp Lcanirg",
+          "conf": 0.629
+        }
+      ],
+      "merged_from": [
+        90
+      ]
+    },
+    {
+      "slide_id": 31,
+      "start": 1274.0,
+      "end": 1292.0,
+      "title": "RNNs for Sequence Modeling Deep",
+      "text": "RNNs for Sequence Modeling Deep\nOnc to Onc Many to One\n\"Vanilla\" NN Sentment Classificaton\nBinary cassificaticn IntroToDeepLearning com",
+      "ocr_confidence": 0.89,
+      "thumbnail": "keyframes/thumb_092.jpg",
+      "frame": "keyframes/slide_092.png",
+      "lines": [
+        {
+          "text": "RNNs for Sequence Modeling Deep",
+          "conf": 0.966
+        },
+        {
+          "text": "Onc to Onc Many to One",
+          "conf": 0.916
+        },
+        {
+          "text": "\"Vanilla\" NN Sentment Classificaton",
+          "conf": 0.838
+        },
+        {
+          "text": "Binary cassificaticn IntroToDeepLearning com",
+          "conf": 0.841
+        }
+      ],
+      "merged_from": [
+        91,
+        92
+      ]
+    },
+    {
+      "slide_id": 32,
+      "start": 1292.0,
+      "end": 1332.0,
+      "title": "RNNs for Sequence Modeling Deep",
+      "text": "RNNs for Sequence Modeling Deep\nOnc to Onc to One One to Many Many to Many\n\"Vanilla\" NN Sentment Classification Text Generdton Translation Forecasting\nBinary cassificaticn Image Captioning Music Generation Intro ToDeepLearning com\n6.5191 Labl",
+      "ocr_confidence": 0.753,
+      "thumbnail": "keyframes/thumb_093.jpg",
+      "frame": "keyframes/slide_093.png",
+      "lines": [
+        {
+          "text": "RNNs for Sequence Modeling Deep",
+          "conf": 0.85
+        },
+        {
+          "text": "Onc to Onc to One One to Many Many to Many",
+          "conf": 0.932
+        },
+        {
+          "text": "\"Vanilla\" NN Sentment Classification Text Generdton Translation Forecasting",
+          "conf": 0.76
+        },
+        {
+          "text": "Binary cassificaticn Image Captioning Music Generation Intro ToDeepLearning com",
+          "conf": 0.814
+        },
+        {
+          "text": "6.5191 Labl",
+          "conf": 0.408
+        }
+      ],
+      "merged_from": [
+        93
+      ]
+    },
+    {
+      "slide_id": 33,
+      "start": 1332.0,
+      "end": 1388.0,
+      "title": "Sequence Modeling Problem: Predict the Next Word Deep",
+      "text": "Sequence Modeling Problem: Predict the Next Word Deep\n\"This morning took my cat for a walk\"\nIntro ToDeepLearning com\nHSirh6519 4526",
+      "ocr_confidence": 0.731,
+      "thumbnail": "keyframes/thumb_095.jpg",
+      "frame": "keyframes/slide_095.png",
+      "lines": [
+        {
+          "text": "Sequence Modeling Problem: Predict the Next Word Deep",
+          "conf": 0.933
+        },
+        {
+          "text": "\"This morning took my cat for a walk\"",
+          "conf": 0.859
+        },
+        {
+          "text": "Intro ToDeepLearning com",
+          "conf": 0.758
+        },
+        {
+          "text": "HSirh6519 4526",
+          "conf": 0.373
+        }
+      ],
+      "merged_from": [
+        94,
+        95
+      ]
+    },
+    {
+      "slide_id": 34,
+      "start": 1388.0,
+      "end": 1538.0,
+      "title": "Sequence Modeling Problem: Predict the Next Word",
+      "text": "Sequence Modeling Problem: Predict the Next Word\nSUBSCRIBED\nThis morning took my cat for a walk\"'\ngiven these words predict the\nnext word\nRepresenting Language to a Neural Network\n\"deep' earning'\"\nNeural networks cannot interpret words Neural networks require numerical inputs\nIntro ToDeepLearning com",
+      "ocr_confidence": 0.852,
+      "thumbnail": "keyframes/thumb_101.jpg",
+      "frame": "keyframes/slide_101.png",
+      "lines": [
+        {
+          "text": "Sequence Modeling Problem: Predict the Next Word",
+          "conf": 0.765
+        },
+        {
+          "text": "SUBSCRIBED",
+          "conf": 1.0
+        },
+        {
+          "text": "This morning took my cat for a walk\"'",
+          "conf": 0.844
+        },
+        {
+          "text": "given these words predict the",
+          "conf": 0.999
+        },
+        {
+          "text": "next word",
+          "conf": 0.999
+        },
+        {
+          "text": "Representing Language to a Neural Network",
+          "conf": 0.62
+        },
+        {
+          "text": "\"deep' earning'\"",
+          "conf": 0.751
+        },
+        {
+          "text": "Neural networks cannot interpret words Neural networks require numerical inputs",
+          "conf": 0.935
+        },
+        {
+          "text": "Intro ToDeepLearning com",
+          "conf": 0.755
+        }
+      ],
+      "merged_from": [
+        96,
+        97,
+        98,
+        99,
+        100,
+        101,
+        102,
+        103
+      ]
+    },
+    {
+      "slide_id": 35,
+      "start": 1538.0,
+      "end": 1706.0,
+      "title": "Encoding Language for a Neural Network Deep",
+      "text": "Encoding Language for a Neural Network Deep\ndeep earning\nNeural networks cannot interpret words Neural networks require numerical inputs\nEmbedding: transform indexes into vector of fixed size_\nthis Onc-hot embedding Lcarncd cmbedding\ntcok cat\" = [0,1,0,0,0,0] 80\nwalk\nwalk\nmorning\nIntroToDeepLearning com\nVocabulary: Indexing: Embedding:\nCorpus of words Word to index Index to fixed-sized vectcr",
+      "ocr_confidence": 0.919,
+      "thumbnail": "keyframes/thumb_107.jpg",
+      "frame": "keyframes/slide_107.png",
+      "lines": [
+        {
+          "text": "Encoding Language for a Neural Network Deep",
+          "conf": 0.966
+        },
+        {
+          "text": "deep earning",
+          "conf": 0.958
+        },
+        {
+          "text": "Neural networks cannot interpret words Neural networks require numerical inputs",
+          "conf": 0.922
+        },
+        {
+          "text": "Embedding: transform indexes into vector of fixed size_",
+          "conf": 0.892
+        },
+        {
+          "text": "this Onc-hot embedding Lcarncd cmbedding",
+          "conf": 0.856
+        },
+        {
+          "text": "tcok cat\" = [0,1,0,0,0,0] 80",
+          "conf": 0.758
+        },
+        {
+          "text": "walk",
+          "conf": 0.996
+        },
+        {
+          "text": "walk",
+          "conf": 0.928
+        },
+        {
+          "text": "morning",
+          "conf": 0.994
+        },
+        {
+          "text": "IntroToDeepLearning com",
+          "conf": 0.95
+        },
+        {
+          "text": "Vocabulary: Indexing: Embedding:",
+          "conf": 0.998
+        },
+        {
+          "text": "Corpus of words Word to index Index to fixed-sized vectcr",
+          "conf": 0.809
+        }
+      ],
+      "merged_from": [
+        104,
+        105,
+        106,
+        107
+      ]
+    },
+    {
+      "slide_id": 36,
+      "start": 1706.0,
+      "end": 1750.0,
+      "title": "Handle Variable Sequence Lengths Deep",
+      "text": "Handle Variable Sequence Lengths Deep\nThe food was great\nWe visited a restaurant for lunch\nWe were hungry but cleaned the house before eating Intro ToDeepLearning com\n4526",
+      "ocr_confidence": 0.752,
+      "thumbnail": "keyframes/thumb_109.jpg",
+      "frame": "keyframes/slide_109.png",
+      "lines": [
+        {
+          "text": "Handle Variable Sequence Lengths Deep",
+          "conf": 0.881
+        },
+        {
+          "text": "The food was great",
+          "conf": 0.83
+        },
+        {
+          "text": "We visited a restaurant for lunch",
+          "conf": 0.789
+        },
+        {
+          "text": "We were hungry but cleaned the house before eating Intro ToDeepLearning com",
+          "conf": 0.838
+        },
+        {
+          "text": "4526",
+          "conf": 0.422
+        }
+      ],
+      "merged_from": [
+        108,
+        109
+      ]
+    },
+    {
+      "slide_id": 37,
+      "start": 1750.0,
+      "end": 1776.0,
+      "title": "Model Long-Term Dependencies Deep",
+      "text": "Model Long-Term Dependencies Deep\n\"France is where grew UP; but now live in Boston; speak fluent\nJaime 6.5191!\nWe need information from the distant past to accurately\npredict the correct word.\nIntro ToDeepLearning com",
+      "ocr_confidence": 0.758,
+      "thumbnail": "keyframes/thumb_110.jpg",
+      "frame": "keyframes/slide_110.png",
+      "lines": [
+        {
+          "text": "Model Long-Term Dependencies Deep",
+          "conf": 0.992
+        },
+        {
+          "text": "\"France is where grew UP; but now live in Boston; speak fluent",
+          "conf": 0.713
+        },
+        {
+          "text": "Jaime 6.5191!",
+          "conf": 0.524
+        },
+        {
+          "text": "We need information from the distant past to accurately",
+          "conf": 0.853
+        },
+        {
+          "text": "predict the correct word.",
+          "conf": 0.675
+        },
+        {
+          "text": "Intro ToDeepLearning com",
+          "conf": 0.789
+        }
+      ],
+      "merged_from": [
+        110
+      ]
+    },
+    {
+      "slide_id": 38,
+      "start": 1776.0,
+      "end": 1802.0,
+      "title": "The food was good,not bad at all,",
+      "text": "Capture Differences in Sequence Order Deep\nThe food was good,not bad at all,\nVS_\nThe food was bad, not good at all:\nIntro ToDeepLearning com",
+      "ocr_confidence": 0.756,
+      "thumbnail": "keyframes/thumb_111.jpg",
+      "frame": "keyframes/slide_111.png",
+      "lines": [
+        {
+          "text": "Capture Differences in Sequence Order Deep",
+          "conf": 0.946
+        },
+        {
+          "text": "The food was good,not bad at all,",
+          "conf": 0.625
+        },
+        {
+          "text": "VS_",
+          "conf": 0.934
+        },
+        {
+          "text": "The food was bad, not good at all:",
+          "conf": 0.499
+        },
+        {
+          "text": "Intro ToDeepLearning com",
+          "conf": 0.776
+        }
+      ],
+      "merged_from": [
+        111,
+        112
+      ]
+    },
+    {
+      "slide_id": 39,
+      "start": 1802.0,
+      "end": 1830.0,
+      "title": "Sequence Modeling: Design Criteria Deep",
+      "text": "Sequence Modeling: Design Criteria Deep\nTo model sequences_ we need to'\nHandle variable-length sequences\nTrack long-term dependencies RNN\nMaintain information about order\nShare parameters across the sequence\nRecurrent Neural Networks (RNNs) meet\nthese sequence modeling desigi criteria Intro ToDeepLearning com",
+      "ocr_confidence": 0.867,
+      "thumbnail": "keyframes/thumb_113.jpg",
+      "frame": "keyframes/slide_113.png",
+      "lines": [
+        {
+          "text": "Sequence Modeling: Design Criteria Deep",
+          "conf": 0.98
+        },
+        {
+          "text": "To model sequences_ we need to'",
+          "conf": 0.743
+        },
+        {
+          "text": "Handle variable-length sequences",
+          "conf": 0.811
+        },
+        {
+          "text": "Track long-term dependencies RNN",
+          "conf": 0.877
+        },
+        {
+          "text": "Maintain information about order",
+          "conf": 0.807
+        },
+        {
+          "text": "Share parameters across the sequence",
+          "conf": 0.952
+        },
+        {
+          "text": "Recurrent Neural Networks (RNNs) meet",
+          "conf": 0.928
+        },
+        {
+          "text": "these sequence modeling desigi criteria Intro ToDeepLearning com",
+          "conf": 0.839
+        }
+      ],
+      "merged_from": [
+        113
+      ]
+    },
+    {
+      "slide_id": 40,
+      "start": 1830.0,
+      "end": 1850.0,
+      "title": "Deep",
+      "text": "Deep\nBackpropagation Through Time (BPTT)\nIntro ToDeepLearning com",
+      "ocr_confidence": 0.926,
+      "thumbnail": "keyframes/thumb_114.jpg",
+      "frame": "keyframes/slide_114.png",
+      "lines": [
+        {
+          "text": "Deep",
+          "conf": 1.0
+        },
+        {
+          "text": "Backpropagation Through Time (BPTT)",
+          "conf": 0.999
+        },
+        {
+          "text": "Intro ToDeepLearning com",
+          "conf": 0.78
+        }
+      ],
+      "merged_from": [
+        114
+      ]
+    },
+    {
+      "slide_id": 41,
+      "start": 1850.0,
+      "end": 1880.0,
+      "title": "Recall: Backpropagation in Feed Forward Models Deep",
+      "text": "Recall: Backpropagation in Feed Forward Models Deep\n0 0 0\nIntroToDeepLearning com\n4526",
+      "ocr_confidence": 0.8,
+      "thumbnail": "keyframes/thumb_116.jpg",
+      "frame": "keyframes/slide_116.png",
+      "lines": [
+        {
+          "text": "Recall: Backpropagation in Feed Forward Models Deep",
+          "conf": 0.99
+        },
+        {
+          "text": "0 0 0",
+          "conf": 0.788
+        },
+        {
+          "text": "IntroToDeepLearning com",
+          "conf": 0.98
+        },
+        {
+          "text": "4526",
+          "conf": 0.441
+        }
+      ],
+      "merged_from": [
+        115,
+        116,
+        117
+      ]
+    },
+    {
+      "slide_id": 42,
+      "start": 1880.0,
+      "end": 1892.0,
+      "title": "Recall: Backpropagation in Feed Forward Models Deep",
+      "text": "Recall: Backpropagation in Feed Forward Models Deep\nBackpropagation algorithm:\nTake the derivative (gradient) of the\nloss with respect to each parameter\nIntro ToDeepLearning com\n4526",
+      "ocr_confidence": 0.778,
+      "thumbnail": "keyframes/thumb_118.jpg",
+      "frame": "keyframes/slide_118.png",
+      "lines": [
+        {
+          "text": "Recall: Backpropagation in Feed Forward Models Deep",
+          "conf": 0.93
+        },
+        {
+          "text": "Backpropagation algorithm:",
+          "conf": 0.999
+        },
+        {
+          "text": "Take the derivative (gradient) of the",
+          "conf": 0.683
+        },
+        {
+          "text": "loss with respect to each parameter",
+          "conf": 0.828
+        },
+        {
+          "text": "Intro ToDeepLearning com",
+          "conf": 0.79
+        },
+        {
+          "text": "4526",
+          "conf": 0.44
+        }
+      ],
+      "merged_from": [
+        118
+      ]
+    },
+    {
+      "slide_id": 43,
+      "start": 1892.0,
+      "end": 1898.0,
+      "title": "Recall: Backpropagation in Feed Forward Models Deep",
+      "text": "Recall: Backpropagation in Feed Forward Models Deep\nBackpropagation algorithm:\nTake the derivative (gradient) ofthe\nloss with respect to each parameter\nShift parameters in order to\nminimize loss\nIntroToDeepLearning com\n4526",
+      "ocr_confidence": 0.87,
+      "thumbnail": "keyframes/thumb_119.jpg",
+      "frame": "keyframes/slide_119.png",
+      "lines": [
+        {
+          "text": "Recall: Backpropagation in Feed Forward Models Deep",
+          "conf": 0.91
+        },
+        {
+          "text": "Backpropagation algorithm:",
+          "conf": 0.995
+        },
+        {
+          "text": "Take the derivative (gradient) ofthe",
+          "conf": 0.906
+        },
+        {
+          "text": "loss with respect to each parameter",
+          "conf": 0.901
+        },
+        {
+          "text": "Shift parameters in order to",
+          "conf": 0.91
+        },
+        {
+          "text": "minimize loss",
+          "conf": 0.995
+        },
+        {
+          "text": "IntroToDeepLearning com",
+          "conf": 0.978
+        },
+        {
+          "text": "4526",
+          "conf": 0.361
+        }
+      ],
+      "merged_from": [
+        119
+      ]
+    },
+    {
+      "slide_id": 44,
+      "start": 1898.0,
+      "end": 1984.0,
+      "title": "RNNs: Backpropagation Through Time Deep",
+      "text": "RNNs: Backpropagation Through Time Deep\nForward Pass Learning\nBackward\nW hx Why Why\nRNN\nWzh W xh Wxh\nIntro ToDeepLearning com",
+      "ocr_confidence": 0.893,
+      "thumbnail": "keyframes/thumb_121.jpg",
+      "frame": "keyframes/slide_121.png",
+      "lines": [
+        {
+          "text": "RNNs: Backpropagation Through Time Deep",
+          "conf": 0.979
+        },
+        {
+          "text": "Forward Pass Learning",
+          "conf": 0.925
+        },
+        {
+          "text": "Backward",
+          "conf": 1.0
+        },
+        {
+          "text": "W hx Why Why",
+          "conf": 0.864
+        },
+        {
+          "text": "RNN",
+          "conf": 1.0
+        },
+        {
+          "text": "Wzh W xh Wxh",
+          "conf": 0.656
+        },
+        {
+          "text": "Intro ToDeepLearning com",
+          "conf": 0.824
+        }
+      ],
+      "merged_from": [
+        120,
+        121,
+        122
+      ]
+    },
+    {
+      "slide_id": 45,
+      "start": 1984.0,
+      "end": 2020.0,
+      "title": "Standard RNN Gradient Flow: Exploding Gradients Deep",
+      "text": "Standard RNN Gradient Flow: Exploding Gradients Deep\nho W hh ht\nW xh Wxh Wxh\nComputing the gradient wrt ho involves many factors of Whh repeated gradient computation!\nMany- values\nexploding gradients\nGradient clipping to\nscale big gradients IntroToDeepLearning com\n4526\nrom",
+      "ocr_confidence": 0.726,
+      "thumbnail": "keyframes/thumb_127.jpg",
+      "frame": "keyframes/slide_127.png",
+      "lines": [
+        {
+          "text": "Standard RNN Gradient Flow: Exploding Gradients Deep",
+          "conf": 0.867
+        },
+        {
+          "text": "ho W hh ht",
+          "conf": 0.928
+        },
+        {
+          "text": "W xh Wxh Wxh",
+          "conf": 0.632
+        },
+        {
+          "text": "Computing the gradient wrt ho involves many factors of Whh repeated gradient computation!",
+          "conf": 0.791
+        },
+        {
+          "text": "Many- values",
+          "conf": 0.761
+        },
+        {
+          "text": "exploding gradients",
+          "conf": 0.792
+        },
+        {
+          "text": "Gradient clipping to",
+          "conf": 0.985
+        },
+        {
+          "text": "scale big gradients IntroToDeepLearning com",
+          "conf": 0.798
+        },
+        {
+          "text": "4526",
+          "conf": 0.354
+        },
+        {
+          "text": "rom",
+          "conf": 0.35
+        }
+      ],
+      "merged_from": [
+        123,
+        124,
+        125,
+        126,
+        127
+      ]
+    },
+    {
+      "slide_id": 46,
+      "start": 2020.0,
+      "end": 2090.0,
+      "title": "Standard RNN Gradient Flow:Vanishing Gradients",
+      "text": "Standard RNN Gradient Flow:Vanishing Gradients\nho W hh ht\nW xh Wxh Wxh\nComputing the gradient wrt ho involves many factors of Whh repeated gradient computation!\nMany values Many values\nexploding gradients vanishing gradients\nActivation function\nGradient clipping 0 Weight initialization Intro ToDeepLearning com\nScae gradients\nNetwork architecture\n4526",
+      "ocr_confidence": 0.773,
+      "thumbnail": "keyframes/thumb_131.jpg",
+      "frame": "keyframes/slide_131.png",
+      "lines": [
+        {
+          "text": "Standard RNN Gradient Flow:Vanishing Gradients",
+          "conf": 0.751
+        },
+        {
+          "text": "ho W hh ht",
+          "conf": 0.93
+        },
+        {
+          "text": "W xh Wxh Wxh",
+          "conf": 0.633
+        },
+        {
+          "text": "Computing the gradient wrt ho involves many factors of Whh repeated gradient computation!",
+          "conf": 0.793
+        },
+        {
+          "text": "Many values Many values",
+          "conf": 0.847
+        },
+        {
+          "text": "exploding gradients vanishing gradients",
+          "conf": 0.998
+        },
+        {
+          "text": "Activation function",
+          "conf": 0.836
+        },
+        {
+          "text": "Gradient clipping 0 Weight initialization Intro ToDeepLearning com",
+          "conf": 0.898
+        },
+        {
+          "text": "Scae gradients",
+          "conf": 0.454
+        },
+        {
+          "text": "Network architecture",
+          "conf": 0.993
+        },
+        {
+          "text": "4526",
+          "conf": 0.372
+        }
+      ],
+      "merged_from": [
+        128,
+        129,
+        130,
+        131,
+        132
+      ]
+    },
+    {
+      "slide_id": 47,
+      "start": 2090.0,
+      "end": 2158.0,
+      "title": "The Problem of Long- Term Dependencies Deep",
+      "text": "The Problem of Long- Term Dependencies Deep\nTne clouds are in the Learning\nWhy are vanishing gradients problem?\nMultiply many small numbers together\nErrors due to further back time steps\nhave smaller and smaller gradients grcw UP France; and spcak fluent\nBias parameters to capture short-term\ndependencies\nIntro ToDeepLearning com",
+      "ocr_confidence": 0.871,
+      "thumbnail": "keyframes/thumb_137.jpg",
+      "frame": "keyframes/slide_137.png",
+      "lines": [
+        {
+          "text": "The Problem of Long- Term Dependencies Deep",
+          "conf": 0.843
+        },
+        {
+          "text": "Tne clouds are in the Learning",
+          "conf": 0.916
+        },
+        {
+          "text": "Why are vanishing gradients problem?",
+          "conf": 0.991
+        },
+        {
+          "text": "Multiply many small numbers together",
+          "conf": 0.972
+        },
+        {
+          "text": "Errors due to further back time steps",
+          "conf": 0.779
+        },
+        {
+          "text": "have smaller and smaller gradients grcw UP France; and spcak fluent",
+          "conf": 0.69
+        },
+        {
+          "text": "Bias parameters to capture short-term",
+          "conf": 0.828
+        },
+        {
+          "text": "dependencies",
+          "conf": 1.0
+        },
+        {
+          "text": "Intro ToDeepLearning com",
+          "conf": 0.821
+        }
+      ],
+      "merged_from": [
+        133,
+        134,
+        135,
+        136,
+        137,
+        138
+      ]
+    },
+    {
+      "slide_id": 48,
+      "start": 2158.0,
+      "end": 2198.0,
+      "title": "Gating Mechanisms in Neurons Deep",
+      "text": "Gating Mechanisms in Neurons Deep\nIdea; use gates to selectively add remove information Learning\nwithin each recurrent unit with\nPointwise multiplication\ngated cell\nSigmoid neural net layer LSTM, GRU,etc:\nGates optionally let information through the cell\nLong Short Term Memory (LSTMs) networks rely on a gated cell to\ntrack information throughout many time steps: Intro ToDeepLearning com\n4526",
+      "ocr_confidence": 0.788,
+      "thumbnail": "keyframes/thumb_140.jpg",
+      "frame": "keyframes/slide_140.png",
+      "lines": [
+        {
+          "text": "Gating Mechanisms in Neurons Deep",
+          "conf": 0.975
+        },
+        {
+          "text": "Idea; use gates to selectively add remove information Learning",
+          "conf": 0.912
+        },
+        {
+          "text": "within each recurrent unit with",
+          "conf": 0.999
+        },
+        {
+          "text": "Pointwise multiplication",
+          "conf": 0.904
+        },
+        {
+          "text": "gated cell",
+          "conf": 0.645
+        },
+        {
+          "text": "Sigmoid neural net layer LSTM, GRU,etc:",
+          "conf": 0.541
+        },
+        {
+          "text": "Gates optionally let information through the cell",
+          "conf": 0.888
+        },
+        {
+          "text": "Long Short Term Memory (LSTMs) networks rely on a gated cell to",
+          "conf": 0.647
+        },
+        {
+          "text": "track information throughout many time steps: Intro ToDeepLearning com",
+          "conf": 0.909
+        },
+        {
+          "text": "4526",
+          "conf": 0.457
+        }
+      ],
+      "merged_from": [
+        139,
+        140
+      ]
+    },
+    {
+      "slide_id": 49,
+      "start": 2198.0,
+      "end": 2204.0,
+      "title": "Deep",
+      "text": "Deep\nRNN Applications & Limitations\nIntroToDeepLearning com",
+      "ocr_confidence": 0.919,
+      "thumbnail": "keyframes/thumb_141.jpg",
+      "frame": "keyframes/slide_141.png",
+      "lines": [
+        {
+          "text": "Deep",
+          "conf": 1.0
+        },
+        {
+          "text": "RNN Applications & Limitations",
+          "conf": 0.772
+        },
+        {
+          "text": "IntroToDeepLearning com",
+          "conf": 0.986
+        }
+      ],
+      "merged_from": [
+        141
+      ]
+    },
+    {
+      "slide_id": 50,
+      "start": 2204.0,
+      "end": 2300.0,
+      "title": "Example Task: Music Generation Deep",
+      "text": "Example Task: Music Generation Deep\nInput: sheet music\nOutput: next character in sheet music\nListening to\n3rd movement\nIntro ToDeepLearning com\n6.5191 Labl\nrom",
+      "ocr_confidence": 0.798,
+      "thumbnail": "keyframes/thumb_142.jpg",
+      "frame": "keyframes/slide_142.png",
+      "lines": [
+        {
+          "text": "Example Task: Music Generation Deep",
+          "conf": 0.98
+        },
+        {
+          "text": "Input: sheet music",
+          "conf": 0.989
+        },
+        {
+          "text": "Output: next character in sheet music",
+          "conf": 0.808
+        },
+        {
+          "text": "Listening to",
+          "conf": 0.923
+        },
+        {
+          "text": "3rd movement",
+          "conf": 1.0
+        },
+        {
+          "text": "Intro ToDeepLearning com",
+          "conf": 0.72
+        },
+        {
+          "text": "6.5191 Labl",
+          "conf": 0.549
+        },
+        {
+          "text": "rom",
+          "conf": 0.417
+        }
+      ],
+      "merged_from": [
+        142,
+        143,
+        144,
+        145,
+        146,
+        147
+      ]
+    },
+    {
+      "slide_id": 51,
+      "start": 2300.0,
+      "end": 2332.0,
+      "title": "Limitations of Recurrent Models Deep",
+      "text": "Limitations of Recurrent Models Deep\nsentiment\n<positive >\nLimitations of RNNs\nIntro ToDeepLearning com\nthis class'",
+      "ocr_confidence": 0.828,
+      "thumbnail": "keyframes/thumb_148.jpg",
+      "frame": "keyframes/slide_148.png",
+      "lines": [
+        {
+          "text": "Limitations of Recurrent Models Deep",
+          "conf": 0.996
+        },
+        {
+          "text": "sentiment",
+          "conf": 0.801
+        },
+        {
+          "text": "<positive >",
+          "conf": 0.701
+        },
+        {
+          "text": "Limitations of RNNs",
+          "conf": 0.999
+        },
+        {
+          "text": "Intro ToDeepLearning com",
+          "conf": 0.759
+        },
+        {
+          "text": "this class'",
+          "conf": 0.714
+        }
+      ],
+      "merged_from": [
+        148
+      ]
+    },
+    {
+      "slide_id": 52,
+      "start": 2332.0,
+      "end": 2344.0,
+      "title": "Limitations of Recurrent Models Deep",
+      "text": "Limitations of Recurrent Models Deep\nsentiment\n<positive >\nLimitations of RNNs\nEncoding bottleneck\nIntroToDeepLearning com\nthis class\nJE 4526",
+      "ocr_confidence": 0.87,
+      "thumbnail": "keyframes/thumb_149.jpg",
+      "frame": "keyframes/slide_149.png",
+      "lines": [
+        {
+          "text": "Limitations of Recurrent Models Deep",
+          "conf": 0.997
+        },
+        {
+          "text": "sentiment",
+          "conf": 0.995
+        },
+        {
+          "text": "<positive >",
+          "conf": 0.624
+        },
+        {
+          "text": "Limitations of RNNs",
+          "conf": 0.924
+        },
+        {
+          "text": "Encoding bottleneck",
+          "conf": 0.885
+        },
+        {
+          "text": "IntroToDeepLearning com",
+          "conf": 0.979
+        },
+        {
+          "text": "this class",
+          "conf": 1.0
+        },
+        {
+          "text": "JE 4526",
+          "conf": 0.557
+        }
+      ],
+      "merged_from": [
+        149
+      ]
+    },
+    {
+      "slide_id": 53,
+      "start": 2344.0,
+      "end": 2384.0,
+      "title": "Limitations of Recurrent Models Deep",
+      "text": "Limitations of Recurrent Models Deep\nsentiment\n<positive >\nLimitations of RNNs\nEncoding bottleneck\nSlow; no parallelization\nNot long memory\nIntroToDeepLearning com\nthis class",
+      "ocr_confidence": 0.89,
+      "thumbnail": "keyframes/thumb_151.jpg",
+      "frame": "keyframes/slide_151.png",
+      "lines": [
+        {
+          "text": "Limitations of Recurrent Models Deep",
+          "conf": 0.896
+        },
+        {
+          "text": "sentiment",
+          "conf": 0.995
+        },
+        {
+          "text": "<positive >",
+          "conf": 0.634
+        },
+        {
+          "text": "Limitations of RNNs",
+          "conf": 0.926
+        },
+        {
+          "text": "Encoding bottleneck",
+          "conf": 0.878
+        },
+        {
+          "text": "Slow; no parallelization",
+          "conf": 0.738
+        },
+        {
+          "text": "Not long memory",
+          "conf": 0.997
+        },
+        {
+          "text": "IntroToDeepLearning com",
+          "conf": 0.979
+        },
+        {
+          "text": "this class",
+          "conf": 0.97
+        }
+      ],
+      "merged_from": [
+        150,
+        151
+      ]
+    },
+    {
+      "slide_id": 54,
+      "start": 2384.0,
+      "end": 2398.0,
+      "title": "Goal of Sequence Modeling Deep",
+      "text": "Goal of Sequence Modeling Deep\nSequence of inputs Xt-2 Xt-1 input\nIntroToDeepLearning com\n4526",
+      "ocr_confidence": 0.79,
+      "thumbnail": "keyframes/thumb_153.jpg",
+      "frame": "keyframes/slide_153.png",
+      "lines": [
+        {
+          "text": "Goal of Sequence Modeling Deep",
+          "conf": 0.829
+        },
+        {
+          "text": "Sequence of inputs Xt-2 Xt-1 input",
+          "conf": 0.985
+        },
+        {
+          "text": "IntroToDeepLearning com",
+          "conf": 0.979
+        },
+        {
+          "text": "4526",
+          "conf": 0.369
+        }
+      ],
+      "merged_from": [
+        152,
+        153
+      ]
+    },
+    {
+      "slide_id": 55,
+      "start": 2398.0,
+      "end": 2410.0,
+      "title": "Goal of Sequence Modeling Deep",
+      "text": "Goal of Sequence Modeling Deep\nRNNs: recurrence to model sequence dependencies\nSequence of outputs Yt-2 Yt-1 output\nSequence of features feature vector\nSequence of inputs Xo Xt-2 input\nIntro ToDeepLearning com\nom",
+      "ocr_confidence": 0.825,
+      "thumbnail": "keyframes/thumb_155.jpg",
+      "frame": "keyframes/slide_155.png",
+      "lines": [
+        {
+          "text": "Goal of Sequence Modeling Deep",
+          "conf": 0.845
+        },
+        {
+          "text": "RNNs: recurrence to model sequence dependencies",
+          "conf": 0.781
+        },
+        {
+          "text": "Sequence of outputs Yt-2 Yt-1 output",
+          "conf": 0.859
+        },
+        {
+          "text": "Sequence of features feature vector",
+          "conf": 0.998
+        },
+        {
+          "text": "Sequence of inputs Xo Xt-2 input",
+          "conf": 0.957
+        },
+        {
+          "text": "Intro ToDeepLearning com",
+          "conf": 0.754
+        },
+        {
+          "text": "om",
+          "conf": 0.58
+        }
+      ],
+      "merged_from": [
+        154,
+        155
+      ]
+    },
+    {
+      "slide_id": 56,
+      "start": 2410.0,
+      "end": 2416.0,
+      "title": "Goal of Sequence Modeling Deep",
+      "text": "Goal of Sequence Modeling Deep\nRNNs: recurrence to model sequence dependencies\nLimitations of RNNs Yt-2 Yt-1 output\nEncoding bottleneck\nfeature vector\nSlow,no parallelization\nNot long memory Xo Xt-2 input\nIntro ToDeepLearning com",
+      "ocr_confidence": 0.85,
+      "thumbnail": "keyframes/thumb_156.jpg",
+      "frame": "keyframes/slide_156.png",
+      "lines": [
+        {
+          "text": "Goal of Sequence Modeling Deep",
+          "conf": 0.829
+        },
+        {
+          "text": "RNNs: recurrence to model sequence dependencies",
+          "conf": 0.673
+        },
+        {
+          "text": "Limitations of RNNs Yt-2 Yt-1 output",
+          "conf": 0.793
+        },
+        {
+          "text": "Encoding bottleneck",
+          "conf": 0.916
+        },
+        {
+          "text": "feature vector",
+          "conf": 0.862
+        },
+        {
+          "text": "Slow,no parallelization",
+          "conf": 0.985
+        },
+        {
+          "text": "Not long memory Xo Xt-2 input",
+          "conf": 0.98
+        },
+        {
+          "text": "Intro ToDeepLearning com",
+          "conf": 0.759
+        }
+      ],
+      "merged_from": [
+        156
+      ]
+    },
+    {
+      "slide_id": 57,
+      "start": 2416.0,
+      "end": 2484.0,
+      "title": "Goal of Sequence Modeling Deep",
+      "text": "Goal of Sequence Modeling Deep\nCan we eliminate the need for Learning\nrecurrence entirely?\nDesired Capabilities Yt-2 Yt-1 output\nContinuous stream\nfeature vector\nParallelization\nLong memory Xo   X1   X2 Xt-2 Xt-1 input\nIntro ToDeepLearning com\n4526",
+      "ocr_confidence": 0.83,
+      "thumbnail": "keyframes/thumb_162.jpg",
+      "frame": "keyframes/slide_162.png",
+      "lines": [
+        {
+          "text": "Goal of Sequence Modeling Deep",
+          "conf": 0.838
+        },
+        {
+          "text": "Can we eliminate the need for Learning",
+          "conf": 0.986
+        },
+        {
+          "text": "recurrence entirely?",
+          "conf": 0.916
+        },
+        {
+          "text": "Desired Capabilities Yt-2 Yt-1 output",
+          "conf": 0.87
+        },
+        {
+          "text": "Continuous stream",
+          "conf": 0.859
+        },
+        {
+          "text": "feature vector",
+          "conf": 0.832
+        },
+        {
+          "text": "Parallelization",
+          "conf": 0.969
+        },
+        {
+          "text": "Long memory Xo   X1   X2 Xt-2 Xt-1 input",
+          "conf": 0.892
+        },
+        {
+          "text": "Intro ToDeepLearning com",
+          "conf": 0.746
+        },
+        {
+          "text": "4526",
+          "conf": 0.394
+        }
+      ],
+      "merged_from": [
+        157,
+        158,
+        159,
+        160,
+        161,
+        162
+      ]
+    },
+    {
+      "slide_id": 58,
+      "start": 2484.0,
+      "end": 2556.0,
+      "title": "Goal of Sequence Modeling Deep",
+      "text": "Goal of Sequence Modeling Deep\nIdea I: Feed everything Can we eliminate the need for Learning\ninto dense network recurrence entirely?\nNo recurrence Yt-2 Yt-1 output\nNot scalable\nNo order\nfeature vector\nNo long memory\nIdea: Identify and attend X1   X2 Xt-2 Xt-1 input\nto what $ important Intro ToDeepLearning com\n1526",
+      "ocr_confidence": 0.85,
+      "thumbnail": "keyframes/thumb_166.jpg",
+      "frame": "keyframes/slide_166.png",
+      "lines": [
+        {
+          "text": "Goal of Sequence Modeling Deep",
+          "conf": 0.829
+        },
+        {
+          "text": "Idea I: Feed everything Can we eliminate the need for Learning",
+          "conf": 0.765
+        },
+        {
+          "text": "into dense network recurrence entirely?",
+          "conf": 0.93
+        },
+        {
+          "text": "No recurrence Yt-2 Yt-1 output",
+          "conf": 0.827
+        },
+        {
+          "text": "Not scalable",
+          "conf": 1.0
+        },
+        {
+          "text": "No order",
+          "conf": 0.987
+        },
+        {
+          "text": "feature vector",
+          "conf": 0.964
+        },
+        {
+          "text": "No long memory",
+          "conf": 0.97
+        },
+        {
+          "text": "Idea: Identify and attend X1   X2 Xt-2 Xt-1 input",
+          "conf": 0.87
+        },
+        {
+          "text": "to what $ important Intro ToDeepLearning com",
+          "conf": 0.791
+        },
+        {
+          "text": "1526",
+          "conf": 0.414
+        }
+      ],
+      "merged_from": [
+        163,
+        164,
+        165,
+        166
+      ]
+    },
+    {
+      "slide_id": 59,
+      "start": 2556.0,
+      "end": 2594.0,
+      "title": "Deep",
+      "text": "Deep\nAttention Is All You Need\nIntroToDeepLearning com\n00O",
+      "ocr_confidence": 0.9,
+      "thumbnail": "keyframes/thumb_167.jpg",
+      "frame": "keyframes/slide_167.png",
+      "lines": [
+        {
+          "text": "Deep",
+          "conf": 1.0
+        },
+        {
+          "text": "Attention Is All You Need",
+          "conf": 0.877
+        },
+        {
+          "text": "IntroToDeepLearning com",
+          "conf": 0.976
+        },
+        {
+          "text": "00O",
+          "conf": 0.746
+        }
+      ],
+      "merged_from": [
+        167
+      ]
+    },
+    {
+      "slide_id": 60,
+      "start": 2594.0,
+      "end": 2668.0,
+      "title": "Intuition Behind Self-Attention Deep",
+      "text": "Intuition Behind Self-Attention Deep\nAttending to the most important parts of an input Learning\nSimilar to\nIdentify which parts to attend to scarch problem! Intro ToDeepLearning com\nExtract the features with high attention",
+      "ocr_confidence": 0.916,
+      "thumbnail": "keyframes/thumb_172.jpg",
+      "frame": "keyframes/slide_172.png",
+      "lines": [
+        {
+          "text": "Intuition Behind Self-Attention Deep",
+          "conf": 0.984
+        },
+        {
+          "text": "Attending to the most important parts of an input Learning",
+          "conf": 0.976
+        },
+        {
+          "text": "Similar to",
+          "conf": 0.979
+        },
+        {
+          "text": "Identify which parts to attend to scarch problem! Intro ToDeepLearning com",
+          "conf": 0.862
+        },
+        {
+          "text": "Extract the features with high attention",
+          "conf": 0.781
+        }
+      ],
+      "merged_from": [
+        168,
+        169,
+        170,
+        171,
+        172
+      ]
+    },
+    {
+      "slide_id": 61,
+      "start": 2668.0,
+      "end": 2694.0,
+      "title": "Simple Example: Search Deep",
+      "text": "Simple Example: Search Deep\nHow can Iearn\nmore about\nneural networks:\nIntroToDeepLearning com\n4526",
+      "ocr_confidence": 0.713,
+      "thumbnail": "keyframes/thumb_174.jpg",
+      "frame": "keyframes/slide_174.png",
+      "lines": [
+        {
+          "text": "Simple Example: Search Deep",
+          "conf": 0.941
+        },
+        {
+          "text": "How can Iearn",
+          "conf": 0.803
+        },
+        {
+          "text": "more about",
+          "conf": 0.598
+        },
+        {
+          "text": "neural networks:",
+          "conf": 0.652
+        },
+        {
+          "text": "IntroToDeepLearning com",
+          "conf": 0.897
+        },
+        {
+          "text": "4526",
+          "conf": 0.385
+        }
+      ],
+      "merged_from": [
+        173,
+        174
+      ]
+    },
+    {
+      "slide_id": 62,
+      "start": 2694.0,
+      "end": 2790.0,
+      "title": "Understanding Attention with Search Deep",
+      "text": "Understanding Attention with Search Deep\nYouTube Query (Q) How similar i5 the Learning\nKey (Kv) key to the query?\nKey (Kz)\nKey (K3)\nCompute attention mask: how IntroToDeepLearning com\nsimilar is each key to the desired query?\nDccp Lcarirg",
+      "ocr_confidence": 0.766,
+      "thumbnail": "keyframes/thumb_177.jpg",
+      "frame": "keyframes/slide_177.png",
+      "lines": [
+        {
+          "text": "Understanding Attention with Search Deep",
+          "conf": 0.979
+        },
+        {
+          "text": "YouTube Query (Q) How similar i5 the Learning",
+          "conf": 0.798
+        },
+        {
+          "text": "Key (Kv) key to the query?",
+          "conf": 0.704
+        },
+        {
+          "text": "Key (Kz)",
+          "conf": 0.934
+        },
+        {
+          "text": "Key (K3)",
+          "conf": 0.682
+        },
+        {
+          "text": "Compute attention mask: how IntroToDeepLearning com",
+          "conf": 0.792
+        },
+        {
+          "text": "similar is each key to the desired query?",
+          "conf": 0.877
+        },
+        {
+          "text": "Dccp Lcarirg",
+          "conf": 0.365
+        }
+      ],
+      "merged_from": [
+        175,
+        176,
+        177,
+        178,
+        179
+      ]
+    },
+    {
+      "slide_id": 63,
+      "start": 2790.0,
+      "end": 2822.0,
+      "title": "Understanding Attention with Search Deep",
+      "text": "Understanding Attention with Search Deep\nYouTube dccp kcarning Query (Q) Learning\nKey (Kz)\nValue\n2, Extract values based on attention: IntroToDeepLearning com\nReturn the values highest attention\nDecp Lcanirg",
+      "ocr_confidence": 0.697,
+      "thumbnail": "keyframes/thumb_181.jpg",
+      "frame": "keyframes/slide_181.png",
+      "lines": [
+        {
+          "text": "Understanding Attention with Search Deep",
+          "conf": 0.935
+        },
+        {
+          "text": "YouTube dccp kcarning Query (Q) Learning",
+          "conf": 0.793
+        },
+        {
+          "text": "Key (Kz)",
+          "conf": 0.629
+        },
+        {
+          "text": "Value",
+          "conf": 0.962
+        },
+        {
+          "text": "2, Extract values based on attention: IntroToDeepLearning com",
+          "conf": 0.673
+        },
+        {
+          "text": "Return the values highest attention",
+          "conf": 0.506
+        },
+        {
+          "text": "Decp Lcanirg",
+          "conf": 0.38
+        }
+      ],
+      "merged_from": [
+        180,
+        181
+      ]
+    },
+    {
+      "slide_id": 64,
+      "start": 2822.0,
+      "end": 2860.0,
+      "title": "Learning Self-Attention with Neural Networks Deep",
+      "text": "Learning Self-Attention with Neural Networks Deep\nGoal: identify and attend to most tossed Tennis\nimportant features in input:\nEncode position information\nExtract query key; value for search\nCompute attention weighting\nExtr act features with high attention\nIntroToDeepLearning com\nData is fed in all at oncel Need to encode position information to understand order:\nJE",
+      "ocr_confidence": 0.772,
+      "thumbnail": "keyframes/thumb_185.jpg",
+      "frame": "keyframes/slide_185.png",
+      "lines": [
+        {
+          "text": "Learning Self-Attention with Neural Networks Deep",
+          "conf": 0.92
+        },
+        {
+          "text": "Goal: identify and attend to most tossed Tennis",
+          "conf": 0.574
+        },
+        {
+          "text": "important features in input:",
+          "conf": 0.746
+        },
+        {
+          "text": "Encode position information",
+          "conf": 0.989
+        },
+        {
+          "text": "Extract query key; value for search",
+          "conf": 0.615
+        },
+        {
+          "text": "Compute attention weighting",
+          "conf": 0.637
+        },
+        {
+          "text": "Extr act features with high attention",
+          "conf": 0.559
+        },
+        {
+          "text": "IntroToDeepLearning com",
+          "conf": 0.978
+        },
+        {
+          "text": "Data is fed in all at oncel Need to encode position information to understand order:",
+          "conf": 0.911
+        },
+        {
+          "text": "JE",
+          "conf": 0.795
+        }
+      ],
+      "merged_from": [
+        182,
+        183,
+        184,
+        185
+      ]
+    },
+    {
+      "slide_id": 65,
+      "start": 2860.0,
+      "end": 2894.0,
+      "title": "Learning Self-Attention with Neural Networks Deep",
+      "text": "Learning Self-Attention with Neural Networks Deep\nGoal: identify and attend to most tossed tennis sena\nimportant features in input:\nembedding\nEncode position information\nExtract query key; value scarch position\ninformation\nCompute actention weighting\nExtract features wich high attention\nPosition-aware encoding\nIntroToDeepLearning com\nData is fed in all at oncel Need to encode position information to understand order:\nJE",
+      "ocr_confidence": 0.846,
+      "thumbnail": "keyframes/thumb_186.jpg",
+      "frame": "keyframes/slide_186.png",
+      "lines": [
+        {
+          "text": "Learning Self-Attention with Neural Networks Deep",
+          "conf": 0.939
+        },
+        {
+          "text": "Goal: identify and attend to most tossed tennis sena",
+          "conf": 0.663
+        },
+        {
+          "text": "important features in input:",
+          "conf": 0.955
+        },
+        {
+          "text": "embedding",
+          "conf": 0.672
+        },
+        {
+          "text": "Encode position information",
+          "conf": 0.994
+        },
+        {
+          "text": "Extract query key; value scarch position",
+          "conf": 0.823
+        },
+        {
+          "text": "information",
+          "conf": 1.0
+        },
+        {
+          "text": "Compute actention weighting",
+          "conf": 0.604
+        },
+        {
+          "text": "Extract features wich high attention",
+          "conf": 0.852
+        },
+        {
+          "text": "Position-aware encoding",
+          "conf": 0.902
+        },
+        {
+          "text": "IntroToDeepLearning com",
+          "conf": 0.976
+        },
+        {
+          "text": "Data is fed in all at oncel Need to encode position information to understand order:",
+          "conf": 0.934
+        },
+        {
+          "text": "JE",
+          "conf": 0.682
+        }
+      ],
+      "merged_from": [
+        186,
+        187
+      ]
+    },
+    {
+      "slide_id": 66,
+      "start": 2894.0,
+      "end": 2936.0,
+      "title": "Learning Self-Attention with Neural Networks Deep",
+      "text": "Learning Self-Attention with Neural Networks Deep\nGoal: identify and attend to most\nimportant features in input:\nPositicnal\nEncode position information embedding\nExtract query, key, value for search\nCompute attention weighting\nExtract features wich high attention\nIntroToDeepLearning- com",
+      "ocr_confidence": 0.819,
+      "thumbnail": "keyframes/thumb_188.jpg",
+      "frame": "keyframes/slide_188.png",
+      "lines": [
+        {
+          "text": "Learning Self-Attention with Neural Networks Deep",
+          "conf": 0.929
+        },
+        {
+          "text": "Goal: identify and attend to most",
+          "conf": 0.725
+        },
+        {
+          "text": "important features in input:",
+          "conf": 0.953
+        },
+        {
+          "text": "Positicnal",
+          "conf": 0.926
+        },
+        {
+          "text": "Encode position information embedding",
+          "conf": 0.972
+        },
+        {
+          "text": "Extract query, key, value for search",
+          "conf": 0.721
+        },
+        {
+          "text": "Compute attention weighting",
+          "conf": 0.817
+        },
+        {
+          "text": "Extract features wich high attention",
+          "conf": 0.624
+        },
+        {
+          "text": "IntroToDeepLearning- com",
+          "conf": 0.705
+        }
+      ],
+      "merged_from": [
+        188
+      ]
+    },
+    {
+      "slide_id": 67,
+      "start": 2936.0,
+      "end": 2956.0,
+      "title": "Learning Self-Attention with Neural Networks Deep",
+      "text": "Learning Self-Attention with Neural Networks Deep\nGoal: identify and attend to most Query\nimportant features in input:\nPositicnal Linear Output\nEncode position information embedding layer\nExtract query, key, value for search\nCompute atcention weighting\nhigh attention\nIntroToDeepLearning-com\n4526",
+      "ocr_confidence": 0.836,
+      "thumbnail": "keyframes/thumb_189.jpg",
+      "frame": "keyframes/slide_189.png",
+      "lines": [
+        {
+          "text": "Learning Self-Attention with Neural Networks Deep",
+          "conf": 0.986
+        },
+        {
+          "text": "Goal: identify and attend to most Query",
+          "conf": 0.95
+        },
+        {
+          "text": "important features in input:",
+          "conf": 0.935
+        },
+        {
+          "text": "Positicnal Linear Output",
+          "conf": 0.993
+        },
+        {
+          "text": "Encode position information embedding layer",
+          "conf": 0.985
+        },
+        {
+          "text": "Extract query, key, value for search",
+          "conf": 0.632
+        },
+        {
+          "text": "Compute atcention weighting",
+          "conf": 0.981
+        },
+        {
+          "text": "high attention",
+          "conf": 0.468
+        },
+        {
+          "text": "IntroToDeepLearning-com",
+          "conf": 0.906
+        },
+        {
+          "text": "4526",
+          "conf": 0.527
+        }
+      ],
+      "merged_from": [
+        189,
+        190
+      ]
+    },
+    {
+      "slide_id": 68,
+      "start": 2956.0,
+      "end": 2976.0,
+      "title": "Learning Self-Attention with Neural Networks Deep",
+      "text": "Learning Self-Attention with Neural Networks Deep\nGoal: identify and attend to most Query\nimportant features in input:\nEncode position information\nExtract query, key, value for search Key\nCompute attention weighting\nExtrac t features with Chigh attention\nValue\nIntro ToDeepLearning com\nPositional Linear Output\nembedding Iayer\n4526",
+      "ocr_confidence": 0.815,
+      "thumbnail": "keyframes/thumb_191.jpg",
+      "frame": "keyframes/slide_191.png",
+      "lines": [
+        {
+          "text": "Learning Self-Attention with Neural Networks Deep",
+          "conf": 0.924
+        },
+        {
+          "text": "Goal: identify and attend to most Query",
+          "conf": 0.861
+        },
+        {
+          "text": "important features in input:",
+          "conf": 0.897
+        },
+        {
+          "text": "Encode position information",
+          "conf": 0.998
+        },
+        {
+          "text": "Extract query, key, value for search Key",
+          "conf": 0.799
+        },
+        {
+          "text": "Compute attention weighting",
+          "conf": 0.957
+        },
+        {
+          "text": "Extrac t features with Chigh attention",
+          "conf": 0.506
+        },
+        {
+          "text": "Value",
+          "conf": 1.0
+        },
+        {
+          "text": "Intro ToDeepLearning com",
+          "conf": 0.836
+        },
+        {
+          "text": "Positional Linear Output",
+          "conf": 0.894
+        },
+        {
+          "text": "embedding Iayer",
+          "conf": 0.687
+        },
+        {
+          "text": "4526",
+          "conf": 0.427
+        }
+      ],
+      "merged_from": [
+        191
+      ]
+    },
+    {
+      "slide_id": 69,
+      "start": 2976.0,
+      "end": 3026.0,
+      "title": "Learning Self-Attention with Neural Networks Deep",
+      "text": "Learning Self-Attention with Neural Networks Deep\nGoal: identify and attend to most Attention score: compute pairwise\nimportant features in input: similarity between each query and key\nEncode position information How to compute similarity between two\nsets of features?\nExtract query, key, value for search\nCompute attention weighting Dot\nproduct Q KT\nExtract fcatures 'ich high actention\nscaling\nScale\nIntro ToDeepLearning com\n4526",
+      "ocr_confidence": 0.837,
+      "thumbnail": "keyframes/thumb_194.jpg",
+      "frame": "keyframes/slide_194.png",
+      "lines": [
+        {
+          "text": "Learning Self-Attention with Neural Networks Deep",
+          "conf": 0.948
+        },
+        {
+          "text": "Goal: identify and attend to most Attention score: compute pairwise",
+          "conf": 0.866
+        },
+        {
+          "text": "important features in input: similarity between each query and key",
+          "conf": 0.862
+        },
+        {
+          "text": "Encode position information How to compute similarity between two",
+          "conf": 0.882
+        },
+        {
+          "text": "sets of features?",
+          "conf": 0.989
+        },
+        {
+          "text": "Extract query, key, value for search",
+          "conf": 0.706
+        },
+        {
+          "text": "Compute attention weighting Dot",
+          "conf": 1.0
+        },
+        {
+          "text": "product Q KT",
+          "conf": 0.951
+        },
+        {
+          "text": "Extract fcatures 'ich high actention",
+          "conf": 0.71
+        },
+        {
+          "text": "scaling",
+          "conf": 1.0
+        },
+        {
+          "text": "Scale",
+          "conf": 0.805
+        },
+        {
+          "text": "Intro ToDeepLearning com",
+          "conf": 0.797
+        },
+        {
+          "text": "4526",
+          "conf": 0.37
+        }
+      ],
+      "merged_from": [
+        192,
+        193,
+        194
+      ]
+    },
+    {
+      "slide_id": 70,
+      "start": 3026.0,
+      "end": 3044.0,
+      "title": "Learning Self-Attention with Neural Networks Deep",
+      "text": "Learning Self-Attention with Neural Networks Deep\nGoal: identify and attend to most Attention score: compute pairwise\nimportant features in input: similarity between each query and key\nEncode position information How to compute similarity between two\nsets of features?\nExtract query, key, value for search\nCompute attention weighting Dot\nproduct Q\nExtract features with high attention\nScale scaling\nSimilarity\nQuery Key metric IntroToDeepLearning com\nAlso known as the cosine similarily\n4526",
+      "ocr_confidence": 0.841,
+      "thumbnail": "keyframes/thumb_196.jpg",
+      "frame": "keyframes/slide_196.png",
+      "lines": [
+        {
+          "text": "Learning Self-Attention with Neural Networks Deep",
+          "conf": 0.938
+        },
+        {
+          "text": "Goal: identify and attend to most Attention score: compute pairwise",
+          "conf": 0.837
+        },
+        {
+          "text": "important features in input: similarity between each query and key",
+          "conf": 0.837
+        },
+        {
+          "text": "Encode position information How to compute similarity between two",
+          "conf": 0.883
+        },
+        {
+          "text": "sets of features?",
+          "conf": 0.996
+        },
+        {
+          "text": "Extract query, key, value for search",
+          "conf": 0.723
+        },
+        {
+          "text": "Compute attention weighting Dot",
+          "conf": 1.0
+        },
+        {
+          "text": "product Q",
+          "conf": 0.951
+        },
+        {
+          "text": "Extract features with high attention",
+          "conf": 0.791
+        },
+        {
+          "text": "Scale scaling",
+          "conf": 0.861
+        },
+        {
+          "text": "Similarity",
+          "conf": 1.0
+        },
+        {
+          "text": "Query Key metric IntroToDeepLearning com",
+          "conf": 0.993
+        },
+        {
+          "text": "Also known as the cosine similarily",
+          "conf": 0.557
+        },
+        {
+          "text": "4526",
+          "conf": 0.407
+        }
+      ],
+      "merged_from": [
+        195,
+        196
+      ]
+    },
+    {
+      "slide_id": 71,
+      "start": 3044.0,
+      "end": 3124.0,
+      "title": "Learning Self-Attention with Neural Networks Deep",
+      "text": "Learning Self-Attention with Neural Networks Deep\nGoal: identify and attend to most Attention weighting: where to attend tol\nimportant features in input: How similar is the key to the query?\nEncode position information la\nExtract query, key, value for search tossed\nCompute attention weighting Iennis softmax scaling _\nExtract features with high attention SCNC\nAttention weighting\nIntro ToDeepLearning com",
+      "ocr_confidence": 0.82,
+      "thumbnail": "keyframes/thumb_202.jpg",
+      "frame": "keyframes/slide_202.png",
+      "lines": [
+        {
+          "text": "Learning Self-Attention with Neural Networks Deep",
+          "conf": 0.963
+        },
+        {
+          "text": "Goal: identify and attend to most Attention weighting: where to attend tol",
+          "conf": 0.732
+        },
+        {
+          "text": "important features in input: How similar is the key to the query?",
+          "conf": 0.911
+        },
+        {
+          "text": "Encode position information la",
+          "conf": 0.737
+        },
+        {
+          "text": "Extract query, key, value for search tossed",
+          "conf": 0.809
+        },
+        {
+          "text": "Compute attention weighting Iennis softmax scaling _",
+          "conf": 0.767
+        },
+        {
+          "text": "Extract features with high attention SCNC",
+          "conf": 0.649
+        },
+        {
+          "text": "Attention weighting",
+          "conf": 0.987
+        },
+        {
+          "text": "Intro ToDeepLearning com",
+          "conf": 0.824
+        }
+      ],
+      "merged_from": [
+        197,
+        198,
+        199,
+        200,
+        201,
+        202,
+        203
+      ]
+    },
+    {
+      "slide_id": 72,
+      "start": 3124.0,
+      "end": 3166.0,
+      "title": "Learning Self-Attention with Neural Networks Deep",
+      "text": "Learning Self-Attention with Neural Networks Deep\nGoal: identify and attend to most Last step: = self-attend to extract features\nimportant features in input:\nEncode position information\nExtract query, key, value for search\nCompute attention weighting Attention Value Output\nweighting\nExtract features with high attention KT\nsoftmax scaling _ AQ,K,V)\nIntro ToDeepLearning com\n1526",
+      "ocr_confidence": 0.845,
+      "thumbnail": "keyframes/thumb_204.jpg",
+      "frame": "keyframes/slide_204.png",
+      "lines": [
+        {
+          "text": "Learning Self-Attention with Neural Networks Deep",
+          "conf": 0.928
+        },
+        {
+          "text": "Goal: identify and attend to most Last step: = self-attend to extract features",
+          "conf": 0.809
+        },
+        {
+          "text": "important features in input:",
+          "conf": 0.926
+        },
+        {
+          "text": "Encode position information",
+          "conf": 0.997
+        },
+        {
+          "text": "Extract query, key, value for search",
+          "conf": 0.702
+        },
+        {
+          "text": "Compute attention weighting Attention Value Output",
+          "conf": 0.825
+        },
+        {
+          "text": "weighting",
+          "conf": 1.0
+        },
+        {
+          "text": "Extract features with high attention KT",
+          "conf": 0.957
+        },
+        {
+          "text": "softmax scaling _ AQ,K,V)",
+          "conf": 0.94
+        },
+        {
+          "text": "Intro ToDeepLearning com",
+          "conf": 0.79
+        },
+        {
+          "text": "1526",
+          "conf": 0.424
+        }
+      ],
+      "merged_from": [
+        204,
+        205
+      ]
+    },
+    {
+      "slide_id": 73,
+      "start": 3166.0,
+      "end": 3176.0,
+      "title": "Learning Self-Attention with Neural Networks Deep",
+      "text": "Learning Self-Attention with Neural Networks Deep\nGoal: identify and attend to most\nimportant features in input:\nEncode position information\nPoxitionil Encoding\nIntroToDeepLearning- com\n4526",
+      "ocr_confidence": 0.81,
+      "thumbnail": "keyframes/thumb_206.jpg",
+      "frame": "keyframes/slide_206.png",
+      "lines": [
+        {
+          "text": "Learning Self-Attention with Neural Networks Deep",
+          "conf": 0.925
+        },
+        {
+          "text": "Goal: identify and attend to most",
+          "conf": 0.79
+        },
+        {
+          "text": "important features in input:",
+          "conf": 0.929
+        },
+        {
+          "text": "Encode position information",
+          "conf": 0.997
+        },
+        {
+          "text": "Poxitionil Encoding",
+          "conf": 0.75
+        },
+        {
+          "text": "IntroToDeepLearning- com",
+          "conf": 0.697
+        },
+        {
+          "text": "4526",
+          "conf": 0.578
+        }
+      ],
+      "merged_from": [
+        206
+      ]
+    },
+    {
+      "slide_id": 74,
+      "start": 3176.0,
+      "end": 3188.0,
+      "title": "Learning Self-Attention with Neural Networks Deep",
+      "text": "Learning Self-Attention with Neural Networks Deep\nGoal: identify and attend to most\nimportant features in input:\nEncode position information\nExtract query, key, value for search Query Yaluc\nMinear\nEncoding\nIntro ToDeepLearning com",
+      "ocr_confidence": 0.806,
+      "thumbnail": "keyframes/thumb_207.jpg",
+      "frame": "keyframes/slide_207.png",
+      "lines": [
+        {
+          "text": "Learning Self-Attention with Neural Networks Deep",
+          "conf": 0.922
+        },
+        {
+          "text": "Goal: identify and attend to most",
+          "conf": 0.772
+        },
+        {
+          "text": "important features in input:",
+          "conf": 0.801
+        },
+        {
+          "text": "Encode position information",
+          "conf": 0.99
+        },
+        {
+          "text": "Extract query, key, value for search Query Yaluc",
+          "conf": 0.76
+        },
+        {
+          "text": "Minear",
+          "conf": 0.398
+        },
+        {
+          "text": "Encoding",
+          "conf": 0.993
+        },
+        {
+          "text": "Intro ToDeepLearning com",
+          "conf": 0.813
+        }
+      ],
+      "merged_from": [
+        207
+      ]
+    },
+    {
+      "slide_id": 75,
+      "start": 3188.0,
+      "end": 3234.0,
+      "title": "Learning Self-Attention with Neural Networks Deep",
+      "text": "Learning Self-Attention with Neural Networks Deep\nGoal: identify and attend to most Malmul\nimportant features in input: Softmax\nScale\nEncode position information\nMatMul\nExtract query; key; value for search Qucry Yaluc\nCompute attention weighting Linzar Unear\nExtract features with high attention\nThese operations form self-attention head Pocitionil Encoding\nthat can plug into larger network Intro ToDeepLearning com\nEach head attends to different part of input: softmax scaling\n4526",
+      "ocr_confidence": 0.872,
+      "thumbnail": "keyframes/thumb_211.jpg",
+      "frame": "keyframes/slide_211.png",
+      "lines": [
+        {
+          "text": "Learning Self-Attention with Neural Networks Deep",
+          "conf": 0.906
+        },
+        {
+          "text": "Goal: identify and attend to most Malmul",
+          "conf": 0.872
+        },
+        {
+          "text": "important features in input: Softmax",
+          "conf": 0.97
+        },
+        {
+          "text": "Scale",
+          "conf": 0.999
+        },
+        {
+          "text": "Encode position information",
+          "conf": 0.998
+        },
+        {
+          "text": "MatMul",
+          "conf": 1.0
+        },
+        {
+          "text": "Extract query; key; value for search Qucry Yaluc",
+          "conf": 0.801
+        },
+        {
+          "text": "Compute attention weighting Linzar Unear",
+          "conf": 0.746
+        },
+        {
+          "text": "Extract features with high attention",
+          "conf": 0.953
+        },
+        {
+          "text": "These operations form self-attention head Pocitionil Encoding",
+          "conf": 0.778
+        },
+        {
+          "text": "that can plug into larger network Intro ToDeepLearning com",
+          "conf": 0.823
+        },
+        {
+          "text": "Each head attends to different part of input: softmax scaling",
+          "conf": 0.934
+        },
+        {
+          "text": "4526",
+          "conf": 0.556
+        }
+      ],
+      "merged_from": [
+        208,
+        209,
+        210,
+        211
+      ]
+    },
+    {
+      "slide_id": 76,
+      "start": 3234.0,
+      "end": 3240.0,
+      "title": "Learning Self-Attention with Neural Networks Deep",
+      "text": "Learning Self-Attention with Neural Networks Deep\nGoal: identify and attend to most Malmul\nimportant features in input: Softmax\nScale\nEncode position information\nMatMul\nExtract query; key; value for search Qucry Yaluc\nCompute attention weighting\nExtract features with high attention\nEncoding\nIntroToDeepLearning com\nAttention is the foundational building block of the Transformer architecture\n4526",
+      "ocr_confidence": 0.896,
+      "thumbnail": "keyframes/thumb_212.jpg",
+      "frame": "keyframes/slide_212.png",
+      "lines": [
+        {
+          "text": "Learning Self-Attention with Neural Networks Deep",
+          "conf": 0.891
+        },
+        {
+          "text": "Goal: identify and attend to most Malmul",
+          "conf": 0.937
+        },
+        {
+          "text": "important features in input: Softmax",
+          "conf": 0.924
+        },
+        {
+          "text": "Scale",
+          "conf": 0.996
+        },
+        {
+          "text": "Encode position information",
+          "conf": 0.976
+        },
+        {
+          "text": "MatMul",
+          "conf": 1.0
+        },
+        {
+          "text": "Extract query; key; value for search Qucry Yaluc",
+          "conf": 0.854
+        },
+        {
+          "text": "Compute attention weighting",
+          "conf": 0.77
+        },
+        {
+          "text": "Extract features with high attention",
+          "conf": 0.928
+        },
+        {
+          "text": "Encoding",
+          "conf": 0.997
+        },
+        {
+          "text": "IntroToDeepLearning com",
+          "conf": 0.984
+        },
+        {
+          "text": "Attention is the foundational building block of the Transformer architecture",
+          "conf": 0.959
+        },
+        {
+          "text": "4526",
+          "conf": 0.428
+        }
+      ],
+      "merged_from": [
+        212
+      ]
+    },
+    {
+      "slide_id": 77,
+      "start": 3240.0,
+      "end": 3254.0,
+      "title": "Applying Multiple Self-Attention Heads Deep",
+      "text": "Applying Multiple Self-Attention Heads Deep\nAttention weighting Value Output\nIntro ToDeepLearning com\n4526",
+      "ocr_confidence": 0.761,
+      "thumbnail": "keyframes/thumb_213.jpg",
+      "frame": "keyframes/slide_213.png",
+      "lines": [
+        {
+          "text": "Applying Multiple Self-Attention Heads Deep",
+          "conf": 0.944
+        },
+        {
+          "text": "Attention weighting Value Output",
+          "conf": 0.998
+        },
+        {
+          "text": "Intro ToDeepLearning com",
+          "conf": 0.74
+        },
+        {
+          "text": "4526",
+          "conf": 0.361
+        }
+      ],
+      "merged_from": [
+        213
+      ]
+    },
+    {
+      "slide_id": 78,
+      "start": 3254.0,
+      "end": 3286.0,
+      "title": "Applying Multiple Self-Attention Heads Deep",
+      "text": "Applying Multiple Self-Attention Heads Deep\nAttention weighting Value Output\nIntroToDeepLearning com\nOutput of attention head Output of attention head Output of attention head",
+      "ocr_confidence": 0.914,
+      "thumbnail": "keyframes/thumb_215.jpg",
+      "frame": "keyframes/slide_215.png",
+      "lines": [
+        {
+          "text": "Applying Multiple Self-Attention Heads Deep",
+          "conf": 0.923
+        },
+        {
+          "text": "Attention weighting Value Output",
+          "conf": 0.997
+        },
+        {
+          "text": "IntroToDeepLearning com",
+          "conf": 0.966
+        },
+        {
+          "text": "Output of attention head Output of attention head Output of attention head",
+          "conf": 0.768
+        }
+      ],
+      "merged_from": [
+        214,
+        215
+      ]
+    },
+    {
+      "slide_id": 79,
+      "start": 3286.0,
+      "end": 3312.0,
+      "title": "Self-Attention Applied Deep",
+      "text": "Self-Attention Applied Deep\nLanguage Processing\nAn anmchair in the shape\nan avocada_\nTransformers: LLMs like GPT\nDevlin al,NAACL 2019\nBro Intro ToDeepLearning com\n6519| Lab and Lectures?\n4526",
+      "ocr_confidence": 0.715,
+      "thumbnail": "keyframes/thumb_216.jpg",
+      "frame": "keyframes/slide_216.png",
+      "lines": [
+        {
+          "text": "Self-Attention Applied Deep",
+          "conf": 0.987
+        },
+        {
+          "text": "Language Processing",
+          "conf": 0.863
+        },
+        {
+          "text": "An anmchair in the shape",
+          "conf": 0.688
+        },
+        {
+          "text": "an avocada_",
+          "conf": 0.599
+        },
+        {
+          "text": "Transformers: LLMs like GPT",
+          "conf": 0.77
+        },
+        {
+          "text": "Devlin al,NAACL 2019",
+          "conf": 0.822
+        },
+        {
+          "text": "Bro Intro ToDeepLearning com",
+          "conf": 0.671
+        },
+        {
+          "text": "6519| Lab and Lectures?",
+          "conf": 0.673
+        },
+        {
+          "text": "4526",
+          "conf": 0.36
+        }
+      ],
+      "merged_from": [
+        216
+      ]
+    },
+    {
+      "slide_id": 80,
+      "start": 3312.0,
+      "end": 3342.0,
+      "title": "Self-Attention Applied Deep",
+      "text": "Self-Attention Applied Deep\nLanguage Processing Biological Sequences Computer Vision\nAn anmchair in the shape\nan avocada_\nTransformers; LLMs like GPT Protein Structure Models Vision Transformers\nDevlin al,NAACL 2019 Jumper al, Nature 202 | Dcsovitskiy et al, ICLR 2020\nal, Scierke 2023 Intro ToDeepLearning com\n6519| Lab and Lectures?\n4526",
+      "ocr_confidence": 0.736,
+      "thumbnail": "keyframes/thumb_221.jpg",
+      "frame": "keyframes/slide_221.png",
+      "lines": [
+        {
+          "text": "Self-Attention Applied Deep",
+          "conf": 1.0
+        },
+        {
+          "text": "Language Processing Biological Sequences Computer Vision",
+          "conf": 0.888
+        },
+        {
+          "text": "An anmchair in the shape",
+          "conf": 0.74
+        },
+        {
+          "text": "an avocada_",
+          "conf": 0.502
+        },
+        {
+          "text": "Transformers; LLMs like GPT Protein Structure Models Vision Transformers",
+          "conf": 0.935
+        },
+        {
+          "text": "Devlin al,NAACL 2019 Jumper al, Nature 202 | Dcsovitskiy et al, ICLR 2020",
+          "conf": 0.768
+        },
+        {
+          "text": "al, Scierke 2023 Intro ToDeepLearning com",
+          "conf": 0.697
+        },
+        {
+          "text": "6519| Lab and Lectures?",
+          "conf": 0.674
+        },
+        {
+          "text": "4526",
+          "conf": 0.417
+        }
+      ],
+      "merged_from": [
+        217,
+        218,
+        219,
+        220,
+        221
+      ]
+    },
+    {
+      "slide_id": 81,
+      "start": 3342.0,
+      "end": 3386.0,
+      "title": "Deep Learning for Sequence Modeling: Summary Deep",
+      "text": "Deep Learning for Sequence Modeling: Summary Deep\nRNNs are well suited for sequence modeling tasks Learning\nModel sequences via & recurrence relation\nTraining RNNs with backpropagation through time\nModels for music generation; classification; machine translation, and more\nSelf-attention to model sequences without recurrence\nSelf-attention is the basis for many large language models stay tunedl\nIntroToDeepLearning com",
+      "ocr_confidence": 0.825,
+      "thumbnail": "keyframes/thumb_227.jpg",
+      "frame": "keyframes/slide_227.png",
+      "lines": [
+        {
+          "text": "Deep Learning for Sequence Modeling: Summary Deep",
+          "conf": 0.993
+        },
+        {
+          "text": "RNNs are well suited for sequence modeling tasks Learning",
+          "conf": 0.899
+        },
+        {
+          "text": "Model sequences via & recurrence relation",
+          "conf": 0.679
+        },
+        {
+          "text": "Training RNNs with backpropagation through time",
+          "conf": 0.608
+        },
+        {
+          "text": "Models for music generation; classification; machine translation, and more",
+          "conf": 0.739
+        },
+        {
+          "text": "Self-attention to model sequences without recurrence",
+          "conf": 0.996
+        },
+        {
+          "text": "Self-attention is the basis for many large language models stay tunedl",
+          "conf": 0.936
+        },
+        {
+          "text": "IntroToDeepLearning com",
+          "conf": 0.75
+        }
+      ],
+      "merged_from": [
+        222,
+        223,
+        224,
+        225,
+        226,
+        227
+      ]
+    },
+    {
+      "slide_id": 82,
+      "start": 3386.0,
+      "end": 3422.0,
+      "title": "6.519|: Introduction to Deep Learning Learning Deep",
+      "text": "6.519|: Introduction to Deep Learning Learning Deep\nLab Deep Learning in Python and Music Generation with RNNs\nLink to download labs;\nhttpllintrotodeeplearning comttschedule\nOpen the lab in Google Colab\nStart executing code blocks ad filling in the #TODOs\nNeed help? Find TAlinstructorl\nIntroToDeepLearning com",
+      "ocr_confidence": 0.827,
+      "thumbnail": "keyframes/thumb_228.jpg",
+      "frame": "keyframes/slide_228.png",
+      "lines": [
+        {
+          "text": "6.519|: Introduction to Deep Learning Learning Deep",
+          "conf": 0.983
+        },
+        {
+          "text": "Lab Deep Learning in Python and Music Generation with RNNs",
+          "conf": 0.87
+        },
+        {
+          "text": "Link to download labs;",
+          "conf": 0.942
+        },
+        {
+          "text": "httpllintrotodeeplearning comttschedule",
+          "conf": 0.846
+        },
+        {
+          "text": "Open the lab in Google Colab",
+          "conf": 0.652
+        },
+        {
+          "text": "Start executing code blocks ad filling in the #TODOs",
+          "conf": 0.862
+        },
+        {
+          "text": "Need help? Find TAlinstructorl",
+          "conf": 0.656
+        },
+        {
+          "text": "IntroToDeepLearning com",
+          "conf": 0.808
+        }
+      ],
+      "merged_from": [
+        228
+      ]
+    },
+    {
+      "slide_id": 83,
+      "start": 3422.0,
+      "end": 3454.0,
+      "title": "6.,519 : Introduction to Deep Learning Deeening",
+      "text": "6.,519 : Introduction to Deep Learning Deeening\nKickoff Reception at One Kendall Squarel\nRegister here: luma com/4Ziswoli\nJoin us at 5.0Opm for a special kickoff reception at\nKendall Squarel\nFood and drinks will be providedl\nSpecial thanks to John Werner and Link Ventures for hosting:\nIntroToDeepLearning com",
+      "ocr_confidence": 0.808,
+      "thumbnail": "keyframes/thumb_229.jpg",
+      "frame": "keyframes/slide_229.png",
+      "lines": [
+        {
+          "text": "6.,519 : Introduction to Deep Learning Deeening",
+          "conf": 0.708
+        },
+        {
+          "text": "Kickoff Reception at One Kendall Squarel",
+          "conf": 0.998
+        },
+        {
+          "text": "Register here: luma com/4Ziswoli",
+          "conf": 0.634
+        },
+        {
+          "text": "Join us at 5.0Opm for a special kickoff reception at",
+          "conf": 0.761
+        },
+        {
+          "text": "Kendall Squarel",
+          "conf": 0.998
+        },
+        {
+          "text": "Food and drinks will be providedl",
+          "conf": 0.963
+        },
+        {
+          "text": "Special thanks to John Werner and Link Ventures for hosting:",
+          "conf": 0.606
+        },
+        {
+          "text": "IntroToDeepLearning com",
+          "conf": 0.798
+        }
+      ],
+      "merged_from": [
+        229
+      ]
+    }
+  ],
+  "stats": {
+    "text_slides": 83,
+    "text_coverage": 0.998
+  },
+  "engine": "easyocr"
+}

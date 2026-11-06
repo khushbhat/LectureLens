@@ -1,0 +1,213 @@
+{
+  "study_notes_markdown": "## Gradient Descent for Machine Learning — Lecture 4: Optimizat\n\n- Welcome back.\n- Today we study gradient descent, the workforce optimization algorithm behind most of machine learning.\n- We will see what it does, why it works, and how to choose its settings.\n\n## The Update Rule — W <- W eta grad L(w) | eta = learning rate\n\n- Choosing the learning rate matters a lot.\n- If it is too large, the iterates oscillate or even diverge.\n- If it is too small, training converges very slowly.\n\n## Choosing the Learning Rate — Too large: divergence oscillati\n\n- Stochastic gradient descent estimates it from a small mini batch of examples.\n- The estimate is noisy, but each step is much cheaper, so overall training is faster.\n- To summarize, gradient descent repeatedly steps along the negative gradient, the learning rate controls the step size, and stochastic gradient descent makes each step cheap by using mini batches.",
+  "revision_questions": {
+    "mcq": [
+      {
+        "question": "Which statement was made in the lecture? (1)",
+        "options": [
+          "Welcome back.",
+          "None of these",
+          "All of these",
+          "Not discussed"
+        ],
+        "answer": "A",
+        "explanation": "Stated in the lecture."
+      },
+      {
+        "question": "Which statement was made in the lecture? (2)",
+        "options": [
+          "Today we study gradient descent, the workforce optimization algorithm behind most of machine learning.",
+          "None of these",
+          "All of these",
+          "Not discussed"
+        ],
+        "answer": "A",
+        "explanation": "Stated in the lecture."
+      },
+      {
+        "question": "Which statement was made in the lecture? (3)",
+        "options": [
+          "We will see what it does, why it works, and how to choose its settings.",
+          "None of these",
+          "All of these",
+          "Not discussed"
+        ],
+        "answer": "A",
+        "explanation": "Stated in the lecture."
+      },
+      {
+        "question": "Which statement was made in the lecture? (4)",
+        "options": [
+          "Choosing the learning rate matters a lot.",
+          "None of these",
+          "All of these",
+          "Not discussed"
+        ],
+        "answer": "A",
+        "explanation": "Stated in the lecture."
+      },
+      {
+        "question": "Which statement was made in the lecture? (5)",
+        "options": [
+          "If it is too large, the iterates oscillate or even diverge.",
+          "None of these",
+          "All of these",
+          "Not discussed"
+        ],
+        "answer": "A",
+        "explanation": "Stated in the lecture."
+      }
+    ],
+    "short_answer": [
+      {
+        "question": "Explain: Welcome back.",
+        "answer": "Welcome back."
+      },
+      {
+        "question": "Explain: Today we study gradient descent, the workforce optimization algorithm behind mos",
+        "answer": "Today we study gradient descent, the workforce optimization algorithm behind most of machine learning."
+      },
+      {
+        "question": "Explain: We will see what it does, why it works, and how to choose its settings.",
+        "answer": "We will see what it does, why it works, and how to choose its settings."
+      },
+      {
+        "question": "Explain: Choosing the learning rate matters a lot.",
+        "answer": "Choosing the learning rate matters a lot."
+      },
+      {
+        "question": "Explain: If it is too large, the iterates oscillate or even diverge.",
+        "answer": "If it is too large, the iterates oscillate or even diverge."
+      }
+    ]
+  },
+  "title": "Gradient Descent for Machine Learning — Lecture 4: Optimizat",
+  "concise_summary": "Welcome back. Today we study gradient descent, the workforce optimization algorithm behind most of machine learning. Choosing the learning rate matters a lot. If it is too large, the iterates oscillate or even diverge. Stochastic gradient descent estimates it from a small mini batch of examples. The estimate is noisy, but each step is much cheaper, so overall training is faster.",
+  "detailed_summary": "Welcome back. Today we study gradient descent, the workforce optimization algorithm behind most of machine learning. Choosing the learning rate matters a lot. If it is too large, the iterates oscillate or even diverge. Stochastic gradient descent estimates it from a small mini batch of examples. The estimate is noisy, but each step is much cheaper, so overall training is faster.",
+  "key_points": [
+    {
+      "text": "Welcome back.",
+      "segment_ids": [
+        0
+      ],
+      "evidence": "both",
+      "start": 0.0,
+      "end": 46.0,
+      "status": null,
+      "support_score": null,
+      "evidence_text": null,
+      "evidence_source": null,
+      "evidence_time": null
+    },
+    {
+      "text": "Today we study gradient descent, the workforce optimization algorithm behind most of machine learning.",
+      "segment_ids": [
+        0
+      ],
+      "evidence": "both",
+      "start": 0.0,
+      "end": 46.0,
+      "status": null,
+      "support_score": null,
+      "evidence_text": null,
+      "evidence_source": null,
+      "evidence_time": null
+    },
+    {
+      "text": "Choosing the learning rate matters a lot.",
+      "segment_ids": [
+        1
+      ],
+      "evidence": "both",
+      "start": 46.0,
+      "end": 68.0,
+      "status": null,
+      "support_score": null,
+      "evidence_text": null,
+      "evidence_source": null,
+      "evidence_time": null
+    },
+    {
+      "text": "If it is too large, the iterates oscillate or even diverge.",
+      "segment_ids": [
+        1
+      ],
+      "evidence": "both",
+      "start": 46.0,
+      "end": 68.0,
+      "status": null,
+      "support_score": null,
+      "evidence_text": null,
+      "evidence_source": null,
+      "evidence_time": null
+    },
+    {
+      "text": "Stochastic gradient descent estimates it from a small mini batch of examples.",
+      "segment_ids": [
+        2
+      ],
+      "evidence": "both",
+      "start": 68.0,
+      "end": 137.86,
+      "status": null,
+      "support_score": null,
+      "evidence_text": null,
+      "evidence_source": null,
+      "evidence_time": null
+    },
+    {
+      "text": "The estimate is noisy, but each step is much cheaper, so overall training is faster.",
+      "segment_ids": [
+        2
+      ],
+      "evidence": "both",
+      "start": 68.0,
+      "end": 137.86,
+      "status": null,
+      "support_score": null,
+      "evidence_text": null,
+      "evidence_source": null,
+      "evidence_time": null
+    }
+  ],
+  "glossary": [
+    {
+      "term": "Gradient Descent for Machine Learning — ",
+      "definition": "Welcome back."
+    },
+    {
+      "term": "The Update Rule — W <- W eta grad L(w) |",
+      "definition": "Choosing the learning rate matters a lot."
+    },
+    {
+      "term": "Choosing the Learning Rate — Too large",
+      "definition": "Stochastic gradient descent estimates it from a small mini batch of examples."
+    }
+  ],
+  "chapters": [
+    {
+      "title": "Gradient Descent for Machine Learning — Lecture 4: Optimizat",
+      "segment_ids": [
+        0
+      ],
+      "start": 0.0,
+      "end": 46.0
+    },
+    {
+      "title": "The Update Rule — W <- W eta grad L(w) | eta = learning rate",
+      "segment_ids": [
+        1
+      ],
+      "start": 46.0,
+      "end": 68.0
+    },
+    {
+      "title": "Choosing the Learning Rate — Too large: divergence oscillati",
+      "segment_ids": [
+        2
+      ],
+      "start": 68.0,
+      "end": 137.86
+    }
+  ]
+}

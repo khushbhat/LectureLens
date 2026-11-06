@@ -1,0 +1,14 @@
+.env
+.venv/
+.venv_install.log
+__pycache__/
+*.pyc
+.cache/
+runs/*/media/
+runs/*/asr/
+runs/*/frames_tmp/
+results/
+.pytest_cache/
+samples/*.mp4
+samples/*.webm
+samples/*.mkv

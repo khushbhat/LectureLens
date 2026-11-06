@@ -1,0 +1,17 @@
+{
+  "run_id": "synthetic-gd_e7e23bbe",
+  "source": "samples/synthetic_gd.mp4",
+  "options": {
+    "use_slides": true,
+    "providers": [
+      "mock"
+    ],
+    "transcript_order": null,
+    "verify": true,
+    "export": true
+  },
+  "created": "2026-11-06T22:03:46",
+  "status": "done",
+  "updated": "2026-11-06T22:14:42",
+  "message": ""
+}

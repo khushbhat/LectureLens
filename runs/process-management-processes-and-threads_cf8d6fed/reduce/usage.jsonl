@@ -1,0 +1,1 @@
+{"task": "reduce", "provider": "gemini", "model": "gemini-3.5-flash-lite", "input_tokens": 1655, "output_tokens": 2660, "cached": false}

@@ -1,0 +1,415 @@
+{
+  "run_id": "process-management-processes-and-threads_cf8d6fed",
+  "source": "https://www.youtube.com/watch?v=OrM7nZcxXZU",
+  "stages": {
+    "ingest": {
+      "status": "cached",
+      "kind": "youtube",
+      "duration": 452.0,
+      "captions": "manual",
+      "seconds": 0.01,
+      "seconds_this_run": 0.0
+    },
+    "transcribe": {
+      "status": "cached",
+      "source": "captions:manual",
+      "segments": 147,
+      "real_time_factor": 0.0,
+      "seconds": 0.0,
+      "seconds_this_run": 0.0
+    },
+    "preprocess": {
+      "status": "cached",
+      "sentences": 94,
+      "words": 1344,
+      "seconds": 0.0,
+      "seconds_this_run": 0.0
+    },
+    "keyframes": {
+      "status": "cached",
+      "keyframes": 17,
+      "frames_sampled": 226,
+      "seconds": 0.0,
+      "seconds_this_run": 0.0
+    },
+    "ocr": {
+      "status": "cached",
+      "slides": 14,
+      "visual_mode": "high",
+      "text_slides": 11,
+      "text_coverage": 0.92,
+      "seconds": 0.0,
+      "seconds_this_run": 0.0
+    },
+    "segment[lecturelens]": {
+      "status": "cached",
+      "mode": "slide-aligned",
+      "segments": 10,
+      "seconds": 0.0,
+      "seconds_this_run": 0.0
+    },
+    "map[lecturelens]": {
+      "status": "done",
+      "batches": 1,
+      "plan_provider": "gemini",
+      "llm_calls": 1,
+      "seconds": 5.71
+    },
+    "reduce[lecturelens]": {
+      "status": "done",
+      "llm_calls": 1,
+      "levels": 0,
+      "final_input_items": 10,
+      "split_final": false,
+      "seconds": 8.07
+    },
+    "verify": {
+      "status": "done",
+      "n_claims": 12,
+      "supported": 11,
+      "uncertain": 1,
+      "unsupported": 0,
+      "faithfulness": 0.9167,
+      "evidence_passages": 106,
+      "seconds": 29.07
+    },
+    "export": {
+      "status": "done",
+      "files": [
+        "markdown",
+        "json",
+        "pdf"
+      ],
+      "seconds": 2.18
+    }
+  },
+  "config_snapshot": {
+    "paths": {
+      "runs_dir": "runs",
+      "cache_dir": ".cache",
+      "results_dir": "results",
+      "prompts_dir": "prompts",
+      "data_dir": "data"
+    },
+    "llm": {
+      "order": [
+        "gemini",
+        "groq",
+        "ollama"
+      ],
+      "temperature": 0.2,
+      "request_timeout_s": 180,
+      "check_models_on_startup": true,
+      "gemini": {
+        "model": "gemini-3.5-flash-lite",
+        "max_output_tokens": 16384,
+        "use_json_mode": true,
+        "thinking_level": "minimal",
+        "thinking_budget": null,
+        "batch_input_tokens": 10000,
+        "reduce_input_tokens": 24000,
+        "split_final": false
+      },
+      "groq": {
+        "model": "openai/gpt-oss-120b",
+        "repair_model": "openai/gpt-oss-20b",
+        "reasoning_effort": "low",
+        "max_output_tokens": 3800,
+        "batch_input_tokens": 3000,
+        "reduce_input_tokens": 3200,
+        "split_final": true
+      },
+      "ollama": {
+        "host": "http://localhost:11434",
+        "model": "qwen2.5:7b",
+        "max_output_tokens": 4096,
+        "num_ctx": 16384,
+        "batch_input_tokens": 6000,
+        "reduce_input_tokens": 9000,
+        "split_final": true
+      },
+      "mock": {
+        "model": "mock-1",
+        "batch_input_tokens": 6000,
+        "reduce_input_tokens": 9000,
+        "split_final": false
+      }
+    },
+    "quota": {
+      "safety_factor": 0.9,
+      "max_retries": 4,
+      "backoff_base_s": 2.0,
+      "backoff_max_s": 90.0,
+      "max_wait_s": 120,
+      "limits": {
+        "gemini/gemini-3.5-flash-lite": {
+          "rpm": 10,
+          "tpm": 250000,
+          "rpd": 20,
+          "tpd": null,
+          "day_reset_tz": "America/Los_Angeles"
+        },
+        "gemini/gemini-3.5-flash": {
+          "rpm": 5,
+          "tpm": 250000,
+          "rpd": 20,
+          "tpd": null,
+          "day_reset_tz": "America/Los_Angeles"
+        },
+        "gemini/gemini-3.1-flash-lite": {
+          "rpm": 10,
+          "tpm": 250000,
+          "rpd": 20,
+          "tpd": null,
+          "day_reset_tz": "America/Los_Angeles"
+        },
+        "groq/openai/gpt-oss-120b": {
+          "rpm": 30,
+          "tpm": 8000,
+          "rpd": 1000,
+          "tpd": 200000,
+          "day_reset_tz": "UTC"
+        },
+        "groq/openai/gpt-oss-20b": {
+          "rpm": 30,
+          "tpm": 8000,
+          "rpd": 1000,
+          "tpd": 200000,
+          "day_reset_tz": "UTC"
+        },
+        "groq/llama-3.3-70b-versatile": {
+          "rpm": 30,
+          "tpm": 12000,
+          "rpd": 1000,
+          "tpd": 100000,
+          "day_reset_tz": "UTC"
+        },
+        "groq/whisper-large-v3-turbo": {
+          "rpm": 20,
+          "rpd": 2000,
+          "audio_s_per_hour": 7200,
+          "audio_s_per_day": 28800,
+          "day_reset_tz": "UTC"
+        },
+        "groq/whisper-large-v3": {
+          "rpm": 20,
+          "rpd": 2000,
+          "audio_s_per_hour": 7200,
+          "audio_s_per_day": 28800,
+          "day_reset_tz": "UTC"
+        },
+        "ollama/*": {
+          "rpm": null,
+          "tpm": null,
+          "rpd": null,
+          "tpd": null,
+          "day_reset_tz": "UTC"
+        },
+        "mock/*": {
+          "rpm": null,
+          "tpm": null,
+          "rpd": null,
+          "tpd": null,
+          "day_reset_tz": "UTC"
+        }
+      }
+    },
+    "ingest": {
+      "max_height": 480,
+      "download_video": true,
+      "cookies_from_browser": null
+    },
+    "transcript": {
+      "order": [
+        "captions",
+        "groq",
+        "local"
+      ],
+      "use_auto_captions": false,
+      "caption_langs": [
+        "en",
+        "en-US",
+        "en-GB"
+      ],
+      "groq_model": "whisper-large-v3-turbo",
+      "groq_max_upload_mb": 24,
+      "groq_bitrate": "32k",
+      "chunk_seconds": 600,
+      "chunk_overlap_s": 3,
+      "chunk_if_longer_than_s": 1200,
+      "local_model": "base",
+      "local_compute_type": "int8",
+      "language": "en"
+    },
+    "preprocess": {
+      "fillers": [
+        "um",
+        "uh",
+        "erm",
+        "er",
+        "ah",
+        "hmm",
+        "uh-huh",
+        "you know",
+        "i mean",
+        "kind of like"
+      ],
+      "max_repeat_ngram": 4
+    },
+    "slides": {
+      "sample_every_s": 2,
+      "frame_width": 640,
+      "phash_threshold": 12,
+      "ssim_threshold": 0.8,
+      "pixel_diff_threshold": 0.006,
+      "max_slides_per_min": 4,
+      "min_slide_duration_s": 6,
+      "min_text_slides": 3,
+      "min_text_coverage": 0.25,
+      "min_chars_per_text_slide": 25,
+      "thumbnail_width": 360
+    },
+    "ocr": {
+      "enabled": true,
+      "engine": "easyocr",
+      "languages": [
+        "en"
+      ],
+      "min_confidence": 0.35,
+      "header_footer_ratio": 0.6,
+      "near_duplicate_ratio": 0.9
+    },
+    "segment": {
+      "min_words": 60,
+      "max_words": 700,
+      "embed_model": "sentence-transformers/all-MiniLM-L6-v2",
+      "tiling_window_sentences": 6,
+      "tiling_depth_std": 0.5,
+      "tiling_target_minutes": 5
+    },
+    "summarize": {
+      "map_prompt": "map_v1.txt",
+      "reduce_prompt": "reduce_v1.txt",
+      "reduce_group_prompt": "reduce_group_v1.txt",
+      "final_summary_prompt": "final_summary_v1.txt",
+      "final_notes_prompt": "final_notes_v1.txt",
+      "single_pass_prompt": "single_pass_v1.txt",
+      "repair_prompt": "repair_v1.txt",
+      "num_mcq": 5,
+      "num_short": 5
+    },
+    "verify": {
+      "enabled": true,
+      "embed_model": "sentence-transformers/all-MiniLM-L6-v2",
+      "nli_model": "cross-encoder/nli-deberta-v3-xsmall",
+      "top_k": 3,
+      "supported_threshold": 0.5,
+      "contradiction_threshold": 0.6,
+      "passage_sentences": 2
+    },
+    "export": {
+      "pdf": true,
+      "thumbnails_in_notes": true
+    },
+    "evaluation": {
+      "bertscore_model": "distilbert-base-uncased",
+      "bertscore_layers": 5,
+      "concept_sim_threshold": 0.7,
+      "rouge_stemmer": true,
+      "textrank_ratio": 0.08,
+      "systems": [
+        "textrank",
+        "single_pass",
+        "hier_speech",
+        "lecturelens"
+      ]
+    }
+  },
+  "options": {
+    "use_slides": true,
+    "providers": null,
+    "transcript_order": null,
+    "verify": true,
+    "export": true
+  },
+  "attempts": 2,
+  "preflight": {
+    "duration": 0.0,
+    "est_input_tokens": 2608,
+    "chain": [
+      "gemini",
+      "groq"
+    ],
+    "plan_provider": "gemini",
+    "providers": [
+      {
+        "provider": "gemini",
+        "map_calls": 1,
+        "reduce_group_calls": 0,
+        "final_calls": 1,
+        "calls": 2,
+        "tokens": 11728,
+        "model": "gemini-3.5-flash-lite",
+        "remaining_requests": 18,
+        "remaining_tokens": null,
+        "fits_today": true
+      },
+      {
+        "provider": "groq",
+        "map_calls": 2,
+        "reduce_group_calls": 0,
+        "final_calls": 2,
+        "calls": 4,
+        "tokens": 18502,
+        "model": "openai/gpt-oss-120b",
+        "remaining_requests": 897,
+        "remaining_tokens": 169789,
+        "fits_today": true
+      }
+    ],
+    "est_time_s": 24,
+    "has_captions": false,
+    "message": "gemini/gemini-3.5-flash-lite: this run needs ~2 calls / ~11,728 tokens; you have ~18 requests left today → OK\ngroq/openai/gpt-oss-120b: this run needs ~4 calls / ~18,502 tokens; you have ~897 requests left today → OK"
+  },
+  "llm": {
+    "calls": 2,
+    "attempts": 2,
+    "cache_hits": 0,
+    "input_tokens": 5544,
+    "output_tokens": 3993,
+    "retries": 0,
+    "fallbacks": 0,
+    "wait_s": 0.0,
+    "by_provider": {
+      "gemini/gemini-3.5-flash-lite": {
+        "calls": 2,
+        "input_tokens": 5544,
+        "output_tokens": 3993
+      }
+    },
+    "events": [
+      {
+        "task": "map:batch_000",
+        "provider": "gemini",
+        "model": "gemini-3.5-flash-lite",
+        "cached": false,
+        "input_tokens": 3889,
+        "output_tokens": 1333,
+        "latency_s": 5.68,
+        "retries": 0
+      },
+      {
+        "task": "reduce",
+        "provider": "gemini",
+        "model": "gemini-3.5-flash-lite",
+        "cached": false,
+        "input_tokens": 1655,
+        "output_tokens": 2660,
+        "latency_s": 8.04,
+        "retries": 0
+      }
+    ]
+  },
+  "status": "done",
+  "wall_clock_s_this_attempt": 45.1
+}

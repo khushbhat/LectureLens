@@ -1,0 +1,763 @@
+{
+  "visual_mode": "high",
+  "slides": [
+    {
+      "slide_id": 0,
+      "start": 0.0,
+      "end": 282.0,
+      "title": "Process Management",
+      "text": "Process Management\n(Processes and Threads)\nProcess: Thread:\nA process can be thought A thread is the unit of execution\nof as a program in execution: within a process_ A process can have\nanywhere from just one thread to\nmany threads.\nProcess\n1 1",
+      "ocr_confidence": 0.881,
+      "thumbnail": "keyframes/thumb_003.jpg",
+      "frame": "keyframes/slide_003.png",
+      "lines": [
+        {
+          "text": "Process Management",
+          "conf": 0.943
+        },
+        {
+          "text": "(Processes and Threads)",
+          "conf": 0.993
+        },
+        {
+          "text": "Process: Thread:",
+          "conf": 0.999
+        },
+        {
+          "text": "A process can be thought A thread is the unit of execution",
+          "conf": 0.887
+        },
+        {
+          "text": "of as a program in execution: within a process_ A process can have",
+          "conf": 0.734
+        },
+        {
+          "text": "anywhere from just one thread to",
+          "conf": 0.973
+        },
+        {
+          "text": "many threads.",
+          "conf": 0.742
+        },
+        {
+          "text": "Process",
+          "conf": 1.0
+        },
+        {
+          "text": "1 1",
+          "conf": 0.662
+        }
+      ],
+      "merged_from": [
+        0,
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "slide_id": 1,
+      "start": 282.0,
+      "end": 288.0,
+      "title": "Optena",
+      "text": "Optena\n97,276 k\n37,656\n19,976k\nCrorm",
+      "ocr_confidence": 0.491,
+      "thumbnail": "keyframes/thumb_004.jpg",
+      "frame": "keyframes/slide_004.png",
+      "lines": [
+        {
+          "text": "Optena",
+          "conf": 0.378
+        },
+        {
+          "text": "97,276 k",
+          "conf": 0.607
+        },
+        {
+          "text": "37,656",
+          "conf": 0.36
+        },
+        {
+          "text": "19,976k",
+          "conf": 0.58
+        },
+        {
+          "text": "Crorm",
+          "conf": 0.531
+        }
+      ],
+      "merged_from": [
+        4
+      ]
+    },
+    {
+      "slide_id": 2,
+      "start": 288.0,
+      "end": 304.0,
+      "title": "Windows Task Manager",
+      "text": "Windows Task Manager\nFile Options View Windows Help\nApplications Processes Services Performance Networking Users\nTask Status\nCapture Screenshot lite Running\nDOC OS.docx Micosoft Word Running\nThreads vs. Processes Running",
+      "ocr_confidence": 0.931,
+      "thumbnail": "keyframes/thumb_005.jpg",
+      "frame": "keyframes/slide_005.png",
+      "lines": [
+        {
+          "text": "Windows Task Manager",
+          "conf": 0.929
+        },
+        {
+          "text": "File Options View Windows Help",
+          "conf": 0.976
+        },
+        {
+          "text": "Applications Processes Services Performance Networking Users",
+          "conf": 0.933
+        },
+        {
+          "text": "Task Status",
+          "conf": 0.98
+        },
+        {
+          "text": "Capture Screenshot lite Running",
+          "conf": 0.975
+        },
+        {
+          "text": "DOC OS.docx Micosoft Word Running",
+          "conf": 0.805
+        },
+        {
+          "text": "Threads vs. Processes Running",
+          "conf": 0.922
+        }
+      ],
+      "merged_from": [
+        5
+      ]
+    },
+    {
+      "slide_id": 3,
+      "start": 304.0,
+      "end": 310.0,
+      "title": "Window: Task Manager",
+      "text": "Window: Task Manager\nFile Optons Help\nApplicabons Processes services Performance Networking\nImage Name User Name CPU Memory (Private Working Set) Descripton\nchrome exe 97,276 K Chromium\nchrome.exe 89,330 K Chromium\nWINWORDEXE \"32 33,704K Micosoft Word\nexplorer exe 37,720 K Windows Explorer\nchrome-exe 37,656 K Chromium\n28,660 K Desktop Window Manager\nchrome.exe 19,976 K Chromium\nchrome exe 16,396 K Chromium\nchrome exe 16,223 K Chromium\nCapturesceensh . 13,343 K CaptureSceenshot exe\n10,304K Chromium\nAD \"32 408 K Bluestacks Agent\n760 K Lenovo MuteSync Service\ntaskmar.exe 3,924K Windows Task Manager\nShow processes from all users End Process\nProcesses: 125 CPU Usage: 596 Physical Memory: 689",
+      "ocr_confidence": 0.741,
+      "thumbnail": "keyframes/thumb_006.jpg",
+      "frame": "keyframes/slide_006.png",
+      "lines": [
+        {
+          "text": "Window: Task Manager",
+          "conf": 0.736
+        },
+        {
+          "text": "File Optons Help",
+          "conf": 0.987
+        },
+        {
+          "text": "Applicabons Processes services Performance Networking",
+          "conf": 0.834
+        },
+        {
+          "text": "Image Name User Name CPU Memory (Private Working Set) Descripton",
+          "conf": 0.881
+        },
+        {
+          "text": "chrome exe 97,276 K Chromium",
+          "conf": 0.626
+        },
+        {
+          "text": "chrome.exe 89,330 K Chromium",
+          "conf": 0.752
+        },
+        {
+          "text": "WINWORDEXE \"32 33,704K Micosoft Word",
+          "conf": 0.764
+        },
+        {
+          "text": "explorer exe 37,720 K Windows Explorer",
+          "conf": 0.724
+        },
+        {
+          "text": "chrome-exe 37,656 K Chromium",
+          "conf": 0.707
+        },
+        {
+          "text": "28,660 K Desktop Window Manager",
+          "conf": 0.656
+        },
+        {
+          "text": "chrome.exe 19,976 K Chromium",
+          "conf": 0.622
+        },
+        {
+          "text": "chrome exe 16,396 K Chromium",
+          "conf": 0.72
+        },
+        {
+          "text": "chrome exe 16,223 K Chromium",
+          "conf": 0.721
+        },
+        {
+          "text": "Capturesceensh . 13,343 K CaptureSceenshot exe",
+          "conf": 0.588
+        },
+        {
+          "text": "10,304K Chromium",
+          "conf": 0.806
+        },
+        {
+          "text": "AD \"32 408 K Bluestacks Agent",
+          "conf": 0.605
+        },
+        {
+          "text": "760 K Lenovo MuteSync Service",
+          "conf": 0.783
+        },
+        {
+          "text": "taskmar.exe 3,924K Windows Task Manager",
+          "conf": 0.634
+        },
+        {
+          "text": "Show processes from all users End Process",
+          "conf": 0.867
+        },
+        {
+          "text": "Processes: 125 CPU Usage: 596 Physical Memory: 689",
+          "conf": 0.812
+        }
+      ],
+      "merged_from": [
+        6
+      ]
+    },
+    {
+      "slide_id": 4,
+      "start": 310.0,
+      "end": 316.0,
+      "title": "Windows Task Manager",
+      "text": "Windows Task Manager\nFile Options View Windows Help\nApplications Processes Services Per formance Networking Users\nTask Status\nCapture Screenshot lite Running\nDOC OS.docx Microsoft Word Running\nThreads vS. Processes Running",
+      "ocr_confidence": 0.902,
+      "thumbnail": "keyframes/thumb_007.jpg",
+      "frame": "keyframes/slide_007.png",
+      "lines": [
+        {
+          "text": "Windows Task Manager",
+          "conf": 0.991
+        },
+        {
+          "text": "File Options View Windows Help",
+          "conf": 0.906
+        },
+        {
+          "text": "Applications Processes Services Per formance Networking Users",
+          "conf": 0.942
+        },
+        {
+          "text": "Task Status",
+          "conf": 0.85
+        },
+        {
+          "text": "Capture Screenshot lite Running",
+          "conf": 0.973
+        },
+        {
+          "text": "DOC OS.docx Microsoft Word Running",
+          "conf": 0.77
+        },
+        {
+          "text": "Threads vS. Processes Running",
+          "conf": 0.883
+        }
+      ],
+      "merged_from": [
+        7
+      ]
+    },
+    {
+      "slide_id": 5,
+      "start": 316.0,
+      "end": 340.0,
+      "title": "Windows Task Manager",
+      "text": "Windows Task Manager\nFile Options Vie Help\nApplicatons Processes Services Performance Networking Users\nImage Name User Name CPU Memory (Private Working Set) Descripton\nchrome.exe 00 97,276 K Chromium\nchrome.exe 00 39,330 K Chromium\nWINWORD EXE *32 33,704K Micosoft Word\nexplorer.exe 37,720 K Windows Explorer\nchrome exe 00 37,656 K Chromium\ndwm exe 28,660 K Desktop Window Manager\nchrome.exe 19,976 K Chromium\nchrome.exe 00 396 K Chromium\nchrome.exe 228 K Chromium\nCaptureSceensln 13,348K Capturesceenshot.exe\nchrome exe 10,804K Chromium\nHD-Agent exe \"32 00 6,408 K BlueStacks Agent\nMuteSync.exe 00 4,760 K Lenovo MuteSync Service\ntaskmar.exe 00 3,924K Windows Task Manager\nShow processes ftrom all users End Process",
+      "ocr_confidence": 0.826,
+      "thumbnail": "keyframes/thumb_008.jpg",
+      "frame": "keyframes/slide_008.png",
+      "lines": [
+        {
+          "text": "Windows Task Manager",
+          "conf": 0.992
+        },
+        {
+          "text": "File Options Vie Help",
+          "conf": 0.939
+        },
+        {
+          "text": "Applicatons Processes Services Performance Networking Users",
+          "conf": 0.927
+        },
+        {
+          "text": "Image Name User Name CPU Memory (Private Working Set) Descripton",
+          "conf": 0.905
+        },
+        {
+          "text": "chrome.exe 00 97,276 K Chromium",
+          "conf": 0.815
+        },
+        {
+          "text": "chrome.exe 00 39,330 K Chromium",
+          "conf": 0.884
+        },
+        {
+          "text": "WINWORD EXE *32 33,704K Micosoft Word",
+          "conf": 0.867
+        },
+        {
+          "text": "explorer.exe 37,720 K Windows Explorer",
+          "conf": 0.841
+        },
+        {
+          "text": "chrome exe 00 37,656 K Chromium",
+          "conf": 0.808
+        },
+        {
+          "text": "dwm exe 28,660 K Desktop Window Manager",
+          "conf": 0.853
+        },
+        {
+          "text": "chrome.exe 19,976 K Chromium",
+          "conf": 0.79
+        },
+        {
+          "text": "chrome.exe 00 396 K Chromium",
+          "conf": 0.743
+        },
+        {
+          "text": "chrome.exe 228 K Chromium",
+          "conf": 0.688
+        },
+        {
+          "text": "CaptureSceensln 13,348K Capturesceenshot.exe",
+          "conf": 0.663
+        },
+        {
+          "text": "chrome exe 10,804K Chromium",
+          "conf": 0.805
+        },
+        {
+          "text": "HD-Agent exe \"32 00 6,408 K BlueStacks Agent",
+          "conf": 0.882
+        },
+        {
+          "text": "MuteSync.exe 00 4,760 K Lenovo MuteSync Service",
+          "conf": 0.863
+        },
+        {
+          "text": "taskmar.exe 00 3,924K Windows Task Manager",
+          "conf": 0.663
+        },
+        {
+          "text": "Show processes ftrom all users End Process",
+          "conf": 0.767
+        }
+      ],
+      "merged_from": [
+        8
+      ]
+    },
+    {
+      "slide_id": 6,
+      "start": 340.0,
+      "end": 362.0,
+      "title": "37,656 Oromm",
+      "text": "97,276 K\n0,3k\n37,656 Oromm\nChonam\n16,223\nProcesses 125 Usage 58",
+      "ocr_confidence": 0.507,
+      "thumbnail": "keyframes/thumb_009.jpg",
+      "frame": "keyframes/slide_009.png",
+      "lines": [
+        {
+          "text": "97,276 K",
+          "conf": 0.623
+        },
+        {
+          "text": "0,3k",
+          "conf": 0.49
+        },
+        {
+          "text": "37,656 Oromm",
+          "conf": 0.532
+        },
+        {
+          "text": "Chonam",
+          "conf": 0.357
+        },
+        {
+          "text": "16,223",
+          "conf": 0.512
+        },
+        {
+          "text": "Processes 125 Usage 58",
+          "conf": 0.526
+        }
+      ],
+      "merged_from": [
+        9
+      ]
+    },
+    {
+      "slide_id": 7,
+      "start": 362.0,
+      "end": 370.0,
+      "title": "97,276 K Oroum",
+      "text": "97,276 K Oroum\nCronam\n37,656 K Ctomm\nChonm\n16,223\nAoent\n5on To\nProcessts 123 Precesser [25 Usage 5%\nProcess Explorer",
+      "ocr_confidence": 0.531,
+      "thumbnail": "keyframes/thumb_010.jpg",
+      "frame": "keyframes/slide_010.png",
+      "lines": [
+        {
+          "text": "97,276 K Oroum",
+          "conf": 0.493
+        },
+        {
+          "text": "Cronam",
+          "conf": 0.372
+        },
+        {
+          "text": "37,656 K Ctomm",
+          "conf": 0.403
+        },
+        {
+          "text": "Chonm",
+          "conf": 0.6
+        },
+        {
+          "text": "16,223",
+          "conf": 0.604
+        },
+        {
+          "text": "Aoent",
+          "conf": 0.416
+        },
+        {
+          "text": "5on To",
+          "conf": 0.373
+        },
+        {
+          "text": "Processts 123 Precesser [25 Usage 5%",
+          "conf": 0.517
+        },
+        {
+          "text": "Process Explorer",
+          "conf": 1.0
+        }
+      ],
+      "merged_from": [
+        10
+      ]
+    },
+    {
+      "slide_id": 8,
+      "start": 370.0,
+      "end": 378.0,
+      "title": "TrOrn Fuhon",
+      "text": "TrOrn Fuhon\n20524\nCicer",
+      "ocr_confidence": 0.564,
+      "thumbnail": "keyframes/thumb_011.jpg",
+      "frame": "keyframes/slide_011.png",
+      "lines": [
+        {
+          "text": "TrOrn Fuhon",
+          "conf": 0.49
+        },
+        {
+          "text": "20524",
+          "conf": 0.486
+        },
+        {
+          "text": "Cicer",
+          "conf": 0.716
+        }
+      ],
+      "merged_from": [
+        11
+      ]
+    },
+    {
+      "slide_id": 9,
+      "start": 378.0,
+      "end": 390.0,
+      "title": "Proce CPU Pmale",
+      "text": "Proce CPU Pmale\n0.07 2028\n2 0.01\n0.01 78-800 58.300 1068\nenome 132 39 388 K 212932-\n0 93 16.012 * 50.372\n2 0-01 43520 < 272120 K 213368\ncnroms 0-01 212260\ncnrms 0-01 83-528 < 60.952 K212396\n0.42 78748 K 67.263 203500\nEneny 0-03 76-923 3120 2736\n0 01 396 2023\n93.20\n2 70-020 < 265.076 70592\nEnrome 55-616 < 274052\n0-02 18.008\n016 7036\n0-03 42-656 K 277036\n5.01 22436 213300\n0 07 23.522 12.392 352\nAD-Aoent 7 12 33328 13.152 5260\n32 212512\n0 01 37.028 10.300 5236\n35.308 32.552 K 212220\n0 01 32 5.276 3292\n32-032 6314",
+      "ocr_confidence": 0.642,
+      "thumbnail": "keyframes/thumb_012.jpg",
+      "frame": "keyframes/slide_012.png",
+      "lines": [
+        {
+          "text": "Proce CPU Pmale",
+          "conf": 0.657
+        },
+        {
+          "text": "0.07 2028",
+          "conf": 0.664
+        },
+        {
+          "text": "2 0.01",
+          "conf": 0.553
+        },
+        {
+          "text": "0.01 78-800 58.300 1068",
+          "conf": 0.57
+        },
+        {
+          "text": "enome 132 39 388 K 212932-",
+          "conf": 0.653
+        },
+        {
+          "text": "0 93 16.012 * 50.372",
+          "conf": 0.647
+        },
+        {
+          "text": "2 0-01 43520 < 272120 K 213368",
+          "conf": 0.481
+        },
+        {
+          "text": "cnroms 0-01 212260",
+          "conf": 0.703
+        },
+        {
+          "text": "cnrms 0-01 83-528 < 60.952 K212396",
+          "conf": 0.604
+        },
+        {
+          "text": "0.42 78748 K 67.263 203500",
+          "conf": 0.519
+        },
+        {
+          "text": "Eneny 0-03 76-923 3120 2736",
+          "conf": 0.736
+        },
+        {
+          "text": "0 01 396 2023",
+          "conf": 0.492
+        },
+        {
+          "text": "93.20",
+          "conf": 0.824
+        },
+        {
+          "text": "2 70-020 < 265.076 70592",
+          "conf": 0.747
+        },
+        {
+          "text": "Enrome 55-616 < 274052",
+          "conf": 0.444
+        },
+        {
+          "text": "0-02 18.008",
+          "conf": 0.643
+        },
+        {
+          "text": "016 7036",
+          "conf": 0.822
+        },
+        {
+          "text": "0-03 42-656 K 277036",
+          "conf": 0.579
+        },
+        {
+          "text": "5.01 22436 213300",
+          "conf": 0.622
+        },
+        {
+          "text": "0 07 23.522 12.392 352",
+          "conf": 0.723
+        },
+        {
+          "text": "AD-Aoent 7 12 33328 13.152 5260",
+          "conf": 0.658
+        },
+        {
+          "text": "32 212512",
+          "conf": 0.922
+        },
+        {
+          "text": "0 01 37.028 10.300 5236",
+          "conf": 0.583
+        },
+        {
+          "text": "35.308 32.552 K 212220",
+          "conf": 0.445
+        },
+        {
+          "text": "0 01 32 5.276 3292",
+          "conf": 0.83
+        },
+        {
+          "text": "32-032 6314",
+          "conf": 0.565
+        }
+      ],
+      "merged_from": [
+        12
+      ]
+    },
+    {
+      "slide_id": 10,
+      "start": 390.0,
+      "end": 404.0,
+      "title": "CPU",
+      "text": "a Tre2c\nCPU\n0.07 70\nT0\nT0\n9220\nGnlo\n20724 Cna\n19220\n211524\n2018\n0.00252\nI0> 577",
+      "ocr_confidence": 0.613,
+      "thumbnail": "keyframes/thumb_013.jpg",
+      "frame": "keyframes/slide_013.png",
+      "lines": [
+        {
+          "text": "a Tre2c",
+          "conf": 0.467
+        },
+        {
+          "text": "CPU",
+          "conf": 0.615
+        },
+        {
+          "text": "0.07 70",
+          "conf": 0.853
+        },
+        {
+          "text": "T0",
+          "conf": 0.879
+        },
+        {
+          "text": "T0",
+          "conf": 0.526
+        },
+        {
+          "text": "9220",
+          "conf": 0.965
+        },
+        {
+          "text": "Gnlo",
+          "conf": 0.41
+        },
+        {
+          "text": "20724 Cna",
+          "conf": 0.383
+        },
+        {
+          "text": "19220",
+          "conf": 0.479
+        },
+        {
+          "text": "211524",
+          "conf": 0.739
+        },
+        {
+          "text": "2018",
+          "conf": 0.417
+        },
+        {
+          "text": "0.00252",
+          "conf": 0.589
+        },
+        {
+          "text": "I0> 577",
+          "conf": 0.653
+        }
+      ],
+      "merged_from": [
+        13
+      ]
+    },
+    {
+      "slide_id": 11,
+      "start": 404.0,
+      "end": 420.0,
+      "title": "Lor",
+      "text": "Lor",
+      "ocr_confidence": 0.498,
+      "thumbnail": "keyframes/thumb_014.jpg",
+      "frame": "keyframes/slide_014.png",
+      "lines": [
+        {
+          "text": "Lor",
+          "conf": 0.498
+        }
+      ],
+      "merged_from": [
+        14
+      ]
+    },
+    {
+      "slide_id": 12,
+      "start": 420.0,
+      "end": 440.0,
+      "title": "Process Management",
+      "text": "Process Management\n(Processes and Threads)\nProcess: Thread:\nA process can be thought A thread is the unit of execution\nof as a program in execution: within a process_ A process can have\nanywhere from just one thread to\nmany threads.\nProcess",
+      "ocr_confidence": 0.88,
+      "thumbnail": "keyframes/thumb_015.jpg",
+      "frame": "keyframes/slide_015.png",
+      "lines": [
+        {
+          "text": "Process Management",
+          "conf": 0.916
+        },
+        {
+          "text": "(Processes and Threads)",
+          "conf": 0.937
+        },
+        {
+          "text": "Process: Thread:",
+          "conf": 0.999
+        },
+        {
+          "text": "A process can be thought A thread is the unit of execution",
+          "conf": 0.792
+        },
+        {
+          "text": "of as a program in execution: within a process_ A process can have",
+          "conf": 0.726
+        },
+        {
+          "text": "anywhere from just one thread to",
+          "conf": 0.966
+        },
+        {
+          "text": "many threads.",
+          "conf": 0.702
+        },
+        {
+          "text": "Process",
+          "conf": 1.0
+        }
+      ],
+      "merged_from": [
+        15
+      ]
+    },
+    {
+      "slide_id": 13,
+      "start": 440.0,
+      "end": 452.0,
+      "title": "NESO",
+      "text": "NESO\nACADEMY",
+      "ocr_confidence": 0.964,
+      "thumbnail": "keyframes/thumb_016.jpg",
+      "frame": "keyframes/slide_016.png",
+      "lines": [
+        {
+          "text": "NESO",
+          "conf": 1.0
+        },
+        {
+          "text": "ACADEMY",
+          "conf": 0.929
+        }
+      ],
+      "merged_from": [
+        16
+      ]
+    }
+  ],
+  "stats": {
+    "text_slides": 11,
+    "text_coverage": 0.92
+  },
+  "engine": "easyocr"
+}

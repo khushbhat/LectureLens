@@ -1,0 +1,29 @@
+{
+  "kind": "youtube",
+  "source": "https://www.youtube.com/watch?v=Sz1n0RHwLqA",
+  "video_id": "Sz1n0RHwLqA",
+  "title": "The physics of entropy and the origin of life | Sean Carroll",
+  "channel": "Big Think",
+  "duration": 371.0,
+  "chapters": [
+    {
+      "title": "Entropy: The 2nd law of thermodynamics",
+      "start": 0,
+      "end": 116
+    },
+    {
+      "title": "The two axes: Chaos & complexity",
+      "start": 116,
+      "end": 160
+    },
+    {
+      "title": "How did life emerge?",
+      "start": 160,
+      "end": 371
+    }
+  ],
+  "video_path": "D:\\PROJECTS\\Generative-AI\\runs\\the-physics-of-entropy-and-the-origin-of_4173276e\\media\\video.mp4",
+  "audio_path": "D:\\PROJECTS\\Generative-AI\\runs\\the-physics-of-entropy-and-the-origin-of_4173276e\\media\\audio.m4a",
+  "subtitle_path": "D:\\PROJECTS\\Generative-AI\\runs\\the-physics-of-entropy-and-the-origin-of_4173276e\\media\\subs.en.vtt",
+  "subtitle_kind": "manual"
+}

@@ -1,0 +1,62 @@
+[
+  {
+    "segment_id": 0,
+    "segment_ids": [
+      0
+    ],
+    "title": "Welcome back. Today we study gradient",
+    "summary": "Welcome back. Today we study gradient descent, the workforce optimization algorithm behind most of machine learning.",
+    "key_points": [
+      {
+        "text": "Welcome back.",
+        "evidence": "speech"
+      },
+      {
+        "text": "Today we study gradient descent, the workforce optimization algorithm behind most of machine learning.",
+        "evidence": "speech"
+      },
+      {
+        "text": "We will see what it does, why it works, and how to choose its settings.",
+        "evidence": "speech"
+      }
+    ],
+    "concepts": [
+      {
+        "term": "Welcome back. Today we study gradient",
+        "definition": "Welcome back."
+      }
+    ],
+    "formulas_or_code": [],
+    "examples": []
+  },
+  {
+    "segment_id": 1,
+    "segment_ids": [
+      1
+    ],
+    "title": "The size of the step is",
+    "summary": "The size of the step is controlled by the learning rate. Choosing the learning rate matters a lot.",
+    "key_points": [
+      {
+        "text": "The size of the step is controlled by the learning rate.",
+        "evidence": "speech"
+      },
+      {
+        "text": "Choosing the learning rate matters a lot.",
+        "evidence": "speech"
+      },
+      {
+        "text": "If it is too large, the iterates oscillate or even diverge.",
+        "evidence": "speech"
+      }
+    ],
+    "concepts": [
+      {
+        "term": "The size of the step is",
+        "definition": "The size of the step is controlled by the learning rate."
+      }
+    ],
+    "formulas_or_code": [],
+    "examples": []
+  }
+]

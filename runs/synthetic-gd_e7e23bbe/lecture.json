@@ -1,0 +1,527 @@
+{
+  "run_id": "synthetic-gd_e7e23bbe",
+  "status": "done",
+  "source": {
+    "kind": "file",
+    "source": "D:\\PROJECTS\\Generative-AI\\samples\\synthetic_gd.mp4",
+    "title": "synthetic_gd",
+    "video_id": null,
+    "video_path": "D:\\PROJECTS\\Generative-AI\\samples\\synthetic_gd.mp4",
+    "audio_path": "D:\\PROJECTS\\Generative-AI\\samples\\synthetic_gd.mp4",
+    "subtitle_path": null,
+    "subtitle_kind": null,
+    "duration": 137.862988,
+    "chapters": []
+  },
+  "final": {
+    "study_notes_markdown": "## Gradient Descent for Machine Learning — Lecture 4: Optimizat\n\n- Welcome back.\n- Today we study gradient descent, the workforce optimization algorithm behind most of machine learning.\n- We will see what it does, why it works, and how to choose its settings.\n\n## The Update Rule — W <- W eta grad L(w) | eta = learning rate\n\n- Choosing the learning rate matters a lot.\n- If it is too large, the iterates oscillate or even diverge.\n- If it is too small, training converges very slowly.\n\n## Choosing the Learning Rate — Too large: divergence oscillati\n\n- Stochastic gradient descent estimates it from a small mini batch of examples.\n- The estimate is noisy, but each step is much cheaper, so overall training is faster.\n- To summarize, gradient descent repeatedly steps along the negative gradient, the learning rate controls the step size, and stochastic gradient descent makes each step cheap by using mini batches.",
+    "revision_questions": {
+      "mcq": [
+        {
+          "question": "Which statement was made in the lecture? (1)",
+          "options": [
+            "Welcome back.",
+            "None of these",
+            "All of these",
+            "Not discussed"
+          ],
+          "answer": "A",
+          "explanation": "Stated in the lecture."
+        },
+        {
+          "question": "Which statement was made in the lecture? (2)",
+          "options": [
+            "Today we study gradient descent, the workforce optimization algorithm behind most of machine learning.",
+            "None of these",
+            "All of these",
+            "Not discussed"
+          ],
+          "answer": "A",
+          "explanation": "Stated in the lecture."
+        },
+        {
+          "question": "Which statement was made in the lecture? (3)",
+          "options": [
+            "We will see what it does, why it works, and how to choose its settings.",
+            "None of these",
+            "All of these",
+            "Not discussed"
+          ],
+          "answer": "A",
+          "explanation": "Stated in the lecture."
+        },
+        {
+          "question": "Which statement was made in the lecture? (4)",
+          "options": [
+            "Choosing the learning rate matters a lot.",
+            "None of these",
+            "All of these",
+            "Not discussed"
+          ],
+          "answer": "A",
+          "explanation": "Stated in the lecture."
+        },
+        {
+          "question": "Which statement was made in the lecture? (5)",
+          "options": [
+            "If it is too large, the iterates oscillate or even diverge.",
+            "None of these",
+            "All of these",
+            "Not discussed"
+          ],
+          "answer": "A",
+          "explanation": "Stated in the lecture."
+        }
+      ],
+      "short_answer": [
+        {
+          "question": "Explain: Welcome back.",
+          "answer": "Welcome back."
+        },
+        {
+          "question": "Explain: Today we study gradient descent, the workforce optimization algorithm behind mos",
+          "answer": "Today we study gradient descent, the workforce optimization algorithm behind most of machine learning."
+        },
+        {
+          "question": "Explain: We will see what it does, why it works, and how to choose its settings.",
+          "answer": "We will see what it does, why it works, and how to choose its settings."
+        },
+        {
+          "question": "Explain: Choosing the learning rate matters a lot.",
+          "answer": "Choosing the learning rate matters a lot."
+        },
+        {
+          "question": "Explain: If it is too large, the iterates oscillate or even diverge.",
+          "answer": "If it is too large, the iterates oscillate or even diverge."
+        }
+      ]
+    },
+    "title": "Gradient Descent for Machine Learning — Lecture 4: Optimizat",
+    "concise_summary": "Welcome back. Today we study gradient descent, the workforce optimization algorithm behind most of machine learning. Choosing the learning rate matters a lot. If it is too large, the iterates oscillate or even diverge. Stochastic gradient descent estimates it from a small mini batch of examples. The estimate is noisy, but each step is much cheaper, so overall training is faster.",
+    "detailed_summary": "Welcome back. Today we study gradient descent, the workforce optimization algorithm behind most of machine learning. Choosing the learning rate matters a lot. If it is too large, the iterates oscillate or even diverge. Stochastic gradient descent estimates it from a small mini batch of examples. The estimate is noisy, but each step is much cheaper, so overall training is faster.",
+    "key_points": [
+      {
+        "text": "Welcome back.",
+        "segment_ids": [
+          0
+        ],
+        "evidence": "both",
+        "start": 0.0,
+        "end": 46.0,
+        "status": "unsupported",
+        "support_score": 0.08,
+        "evidence_text": "time we will look at regularization.",
+        "evidence_source": "speech",
+        "evidence_time": 94.29
+      },
+      {
+        "text": "Today we study gradient descent, the workforce optimization algorithm behind most of machine learning.",
+        "segment_ids": [
+          0
+        ],
+        "evidence": "both",
+        "start": 0.0,
+        "end": 46.0,
+        "status": "supported",
+        "support_score": 0.983,
+        "evidence_text": "Today we study gradient descent, the workforce optimization algorithm behind most of machine learning. We will see what it does, why it works, and how to choose its settings.",
+        "evidence_source": "speech",
+        "evidence_time": 1.8
+      },
+      {
+        "text": "Choosing the learning rate matters a lot.",
+        "segment_ids": [
+          1
+        ],
+        "evidence": "both",
+        "start": 46.0,
+        "end": 68.0,
+        "status": "supported",
+        "support_score": 0.99,
+        "evidence_text": "The size of the step is controlled by the learning rate. Choosing the learning rate matters a lot.",
+        "evidence_source": "speech",
+        "evidence_time": 42.5
+      },
+      {
+        "text": "If it is too large, the iterates oscillate or even diverge.",
+        "segment_ids": [
+          1
+        ],
+        "evidence": "both",
+        "start": 46.0,
+        "end": 68.0,
+        "status": "supported",
+        "support_score": 0.989,
+        "evidence_text": "If it is too large, the iterates oscillate or even diverge. If it is too small, training converges very slowly.",
+        "evidence_source": "speech",
+        "evidence_time": 50.54
+      },
+      {
+        "text": "Stochastic gradient descent estimates it from a small mini batch of examples.",
+        "segment_ids": [
+          2
+        ],
+        "evidence": "both",
+        "start": 68.0,
+        "end": 137.86,
+        "status": "supported",
+        "support_score": 0.986,
+        "evidence_text": "Stochastic gradient descent estimates it from a small mini batch of examples. The estimate is noisy, but each step is much cheaper, so overall training is faster.",
+        "evidence_source": "speech",
+        "evidence_time": 68.79
+      },
+      {
+        "text": "The estimate is noisy, but each step is much cheaper, so overall training is faster.",
+        "segment_ids": [
+          2
+        ],
+        "evidence": "both",
+        "start": 68.0,
+        "end": 137.86,
+        "status": "supported",
+        "support_score": 0.993,
+        "evidence_text": "The estimate is noisy, but each step is much cheaper, so overall training is faster. To summarize, gradient descent repeatedly steps along the negative gradient, the learning rate controls the step size, and stochastic gradient descent makes each step cheap by using mini batches.",
+        "evidence_source": "speech",
+        "evidence_time": 73.55
+      }
+    ],
+    "glossary": [
+      {
+        "term": "Gradient Descent for Machine Learning — ",
+        "definition": "Welcome back."
+      },
+      {
+        "term": "The Update Rule — W <- W eta grad L(w) |",
+        "definition": "Choosing the learning rate matters a lot."
+      },
+      {
+        "term": "Choosing the Learning Rate — Too large",
+        "definition": "Stochastic gradient descent estimates it from a small mini batch of examples."
+      }
+    ],
+    "chapters": [
+      {
+        "title": "Gradient Descent for Machine Learning — Lecture 4: Optimizat",
+        "segment_ids": [
+          0
+        ],
+        "start": 0.0,
+        "end": 46.0
+      },
+      {
+        "title": "The Update Rule — W <- W eta grad L(w) | eta = learning rate",
+        "segment_ids": [
+          1
+        ],
+        "start": 46.0,
+        "end": 68.0
+      },
+      {
+        "title": "Choosing the Learning Rate — Too large: divergence oscillati",
+        "segment_ids": [
+          2
+        ],
+        "start": 68.0,
+        "end": 137.86
+      }
+    ]
+  },
+  "verification": {
+    "n_claims": 6,
+    "supported": 5,
+    "uncertain": 0,
+    "unsupported": 1,
+    "faithfulness": 0.8333,
+    "nli_model": "cross-encoder/nli-deberta-v3-xsmall",
+    "evidence_passages": 24
+  },
+  "slides": [
+    {
+      "slide_id": 0,
+      "start": 0.0,
+      "end": 22.0,
+      "title": "Gradient Descent for Machine Learning",
+      "text": "Gradient Descent for Machine Learning\nLecture 4: Optimization\nIntroduction to Machine Learning",
+      "ocr_confidence": 0.932,
+      "thumbnail": "keyframes\\thumb_000.jpg",
+      "frame": "keyframes\\slide_000.png",
+      "lines": [
+        {
+          "text": "Gradient Descent for Machine Learning",
+          "conf": 0.826
+        },
+        {
+          "text": "Lecture 4: Optimization",
+          "conf": 0.988
+        },
+        {
+          "text": "Introduction to Machine Learning",
+          "conf": 0.981
+        }
+      ],
+      "merged_from": [
+        0
+      ]
+    },
+    {
+      "slide_id": 1,
+      "start": 22.0,
+      "end": 46.0,
+      "title": "The Optimization Problem",
+      "text": "The Optimization Problem\nMinimize loss L(w) over parameters W\nMean squared error: L(w) = In sum (y_i - W x_i)^2\nConvex VS non-convex objectives",
+      "ocr_confidence": 0.781,
+      "thumbnail": "keyframes\\thumb_001.jpg",
+      "frame": "keyframes\\slide_001.png",
+      "lines": [
+        {
+          "text": "The Optimization Problem",
+          "conf": 1.0
+        },
+        {
+          "text": "Minimize loss L(w) over parameters W",
+          "conf": 0.836
+        },
+        {
+          "text": "Mean squared error: L(w) = In sum (y_i - W x_i)^2",
+          "conf": 0.616
+        },
+        {
+          "text": "Convex VS non-convex objectives",
+          "conf": 0.67
+        }
+      ],
+      "merged_from": [
+        1
+      ]
+    },
+    {
+      "slide_id": 2,
+      "start": 46.0,
+      "end": 68.0,
+      "title": "The Update Rule",
+      "text": "The Update Rule\nW <- W eta grad L(w)\neta = learning rate\nGradient points uphill: step the opposite way",
+      "ocr_confidence": 0.952,
+      "thumbnail": "keyframes\\thumb_002.jpg",
+      "frame": "keyframes\\slide_002.png",
+      "lines": [
+        {
+          "text": "The Update Rule",
+          "conf": 0.951
+        },
+        {
+          "text": "W <- W eta grad L(w)",
+          "conf": 0.873
+        },
+        {
+          "text": "eta = learning rate",
+          "conf": 0.991
+        },
+        {
+          "text": "Gradient points uphill: step the opposite way",
+          "conf": 0.995
+        }
+      ],
+      "merged_from": [
+        2
+      ]
+    },
+    {
+      "slide_id": 3,
+      "start": 68.0,
+      "end": 90.0,
+      "title": "Choosing the Learning Rate",
+      "text": "Choosing the Learning Rate\nToo large: divergence oscillation\nToo small: slow convergence\nLearning rate schedules: step decay, cosine annealing\nAdaptive methods: Adam, RMSProp",
+      "ocr_confidence": 0.821,
+      "thumbnail": "keyframes\\thumb_003.jpg",
+      "frame": "keyframes\\slide_003.png",
+      "lines": [
+        {
+          "text": "Choosing the Learning Rate",
+          "conf": 0.685
+        },
+        {
+          "text": "Too large: divergence oscillation",
+          "conf": 0.952
+        },
+        {
+          "text": "Too small: slow convergence",
+          "conf": 0.855
+        },
+        {
+          "text": "Learning rate schedules: step decay, cosine annealing",
+          "conf": 0.852
+        },
+        {
+          "text": "Adaptive methods: Adam, RMSProp",
+          "conf": 0.762
+        }
+      ],
+      "merged_from": [
+        3
+      ]
+    },
+    {
+      "slide_id": 4,
+      "start": 90.0,
+      "end": 114.0,
+      "title": "Stochastic Gradient Descent",
+      "text": "Stochastic Gradient Descent\nUse a mini-batch instead of the full dataset\nNoisy but cheap gradient estimate\nBatch size 32 to 256 is typical\nEpoch one pass over the training data",
+      "ocr_confidence": 0.826,
+      "thumbnail": "keyframes\\thumb_004.jpg",
+      "frame": "keyframes\\slide_004.png",
+      "lines": [
+        {
+          "text": "Stochastic Gradient Descent",
+          "conf": 0.747
+        },
+        {
+          "text": "Use a mini-batch instead of the full dataset",
+          "conf": 0.557
+        },
+        {
+          "text": "Noisy but cheap gradient estimate",
+          "conf": 1.0
+        },
+        {
+          "text": "Batch size 32 to 256 is typical",
+          "conf": 0.867
+        },
+        {
+          "text": "Epoch one pass over the training data",
+          "conf": 0.959
+        }
+      ],
+      "merged_from": [
+        4
+      ]
+    },
+    {
+      "slide_id": 5,
+      "start": 114.0,
+      "end": 137.86,
+      "title": "Summary",
+      "text": "Summary\nGradient descent follows the negative gradient\nLearning rate controls step size\nSGD uses mini-batches\nMomentum accelerates convergence",
+      "ocr_confidence": 0.859,
+      "thumbnail": "keyframes\\thumb_005.jpg",
+      "frame": "keyframes\\slide_005.png",
+      "lines": [
+        {
+          "text": "Summary",
+          "conf": 0.993
+        },
+        {
+          "text": "Gradient descent follows the negative gradient",
+          "conf": 0.941
+        },
+        {
+          "text": "Learning rate controls step size",
+          "conf": 0.753
+        },
+        {
+          "text": "SGD uses mini-batches",
+          "conf": 0.712
+        },
+        {
+          "text": "Momentum accelerates convergence",
+          "conf": 0.895
+        }
+      ],
+      "merged_from": [
+        5
+      ]
+    }
+  ],
+  "visual_mode": "high",
+  "segments": [
+    {
+      "segment_id": 0,
+      "start": 0.0,
+      "end": 46.0,
+      "slide_ids": [
+        0,
+        1
+      ],
+      "sentence_ids": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "words": 105
+    },
+    {
+      "segment_id": 1,
+      "start": 46.0,
+      "end": 68.0,
+      "slide_ids": [
+        2
+      ],
+      "sentence_ids": [
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "words": 45
+    },
+    {
+      "segment_id": 2,
+      "start": 68.0,
+      "end": 137.86,
+      "slide_ids": [
+        3,
+        4,
+        5
+      ],
+      "sentence_ids": [
+        14,
+        15,
+        16,
+        17
+      ],
+      "words": 62
+    }
+  ],
+  "segmentation_mode": "slide-aligned",
+  "transcript_source": "local:faster-whisper-base",
+  "stats": {
+    "llm_calls": 2,
+    "cache_hits": 0,
+    "input_tokens": 2082,
+    "output_tokens": 1876,
+    "retries": 0,
+    "fallbacks": 0,
+    "rate_limit_wait_s": 0.0,
+    "providers": [
+      "mock/mock-1"
+    ],
+    "by_provider": {
+      "mock/mock-1": {
+        "calls": 2,
+        "input_tokens": 2082,
+        "output_tokens": 1876
+      }
+    },
+    "transcript_words": 212,
+    "summary_words": 61,
+    "compression_ratio": 3.5,
+    "evidence_split": {
+      "slide": 0,
+      "speech": 0,
+      "both": 6
+    },
+    "wall_clock_s": 271.0
+  },
+  "chapters_youtube": [],
+  "exports": {
+    "markdown": "D:\\PROJECTS\\Generative-AI\\runs\\synthetic-gd_e7e23bbe\\lecture.md",
+    "json": "D:\\PROJECTS\\Generative-AI\\runs\\synthetic-gd_e7e23bbe\\lecture.json",
+    "pdf": "D:\\PROJECTS\\Generative-AI\\runs\\synthetic-gd_e7e23bbe\\lecture.pdf"
+  }
+}

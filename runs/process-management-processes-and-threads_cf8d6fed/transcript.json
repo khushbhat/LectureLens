@@ -1,0 +1,892 @@
+{
+  "source": "captions:manual",
+  "model": null,
+  "segments": [
+    {
+      "start": 0.22,
+      "end": 2.75,
+      "text": "In the previous lectures we have been studying about",
+      "id": 0
+    },
+    {
+      "start": 2.75,
+      "end": 4.57,
+      "text": "different aspects of operating system.",
+      "id": 1
+    },
+    {
+      "start": 4.57,
+      "end": 6.62,
+      "text": "And what we had mostly seen was",
+      "id": 2
+    },
+    {
+      "start": 6.62,
+      "end": 10.44,
+      "text": "the introduction to operating system and also operating system structures.",
+      "id": 3
+    },
+    {
+      "start": 10.44,
+      "end": 15.15,
+      "text": "Now, moving on to one of the most important part of operating system",
+      "id": 4
+    },
+    {
+      "start": 15.15,
+      "end": 17.46,
+      "text": "which is process management.",
+      "id": 5
+    },
+    {
+      "start": 17.46,
+      "end": 21.2,
+      "text": "You must have heard this term many times processes and threads.",
+      "id": 6
+    },
+    {
+      "start": 21.2,
+      "end": 25.15,
+      "text": "So, in this lecture we will be trying to get an introductory idea",
+      "id": 7
+    },
+    {
+      "start": 25.15,
+      "end": 28.97,
+      "text": "and understanding of what are processes and threads.",
+      "id": 8
+    },
+    {
+      "start": 28.97,
+      "end": 34.71,
+      "text": "And usually people are confused many times between the processes and threads.",
+      "id": 9
+    },
+    {
+      "start": 34.71,
+      "end": 39.24,
+      "text": "So, we will try to understand what these are and what are their differences.",
+      "id": 10
+    },
+    {
+      "start": 39.24,
+      "end": 42.93,
+      "text": "So, first of all before we understand processes,",
+      "id": 11
+    },
+    {
+      "start": 42.93,
+      "end": 46.44,
+      "text": "let us first try to understand how a program is developed.",
+      "id": 12
+    },
+    {
+      "start": 46.48,
+      "end": 49.11,
+      "text": "So, whenever you want to make a program,",
+      "id": 13
+    },
+    {
+      "start": 49.11,
+      "end": 50.04,
+      "text": "what you do is,",
+      "id": 14
+    },
+    {
+      "start": 50.08,
+      "end": 53.2,
+      "text": "you first write the program in some high level languages.",
+      "id": 15
+    },
+    {
+      "start": 53.28,
+      "end": 56.57,
+      "text": "For example, let's say you write the program in C,",
+      "id": 16
+    },
+    {
+      "start": 56.57,
+      "end": 58.57,
+      "text": "C++, JAVA or something like that.",
+      "id": 17
+    },
+    {
+      "start": 58.57,
+      "end": 61.15,
+      "text": "And that program is written in a high level language.",
+      "id": 18
+    },
+    {
+      "start": 61.15,
+      "end": 63.11,
+      "text": "Now, we know at the basic level",
+      "id": 19
+    },
+    {
+      "start": 63.11,
+      "end": 65.95,
+      "text": "computer does not understand the high level language.",
+      "id": 20
+    },
+    {
+      "start": 65.95,
+      "end": 69.91,
+      "text": "But it understands only the binary codes, which are 0's and 1's.",
+      "id": 21
+    },
+    {
+      "start": 69.91,
+      "end": 73.24,
+      "text": "So, the program has to be converted to binary code.",
+      "id": 22
+    },
+    {
+      "start": 73.24,
+      "end": 77.82,
+      "text": "So, for that using a compiler, you compile your program and it helps to",
+      "id": 23
+    },
+    {
+      "start": 77.82,
+      "end": 82.8,
+      "text": "convert that program into machine code which is understandable by your machine.",
+      "id": 24
+    },
+    {
+      "start": 82.84,
+      "end": 83.37,
+      "text": "Alright!",
+      "id": 25
+    },
+    {
+      "start": 83.37,
+      "end": 85.68,
+      "text": "So, after that you have your program",
+      "id": 26
+    },
+    {
+      "start": 85.68,
+      "end": 89.02,
+      "text": "which is converted into a binary executable code",
+      "id": 27
+    },
+    {
+      "start": 89.02,
+      "end": 90.66,
+      "text": "and it is ready for execution.",
+      "id": 28
+    },
+    {
+      "start": 90.66,
+      "end": 95.28,
+      "text": "But it is not enough to just have that binary code for a program to execute",
+      "id": 29
+    },
+    {
+      "start": 95.28,
+      "end": 99.06,
+      "text": "or for a program to tell the computer what it wants to do.",
+      "id": 30
+    },
+    {
+      "start": 99.06,
+      "end": 100.97,
+      "text": "So, what it has to do is,",
+      "id": 31
+    },
+    {
+      "start": 100.97,
+      "end": 102.97,
+      "text": "it has to be loaded into the memory,",
+      "id": 32
+    },
+    {
+      "start": 102.97,
+      "end": 108.13,
+      "text": "and for a program to execute, it needs some resources of the computer system.",
+      "id": 33
+    },
+    {
+      "start": 108.13,
+      "end": 111.50999999999999,
+      "text": "So, who will allocate the resources?",
+      "id": 34
+    },
+    {
+      "start": 111.50999999999999,
+      "end": 113.50999999999999,
+      "text": "What is the brain that works behind all these?",
+      "id": 35
+    },
+    {
+      "start": 113.50999999999999,
+      "end": 117.2,
+      "text": "It is the operating system, which we have been discussing so far.",
+      "id": 36
+    },
+    {
+      "start": 117.2,
+      "end": 121.64,
+      "text": "So, the operating system will help in loading that executable program",
+      "id": 37
+    },
+    {
+      "start": 121.64,
+      "end": 124.17,
+      "text": "into the memory and allocate its resources",
+      "id": 38
+    },
+    {
+      "start": 124.17,
+      "end": 127.37,
+      "text": "and then the program will begin its execution.",
+      "id": 39
+    },
+    {
+      "start": 127.37,
+      "end": 127.95,
+      "text": "Alright!",
+      "id": 40
+    },
+    {
+      "start": 127.95,
+      "end": 132.84,
+      "text": "So, we first have a program which is written and is ready for execution",
+      "id": 41
+    },
+    {
+      "start": 132.84,
+      "end": 136.62,
+      "text": "but till that time it is just a passive entity.",
+      "id": 42
+    },
+    {
+      "start": 136.62,
+      "end": 139.28,
+      "text": "That means it just sit there without doing anything.",
+      "id": 43
+    },
+    {
+      "start": 139.28,
+      "end": 143.24,
+      "text": "But the moment it begins execution, at that instance",
+      "id": 44
+    },
+    {
+      "start": 143.24,
+      "end": 146.66,
+      "text": "we call that program as a process.",
+      "id": 45
+    },
+    {
+      "start": 146.66,
+      "end": 151.42000000000002,
+      "text": "So, a process can be thought of as a program in execution.",
+      "id": 46
+    },
+    {
+      "start": 151.42000000000002,
+      "end": 156.53,
+      "text": "When a program starts execution, at that time we call it a process.",
+      "id": 47
+    },
+    {
+      "start": 156.53,
+      "end": 161.42000000000002,
+      "text": "So, when it is not executing, it is just a program sitting there and doing nothing.",
+      "id": 48
+    },
+    {
+      "start": 161.42000000000002,
+      "end": 166.93,
+      "text": "But the moment it begins execution, at that time we call it a process.",
+      "id": 49
+    },
+    {
+      "start": 166.93,
+      "end": 168.71,
+      "text": "So, in the earlier computers",
+      "id": 50
+    },
+    {
+      "start": 168.71,
+      "end": 172.26,
+      "text": "it supported only one process or one program at a time.",
+      "id": 51
+    },
+    {
+      "start": 172.26,
+      "end": 174.93,
+      "text": "But in today's computer it supports",
+      "id": 52
+    },
+    {
+      "start": 174.93,
+      "end": 178.48,
+      "text": "multiple processes or programs running at the same time.",
+      "id": 53
+    },
+    {
+      "start": 178.48,
+      "end": 183.46,
+      "text": "And even one single program can have many processes associated with it.",
+      "id": 54
+    },
+    {
+      "start": 183.46,
+      "end": 188.26,
+      "text": "So, when a program begins its execution at that time it is known as the process.",
+      "id": 55
+    },
+    {
+      "start": 188.26,
+      "end": 190.93,
+      "text": "So, now let's try to understand what are threads?",
+      "id": 56
+    },
+    {
+      "start": 190.93,
+      "end": 197.02,
+      "text": "So, thread is actually the basic unit of a process which is in execution.",
+      "id": 57
+    },
+    {
+      "start": 197.02,
+      "end": 198.75,
+      "text": "So, this is how we can define it.",
+      "id": 58
+    },
+    {
+      "start": 198.75,
+      "end": 202.57,
+      "text": "A thread is the unit of execution within a process.",
+      "id": 59
+    },
+    {
+      "start": 202.57,
+      "end": 206.57,
+      "text": "A process can have anywhere from just one thread to many threads.",
+      "id": 60
+    },
+    {
+      "start": 206.57,
+      "end": 208.84,
+      "text": "So, we already understood what is a process?",
+      "id": 61
+    },
+    {
+      "start": 208.84,
+      "end": 211.95,
+      "text": "When a program is executing it is called a process.",
+      "id": 62
+    },
+    {
+      "start": 211.95,
+      "end": 215.82,
+      "text": "And a thread is the unit of execution within a process.",
+      "id": 63
+    },
+    {
+      "start": 215.82,
+      "end": 220.71,
+      "text": "So, within a process there may be one or more units of its execution",
+      "id": 64
+    },
+    {
+      "start": 220.71,
+      "end": 223.2,
+      "text": "and those units are known as threads.",
+      "id": 65
+    },
+    {
+      "start": 223.2,
+      "end": 225.2,
+      "text": "And again in earlier systems,",
+      "id": 66
+    },
+    {
+      "start": 225.2,
+      "end": 227.2,
+      "text": "one process had only thread.",
+      "id": 67
+    },
+    {
+      "start": 227.2,
+      "end": 233.37,
+      "text": "But now a single process has many threads or many units of execution within it.",
+      "id": 68
+    },
+    {
+      "start": 233.37,
+      "end": 237.64,
+      "text": "So, a process can have anywhere from one thread to many threads.",
+      "id": 69
+    },
+    {
+      "start": 237.64,
+      "end": 241.2,
+      "text": "So, that is the difference between a process and a thread.",
+      "id": 70
+    },
+    {
+      "start": 241.2,
+      "end": 242.75,
+      "text": "If you look at this diagram,",
+      "id": 71
+    },
+    {
+      "start": 242.75,
+      "end": 247.02,
+      "text": "I hope you should be able to visualize and understand what it actually means.",
+      "id": 72
+    },
+    {
+      "start": 247.02,
+      "end": 250.17,
+      "text": "So, here we call this entire thing as a process.",
+      "id": 73
+    },
+    {
+      "start": 250.17,
+      "end": 253.55,
+      "text": "When a program begins its executions, it becomes the process.",
+      "id": 74
+    },
+    {
+      "start": 253.55,
+      "end": 258.04,
+      "text": "And within this process there are certain units of executions.",
+      "id": 75
+    },
+    {
+      "start": 258.04,
+      "end": 260.75,
+      "text": "And each unit is known as a thread.",
+      "id": 76
+    },
+    {
+      "start": 260.8,
+      "end": 263.24,
+      "text": "So, these are all the units or the threads,",
+      "id": 77
+    },
+    {
+      "start": 263.24,
+      "end": 266.17,
+      "text": "which are under execution within this process.",
+      "id": 78
+    },
+    {
+      "start": 266.17,
+      "end": 269.73,
+      "text": "Now if you want to see the processes which are in execution in your system,",
+      "id": 79
+    },
+    {
+      "start": 269.73,
+      "end": 272.84000000000003,
+      "text": "you can see it by using your task manager in your Windows.",
+      "id": 80
+    },
+    {
+      "start": 272.84000000000003,
+      "end": 274.84000000000003,
+      "text": "You can open up the task manager,",
+      "id": 81
+    },
+    {
+      "start": 274.84000000000003,
+      "end": 277.64,
+      "text": "and you can see which are the programs that are loaded",
+      "id": 82
+    },
+    {
+      "start": 277.64,
+      "end": 280.31,
+      "text": "and what are the process that are executing.",
+      "id": 83
+    },
+    {
+      "start": 280.31,
+      "end": 282.31,
+      "text": "So, let me how you an example of that.",
+      "id": 84
+    },
+    {
+      "start": 282.31,
+      "end": 285.06,
+      "text": "So, here this is a screen shot of my 'task manager'.",
+      "id": 85
+    },
+    {
+      "start": 285.06,
+      "end": 289.11,
+      "text": "If you open up your task manager and look at this application tab,",
+      "id": 86
+    },
+    {
+      "start": 289.11,
+      "end": 292.17,
+      "text": "we can see which are the programs that are running.",
+      "id": 87
+    },
+    {
+      "start": 292.17,
+      "end": 294.65999999999997,
+      "text": "So, here I have three programs running over here.",
+      "id": 88
+    },
+    {
+      "start": 294.65999999999997,
+      "end": 296.65999999999997,
+      "text": "And here we have the 'processes' tab.",
+      "id": 89
+    },
+    {
+      "start": 296.65999999999997,
+      "end": 298.97,
+      "text": "so, if you click on the 'processes' tab,",
+      "id": 90
+    },
+    {
+      "start": 298.97,
+      "end": 302.71,
+      "text": "you can see what are the processes running in your system.",
+      "id": 91
+    },
+    {
+      "start": 302.71,
+      "end": 306.13,
+      "text": "So, if you click this, you come to this window over here,",
+      "id": 92
+    },
+    {
+      "start": 306.13,
+      "end": 310.26,
+      "text": "where you can see that there are all these processes are running in your system.",
+      "id": 93
+    },
+    {
+      "start": 310.26,
+      "end": 312.0,
+      "text": "So, for example if you look here",
+      "id": 94
+    },
+    {
+      "start": 312.04,
+      "end": 315.37,
+      "text": "you can see that there is Chromium browser running over here.",
+      "id": 95
+    },
+    {
+      "start": 315.37,
+      "end": 317.82,
+      "text": "And if you look at the processes tab,",
+      "id": 96
+    },
+    {
+      "start": 317.82,
+      "end": 322.26,
+      "text": "we see that there is not only one process associated with this",
+      "id": 97
+    },
+    {
+      "start": 322.31,
+      "end": 325.55,
+      "text": "chromium browser but there are multiple processes.",
+      "id": 98
+    },
+    {
+      "start": 325.55,
+      "end": 328.53,
+      "text": "For example you can see there is chrome.exe here.",
+      "id": 99
+    },
+    {
+      "start": 328.53,
+      "end": 330.04,
+      "text": "It is also here.",
+      "id": 100
+    },
+    {
+      "start": 330.04,
+      "end": 332.75,
+      "text": "There are quite a few events over here.",
+      "id": 101
+    },
+    {
+      "start": 332.75,
+      "end": 333.51,
+      "text": "So, we see that",
+      "id": 102
+    },
+    {
+      "start": 333.51,
+      "end": 337.28,
+      "text": "there are multiple processes associated with a single program.",
+      "id": 103
+    },
+    {
+      "start": 337.33,
+      "end": 341.11,
+      "text": "And this is the memory that it is using which is shown over here.",
+      "id": 104
+    },
+    {
+      "start": 341.11,
+      "end": 342.22,
+      "text": "So, this is just an example",
+      "id": 105
+    },
+    {
+      "start": 342.22,
+      "end": 346.08,
+      "text": "of how you can see the program and processes running in your system.",
+      "id": 106
+    },
+    {
+      "start": 346.08,
+      "end": 348.08,
+      "text": "Because if you see what is happening,",
+      "id": 107
+    },
+    {
+      "start": 348.08,
+      "end": 351.02,
+      "text": "it become more interesting for you to learn and understand",
+      "id": 108
+    },
+    {
+      "start": 351.02,
+      "end": 352.48,
+      "text": "what is happening.",
+      "id": 109
+    },
+    {
+      "start": 352.53,
+      "end": 354.88,
+      "text": "So, here we have seen the processes.",
+      "id": 110
+    },
+    {
+      "start": 354.88,
+      "end": 357.33,
+      "text": "But we did not see any threads over here.",
+      "id": 111
+    },
+    {
+      "start": 357.33,
+      "end": 360.84,
+      "text": "So, if you want to see the threads that are also there in your system,",
+      "id": 112
+    },
+    {
+      "start": 360.84,
+      "end": 364.17,
+      "text": "then you can use a program known as process explorer.",
+      "id": 113
+    },
+    {
+      "start": 364.17,
+      "end": 365.46,
+      "text": "You can download that program",
+      "id": 114
+    },
+    {
+      "start": 365.46,
+      "end": 368.66,
+      "text": "and it wiill show you even the threads that are running",
+      "id": 115
+    },
+    {
+      "start": 368.66,
+      "end": 371.06,
+      "text": "for each program and for each process.",
+      "id": 116
+    },
+    {
+      "start": 371.06,
+      "end": 373.95,
+      "text": "So, this is how the process explorer looks like.",
+      "id": 117
+    },
+    {
+      "start": 373.95,
+      "end": 374.97,
+      "text": "You can download this.",
+      "id": 118
+    },
+    {
+      "start": 374.97,
+      "end": 376.57,
+      "text": "It is a very small application.",
+      "id": 119
+    },
+    {
+      "start": 376.57,
+      "end": 378.0,
+      "text": "You can download and install it.",
+      "id": 120
+    },
+    {
+      "start": 378.0,
+      "end": 381.91,
+      "text": "And you can see that these are the processes as we saw before.",
+      "id": 121
+    },
+    {
+      "start": 381.91,
+      "end": 383.11,
+      "text": "So, for example,",
+      "id": 122
+    },
+    {
+      "start": 383.11,
+      "end": 386.48,
+      "text": "here I have the chrome.exe process running over here.",
+      "id": 123
+    },
+    {
+      "start": 386.48,
+      "end": 389.11,
+      "text": "And if you right click on this and go to the properties",
+      "id": 124
+    },
+    {
+      "start": 389.11,
+      "end": 391.11,
+      "text": "then you can see the threads.",
+      "id": 125
+    },
+    {
+      "start": 391.11,
+      "end": 393.15,
+      "text": "So, here you will get this window",
+      "id": 126
+    },
+    {
+      "start": 393.15,
+      "end": 395.15,
+      "text": "and if you click on this threads tab,",
+      "id": 127
+    },
+    {
+      "start": 395.15,
+      "end": 397.64,
+      "text": "you can see that these are the threads,",
+      "id": 128
+    },
+    {
+      "start": 397.73,
+      "end": 401.33,
+      "text": "which are the unit of execution for this particular process",
+      "id": 129
+    },
+    {
+      "start": 401.33,
+      "end": 403.55,
+      "text": "and which are running over here.",
+      "id": 130
+    },
+    {
+      "start": 403.55,
+      "end": 409.37,
+      "text": "So, these many threads are running within this process chrome.exe.",
+      "id": 131
+    },
+    {
+      "start": 409.37,
+      "end": 411.06,
+      "text": "So, in this way you can see",
+      "id": 132
+    },
+    {
+      "start": 411.06,
+      "end": 413.95,
+      "text": "the processes and the threads that are running in your system.",
+      "id": 133
+    },
+    {
+      "start": 413.95,
+      "end": 415.86,
+      "text": "So, I hope with this visual example",
+      "id": 134
+    },
+    {
+      "start": 415.86,
+      "end": 417.64,
+      "text": "it was more clear to you,",
+      "id": 135
+    },
+    {
+      "start": 417.68,
+      "end": 418.75,
+      "text": "what are processes?",
+      "id": 136
+    },
+    {
+      "start": 418.75,
+      "end": 419.73,
+      "text": "And what are threads?",
+      "id": 137
+    },
+    {
+      "start": 419.73,
+      "end": 421.28,
+      "text": "And how they work.",
+      "id": 138
+    },
+    {
+      "start": 421.28,
+      "end": 423.28,
+      "text": "So, this was just and basic introduction of",
+      "id": 139
+    },
+    {
+      "start": 423.28,
+      "end": 425.28,
+      "text": "what are processes and what are threads.",
+      "id": 140
+    },
+    {
+      "start": 425.28,
+      "end": 428.26,
+      "text": "And how we can differentiate between a process and a thread.",
+      "id": 141
+    },
+    {
+      "start": 428.26,
+      "end": 432.22,
+      "text": "So, this process is a very important topic in operating system.",
+      "id": 142
+    },
+    {
+      "start": 432.22,
+      "end": 434.62,
+      "text": "And we will be studying this in more details",
+      "id": 143
+    },
+    {
+      "start": 434.62,
+      "end": 436.48,
+      "text": "and many topics are there under this",
+      "id": 144
+    },
+    {
+      "start": 436.48,
+      "end": 438.8,
+      "text": "which we will be discussing in the coming lectures.",
+      "id": 145
+    },
+    {
+      "start": 438.8,
+      "end": 441.15,
+      "text": "Thank you for watching and see you in the next one.",
+      "id": 146
+    }
+  ],
+  "duration": 452.0,
+  "elapsed_s": 0.0,
+  "real_time_factor": 0.0,
+  "language": "en"
+}

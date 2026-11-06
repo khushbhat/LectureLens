@@ -1,0 +1,1 @@
+{"task": "map:batch_000", "provider": "gemini", "model": "gemini-3.5-flash-lite", "input_tokens": 1853, "output_tokens": 937, "cached": false}

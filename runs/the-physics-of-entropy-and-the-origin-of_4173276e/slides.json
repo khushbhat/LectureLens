@@ -1,0 +1,373 @@
+{
+  "visual_mode": "low",
+  "slides": [
+    {
+      "slide_id": 0,
+      "start": 0.0,
+      "end": 6.0,
+      "title": "Great",
+      "text": "Great\nQuestion",
+      "ocr_confidence": 0.999,
+      "thumbnail": "keyframes/thumb_000.jpg",
+      "frame": "keyframes/slide_000.png",
+      "lines": [
+        {
+          "text": "Great",
+          "conf": 0.999
+        },
+        {
+          "text": "Question",
+          "conf": 1.0
+        }
+      ],
+      "merged_from": [
+        0
+      ]
+    },
+    {
+      "slide_id": 1,
+      "start": 6.0,
+      "end": 62.0,
+      "title": "",
+      "text": "3 T",
+      "ocr_confidence": 0.684,
+      "thumbnail": "keyframes/thumb_001.jpg",
+      "frame": "keyframes/slide_001.png",
+      "lines": [
+        {
+          "text": "3 T",
+          "conf": 0.684
+        }
+      ],
+      "merged_from": [
+        1
+      ]
+    },
+    {
+      "slide_id": 2,
+      "start": 62.0,
+      "end": 110.0,
+      "title": "",
+      "text": "",
+      "ocr_confidence": 0.0,
+      "thumbnail": "keyframes/thumb_004.jpg",
+      "frame": "keyframes/slide_004.png",
+      "lines": [],
+      "merged_from": [
+        2,
+        3,
+        4
+      ]
+    },
+    {
+      "slide_id": 3,
+      "start": 110.0,
+      "end": 116.0,
+      "title": "IBIT",
+      "text": "IBIT",
+      "ocr_confidence": 0.577,
+      "thumbnail": "keyframes/thumb_005.jpg",
+      "frame": "keyframes/slide_005.png",
+      "lines": [
+        {
+          "text": "IBIT",
+          "conf": 0.577
+        }
+      ],
+      "merged_from": [
+        5
+      ]
+    },
+    {
+      "slide_id": 4,
+      "start": 116.0,
+      "end": 128.0,
+      "title": "Simple",
+      "text": "Simple",
+      "ocr_confidence": 0.835,
+      "thumbnail": "keyframes/thumb_006.jpg",
+      "frame": "keyframes/slide_006.png",
+      "lines": [
+        {
+          "text": "Simple",
+          "conf": 0.835
+        }
+      ],
+      "merged_from": [
+        6
+      ]
+    },
+    {
+      "slide_id": 5,
+      "start": 128.0,
+      "end": 140.0,
+      "title": "Order and Complexity in the Universe 13 T",
+      "text": "Order and Complexity in the Universe 13 T\ndisorderly\ncomplex\nrder)\nasing =\nIncre\norderly\nsimple\ntime\nearly late",
+      "ocr_confidence": 0.893,
+      "thumbnail": "keyframes/thumb_007.jpg",
+      "frame": "keyframes/slide_007.png",
+      "lines": [
+        {
+          "text": "Order and Complexity in the Universe 13 T",
+          "conf": 0.78
+        },
+        {
+          "text": "disorderly",
+          "conf": 1.0
+        },
+        {
+          "text": "complex",
+          "conf": 1.0
+        },
+        {
+          "text": "rder)",
+          "conf": 0.997
+        },
+        {
+          "text": "asing =",
+          "conf": 0.364
+        },
+        {
+          "text": "Incre",
+          "conf": 0.798
+        },
+        {
+          "text": "orderly",
+          "conf": 1.0
+        },
+        {
+          "text": "simple",
+          "conf": 1.0
+        },
+        {
+          "text": "time",
+          "conf": 1.0
+        },
+        {
+          "text": "early late",
+          "conf": 0.993
+        }
+      ],
+      "merged_from": [
+        7
+      ]
+    },
+    {
+      "slide_id": 6,
+      "start": 140.0,
+      "end": 146.0,
+      "title": "",
+      "text": "",
+      "ocr_confidence": 0.0,
+      "thumbnail": "keyframes/thumb_008.jpg",
+      "frame": "keyframes/slide_008.png",
+      "lines": [],
+      "merged_from": [
+        8
+      ]
+    },
+    {
+      "slide_id": 7,
+      "start": 146.0,
+      "end": 158.0,
+      "title": "",
+      "text": "B T",
+      "ocr_confidence": 0.923,
+      "thumbnail": "keyframes/thumb_009.jpg",
+      "frame": "keyframes/slide_009.png",
+      "lines": [
+        {
+          "text": "B T",
+          "conf": 0.923
+        }
+      ],
+      "merged_from": [
+        9
+      ]
+    },
+    {
+      "slide_id": 8,
+      "start": 158.0,
+      "end": 224.0,
+      "title": "",
+      "text": "",
+      "ocr_confidence": 0.0,
+      "thumbnail": "keyframes/thumb_015.jpg",
+      "frame": "keyframes/slide_015.png",
+      "lines": [],
+      "merged_from": [
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ]
+    },
+    {
+      "slide_id": 9,
+      "start": 224.0,
+      "end": 236.0,
+      "title": "",
+      "text": "B T",
+      "ocr_confidence": 0.905,
+      "thumbnail": "keyframes/thumb_016.jpg",
+      "frame": "keyframes/slide_016.png",
+      "lines": [
+        {
+          "text": "B T",
+          "conf": 0.905
+        }
+      ],
+      "merged_from": [
+        16
+      ]
+    },
+    {
+      "slide_id": 10,
+      "start": 236.0,
+      "end": 326.0,
+      "title": "",
+      "text": "",
+      "ocr_confidence": 0.0,
+      "thumbnail": "keyframes/thumb_020.jpg",
+      "frame": "keyframes/slide_020.png",
+      "lines": [],
+      "merged_from": [
+        17,
+        18,
+        19,
+        20
+      ]
+    },
+    {
+      "slide_id": 11,
+      "start": 326.0,
+      "end": 338.0,
+      "title": "Unusual life",
+      "text": "SCIE B I\nThe OCEANS\nUnusual life\nfound at vents\nin the Atlantic\nSCHMID ney-like structures that form\nAssociated Press very hot water reach-\nWASHINGTON ing 700 degrees Fahrenheit\nstrange world of see-through breaks through the ocean floor\nshrimp, crabs other life contact with\nforms teems around newly frigid ocean The miner-\nexplored field of thermal vents als that crystallize during the\nnear the middle 0f the Atlantic the chimneys\nOcean, scientists report: black color:\nTowering white  mineral At Lost City; the other\nchimneys mark the field, hand, the temperature of the",
+      "ocr_confidence": 0.835,
+      "thumbnail": "keyframes/thumb_021.jpg",
+      "frame": "keyframes/slide_021.png",
+      "lines": [
+        {
+          "text": "SCIE B I",
+          "conf": 0.922
+        },
+        {
+          "text": "The OCEANS",
+          "conf": 0.744
+        },
+        {
+          "text": "Unusual life",
+          "conf": 0.888
+        },
+        {
+          "text": "found at vents",
+          "conf": 0.977
+        },
+        {
+          "text": "in the Atlantic",
+          "conf": 0.589
+        },
+        {
+          "text": "SCHMID ney-like structures that form",
+          "conf": 0.895
+        },
+        {
+          "text": "Associated Press very hot water reach-",
+          "conf": 0.889
+        },
+        {
+          "text": "WASHINGTON ing 700 degrees Fahrenheit",
+          "conf": 0.949
+        },
+        {
+          "text": "strange world of see-through breaks through the ocean floor",
+          "conf": 0.893
+        },
+        {
+          "text": "shrimp, crabs other life contact with",
+          "conf": 0.849
+        },
+        {
+          "text": "forms teems around newly frigid ocean The miner-",
+          "conf": 0.893
+        },
+        {
+          "text": "explored field of thermal vents als that crystallize during the",
+          "conf": 0.919
+        },
+        {
+          "text": "near the middle 0f the Atlantic the chimneys",
+          "conf": 0.739
+        },
+        {
+          "text": "Ocean, scientists report: black color:",
+          "conf": 0.57
+        },
+        {
+          "text": "Towering white  mineral At Lost City; the other",
+          "conf": 0.823
+        },
+        {
+          "text": "chimneys mark the field, hand, the temperature of the",
+          "conf": 0.824
+        }
+      ],
+      "merged_from": [
+        21
+      ]
+    },
+    {
+      "slide_id": 12,
+      "start": 338.0,
+      "end": 358.0,
+      "title": "",
+      "text": "",
+      "ocr_confidence": 0.0,
+      "thumbnail": "keyframes/thumb_022.jpg",
+      "frame": "keyframes/slide_022.png",
+      "lines": [],
+      "merged_from": [
+        22
+      ]
+    },
+    {
+      "slide_id": 13,
+      "start": 358.0,
+      "end": 371.0,
+      "title": "BIG THINK",
+      "text": "BIG THINK\nMake your Business\nSmarter Faster with Big Thinkt\nLearn more al BigThink com/Plus",
+      "ocr_confidence": 0.922,
+      "thumbnail": "keyframes/thumb_023.jpg",
+      "frame": "keyframes/slide_023.png",
+      "lines": [
+        {
+          "text": "BIG THINK",
+          "conf": 0.998
+        },
+        {
+          "text": "Make your Business",
+          "conf": 0.994
+        },
+        {
+          "text": "Smarter Faster with Big Thinkt",
+          "conf": 0.752
+        },
+        {
+          "text": "Learn more al BigThink com/Plus",
+          "conf": 0.944
+        }
+      ],
+      "merged_from": [
+        23
+      ]
+    }
+  ],
+  "stats": {
+    "text_slides": 3,
+    "text_coverage": 0.1
+  },
+  "engine": "easyocr"
+}

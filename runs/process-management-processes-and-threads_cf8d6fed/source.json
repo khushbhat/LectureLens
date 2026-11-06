@@ -1,0 +1,49 @@
+{
+  "kind": "youtube",
+  "source": "https://www.youtube.com/watch?v=OrM7nZcxXZU",
+  "video_id": "OrM7nZcxXZU",
+  "title": "Process Management (Processes and Threads)",
+  "channel": "Neso Academy",
+  "duration": 452.0,
+  "chapters": [
+    {
+      "title": "<Untitled Chapter 1>",
+      "start": 0,
+      "end": 15
+    },
+    {
+      "title": "Process Management",
+      "start": 15,
+      "end": 43
+    },
+    {
+      "title": "How a Program Is Developed",
+      "start": 43,
+      "end": 188
+    },
+    {
+      "title": "What Are Threads",
+      "start": 188,
+      "end": 270
+    },
+    {
+      "title": "Task Manager",
+      "start": 270,
+      "end": 297
+    },
+    {
+      "title": "Processes Tab",
+      "start": 297,
+      "end": 362
+    },
+    {
+      "title": "Process Explorer",
+      "start": 362,
+      "end": 452
+    }
+  ],
+  "video_path": "D:\\PROJECTS\\Generative-AI\\runs\\process-management-processes-and-threads_cf8d6fed\\media\\video.mp4",
+  "audio_path": "D:\\PROJECTS\\Generative-AI\\runs\\process-management-processes-and-threads_cf8d6fed\\media\\audio.m4a",
+  "subtitle_path": "D:\\PROJECTS\\Generative-AI\\runs\\process-management-processes-and-threads_cf8d6fed\\media\\subs.en-GB.vtt",
+  "subtitle_kind": "manual"
+}

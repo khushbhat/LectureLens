@@ -1,0 +1,92 @@
+[
+  {
+    "segment_id": 0,
+    "segment_ids": [
+      0
+    ],
+    "title": "Gradient Descent for Machine Learning — Lecture 4: Optimizat",
+    "summary": "Welcome back. Today we study gradient descent, the workforce optimization algorithm behind most of machine learning.",
+    "key_points": [
+      {
+        "text": "Welcome back.",
+        "evidence": "both"
+      },
+      {
+        "text": "Today we study gradient descent, the workforce optimization algorithm behind most of machine learning.",
+        "evidence": "both"
+      },
+      {
+        "text": "We will see what it does, why it works, and how to choose its settings.",
+        "evidence": "both"
+      }
+    ],
+    "concepts": [
+      {
+        "term": "Gradient Descent for Machine Learning — ",
+        "definition": "Welcome back."
+      }
+    ],
+    "formulas_or_code": [],
+    "examples": []
+  },
+  {
+    "segment_id": 1,
+    "segment_ids": [
+      1
+    ],
+    "title": "The Update Rule — W <- W eta grad L(w) | eta = learning rate",
+    "summary": "Choosing the learning rate matters a lot. If it is too large, the iterates oscillate or even diverge.",
+    "key_points": [
+      {
+        "text": "Choosing the learning rate matters a lot.",
+        "evidence": "both"
+      },
+      {
+        "text": "If it is too large, the iterates oscillate or even diverge.",
+        "evidence": "both"
+      },
+      {
+        "text": "If it is too small, training converges very slowly.",
+        "evidence": "both"
+      }
+    ],
+    "concepts": [
+      {
+        "term": "The Update Rule — W <- W eta grad L(w) |",
+        "definition": "Choosing the learning rate matters a lot."
+      }
+    ],
+    "formulas_or_code": [],
+    "examples": []
+  },
+  {
+    "segment_id": 2,
+    "segment_ids": [
+      2
+    ],
+    "title": "Choosing the Learning Rate — Too large: divergence oscillati",
+    "summary": "Stochastic gradient descent estimates it from a small mini batch of examples. The estimate is noisy, but each step is much cheaper, so overall training is faster.",
+    "key_points": [
+      {
+        "text": "Stochastic gradient descent estimates it from a small mini batch of examples.",
+        "evidence": "both"
+      },
+      {
+        "text": "The estimate is noisy, but each step is much cheaper, so overall training is faster.",
+        "evidence": "both"
+      },
+      {
+        "text": "To summarize, gradient descent repeatedly steps along the negative gradient, the learning rate controls the step size, and stochastic gradient descent makes each step cheap by using mini batches.",
+        "evidence": "both"
+      }
+    ],
+    "concepts": [
+      {
+        "term": "Choosing the Learning Rate — Too large",
+        "definition": "Stochastic gradient descent estimates it from a small mini batch of examples."
+      }
+    ],
+    "formulas_or_code": [],
+    "examples": []
+  }
+]

@@ -1,0 +1,18 @@
+TASK: final_summary
+PROMPT_VERSION: final_summary_v1
+
+Below is a JSON list of section summaries covering an ENTIRE lecture titled "{{video_title}}" ({{duration}} long), in chronological order. Each item has segment_id(s), title, summary, key_points (with evidence: slide/speech/both), concepts, formulas_or_code and examples.
+
+Return ONE JSON object with:
+- title: a descriptive title for the lecture
+- concise_summary: 150–250 words, one paragraph, covering the main ideas in order
+- detailed_summary: 400–900 words, several paragraphs (separate paragraphs with a blank line)
+- key_points: the 8–15 most important points; each {"text": ..., "segment_ids": [ids from the input], "evidence": "slide" | "speech" | "both"}
+- glossary: [{"term": ..., "definition": ...}] with 5–25 key technical terms
+- chapters: [{"title": ..., "segment_ids": [...]}] with 3–10 chronological chapters covering all segment ids
+
+Rules: use ONLY the input; keep formulas and technical terms exact; segment_ids must appear in the input.
+
+=== INPUT ===
+{{items}}
+=== END INPUT ===

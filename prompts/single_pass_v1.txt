@@ -1,0 +1,23 @@
+TASK: single_pass
+PROMPT_VERSION: single_pass_v1
+
+Below is the COMPLETE transcript of a lecture titled "{{video_title}}" ({{duration}} long), split into numbered parts with timestamps:
+
+[SEGMENT k | start–end]
+SPEECH: <transcript>
+
+Return ONE JSON object with:
+- title: a descriptive title for the lecture
+- concise_summary: 150–250 words, one paragraph, covering the main ideas in order
+- detailed_summary: 400–900 words, several paragraphs (separate paragraphs with a blank line)
+- key_points: the 8–15 most important points; each {"text": ..., "segment_ids": [k of the parts it comes from], "evidence": "speech"}
+- study_notes_markdown: Markdown study notes with "## " headings per topic, bullets, **bold** terms with definitions, formulas and code exact
+- glossary: [{"term": ..., "definition": ...}] with 5–25 key technical terms
+- chapters: [{"title": ..., "segment_ids": [...]}] with 3–10 chronological chapters
+- revision_questions: {"mcq": [exactly {{num_mcq}} items {"question": ..., "options": ["A ...", "B ...", "C ...", "D ..."], "answer": "A" | "B" | "C" | "D", "explanation": ...}], "short_answer": [exactly {{num_short}} items {"question": ..., "answer": ...}]}
+
+Rules: use ONLY the transcript; keep formulas and technical terms exact; ignore filler and administrivia.
+
+=== INPUT ===
+{{segments}}
+=== END INPUT ===

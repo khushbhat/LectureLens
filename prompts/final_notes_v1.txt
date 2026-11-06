@@ -1,0 +1,14 @@
+TASK: final_notes
+PROMPT_VERSION: final_notes_v1
+
+Below is a JSON list of section summaries covering an ENTIRE lecture titled "{{video_title}}", in chronological order.
+
+Return ONE JSON object with:
+- study_notes_markdown: well-structured Markdown study notes: "## " heading per topic in lecture order, bullet points, **bold** key terms with definitions, formulas exactly as given in inline or fenced code, code in fenced code blocks, short examples
+- revision_questions: {"mcq": [exactly {{num_mcq}} items {"question": ..., "options": ["A ...", "B ...", "C ...", "D ..."], "answer": "A" | "B" | "C" | "D", "explanation": ...}], "short_answer": [exactly {{num_short}} items {"question": ..., "answer": ...}]}
+
+Rules: use ONLY the input; keep formulas and code exact; questions must be answerable from the lecture.
+
+=== INPUT ===
+{{items}}
+=== END INPUT ===

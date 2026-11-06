@@ -1,0 +1,385 @@
+{
+  "run_id": "synthetic-gd_e7e23bbe",
+  "source": "samples/synthetic_gd.mp4",
+  "stages": {
+    "ingest": {
+      "status": "cached",
+      "kind": "file",
+      "duration": 137.862988,
+      "captions": null,
+      "seconds": 1.31,
+      "seconds_this_run": 0.0
+    },
+    "transcribe": {
+      "status": "cached",
+      "source": "local:faster-whisper-base",
+      "segments": 22,
+      "real_time_factor": 0.9946,
+      "seconds": 137.12,
+      "seconds_this_run": 0.0
+    },
+    "preprocess": {
+      "status": "cached",
+      "sentences": 18,
+      "words": 212,
+      "seconds": 11.36,
+      "seconds_this_run": 0.0
+    },
+    "keyframes": {
+      "status": "done",
+      "keyframes": 6,
+      "frames_sampled": 69,
+      "seconds": 10.39
+    },
+    "ocr": {
+      "status": "done",
+      "slides": 6,
+      "visual_mode": "high",
+      "text_slides": 6,
+      "text_coverage": 1.0,
+      "seconds": 24.69
+    },
+    "segment[lecturelens]": {
+      "status": "done",
+      "mode": "slide-aligned",
+      "segments": 3,
+      "seconds": 0.0
+    },
+    "map[lecturelens]": {
+      "status": "done",
+      "batches": 1,
+      "plan_provider": "mock",
+      "llm_calls": 1,
+      "seconds": 0.03
+    },
+    "reduce[lecturelens]": {
+      "status": "done",
+      "llm_calls": 1,
+      "levels": 0,
+      "final_input_items": 3,
+      "split_final": false,
+      "seconds": 0.02
+    },
+    "verify": {
+      "status": "done",
+      "n_claims": 6,
+      "supported": 5,
+      "uncertain": 0,
+      "unsupported": 1,
+      "faithfulness": 0.8333,
+      "evidence_passages": 24,
+      "seconds": 235.91
+    },
+    "export": {
+      "status": "done",
+      "files": [
+        "markdown",
+        "json",
+        "pdf"
+      ],
+      "seconds": 0.97
+    }
+  },
+  "config_snapshot": {
+    "paths": {
+      "runs_dir": "runs",
+      "cache_dir": ".cache",
+      "results_dir": "results",
+      "prompts_dir": "prompts",
+      "data_dir": "data"
+    },
+    "llm": {
+      "order": [
+        "gemini",
+        "groq",
+        "ollama"
+      ],
+      "temperature": 0.2,
+      "request_timeout_s": 180,
+      "check_models_on_startup": true,
+      "gemini": {
+        "model": "gemini-2.5-flash-lite",
+        "max_output_tokens": 16384,
+        "use_json_mode": true,
+        "thinking_budget": 0,
+        "batch_input_tokens": 10000,
+        "reduce_input_tokens": 24000,
+        "split_final": false
+      },
+      "groq": {
+        "model": "llama-3.3-70b-versatile",
+        "repair_model": "llama-3.1-8b-instant",
+        "max_output_tokens": 4096,
+        "batch_input_tokens": 5000,
+        "reduce_input_tokens": 6000,
+        "split_final": true
+      },
+      "ollama": {
+        "host": "http://localhost:11434",
+        "model": "qwen2.5:7b",
+        "max_output_tokens": 4096,
+        "num_ctx": 16384,
+        "batch_input_tokens": 6000,
+        "reduce_input_tokens": 9000,
+        "split_final": true
+      },
+      "mock": {
+        "model": "mock-1",
+        "batch_input_tokens": 6000,
+        "reduce_input_tokens": 9000,
+        "split_final": false
+      }
+    },
+    "quota": {
+      "safety_factor": 0.9,
+      "max_retries": 4,
+      "backoff_base_s": 2.0,
+      "backoff_max_s": 90.0,
+      "max_wait_s": 120,
+      "limits": {
+        "gemini/gemini-2.5-flash-lite": {
+          "rpm": 10,
+          "tpm": 250000,
+          "rpd": 20,
+          "tpd": null,
+          "day_reset_tz": "America/Los_Angeles"
+        },
+        "gemini/gemini-2.5-flash": {
+          "rpm": 5,
+          "tpm": 250000,
+          "rpd": 20,
+          "tpd": null,
+          "day_reset_tz": "America/Los_Angeles"
+        },
+        "groq/llama-3.3-70b-versatile": {
+          "rpm": 30,
+          "tpm": 12000,
+          "rpd": 1000,
+          "tpd": 100000,
+          "day_reset_tz": "UTC"
+        },
+        "groq/llama-3.1-8b-instant": {
+          "rpm": 30,
+          "tpm": 6000,
+          "rpd": 14400,
+          "tpd": 500000,
+          "day_reset_tz": "UTC"
+        },
+        "groq/whisper-large-v3-turbo": {
+          "rpm": 20,
+          "rpd": 2000,
+          "audio_s_per_hour": 7200,
+          "audio_s_per_day": 28800,
+          "day_reset_tz": "UTC"
+        },
+        "groq/whisper-large-v3": {
+          "rpm": 20,
+          "rpd": 2000,
+          "audio_s_per_hour": 7200,
+          "audio_s_per_day": 28800,
+          "day_reset_tz": "UTC"
+        },
+        "ollama/*": {
+          "rpm": null,
+          "tpm": null,
+          "rpd": null,
+          "tpd": null,
+          "day_reset_tz": "UTC"
+        },
+        "mock/*": {
+          "rpm": null,
+          "tpm": null,
+          "rpd": null,
+          "tpd": null,
+          "day_reset_tz": "UTC"
+        }
+      }
+    },
+    "ingest": {
+      "max_height": 480,
+      "download_video": true,
+      "cookies_from_browser": null
+    },
+    "transcript": {
+      "order": [
+        "captions",
+        "groq",
+        "local"
+      ],
+      "use_auto_captions": false,
+      "caption_langs": [
+        "en",
+        "en-US",
+        "en-GB"
+      ],
+      "groq_model": "whisper-large-v3-turbo",
+      "groq_max_upload_mb": 24,
+      "groq_bitrate": "32k",
+      "chunk_seconds": 600,
+      "chunk_overlap_s": 3,
+      "chunk_if_longer_than_s": 1200,
+      "local_model": "base",
+      "local_compute_type": "int8",
+      "language": "en"
+    },
+    "preprocess": {
+      "fillers": [
+        "um",
+        "uh",
+        "erm",
+        "er",
+        "ah",
+        "hmm",
+        "uh-huh",
+        "you know",
+        "i mean",
+        "kind of like"
+      ],
+      "max_repeat_ngram": 4
+    },
+    "slides": {
+      "sample_every_s": 2,
+      "frame_width": 640,
+      "phash_threshold": 12,
+      "ssim_threshold": 0.8,
+      "pixel_diff_threshold": 0.006,
+      "max_slides_per_min": 4,
+      "min_slide_duration_s": 6,
+      "min_text_slides": 3,
+      "min_text_coverage": 0.25,
+      "min_chars_per_text_slide": 25,
+      "thumbnail_width": 360
+    },
+    "ocr": {
+      "enabled": true,
+      "engine": "easyocr",
+      "languages": [
+        "en"
+      ],
+      "min_confidence": 0.35,
+      "header_footer_ratio": 0.6,
+      "near_duplicate_ratio": 0.9
+    },
+    "segment": {
+      "min_words": 60,
+      "max_words": 700,
+      "embed_model": "sentence-transformers/all-MiniLM-L6-v2",
+      "tiling_window_sentences": 6,
+      "tiling_depth_std": 0.5,
+      "tiling_target_minutes": 5
+    },
+    "summarize": {
+      "map_prompt": "map_v1.txt",
+      "reduce_prompt": "reduce_v1.txt",
+      "reduce_group_prompt": "reduce_group_v1.txt",
+      "final_summary_prompt": "final_summary_v1.txt",
+      "final_notes_prompt": "final_notes_v1.txt",
+      "single_pass_prompt": "single_pass_v1.txt",
+      "repair_prompt": "repair_v1.txt",
+      "num_mcq": 5,
+      "num_short": 5
+    },
+    "verify": {
+      "enabled": true,
+      "embed_model": "sentence-transformers/all-MiniLM-L6-v2",
+      "nli_model": "cross-encoder/nli-deberta-v3-xsmall",
+      "top_k": 3,
+      "supported_threshold": 0.5,
+      "contradiction_threshold": 0.6,
+      "passage_sentences": 2
+    },
+    "export": {
+      "pdf": true,
+      "thumbnails_in_notes": true
+    },
+    "evaluation": {
+      "bertscore_model": "distilbert-base-uncased",
+      "bertscore_layers": 5,
+      "concept_sim_threshold": 0.7,
+      "rouge_stemmer": true,
+      "textrank_ratio": 0.08,
+      "systems": [
+        "textrank",
+        "single_pass",
+        "hier_speech",
+        "lecturelens"
+      ]
+    }
+  },
+  "options": {
+    "use_slides": true,
+    "providers": [
+      "mock"
+    ],
+    "transcript_order": null,
+    "verify": true,
+    "export": true
+  },
+  "attempts": 2,
+  "preflight": {
+    "duration": 0.0,
+    "est_input_tokens": 526,
+    "chain": [
+      "mock"
+    ],
+    "plan_provider": "mock",
+    "providers": [
+      {
+        "provider": "mock",
+        "map_calls": 1,
+        "reduce_group_calls": 0,
+        "final_calls": 1,
+        "calls": 2,
+        "tokens": 6835,
+        "model": "mock-1",
+        "remaining_requests": null,
+        "remaining_tokens": null,
+        "fits_today": true
+      }
+    ],
+    "est_time_s": 24,
+    "has_captions": false,
+    "message": "mock/mock-1: this run needs ~2 calls / ~6,835 tokens; you have unlimited left today → OK"
+  },
+  "llm": {
+    "calls": 2,
+    "attempts": 2,
+    "cache_hits": 0,
+    "input_tokens": 2082,
+    "output_tokens": 1876,
+    "retries": 0,
+    "fallbacks": 0,
+    "wait_s": 0.0,
+    "by_provider": {
+      "mock/mock-1": {
+        "calls": 2,
+        "input_tokens": 2082,
+        "output_tokens": 1876
+      }
+    },
+    "events": [
+      {
+        "task": "map:batch_000",
+        "provider": "mock",
+        "model": "mock-1",
+        "cached": false,
+        "input_tokens": 1078,
+        "output_tokens": 567,
+        "latency_s": 0.0,
+        "retries": 0
+      },
+      {
+        "task": "reduce",
+        "provider": "mock",
+        "model": "mock-1",
+        "cached": false,
+        "input_tokens": 1004,
+        "output_tokens": 1309,
+        "latency_s": 0.0,
+        "retries": 0
+      }
+    ]
+  },
+  "status": "done",
+  "wall_clock_s_this_attempt": 272.0
+}

@@ -1,0 +1,147 @@
+[0:00] In the previous lectures we have been studying about
+[0:02] different aspects of operating system.
+[0:04] And what we had mostly seen was
+[0:06] the introduction to operating system and also operating system structures.
+[0:10] Now, moving on to one of the most important part of operating system
+[0:15] which is process management.
+[0:17] You must have heard this term many times processes and threads.
+[0:21] So, in this lecture we will be trying to get an introductory idea
+[0:25] and understanding of what are processes and threads.
+[0:28] And usually people are confused many times between the processes and threads.
+[0:34] So, we will try to understand what these are and what are their differences.
+[0:39] So, first of all before we understand processes,
+[0:42] let us first try to understand how a program is developed.
+[0:46] So, whenever you want to make a program,
+[0:49] what you do is,
+[0:50] you first write the program in some high level languages.
+[0:53] For example, let's say you write the program in C,
+[0:56] C++, JAVA or something like that.
+[0:58] And that program is written in a high level language.
+[1:01] Now, we know at the basic level
+[1:03] computer does not understand the high level language.
+[1:05] But it understands only the binary codes, which are 0's and 1's.
+[1:09] So, the program has to be converted to binary code.
+[1:13] So, for that using a compiler, you compile your program and it helps to
+[1:17] convert that program into machine code which is understandable by your machine.
+[1:22] Alright!
+[1:23] So, after that you have your program
+[1:25] which is converted into a binary executable code
+[1:29] and it is ready for execution.
+[1:30] But it is not enough to just have that binary code for a program to execute
+[1:35] or for a program to tell the computer what it wants to do.
+[1:39] So, what it has to do is,
+[1:40] it has to be loaded into the memory,
+[1:42] and for a program to execute, it needs some resources of the computer system.
+[1:48] So, who will allocate the resources?
+[1:51] What is the brain that works behind all these?
+[1:53] It is the operating system, which we have been discussing so far.
+[1:57] So, the operating system will help in loading that executable program
+[2:01] into the memory and allocate its resources
+[2:04] and then the program will begin its execution.
+[2:07] Alright!
+[2:07] So, we first have a program which is written and is ready for execution
+[2:12] but till that time it is just a passive entity.
+[2:16] That means it just sit there without doing anything.
+[2:19] But the moment it begins execution, at that instance
+[2:23] we call that program as a process.
+[2:26] So, a process can be thought of as a program in execution.
+[2:31] When a program starts execution, at that time we call it a process.
+[2:36] So, when it is not executing, it is just a program sitting there and doing nothing.
+[2:41] But the moment it begins execution, at that time we call it a process.
+[2:46] So, in the earlier computers
+[2:48] it supported only one process or one program at a time.
+[2:52] But in today's computer it supports
+[2:54] multiple processes or programs running at the same time.
+[2:58] And even one single program can have many processes associated with it.
+[3:03] So, when a program begins its execution at that time it is known as the process.
+[3:08] So, now let's try to understand what are threads?
+[3:10] So, thread is actually the basic unit of a process which is in execution.
+[3:17] So, this is how we can define it.
+[3:18] A thread is the unit of execution within a process.
+[3:22] A process can have anywhere from just one thread to many threads.
+[3:26] So, we already understood what is a process?
+[3:28] When a program is executing it is called a process.
+[3:31] And a thread is the unit of execution within a process.
+[3:35] So, within a process there may be one or more units of its execution
+[3:40] and those units are known as threads.
+[3:43] And again in earlier systems,
+[3:45] one process had only thread.
+[3:47] But now a single process has many threads or many units of execution within it.
+[3:53] So, a process can have anywhere from one thread to many threads.
+[3:57] So, that is the difference between a process and a thread.
+[4:01] If you look at this diagram,
+[4:02] I hope you should be able to visualize and understand what it actually means.
+[4:07] So, here we call this entire thing as a process.
+[4:10] When a program begins its executions, it becomes the process.
+[4:13] And within this process there are certain units of executions.
+[4:18] And each unit is known as a thread.
+[4:20] So, these are all the units or the threads,
+[4:23] which are under execution within this process.
+[4:26] Now if you want to see the processes which are in execution in your system,
+[4:29] you can see it by using your task manager in your Windows.
+[4:32] You can open up the task manager,
+[4:34] and you can see which are the programs that are loaded
+[4:37] and what are the process that are executing.
+[4:40] So, let me how you an example of that.
+[4:42] So, here this is a screen shot of my 'task manager'.
+[4:45] If you open up your task manager and look at this application tab,
+[4:49] we can see which are the programs that are running.
+[4:52] So, here I have three programs running over here.
+[4:54] And here we have the 'processes' tab.
+[4:56] so, if you click on the 'processes' tab,
+[4:58] you can see what are the processes running in your system.
+[5:02] So, if you click this, you come to this window over here,
+[5:06] where you can see that there are all these processes are running in your system.
+[5:10] So, for example if you look here
+[5:12] you can see that there is Chromium browser running over here.
+[5:15] And if you look at the processes tab,
+[5:17] we see that there is not only one process associated with this
+[5:22] chromium browser but there are multiple processes.
+[5:25] For example you can see there is chrome.exe here.
+[5:28] It is also here.
+[5:30] There are quite a few events over here.
+[5:32] So, we see that
+[5:33] there are multiple processes associated with a single program.
+[5:37] And this is the memory that it is using which is shown over here.
+[5:41] So, this is just an example
+[5:42] of how you can see the program and processes running in your system.
+[5:46] Because if you see what is happening,
+[5:48] it become more interesting for you to learn and understand
+[5:51] what is happening.
+[5:52] So, here we have seen the processes.
+[5:54] But we did not see any threads over here.
+[5:57] So, if you want to see the threads that are also there in your system,
+[6:00] then you can use a program known as process explorer.
+[6:04] You can download that program
+[6:05] and it wiill show you even the threads that are running
+[6:08] for each program and for each process.
+[6:11] So, this is how the process explorer looks like.
+[6:13] You can download this.
+[6:14] It is a very small application.
+[6:16] You can download and install it.
+[6:18] And you can see that these are the processes as we saw before.
+[6:21] So, for example,
+[6:23] here I have the chrome.exe process running over here.
+[6:26] And if you right click on this and go to the properties
+[6:29] then you can see the threads.
+[6:31] So, here you will get this window
+[6:33] and if you click on this threads tab,
+[6:35] you can see that these are the threads,
+[6:37] which are the unit of execution for this particular process
+[6:41] and which are running over here.
+[6:43] So, these many threads are running within this process chrome.exe.
+[6:49] So, in this way you can see
+[6:51] the processes and the threads that are running in your system.
+[6:53] So, I hope with this visual example
+[6:55] it was more clear to you,
+[6:57] what are processes?
+[6:58] And what are threads?
+[6:59] And how they work.
+[7:01] So, this was just and basic introduction of
+[7:03] what are processes and what are threads.
+[7:05] And how we can differentiate between a process and a thread.
+[7:08] So, this process is a very important topic in operating system.
+[7:12] And we will be studying this in more details
+[7:14] and many topics are there under this
+[7:16] which we will be discussing in the coming lectures.
+[7:18] Thank you for watching and see you in the next one.

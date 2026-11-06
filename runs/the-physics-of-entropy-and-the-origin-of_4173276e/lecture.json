@@ -1,0 +1,826 @@
+{
+  "run_id": "the-physics-of-entropy-and-the-origin-of_4173276e",
+  "status": "done",
+  "source": {
+    "kind": "youtube",
+    "source": "https://www.youtube.com/watch?v=Sz1n0RHwLqA",
+    "video_id": "Sz1n0RHwLqA",
+    "title": "The physics of entropy and the origin of life | Sean Carroll",
+    "channel": "Big Think",
+    "duration": 371.0,
+    "chapters": [
+      {
+        "title": "Entropy: The 2nd law of thermodynamics",
+        "start": 0,
+        "end": 116
+      },
+      {
+        "title": "The two axes: Chaos & complexity",
+        "start": 116,
+        "end": 160
+      },
+      {
+        "title": "How did life emerge?",
+        "start": 160,
+        "end": 371
+      }
+    ],
+    "video_path": "D:\\PROJECTS\\Generative-AI\\runs\\the-physics-of-entropy-and-the-origin-of_4173276e\\media\\video.mp4",
+    "audio_path": "D:\\PROJECTS\\Generative-AI\\runs\\the-physics-of-entropy-and-the-origin-of_4173276e\\media\\audio.m4a",
+    "subtitle_path": "D:\\PROJECTS\\Generative-AI\\runs\\the-physics-of-entropy-and-the-origin-of_4173276e\\media\\subs.en.vtt",
+    "subtitle_kind": "manual"
+  },
+  "final": {
+    "study_notes_markdown": "## Thermodynamics and the Universe\n- **Second law of thermodynamics**: Establishes that disorder in the universe continuously increases because there are many more ways to be disorderly than orderly.\n- **Equilibrium**: A state of maximum chaos where nothing interesting happens anymore.\n- **Heat death of the Universe**: The eventual state where all engines, burning stars, and living beings maximize overall entropy.\n- *Examples*: Batteries running out, cream and coffee mixing together, ice cubes melting.\n\n## Simple vs Complex vs Orderly\n- **Simple versus complex** and **orderly versus disorderly** represent two completely different axes of thought.\n- While the increase of entropy dictates the shift from orderly to disorderly, it does not address whether a system is simple or complex.\n\n## Origin of Life and Metabolism\n- Life involves **replication**, **compartmentalization** (with cell walls), and **metabolism**.\n- **Replication-first camp**: Argues that genetic information must have come first and subsequently hooked up to an energy source.\n- **Metabolism-first camp**: Argues that information cannot be considered life if it is not moving around and metabolizing.\n- Living beings must feed off **low-entropy energy** and increase the entropy of the universe to maintain their internal orderliness and complexity.\n- *Examples*: Darwin's warm pond idea, the 'Lost City' formation at the bottom of the Atlantic Ocean.",
+    "revision_questions": {
+      "mcq": [
+        {
+          "question": "According to the second law of thermodynamics, why does disorder increase in the universe?",
+          "options": [
+            "A Because energy is constantly being created",
+            "B Because there are many more ways to be disorderly than orderly",
+            "C Because complex structures naturally decay into simpler elements",
+            "D Because systems actively resist equilibrium"
+          ],
+          "answer": "B",
+          "explanation": "The lecture explicitly states that things tend to go from orderly to disorderly because there are many more ways to be disorderly."
+        },
+        {
+          "question": "What is the 'Heat death of the Universe' characterized by?",
+          "options": [
+            "A A state of maximum chaos and equilibrium where nothing interesting happens",
+            "B The sudden freezing of all stars and galaxies",
+            "C The complete destruction of all matter into pure radiation",
+            "D A continuous cycle of rebirth and destruction"
+          ],
+          "answer": "A",
+          "explanation": "The lecture defines equilibrium and heat death as a state of maximum chaos where nothing interesting happens anymore."
+        },
+        {
+          "question": "Which two axes of thought are noted as being frequently confused?",
+          "options": [
+            "A Mass versus energy and entropy versus enthalpy",
+            "B Simple versus complex and orderly versus disorderly",
+            "C Replication versus metabolism and biology versus physics",
+            "D Equilibrium versus chaos and open versus closed systems"
+          ],
+          "answer": "B",
+          "explanation": "The lecture highlights that people often confuse simple versus complex with orderly versus disorderly, noting they are two different axes of thought."
+        },
+        {
+          "question": "What is the core argument of the metabolism-first camp regarding the origin of life?",
+          "options": [
+            "A Genetic information must have evolved before any energy source was utilized",
+            "B Information cannot be called life if it is not moving around and metabolizing",
+            "C Cell walls formed independently of chemical reactions",
+            "D Replication is the sole defining characteristic of living systems"
+          ],
+          "answer": "B",
+          "explanation": "The lecture states that the metabolism-first camp argues information cannot be called life if it is not moving around and metabolizing."
+        },
+        {
+          "question": "How do living beings maintain their internal orderliness and complexity?",
+          "options": [
+            "A By isolating themselves completely from universal energy fluxes",
+            "B By reversing the second law of thermodynamics locally",
+            "C By feeding off low-entropy energy and increasing the entropy of the universe",
+            "D By destroying genetic information to decrease local heat"
+          ],
+          "answer": "C",
+          "explanation": "The lecture notes that living beings need to feed off low-entropy energy and increase the entropy of the universe to maintain orderliness and complexity."
+        }
+      ],
+      "short_answer": [
+        {
+          "question": "What common everyday examples are cited to illustrate the increase of disorder?",
+          "answer": "Batteries running out, cream and coffee mixing together, and ice cubes melting."
+        },
+        {
+          "question": "What are the three core aspects that life on Earth requires?",
+          "answer": "Replication, compartmentalization with cell walls, and metabolism."
+        },
+        {
+          "question": "What are the two competing camps regarding the origin of life mentioned in the lecture?",
+          "answer": "The replication-first camp and the metabolism-first camp."
+        },
+        {
+          "question": "What specific geological formation at the bottom of the Atlantic Ocean was predicted by metabolism-first theories of life?",
+          "answer": "The 'Lost City' formation."
+        },
+        {
+          "question": "How is equilibrium defined in the context of universal thermodynamics?",
+          "answer": "A state of maximum chaos where nothing interesting happens anymore."
+        }
+      ]
+    },
+    "title": "The physics of entropy and the origin of life | Sean Carroll",
+    "concise_summary": "The lecture explores the fundamental physics of entropy, the origin of life, and how these two concepts intersect. The second law of thermodynamics establishes that disorder in the universe continuously increases because there are vastly more ways to be disorderly than orderly. This drives systems toward an eventual state of equilibrium known as the heat death of the universe, where overall entropy is maximized and no interesting phenomena remain. However, distinguishing between orderly-disorderly and simple-complex axes reveals that physics also governs the journey toward complex structures. In the context of the origin of life—which involves replication, compartmentalization, and metabolism—the metabolism-first perspective argues that living systems must maintain internal order by consuming low-entropy energy from their environment while accelerating the overall entropy of the universe. This theoretical framework famously predicted and led to the discovery of the hydrothermal 'Lost City' formation at the bottom of the Atlantic Ocean, illustrating how the physics of thermodynamics underpins biological complexity.",
+    "detailed_summary": "The lecture begins by examining the second law of thermodynamics, which dictates that disorder in the universe is continually increasing. This happens fundamentally because there are many more ways for a system to be disorderly than orderly. Common everyday examples of this process include ice cubes melting, batteries running out, and cream mixing into coffee. Over long cosmological timescales, this relentless increase in entropy leads to the heat death of the universe—a state of maximum chaos and equilibrium where engines cease to run, stars stop burning, and all living beings succumb to maximum overall entropy, leaving no interesting phenomena remaining.\n\nTo better understand these thermodynamic processes, it is essential to distinguish between two different axes of thought: simple versus complex, and orderly versus disorderly. People frequently confuse these categories. While the increase of entropy governs the inevitable transition from orderly to disorderly, it does not directly dictate whether a system is simple or complex. A major ongoing scientific question is how the laws of physics guide matter on a journey from low to high entropy while simultaneously generating complex structures.\n\nLife on Earth exemplifies this interplay. Biological systems require three core components: replication, compartmentalization with cell walls, and metabolism. This has sparked a debate between two schools of thought: the replication-first camp, which argues that genetic information must have originated first and later coupled with an energy source, and the metabolism-first camp, which contends that information alone cannot be considered life if it is not actively moving and metabolizing. Historically, ideas about the origin of life ranged from Darwin's warm pond hypothesis to modern hydrothermal vent theories.\n\nThe metabolism-first perspective is deeply rooted in thermodynamics. Living beings are open systems that maintain their internal orderliness and complexity by feeding off low-entropy energy sources and paying the price by increasing the overall entropy of the universe. This profound thermodynamic insight led scientists to predict that life likely formed near hydrothermal vents, a prediction that was triumphantly validated by the subsequent discovery of the 'Lost City' formation at the bottom of the Atlantic Ocean.",
+    "key_points": [
+      {
+        "text": "Disorder increases as a fundamental feature of reality according to the second law of thermodynamics.",
+        "segment_ids": [
+          0
+        ],
+        "evidence": "speech",
+        "start": 11.37,
+        "end": 116.31,
+        "status": null,
+        "support_score": null,
+        "evidence_text": null,
+        "evidence_source": null,
+        "evidence_time": null
+      },
+      {
+        "text": "Things tend to go from orderly to disorderly because there are many more ways to be disorderly.",
+        "segment_ids": [
+          0
+        ],
+        "evidence": "speech",
+        "start": 11.37,
+        "end": 116.31,
+        "status": null,
+        "support_score": null,
+        "evidence_text": null,
+        "evidence_source": null,
+        "evidence_time": null
+      },
+      {
+        "text": "The Heat death of the Universe refers to the eventual state where all engines, burning stars, and living beings maximize the overall entropy.",
+        "segment_ids": [
+          0
+        ],
+        "evidence": "speech",
+        "start": 11.37,
+        "end": 116.31,
+        "status": null,
+        "support_score": null,
+        "evidence_text": null,
+        "evidence_source": null,
+        "evidence_time": null
+      },
+      {
+        "text": "Equilibrium is defined as a state of maximum chaos where nothing interesting happens anymore.",
+        "segment_ids": [
+          0
+        ],
+        "evidence": "speech",
+        "start": 11.37,
+        "end": 116.31,
+        "status": null,
+        "support_score": null,
+        "evidence_text": null,
+        "evidence_source": null,
+        "evidence_time": null
+      },
+      {
+        "text": "Simple versus complex and orderly versus disorderly are two different axes of thinking.",
+        "segment_ids": [
+          1
+        ],
+        "evidence": "speech",
+        "start": 116.31,
+        "end": 158.82,
+        "status": null,
+        "support_score": null,
+        "evidence_text": null,
+        "evidence_source": null,
+        "evidence_time": null
+      },
+      {
+        "text": "The increase of entropy governs the shift from orderly to disorderly but says nothing about simple versus complex.",
+        "segment_ids": [
+          1
+        ],
+        "evidence": "speech",
+        "start": 116.31,
+        "end": 158.82,
+        "status": null,
+        "support_score": null,
+        "evidence_text": null,
+        "evidence_source": null,
+        "evidence_time": null
+      },
+      {
+        "text": "Life as we know it involves replication, compartmentalization with cell walls, and metabolism.",
+        "segment_ids": [
+          2
+        ],
+        "evidence": "speech",
+        "start": 161.07,
+        "end": 369.54,
+        "status": null,
+        "support_score": null,
+        "evidence_text": null,
+        "evidence_source": null,
+        "evidence_time": null
+      },
+      {
+        "text": "The replication-first camp argues that genetic information must have come first and hooked up to an energy source.",
+        "segment_ids": [
+          2
+        ],
+        "evidence": "speech",
+        "start": 161.07,
+        "end": 369.54,
+        "status": null,
+        "support_score": null,
+        "evidence_text": null,
+        "evidence_source": null,
+        "evidence_time": null
+      },
+      {
+        "text": "The metabolism-first camp argues that information cannot be called life if it is not moving around and metabolizing.",
+        "segment_ids": [
+          2
+        ],
+        "evidence": "speech",
+        "start": 161.07,
+        "end": 369.54,
+        "status": null,
+        "support_score": null,
+        "evidence_text": null,
+        "evidence_source": null,
+        "evidence_time": null
+      },
+      {
+        "text": "Living beings need to feed off low-entropy energy and increase the entropy of the Universe to maintain orderliness and complexity.",
+        "segment_ids": [
+          2
+        ],
+        "evidence": "speech",
+        "start": 161.07,
+        "end": 369.54,
+        "status": null,
+        "support_score": null,
+        "evidence_text": null,
+        "evidence_source": null,
+        "evidence_time": null
+      },
+      {
+        "text": "The prediction that life formed near hydrothermal vents led to the discovery of the 'Lost City' formation at the bottom of the Atlantic Ocean.",
+        "segment_ids": [
+          2
+        ],
+        "evidence": "speech",
+        "start": 161.07,
+        "end": 369.54,
+        "status": null,
+        "support_score": null,
+        "evidence_text": null,
+        "evidence_source": null,
+        "evidence_time": null
+      }
+    ],
+    "glossary": [
+      {
+        "term": "Equilibrium",
+        "definition": "A state of maximum chaos and nothing interesting happening anymore."
+      },
+      {
+        "term": "Second law of thermodynamics",
+        "definition": "The physical law stating that disorder continuously increases because there are more ways to be disorderly."
+      },
+      {
+        "term": "Heat death of the Universe",
+        "definition": "The eventual state of the universe where overall entropy is maximized and no interesting phenomena remain."
+      },
+      {
+        "term": "Replication",
+        "definition": "A core component of life involving the copying of genetic information."
+      },
+      {
+        "term": "Compartmentalization",
+        "definition": "A characteristic of life involving boundaries such as cell walls."
+      },
+      {
+        "term": "Metabolism",
+        "definition": "The chemical processes within living beings that involve moving around and processing energy."
+      },
+      {
+        "term": "Low-entropy energy",
+        "definition": "Ordered energy that living beings feed off to maintain their internal order and complexity."
+      }
+    ],
+    "chapters": [
+      {
+        "title": "Thermodynamics and the Universe",
+        "segment_ids": [
+          0
+        ],
+        "start": 11.37,
+        "end": 116.31
+      },
+      {
+        "title": "Simple vs Complex vs Orderly",
+        "segment_ids": [
+          1
+        ],
+        "start": 116.31,
+        "end": 158.82
+      },
+      {
+        "title": "Origin of Life and Metabolism",
+        "segment_ids": [
+          2
+        ],
+        "start": 161.07,
+        "end": 369.54
+      }
+    ]
+  },
+  "verification": {},
+  "slides": [
+    {
+      "slide_id": 0,
+      "start": 0.0,
+      "end": 6.0,
+      "title": "Great",
+      "text": "Great\nQuestion",
+      "ocr_confidence": 0.999,
+      "thumbnail": "keyframes/thumb_000.jpg",
+      "frame": "keyframes/slide_000.png",
+      "lines": [
+        {
+          "text": "Great",
+          "conf": 0.999
+        },
+        {
+          "text": "Question",
+          "conf": 1.0
+        }
+      ],
+      "merged_from": [
+        0
+      ]
+    },
+    {
+      "slide_id": 1,
+      "start": 6.0,
+      "end": 62.0,
+      "title": "",
+      "text": "3 T",
+      "ocr_confidence": 0.684,
+      "thumbnail": "keyframes/thumb_001.jpg",
+      "frame": "keyframes/slide_001.png",
+      "lines": [
+        {
+          "text": "3 T",
+          "conf": 0.684
+        }
+      ],
+      "merged_from": [
+        1
+      ]
+    },
+    {
+      "slide_id": 2,
+      "start": 62.0,
+      "end": 110.0,
+      "title": "",
+      "text": "",
+      "ocr_confidence": 0.0,
+      "thumbnail": "keyframes/thumb_004.jpg",
+      "frame": "keyframes/slide_004.png",
+      "lines": [],
+      "merged_from": [
+        2,
+        3,
+        4
+      ]
+    },
+    {
+      "slide_id": 3,
+      "start": 110.0,
+      "end": 116.0,
+      "title": "IBIT",
+      "text": "IBIT",
+      "ocr_confidence": 0.577,
+      "thumbnail": "keyframes/thumb_005.jpg",
+      "frame": "keyframes/slide_005.png",
+      "lines": [
+        {
+          "text": "IBIT",
+          "conf": 0.577
+        }
+      ],
+      "merged_from": [
+        5
+      ]
+    },
+    {
+      "slide_id": 4,
+      "start": 116.0,
+      "end": 128.0,
+      "title": "Simple",
+      "text": "Simple",
+      "ocr_confidence": 0.835,
+      "thumbnail": "keyframes/thumb_006.jpg",
+      "frame": "keyframes/slide_006.png",
+      "lines": [
+        {
+          "text": "Simple",
+          "conf": 0.835
+        }
+      ],
+      "merged_from": [
+        6
+      ]
+    },
+    {
+      "slide_id": 5,
+      "start": 128.0,
+      "end": 140.0,
+      "title": "Order and Complexity in the Universe 13 T",
+      "text": "Order and Complexity in the Universe 13 T\ndisorderly\ncomplex\nrder)\nasing =\nIncre\norderly\nsimple\ntime\nearly late",
+      "ocr_confidence": 0.893,
+      "thumbnail": "keyframes/thumb_007.jpg",
+      "frame": "keyframes/slide_007.png",
+      "lines": [
+        {
+          "text": "Order and Complexity in the Universe 13 T",
+          "conf": 0.78
+        },
+        {
+          "text": "disorderly",
+          "conf": 1.0
+        },
+        {
+          "text": "complex",
+          "conf": 1.0
+        },
+        {
+          "text": "rder)",
+          "conf": 0.997
+        },
+        {
+          "text": "asing =",
+          "conf": 0.364
+        },
+        {
+          "text": "Incre",
+          "conf": 0.798
+        },
+        {
+          "text": "orderly",
+          "conf": 1.0
+        },
+        {
+          "text": "simple",
+          "conf": 1.0
+        },
+        {
+          "text": "time",
+          "conf": 1.0
+        },
+        {
+          "text": "early late",
+          "conf": 0.993
+        }
+      ],
+      "merged_from": [
+        7
+      ]
+    },
+    {
+      "slide_id": 6,
+      "start": 140.0,
+      "end": 146.0,
+      "title": "",
+      "text": "",
+      "ocr_confidence": 0.0,
+      "thumbnail": "keyframes/thumb_008.jpg",
+      "frame": "keyframes/slide_008.png",
+      "lines": [],
+      "merged_from": [
+        8
+      ]
+    },
+    {
+      "slide_id": 7,
+      "start": 146.0,
+      "end": 158.0,
+      "title": "",
+      "text": "B T",
+      "ocr_confidence": 0.923,
+      "thumbnail": "keyframes/thumb_009.jpg",
+      "frame": "keyframes/slide_009.png",
+      "lines": [
+        {
+          "text": "B T",
+          "conf": 0.923
+        }
+      ],
+      "merged_from": [
+        9
+      ]
+    },
+    {
+      "slide_id": 8,
+      "start": 158.0,
+      "end": 224.0,
+      "title": "",
+      "text": "",
+      "ocr_confidence": 0.0,
+      "thumbnail": "keyframes/thumb_015.jpg",
+      "frame": "keyframes/slide_015.png",
+      "lines": [],
+      "merged_from": [
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ]
+    },
+    {
+      "slide_id": 9,
+      "start": 224.0,
+      "end": 236.0,
+      "title": "",
+      "text": "B T",
+      "ocr_confidence": 0.905,
+      "thumbnail": "keyframes/thumb_016.jpg",
+      "frame": "keyframes/slide_016.png",
+      "lines": [
+        {
+          "text": "B T",
+          "conf": 0.905
+        }
+      ],
+      "merged_from": [
+        16
+      ]
+    },
+    {
+      "slide_id": 10,
+      "start": 236.0,
+      "end": 326.0,
+      "title": "",
+      "text": "",
+      "ocr_confidence": 0.0,
+      "thumbnail": "keyframes/thumb_020.jpg",
+      "frame": "keyframes/slide_020.png",
+      "lines": [],
+      "merged_from": [
+        17,
+        18,
+        19,
+        20
+      ]
+    },
+    {
+      "slide_id": 11,
+      "start": 326.0,
+      "end": 338.0,
+      "title": "Unusual life",
+      "text": "SCIE B I\nThe OCEANS\nUnusual life\nfound at vents\nin the Atlantic\nSCHMID ney-like structures that form\nAssociated Press very hot water reach-\nWASHINGTON ing 700 degrees Fahrenheit\nstrange world of see-through breaks through the ocean floor\nshrimp, crabs other life contact with\nforms teems around newly frigid ocean The miner-\nexplored field of thermal vents als that crystallize during the\nnear the middle 0f the Atlantic the chimneys\nOcean, scientists report: black color:\nTowering white  mineral At Lost City; the other\nchimneys mark the field, hand, the temperature of the",
+      "ocr_confidence": 0.835,
+      "thumbnail": "keyframes/thumb_021.jpg",
+      "frame": "keyframes/slide_021.png",
+      "lines": [
+        {
+          "text": "SCIE B I",
+          "conf": 0.922
+        },
+        {
+          "text": "The OCEANS",
+          "conf": 0.744
+        },
+        {
+          "text": "Unusual life",
+          "conf": 0.888
+        },
+        {
+          "text": "found at vents",
+          "conf": 0.977
+        },
+        {
+          "text": "in the Atlantic",
+          "conf": 0.589
+        },
+        {
+          "text": "SCHMID ney-like structures that form",
+          "conf": 0.895
+        },
+        {
+          "text": "Associated Press very hot water reach-",
+          "conf": 0.889
+        },
+        {
+          "text": "WASHINGTON ing 700 degrees Fahrenheit",
+          "conf": 0.949
+        },
+        {
+          "text": "strange world of see-through breaks through the ocean floor",
+          "conf": 0.893
+        },
+        {
+          "text": "shrimp, crabs other life contact with",
+          "conf": 0.849
+        },
+        {
+          "text": "forms teems around newly frigid ocean The miner-",
+          "conf": 0.893
+        },
+        {
+          "text": "explored field of thermal vents als that crystallize during the",
+          "conf": 0.919
+        },
+        {
+          "text": "near the middle 0f the Atlantic the chimneys",
+          "conf": 0.739
+        },
+        {
+          "text": "Ocean, scientists report: black color:",
+          "conf": 0.57
+        },
+        {
+          "text": "Towering white  mineral At Lost City; the other",
+          "conf": 0.823
+        },
+        {
+          "text": "chimneys mark the field, hand, the temperature of the",
+          "conf": 0.824
+        }
+      ],
+      "merged_from": [
+        21
+      ]
+    },
+    {
+      "slide_id": 12,
+      "start": 338.0,
+      "end": 358.0,
+      "title": "",
+      "text": "",
+      "ocr_confidence": 0.0,
+      "thumbnail": "keyframes/thumb_022.jpg",
+      "frame": "keyframes/slide_022.png",
+      "lines": [],
+      "merged_from": [
+        22
+      ]
+    },
+    {
+      "slide_id": 13,
+      "start": 358.0,
+      "end": 371.0,
+      "title": "BIG THINK",
+      "text": "BIG THINK\nMake your Business\nSmarter Faster with Big Thinkt\nLearn more al BigThink com/Plus",
+      "ocr_confidence": 0.922,
+      "thumbnail": "keyframes/thumb_023.jpg",
+      "frame": "keyframes/slide_023.png",
+      "lines": [
+        {
+          "text": "BIG THINK",
+          "conf": 0.998
+        },
+        {
+          "text": "Make your Business",
+          "conf": 0.994
+        },
+        {
+          "text": "Smarter Faster with Big Thinkt",
+          "conf": 0.752
+        },
+        {
+          "text": "Learn more al BigThink com/Plus",
+          "conf": 0.944
+        }
+      ],
+      "merged_from": [
+        23
+      ]
+    }
+  ],
+  "visual_mode": "low",
+  "segments": [
+    {
+      "segment_id": 0,
+      "start": 11.37,
+      "end": 116.31,
+      "slide_ids": [],
+      "sentence_ids": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "words": 267
+    },
+    {
+      "segment_id": 1,
+      "start": 116.31,
+      "end": 158.82,
+      "slide_ids": [],
+      "sentence_ids": [
+        12,
+        13,
+        14,
+        15
+      ],
+      "words": 109
+    },
+    {
+      "segment_id": 2,
+      "start": 161.07,
+      "end": 369.54,
+      "slide_ids": [],
+      "sentence_ids": [
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50
+      ],
+      "words": 600
+    }
+  ],
+  "segmentation_mode": "speech-only",
+  "transcript_source": "captions:manual",
+  "stats": {
+    "llm_calls": 2,
+    "cache_hits": 0,
+    "input_tokens": 3072,
+    "output_tokens": 3741,
+    "retries": 0,
+    "fallbacks": 0,
+    "rate_limit_wait_s": 0.0,
+    "providers": [
+      "gemini/gemini-3.5-flash-lite"
+    ],
+    "by_provider": {
+      "gemini/gemini-3.5-flash-lite": {
+        "calls": 2,
+        "input_tokens": 3072,
+        "output_tokens": 3741
+      }
+    },
+    "transcript_words": 976,
+    "summary_words": 156,
+    "compression_ratio": 6.3,
+    "evidence_split": {
+      "slide": 0,
+      "speech": 11,
+      "both": 0
+    },
+    "wall_clock_s": 13.0
+  },
+  "chapters_youtube": [
+    {
+      "title": "Entropy: The 2nd law of thermodynamics",
+      "start": 0,
+      "end": 116
+    },
+    {
+      "title": "The two axes: Chaos & complexity",
+      "start": 116,
+      "end": 160
+    },
+    {
+      "title": "How did life emerge?",
+      "start": 160,
+      "end": 371
+    }
+  ]
+}

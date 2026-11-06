@@ -1,0 +1,177 @@
+# =====================================================================
+# LectureLens configuration. Every model name and every free-tier limit
+# lives here: edit the numbers to match what Google AI Studio
+# ("Rate limits" page) and console.groq.com/settings/limits show for YOU.
+# =====================================================================
+
+paths:
+  runs_dir: runs
+  cache_dir: .cache
+  results_dir: results
+  prompts_dir: prompts
+  data_dir: data
+
+# ---------------------------------------------------------------------
+# LLM providers, tried in this order. "extractive" = no-LLM last resort
+# (TextRank summary + notes skeleton). Remove a provider to disable it.
+# ---------------------------------------------------------------------
+llm:
+  order: [gemini, groq, ollama]
+  temperature: 0.2
+  request_timeout_s: 180
+  check_models_on_startup: true
+
+  gemini:
+    # gemini-2.5-* returns 404 "no longer available to new users" (2026-11-06); list yours: `lecturelens models`
+    model: gemini-3.5-flash-lite        # free tier; alternatives: gemini-3.5-flash, gemini-3.1-flash-lite
+    max_output_tokens: 16384
+    use_json_mode: true                 # response_mime_type=application/json
+    thinking_level: minimal             # Gemini 3.x: minimal|low|medium|high (hidden thinking tokens)
+    thinking_budget: null               # Gemini 2.5 only (0 = off); Gemini 3.x rejects it
+    # Per-call input budget used by batching (tokens). Flash has 1M context;
+    # the budget is about keeping calls few AND the per-minute TPM safe.
+    batch_input_tokens: 10000
+    reduce_input_tokens: 24000
+    split_final: false                  # one reduce call produces everything
+
+  groq:
+    # llama-3.3-70b-versatile was retired for free keys (checked 2026-11-06 via `lecturelens models`)
+    model: openai/gpt-oss-120b
+    repair_model: openai/gpt-oss-20b    # cheap model for JSON repair
+    reasoning_effort: low               # gpt-oss is a reasoning model: keep hidden reasoning tokens small
+    max_output_tokens: 3800
+    # Groq counts input + max_tokens against 8K TPM (x-ratelimit-limit-tokens), so a
+    # single call must stay below ~7.2K: ~3K input + 3.8K output.
+    batch_input_tokens: 3000
+    reduce_input_tokens: 3200
+    split_final: true                   # reduce = 2 calls (summary / notes+quiz)
+
+  ollama:
+    host: http://localhost:11434
+    model: qwen2.5:7b                   # or llama3.2
+    max_output_tokens: 4096
+    num_ctx: 16384
+    batch_input_tokens: 6000
+    reduce_input_tokens: 9000
+    split_final: true
+
+  mock:                                 # used by tests / --provider mock
+    model: mock-1
+    batch_input_tokens: 6000
+    reduce_input_tokens: 9000
+    split_final: false
+
+# ---------------------------------------------------------------------
+# Free-tier limits (worst-case defaults). day_reset_tz: when the daily
+# counter resets. safety_factor: use only this fraction of each limit.
+# 0 / null = unlimited.
+# ---------------------------------------------------------------------
+quota:
+  safety_factor: 0.9
+  max_retries: 4
+  backoff_base_s: 2.0
+  backoff_max_s: 90.0
+  # If the server asks us to wait longer than this, treat the model as
+  # exhausted for now and fall back instead of sleeping.
+  max_wait_s: 120
+  limits:
+    gemini/gemini-3.5-flash-lite: {rpm: 10, tpm: 250000, rpd: 20, tpd: null, day_reset_tz: America/Los_Angeles}
+    gemini/gemini-3.5-flash:      {rpm: 5,  tpm: 250000, rpd: 20, tpd: null, day_reset_tz: America/Los_Angeles}
+    gemini/gemini-3.1-flash-lite: {rpm: 10, tpm: 250000, rpd: 20, tpd: null, day_reset_tz: America/Los_Angeles}
+    # Groq values read from x-ratelimit-* response headers on 2026-11-06 (tpd: Groq docs, verify in console)
+    groq/openai/gpt-oss-120b:     {rpm: 30, tpm: 8000,   rpd: 1000, tpd: 200000, day_reset_tz: UTC}
+    groq/openai/gpt-oss-20b:      {rpm: 30, tpm: 8000,   rpd: 1000, tpd: 200000, day_reset_tz: UTC}
+    groq/llama-3.3-70b-versatile: {rpm: 30, tpm: 12000,  rpd: 1000, tpd: 100000, day_reset_tz: UTC}
+    groq/whisper-large-v3-turbo:  {rpm: 20, rpd: 2000, audio_s_per_hour: 7200, audio_s_per_day: 28800, day_reset_tz: UTC}
+    groq/whisper-large-v3:        {rpm: 20, rpd: 2000, audio_s_per_hour: 7200, audio_s_per_day: 28800, day_reset_tz: UTC}
+    ollama/*:                     {rpm: null, tpm: null, rpd: null, tpd: null, day_reset_tz: UTC}
+    mock/*:                       {rpm: null, tpm: null, rpd: null, tpd: null, day_reset_tz: UTC}
+
+# ---------------------------------------------------------------------
+ingest:
+  max_height: 480                       # video resolution for slide OCR
+  download_video: true                  # false = audio + captions only
+  cookies_from_browser: null            # e.g. "chrome" for age-restricted videos you can watch
+
+transcript:
+  order: [captions, groq, local]        # captions -> Groq Whisper -> faster-whisper
+  use_auto_captions: false              # YouTube auto-generated captions count as "captions"?
+  caption_langs: [en, en-US, en-GB]
+  groq_model: whisper-large-v3-turbo
+  groq_max_upload_mb: 24
+  groq_bitrate: 32k                     # mono MP3 for upload: 1 h ~ 14 MB
+  chunk_seconds: 600                    # split audio into ~10-min pieces ...
+  chunk_overlap_s: 3                    # ... with this overlap
+  chunk_if_longer_than_s: 1200          # only chunk audio longer than this
+  local_model: base                     # faster-whisper: tiny/base/small/medium
+  local_compute_type: int8
+  language: en                          # null = auto-detect
+
+preprocess:
+  fillers: [um, uh, erm, er, ah, hmm, uh-huh, you know, i mean, kind of like]
+  max_repeat_ngram: 4                   # collapse "the the the the" / Whisper loops
+
+slides:
+  sample_every_s: 2
+  frame_width: 640
+  phash_threshold: 12                   # Hamming distance => new slide
+  ssim_threshold: 0.80                  # below => new slide
+  pixel_diff_threshold: 0.006           # >0.6% of pixels changed => new slide (catches same-template slides)
+  max_slides_per_min: 4                 # cap keyframes (bounds OCR time on talking-head / dynamic videos)
+  min_slide_duration_s: 6               # shorter "slides" are animations/transitions
+  # visual_mode "low" (speech-only segmentation) when fewer than this many
+  # text-bearing slides, or text slides cover less than min_text_coverage of the video
+  min_text_slides: 3
+  min_text_coverage: 0.25
+  min_chars_per_text_slide: 25
+  thumbnail_width: 360
+
+ocr:
+  enabled: true
+  engine: easyocr                       # easyocr | rapidocr
+  languages: [en]
+  min_confidence: 0.35
+  header_footer_ratio: 0.6              # line on >=60% of slides => header/footer
+  near_duplicate_ratio: 0.90            # consecutive slides with >=90% same text merged
+
+segment:
+  min_words: 60
+  max_words: 700
+  embed_model: sentence-transformers/all-MiniLM-L6-v2
+  # speech-only TextTiling
+  tiling_window_sentences: 6
+  tiling_depth_std: 0.5                 # boundary if depth > mean + k*std
+  tiling_target_minutes: 5
+
+summarize:
+  map_prompt: map_v1.txt
+  reduce_prompt: reduce_v1.txt
+  reduce_group_prompt: reduce_group_v1.txt
+  final_summary_prompt: final_summary_v1.txt
+  final_notes_prompt: final_notes_v1.txt
+  single_pass_prompt: single_pass_v1.txt
+  repair_prompt: repair_v1.txt
+  num_mcq: 5
+  num_short: 5
+
+verify:
+  enabled: true
+  embed_model: sentence-transformers/all-MiniLM-L6-v2
+  nli_model: cross-encoder/nli-deberta-v3-xsmall
+  top_k: 3
+  supported_threshold: 0.50             # P(entailment) of best evidence
+  contradiction_threshold: 0.60         # P(contradiction) => unsupported
+  # evidence window: a passage = this many consecutive sentences
+  passage_sentences: 2
+
+export:
+  pdf: true
+  thumbnails_in_notes: true
+
+evaluation:
+  bertscore_model: distilbert-base-uncased   # CPU-friendly; roberta-large is the paper default
+  bertscore_layers: 5
+  concept_sim_threshold: 0.70
+  rouge_stemmer: true
+  textrank_ratio: 0.08                  # extractive summary length
+  systems: [textrank, single_pass, hier_speech, lecturelens]

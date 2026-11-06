@@ -1,0 +1,587 @@
+1
+00:00:11,370 --> 00:00:12,990
+I think that once you learn
+
+2
+00:00:12,990 --> 00:00:14,910
+about the second law of thermodynamics,
+
+3
+00:00:14,910 --> 00:00:16,800
+it can be a little depressing.
+
+4
+00:00:16,800 --> 00:00:17,633
+You've been told
+
+5
+00:00:17,633 --> 00:00:19,980
+that there's a fundamental feature of reality:
+
+6
+00:00:19,980 --> 00:00:22,290
+that disorder increases,
+
+7
+00:00:22,290 --> 00:00:24,690
+that things just wind down, right?
+
+8
+00:00:24,690 --> 00:00:26,520
+That batteries run out,
+
+9
+00:00:26,520 --> 00:00:28,290
+that cream and coffee mix together,
+
+10
+00:00:28,290 --> 00:00:29,880
+that ice cubes melt.
+
+11
+00:00:29,880 --> 00:00:33,450
+It's kind of a depressing view of the future.
+
+12
+00:00:33,450 --> 00:00:35,970
+How did all of this interestingness
+
+13
+00:00:35,970 --> 00:00:37,830
+come about in the first place?
+
+14
+00:00:37,830 --> 00:00:41,010
+If the whole thing that reality does
+
+15
+00:00:41,010 --> 00:00:44,910
+is just move closer and closer to complete disorder,
+
+16
+00:00:44,910 --> 00:00:47,910
+then how did something as exquisitely organized
+
+17
+00:00:47,910 --> 00:00:49,983
+as a human being come about?
+
+18
+00:00:52,710 --> 00:00:55,320
+This idea that there's this tension
+
+19
+00:00:55,320 --> 00:00:58,500
+between the organization of things in the Universe
+
+20
+00:00:58,500 --> 00:01:01,380
+and the natural evolution of things
+
+21
+00:01:01,380 --> 00:01:03,090
+became a little bit sharper
+
+22
+00:01:03,090 --> 00:01:04,740
+over the course of the 1800s
+
+23
+00:01:04,740 --> 00:01:06,660
+because that's when we put together
+
+24
+00:01:06,660 --> 00:01:09,690
+this idea that entropy increases all the time.
+
+25
+00:01:09,690 --> 00:01:12,930
+Things tend to go from orderly to disorderly
+
+26
+00:01:12,930 --> 00:01:16,500
+just because there are many more ways to be disorderly.
+
+27
+00:01:16,500 --> 00:01:19,830
+This is a deep down law of nature.
+
+28
+00:01:19,830 --> 00:01:23,040
+It implies what we call the 'Heat death of the Universe':
+
+29
+00:01:23,040 --> 00:01:24,690
+that all the stuff you see,
+
+30
+00:01:24,690 --> 00:01:27,990
+the engines, the burning stars, the living beings,
+
+31
+00:01:27,990 --> 00:01:32,190
+these all represent systems that are increasing
+
+32
+00:01:32,190 --> 00:01:34,080
+the overall entropy of the Universe.
+
+33
+00:01:34,080 --> 00:01:36,990
+And if you think, which is probably true,
+
+34
+00:01:36,990 --> 00:01:39,780
+that there's a maximum entropy you can reach,
+
+35
+00:01:39,780 --> 00:01:43,140
+a maximum level of disorderliness and chaos,
+
+36
+00:01:43,140 --> 00:01:44,580
+eventually we will get there
+
+37
+00:01:44,580 --> 00:01:48,360
+and all the interestingness in the Universe will be gone.
+
+38
+00:01:48,360 --> 00:01:51,180
+The Universe will reach what we call an 'equilibrium':
+
+39
+00:01:51,180 --> 00:01:53,160
+a state of maximum chaos
+
+40
+00:01:53,160 --> 00:01:56,310
+and nothing interesting happening anymore.
+
+41
+00:01:56,310 --> 00:01:59,070
+One of the issues with really feeling
+
+42
+00:01:59,070 --> 00:02:01,650
+through the implications of the second law of thermodynamics
+
+43
+00:02:01,650 --> 00:02:06,360
+is that people tend to mix up simple versus complex
+
+44
+00:02:06,360 --> 00:02:08,220
+and orderly versus disorderly.
+
+45
+00:02:08,220 --> 00:02:10,590
+The truth is these are two different axes,
+
+46
+00:02:10,590 --> 00:02:13,200
+two different ways of thinking about something.
+
+47
+00:02:13,200 --> 00:02:14,490
+The increase of entropy
+
+48
+00:02:14,490 --> 00:02:16,860
+says that we go from orderly to disorderly,
+
+49
+00:02:16,860 --> 00:02:20,370
+but it says nothing about simple versus complex.
+
+50
+00:02:20,370 --> 00:02:22,530
+This is a new scientific question
+
+51
+00:02:22,530 --> 00:02:24,600
+that we are facing right now:
+
+52
+00:02:24,600 --> 00:02:29,600
+'What is the journey from low entropy to high entropy like
+
+53
+00:02:30,210 --> 00:02:32,850
+and how is it affected by the laws of physics
+
+54
+00:02:32,850 --> 00:02:36,210
+so that the actual path it takes
+
+55
+00:02:36,210 --> 00:02:38,823
+leads to complex structures?'
+
+56
+00:02:41,070 --> 00:02:43,080
+One of the difficulties in figuring out,
+
+57
+00:02:43,080 --> 00:02:46,770
+specifically, how life here on Earth came into being
+
+58
+00:02:46,770 --> 00:02:49,620
+is that it's not just a random sort of complex system.
+
+59
+00:02:49,620 --> 00:02:51,360
+It's a very specific thing.
+
+60
+00:02:51,360 --> 00:02:54,810
+And life as we know it now involves different aspects,
+
+61
+00:02:54,810 --> 00:02:56,370
+all of which are important.
+
+62
+00:02:56,370 --> 00:02:58,500
+You need replication, right?
+
+63
+00:02:58,500 --> 00:02:59,790
+You need Darwinian evolution.
+
+64
+00:02:59,790 --> 00:03:00,930
+We have DNA.
+
+65
+00:03:00,930 --> 00:03:03,540
+We have a genome that gets replicated,
+
+66
+00:03:03,540 --> 00:03:05,520
+not perfectly, but pretty well.
+
+67
+00:03:05,520 --> 00:03:07,560
+You need compartmentalization.
+
+68
+00:03:07,560 --> 00:03:09,450
+Every cell has a cell wall
+
+69
+00:03:09,450 --> 00:03:11,340
+so you can separate the living cell
+
+70
+00:03:11,340 --> 00:03:12,810
+from the rest of the world.
+
+71
+00:03:12,810 --> 00:03:14,820
+And also you need metabolism, right?
+
+72
+00:03:14,820 --> 00:03:15,900
+You need that fuel,
+
+73
+00:03:15,900 --> 00:03:17,940
+you need that low-entropy energy
+
+74
+00:03:17,940 --> 00:03:19,800
+that we can use to keep ourselves going
+
+75
+00:03:19,800 --> 00:03:23,190
+and then expel to the world in a higher-entropy form.
+
+76
+00:03:23,190 --> 00:03:25,350
+So, which came first?
+
+77
+00:03:25,350 --> 00:03:28,950
+This is why explaining the beginning of complex structures
+
+78
+00:03:28,950 --> 00:03:29,783
+is always hard,
+
+79
+00:03:29,783 --> 00:03:32,550
+because they all seem to depend on each other.
+
+80
+00:03:32,550 --> 00:03:35,370
+There is a replication-first camp
+
+81
+00:03:35,370 --> 00:03:38,513
+in the origin of life studies literature that says,
+
+82
+00:03:38,513 --> 00:03:42,090
+"Look, clearly the genetic information is necessary
+
+83
+00:03:42,090 --> 00:03:43,470
+to call it life,
+
+84
+00:03:43,470 --> 00:03:44,580
+that must have come first
+
+85
+00:03:44,580 --> 00:03:46,710
+and it must have hooked up to an energy source."
+
+86
+00:03:46,710 --> 00:03:49,593
+But there's also a metabolism-first camp that says,
+
+87
+00:03:49,593 --> 00:03:50,901
+"Look, it doesn't matter
+
+88
+00:03:50,901 --> 00:03:52,380
+if you have information sitting there,
+
+89
+00:03:52,380 --> 00:03:54,930
+if it's not going someplace, if it's not doing anything,
+
+90
+00:03:54,930 --> 00:03:57,480
+if it's not moving around and metabolizing,
+
+91
+00:03:57,480 --> 00:03:59,280
+you can't call it life."
+
+92
+00:03:59,280 --> 00:04:00,420
+And the nice thing to me
+
+93
+00:04:00,420 --> 00:04:02,610
+about the metabolism-first point of view
+
+94
+00:04:02,610 --> 00:04:06,120
+is that you can kind of see how it might arise
+
+95
+00:04:06,120 --> 00:04:10,530
+out of purely physical, non-biological processes
+
+96
+00:04:10,530 --> 00:04:13,410
+because remember, to maintain its orderliness
+
+97
+00:04:13,410 --> 00:04:14,760
+and its complexity,
+
+98
+00:04:14,760 --> 00:04:18,360
+living beings need to increase the entropy of the Universe,
+
+99
+00:04:18,360 --> 00:04:21,963
+they need to feed off of low-entropy energy.
+
+100
+00:04:22,980 --> 00:04:24,000
+So this was an idea
+
+101
+00:04:24,000 --> 00:04:27,300
+that a number of biologists and geologists had.
+
+102
+00:04:27,300 --> 00:04:29,580
+And on the basis of it, they made predictions.
+
+103
+00:04:29,580 --> 00:04:30,510
+They said, you know,
+
+104
+00:04:30,510 --> 00:04:33,270
+"Life is not gonna form in some warm pond."
+
+105
+00:04:33,270 --> 00:04:34,530
+This was Darwin's idea,
+
+106
+00:04:34,530 --> 00:04:36,150
+that maybe you just put all the stuff together,
+
+107
+00:04:36,150 --> 00:04:36,983
+all the ingredients,
+
+108
+00:04:36,983 --> 00:04:40,380
+and eventually a little bug crawls out, okay?
+
+109
+00:04:40,380 --> 00:04:41,820
+Or a little bacterium.
+
+110
+00:04:41,820 --> 00:04:43,530
+And they said, "Look, that's never gonna happen,
+
+111
+00:04:43,530 --> 00:04:46,110
+because there's no increasing entropy.
+
+112
+00:04:46,110 --> 00:04:47,010
+What you need is
+
+113
+00:04:47,010 --> 00:04:50,850
+just the right biochemical, geological arrangement of things
+
+114
+00:04:50,850 --> 00:04:54,450
+to have these long, sophisticated, complex reactions happen
+
+115
+00:04:54,450 --> 00:04:58,590
+that can then be captured into the first living organism."
+
+116
+00:04:58,590 --> 00:04:59,670
+And they thought about
+
+117
+00:04:59,670 --> 00:05:02,670
+what kind of conditions would they be,
+
+118
+00:05:02,670 --> 00:05:06,540
+and they thought that it might be a warm, hydrothermal vent
+
+119
+00:05:06,540 --> 00:05:08,100
+under the oceans, right?
+
+120
+00:05:08,100 --> 00:05:09,930
+With certain chemical balances.
+
+121
+00:05:09,930 --> 00:05:10,763
+And I'm a physicist,
+
+122
+00:05:10,763 --> 00:05:12,810
+I don't know the details and I shouldn't say anything,
+
+123
+00:05:12,810 --> 00:05:15,960
+but the point is these kinds of hydrothermal vents
+
+124
+00:05:15,960 --> 00:05:17,820
+were not known at the time,
+
+125
+00:05:17,820 --> 00:05:19,530
+they had not yet been discovered,
+
+126
+00:05:19,530 --> 00:05:21,150
+but a prediction was made-
+
+127
+00:05:21,150 --> 00:05:22,800
+these must exist
+
+128
+00:05:22,800 --> 00:05:25,380
+in order for life to have come into existence.
+
+129
+00:05:25,380 --> 00:05:28,530
+And after the prediction was made, we found them.
+
+130
+00:05:28,530 --> 00:05:30,720
+Famously, the 'Lost City' formation
+
+131
+00:05:30,720 --> 00:05:32,430
+at the bottom of the Atlantic Ocean
+
+132
+00:05:32,430 --> 00:05:34,140
+was found by submersibles
+
+133
+00:05:34,140 --> 00:05:36,420
+going down near the bottom of the ocean floor.
+
+134
+00:05:36,420 --> 00:05:39,180
+They found exactly the kind of geochemical conditions
+
+135
+00:05:39,180 --> 00:05:40,800
+that had been hypothesized
+
+136
+00:05:40,800 --> 00:05:43,590
+as possible places where life could have formed.
+
+137
+00:05:43,590 --> 00:05:45,240
+Does that mean it's right?
+
+138
+00:05:45,240 --> 00:05:47,040
+No, but it's a little bit of evidence
+
+139
+00:05:47,040 --> 00:05:49,170
+that it could be on the right track.
+
+140
+00:05:49,170 --> 00:05:51,450
+The origin of life, I think, personally,
+
+141
+00:05:51,450 --> 00:05:55,110
+is one of the most important unanswered scientific questions
+
+142
+00:05:55,110 --> 00:05:56,550
+but it's one that we're absolutely
+
+143
+00:05:56,550 --> 00:05:58,083
+making progress on right now.
+
+144
+00:06:00,150 --> 00:06:01,590
+Get smarter, faster
+
+145
+00:06:01,590 --> 00:06:04,710
+with videos from the world's biggest thinkers.
+
+146
+00:06:04,710 --> 00:06:07,350
+And to learn even more from the world's biggest thinkers,
+
+147
+00:06:07,350 --> 00:06:09,543
+get Big Think+ for your business.

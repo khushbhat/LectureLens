@@ -1,0 +1,323 @@
+{
+  "study_notes_markdown": "## Introduction to Processes and Programs\n- High-level language programs written in languages like **C**, **C++**, or **Java** are converted into binary machine code by a **compiler**.\n- A **compiler** is a tool used to convert high-level language programs into machine code understandable by the computer.\n- The operating system loads executable programs into memory, allocates system resources, and starts their execution.\n- A **process** is defined as a program in execution, acting as an active entity with allocated computer resources.\n\n## Processes vs. Threads\n- A **process** is an active program in execution, while a **thread** is the unit of execution within a process.\n- A process can contain anywhere from just a single thread to many threads.\n\n## Monitoring Processes with Windows Task Manager\n- The Windows **Task Manager** allows users to view running applications and active system processes.\n- The applications tab displays currently running programs such as Microsoft Word and utility tools.\n- The processes tab lists active image names alongside performance metrics like memory and CPU usage.\n- Examples of image names seen in Task Manager include `chrome.exe`, `WINWORD.EXE`, `explorer.exe`, and `dwm.exe`.\n- A single application can spawn multiple processes simultaneously, as demonstrated by multiple `chrome.exe` instances running for Chromium.\n\n## Inspecting Threads with Process Explorer\n- **Process Explorer** is a small downloadable program used to view threads running for each program and process, providing detailed views of system processes and processor usage percentages.\n- Users can inspect underlying threads by right-clicking a process (such as `chrome.exe`), navigating to its properties, and checking the threads tab.\n- The threads tab displays the specific units of execution running within a selected process.",
+  "revision_questions": {
+    "mcq": [
+      {
+        "question": "What is a process defined as in the lecture?",
+        "options": [
+          "A program in execution",
+          "A compiler output file",
+          "A hardware resource allocation table",
+          "A high-level programming language"
+        ],
+        "answer": "A",
+        "explanation": "The lecture explicitly defines a process as a program in execution."
+      },
+      {
+        "question": "What tool is used to convert high-level languages like C, C++, or Java into binary machine code?",
+        "options": [
+          "Task Manager",
+          "Process Explorer",
+          "Compiler",
+          "Operating System Loader"
+        ],
+        "answer": "C",
+        "explanation": "High-level language programs are converted into binary machine code by a compiler."
+      },
+      {
+        "question": "How many threads can a single process contain according to the lecture?",
+        "options": [
+          "Exactly one thread",
+          "Exactly two threads",
+          "Anywhere from just one thread to many threads",
+          "Always more than ten threads"
+        ],
+        "answer": "C",
+        "explanation": "The lecture notes that a process can have anywhere from just one thread to many threads."
+      },
+      {
+        "question": "Which tool is specifically introduced as a downloadable program to view threads running for each process?",
+        "options": [
+          "Task Manager",
+          "Process Explorer",
+          "Command Prompt",
+          "Device Manager"
+        ],
+        "answer": "B",
+        "explanation": "Process Explorer is described as a small downloadable program used to view threads running for each program and process."
+      },
+      {
+        "question": "Which of the following is listed as an example of an image name in the Windows Task Manager?",
+        "options": [
+          "kernel.sys",
+          "chrome.exe",
+          "word_thread.dll",
+          "java_compiler.obj"
+        ],
+        "answer": "B",
+        "explanation": "The lecture lists chrome.exe, WINWORD.EXE, explorer.exe, and dwm.exe as image names in Task Manager."
+      }
+    ],
+    "short_answer": [
+      {
+        "question": "What happens the moment a passive program begins execution?",
+        "answer": "It becomes an active process."
+      },
+      {
+        "question": "What is the unit of execution within a process called?",
+        "answer": "A thread."
+      },
+      {
+        "question": "Name three high-level languages mentioned in the lecture that are converted into binary machine code.",
+        "answer": "C, C++, and Java."
+      },
+      {
+        "question": "Which tab in Windows Task Manager shows active system processes along with CPU and memory details?",
+        "answer": "The processes tab."
+      },
+      {
+        "question": "Where can you view the specific units of execution running within a selected process in Process Explorer?",
+        "answer": "In the threads tab under the process properties."
+      }
+    ]
+  },
+  "title": "Process Management (Processes and Threads)",
+  "concise_summary": "This lecture provides an introduction to process management in operating systems, focusing on the concepts of processes and threads. Programs written in high-level languages like C, C++, or Java are converted into binary machine code by a compiler. When the operating system loads an executable program into memory and allocates resources, a passive program becomes an active process, defined as a program in execution. The lecture distinguishes between processes and threads, explaining that a process can contain anywhere from a single thread to multiple threads as its fundamental unit of execution. Using practical demonstrations via tools like the Windows Task Manager and Process Explorer, the lecture illustrates how active applications and their underlying system processes—such as multiple instances of chrome.exe or WINWORD.EXE—consume system resources like CPU and memory. Furthermore, it shows how to inspect individual execution threads running inside specific processes using Process Explorer, concluding with a preview of upcoming detailed topics in process management.",
+  "detailed_summary": "The lecture begins with an introduction to how software transitions from human-readable source code to active execution under the control of an operating system. Programs written in high-level languages such as C, C++, or Java are compiled into binary machine code. Once compiled, the operating system loads the executable program into memory, allocates necessary computer resources, and initiates its execution. At this point, the passive program transforms into a process, which is fundamentally a program in execution.\n\nBuilding upon this definition, the lecture explores the relationship between processes and threads. While a process represents an active entity with allocated resources, a thread serves as the basic unit of execution within that process. A process can consist of a single thread or multiple threads operating concurrently.\n\nTo make these abstract concepts concrete, the lecture uses the Windows Task Manager to examine running applications and active system processes. The applications tab demonstrates user-facing programs like Microsoft Word and utility tools. Meanwhile, the processes tab lists active image names—such as chrome.exe, WINWORD.EXE, explorer.exe, and dwm.exe—alongside performance metrics including CPU usage and memory consumption. The lecture notes that a single application can spawn multiple processes, as illustrated by Chromium running several chrome.exe instances simultaneously.\n\nBecause standard task management interfaces may not always expose low-level execution details clearly, the lecture introduces Process Explorer as an advanced downloadable utility for inspecting system processes and their resource utilization. By right-clicking a specific process (such as chrome.exe) and opening its properties, users can access the threads tab. This tab displays the active execution units running inside that particular process. The session concludes by emphasizing that processes and threads are core pillars of operating system process management, setting the stage for more advanced topics in subsequent lectures.",
+  "key_points": [
+    {
+      "text": "Programs are written in high-level languages like C, C++, or Java and converted into binary machine code by a compiler.",
+      "segment_ids": [
+        0
+      ],
+      "evidence": "speech",
+      "start": 0.0,
+      "end": 146.66,
+      "status": null,
+      "support_score": null,
+      "evidence_text": null,
+      "evidence_source": null,
+      "evidence_time": null
+    },
+    {
+      "text": "The operating system loads the executable program into memory, allocates resources, and initiates its execution.",
+      "segment_ids": [
+        0
+      ],
+      "evidence": "speech",
+      "start": 0.0,
+      "end": 146.66,
+      "status": null,
+      "support_score": null,
+      "evidence_text": null,
+      "evidence_source": null,
+      "evidence_time": null
+    },
+    {
+      "text": "A process can be thought of as a program in execution.",
+      "segment_ids": [
+        0
+      ],
+      "evidence": "both",
+      "start": 0.0,
+      "end": 146.66,
+      "status": null,
+      "support_score": null,
+      "evidence_text": null,
+      "evidence_source": null,
+      "evidence_time": null
+    },
+    {
+      "text": "A process is a program in execution, whereas a thread is the unit of execution within a process.",
+      "segment_ids": [
+        1
+      ],
+      "evidence": "both",
+      "start": 146.66,
+      "end": 282.31,
+      "status": null,
+      "support_score": null,
+      "evidence_text": null,
+      "evidence_source": null,
+      "evidence_time": null
+    },
+    {
+      "text": "A process can have anywhere from just one thread to many threads.",
+      "segment_ids": [
+        1
+      ],
+      "evidence": "both",
+      "start": 146.66,
+      "end": 282.31,
+      "status": null,
+      "support_score": null,
+      "evidence_text": null,
+      "evidence_source": null,
+      "evidence_time": null
+    },
+    {
+      "text": "The applications tab in Task Manager shows running programs like Microsoft Word and other utilities.",
+      "segment_ids": [
+        2
+      ],
+      "evidence": "speech",
+      "start": 282.0,
+      "end": 304.0,
+      "status": null,
+      "support_score": null,
+      "evidence_text": null,
+      "evidence_source": null,
+      "evidence_time": null
+    },
+    {
+      "text": "The Task Manager processes tab lists active system processes alongside resource consumption metrics like memory and CPU.",
+      "segment_ids": [
+        3
+      ],
+      "evidence": "slide",
+      "start": 304.0,
+      "end": 310.0,
+      "status": null,
+      "support_score": null,
+      "evidence_text": null,
+      "evidence_source": null,
+      "evidence_time": null
+    },
+    {
+      "text": "A single program can have multiple processes associated with it, as seen with multiple chrome.exe instances.",
+      "segment_ids": [
+        4
+      ],
+      "evidence": "both",
+      "start": 310.0,
+      "end": 340.0,
+      "status": null,
+      "support_score": null,
+      "evidence_text": null,
+      "evidence_source": null,
+      "evidence_time": null
+    },
+    {
+      "text": "Process Explorer is a small downloadable program used to view threads running for each program and process.",
+      "segment_ids": [
+        5
+      ],
+      "evidence": "speech",
+      "start": 340.0,
+      "end": 362.0,
+      "status": null,
+      "support_score": null,
+      "evidence_text": null,
+      "evidence_source": null,
+      "evidence_time": null
+    },
+    {
+      "text": "Process Explorer provides a detailed view of system processes and processor usage percentages.",
+      "segment_ids": [
+        6
+      ],
+      "evidence": "both",
+      "start": 362.0,
+      "end": 378.0,
+      "status": null,
+      "support_score": null,
+      "evidence_text": null,
+      "evidence_source": null,
+      "evidence_time": null
+    },
+    {
+      "text": "Right-clicking a process such as chrome.exe and navigating to properties reveals its threads.",
+      "segment_ids": [
+        7
+      ],
+      "evidence": "speech",
+      "start": 378.0,
+      "end": 390.0,
+      "status": null,
+      "support_score": null,
+      "evidence_text": null,
+      "evidence_source": null,
+      "evidence_time": null
+    },
+    {
+      "text": "The threads tab lists the specific units of execution running within a selected process.",
+      "segment_ids": [
+        8
+      ],
+      "evidence": "speech",
+      "start": 390.0,
+      "end": 420.0,
+      "status": null,
+      "support_score": null,
+      "evidence_text": null,
+      "evidence_source": null,
+      "evidence_time": null
+    }
+  ],
+  "glossary": [
+    {
+      "term": "Process",
+      "definition": "A program in execution, representing an active entity allocated with computer resources by the operating system."
+    },
+    {
+      "term": "Compiler",
+      "definition": "A tool used to convert high-level language programs into machine code understandable by the computer."
+    },
+    {
+      "term": "Thread",
+      "definition": "The unit of execution within a process."
+    },
+    {
+      "term": "Task Manager",
+      "definition": "A Windows utility used to view running applications, active system processes, and resource consumption metrics like memory and CPU."
+    },
+    {
+      "term": "Process Explorer",
+      "definition": "A downloadable program used to inspect system processes, processor usage percentages, and individual threads running for each program."
+    },
+    {
+      "term": "High-level languages",
+      "definition": "Programming languages such as C, C++, and Java."
+    }
+  ],
+  "chapters": [
+    {
+      "title": "Introduction to Programs and Processes",
+      "segment_ids": [
+        0
+      ],
+      "start": 0.0,
+      "end": 146.66
+    },
+    {
+      "title": "Processes and Threads Fundamentals",
+      "segment_ids": [
+        1
+      ],
+      "start": 146.66,
+      "end": 282.31
+    },
+    {
+      "title": "Windows Task Manager Applications and Processes",
+      "segment_ids": [
+        2,
+        3,
+        4
+      ],
+      "start": 282.0,
+      "end": 340.0
+    },
+    {
+      "title": "Process Explorer and Thread Inspection",
+      "segment_ids": [
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "start": 340.0,
+      "end": 452.0
+    }
+  ]
+}

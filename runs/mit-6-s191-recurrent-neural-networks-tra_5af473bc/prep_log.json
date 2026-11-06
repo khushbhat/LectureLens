@@ -1,0 +1,38 @@
+{
+ "stages": {
+  "ingest": {
+   "status": "done",
+   "kind": "youtube",
+   "duration": 3454.0,
+   "captions": null,
+   "seconds": 0.0
+  },
+  "transcribe": {
+   "status": "done",
+   "source": "local:faster-whisper-base",
+   "segments": 783,
+   "real_time_factor": 0.0506,
+   "seconds": 0.0
+  },
+  "preprocess": {
+   "status": "done",
+   "sentences": 377,
+   "words": 7909,
+   "seconds": 0.56
+  },
+  "keyframes": {
+   "status": "done",
+   "keyframes": 230,
+   "frames_sampled": 1727,
+   "seconds": 467.82
+  },
+  "ocr": {
+   "status": "done",
+   "slides": 84,
+   "visual_mode": "high",
+   "text_slides": 83,
+   "text_coverage": 0.998,
+   "seconds": 617.02
+  }
+ }
+}

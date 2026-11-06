@@ -1,0 +1,147 @@
+[0:11] I think that once you learn
+[0:12] about the second law of thermodynamics,
+[0:14] it can be a little depressing.
+[0:16] You've been told
+[0:17] that there's a fundamental feature of reality:
+[0:19] that disorder increases,
+[0:22] that things just wind down, right?
+[0:24] That batteries run out,
+[0:26] that cream and coffee mix together,
+[0:28] that ice cubes melt.
+[0:29] It's kind of a depressing view of the future.
+[0:33] How did all of this interestingness
+[0:35] come about in the first place?
+[0:37] If the whole thing that reality does
+[0:41] is just move closer and closer to complete disorder,
+[0:44] then how did something as exquisitely organized
+[0:47] as a human being come about?
+[0:52] This idea that there's this tension
+[0:55] between the organization of things in the Universe
+[0:58] and the natural evolution of things
+[1:01] became a little bit sharper
+[1:03] over the course of the 1800s
+[1:04] because that's when we put together
+[1:06] this idea that entropy increases all the time.
+[1:09] Things tend to go from orderly to disorderly
+[1:12] just because there are many more ways to be disorderly.
+[1:16] This is a deep down law of nature.
+[1:19] It implies what we call the 'Heat death of the Universe':
+[1:23] that all the stuff you see,
+[1:24] the engines, the burning stars, the living beings,
+[1:27] these all represent systems that are increasing
+[1:32] the overall entropy of the Universe.
+[1:34] And if you think, which is probably true,
+[1:36] that there's a maximum entropy you can reach,
+[1:39] a maximum level of disorderliness and chaos,
+[1:43] eventually we will get there
+[1:44] and all the interestingness in the Universe will be gone.
+[1:48] The Universe will reach what we call an 'equilibrium':
+[1:51] a state of maximum chaos
+[1:53] and nothing interesting happening anymore.
+[1:56] One of the issues with really feeling
+[1:59] through the implications of the second law of thermodynamics
+[2:01] is that people tend to mix up simple versus complex
+[2:06] and orderly versus disorderly.
+[2:08] The truth is these are two different axes,
+[2:10] two different ways of thinking about something.
+[2:13] The increase of entropy
+[2:14] says that we go from orderly to disorderly,
+[2:16] but it says nothing about simple versus complex.
+[2:20] This is a new scientific question
+[2:22] that we are facing right now:
+[2:24] 'What is the journey from low entropy to high entropy like
+[2:30] and how is it affected by the laws of physics
+[2:32] so that the actual path it takes
+[2:36] leads to complex structures?'
+[2:41] One of the difficulties in figuring out,
+[2:43] specifically, how life here on Earth came into being
+[2:46] is that it's not just a random sort of complex system.
+[2:49] It's a very specific thing.
+[2:51] And life as we know it now involves different aspects,
+[2:54] all of which are important.
+[2:56] You need replication, right?
+[2:58] You need Darwinian evolution.
+[2:59] We have DNA.
+[3:00] We have a genome that gets replicated,
+[3:03] not perfectly, but pretty well.
+[3:05] You need compartmentalization.
+[3:07] Every cell has a cell wall
+[3:09] so you can separate the living cell
+[3:11] from the rest of the world.
+[3:12] And also you need metabolism, right?
+[3:14] You need that fuel,
+[3:15] you need that low-entropy energy
+[3:17] that we can use to keep ourselves going
+[3:19] and then expel to the world in a higher-entropy form.
+[3:23] So, which came first?
+[3:25] This is why explaining the beginning of complex structures
+[3:28] is always hard,
+[3:29] because they all seem to depend on each other.
+[3:32] There is a replication-first camp
+[3:35] in the origin of life studies literature that says,
+[3:38] "Look, clearly the genetic information is necessary
+[3:42] to call it life,
+[3:43] that must have come first
+[3:44] and it must have hooked up to an energy source."
+[3:46] But there's also a metabolism-first camp that says,
+[3:49] "Look, it doesn't matter
+[3:50] if you have information sitting there,
+[3:52] if it's not going someplace, if it's not doing anything,
+[3:54] if it's not moving around and metabolizing,
+[3:57] you can't call it life."
+[3:59] And the nice thing to me
+[4:00] about the metabolism-first point of view
+[4:02] is that you can kind of see how it might arise
+[4:06] out of purely physical, non-biological processes
+[4:10] because remember, to maintain its orderliness
+[4:13] and its complexity,
+[4:14] living beings need to increase the entropy of the Universe,
+[4:18] they need to feed off of low-entropy energy.
+[4:22] So this was an idea
+[4:24] that a number of biologists and geologists had.
+[4:27] And on the basis of it, they made predictions.
+[4:29] They said, you know,
+[4:30] "Life is not gonna form in some warm pond."
+[4:33] This was Darwin's idea,
+[4:34] that maybe you just put all the stuff together,
+[4:36] all the ingredients,
+[4:36] and eventually a little bug crawls out, okay?
+[4:40] Or a little bacterium.
+[4:41] And they said, "Look, that's never gonna happen,
+[4:43] because there's no increasing entropy.
+[4:46] What you need is
+[4:47] just the right biochemical, geological arrangement of things
+[4:50] to have these long, sophisticated, complex reactions happen
+[4:54] that can then be captured into the first living organism."
+[4:58] And they thought about
+[4:59] what kind of conditions would they be,
+[5:02] and they thought that it might be a warm, hydrothermal vent
+[5:06] under the oceans, right?
+[5:08] With certain chemical balances.
+[5:09] And I'm a physicist,
+[5:10] I don't know the details and I shouldn't say anything,
+[5:12] but the point is these kinds of hydrothermal vents
+[5:15] were not known at the time,
+[5:17] they had not yet been discovered,
+[5:19] but a prediction was made-
+[5:21] these must exist
+[5:22] in order for life to have come into existence.
+[5:25] And after the prediction was made, we found them.
+[5:28] Famously, the 'Lost City' formation
+[5:30] at the bottom of the Atlantic Ocean
+[5:32] was found by submersibles
+[5:34] going down near the bottom of the ocean floor.
+[5:36] They found exactly the kind of geochemical conditions
+[5:39] that had been hypothesized
+[5:40] as possible places where life could have formed.
+[5:43] Does that mean it's right?
+[5:45] No, but it's a little bit of evidence
+[5:47] that it could be on the right track.
+[5:49] The origin of life, I think, personally,
+[5:51] is one of the most important unanswered scientific questions
+[5:55] but it's one that we're absolutely
+[5:56] making progress on right now.
+[6:00] Get smarter, faster
+[6:01] with videos from the world's biggest thinkers.
+[6:04] And to learn even more from the world's biggest thinkers,
+[6:07] get Big Think+ for your business.

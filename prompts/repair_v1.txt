@@ -1,0 +1,14 @@
+TASK: repair
+PROMPT_VERSION: repair_v1
+
+The text between the INPUT markers was supposed to be a single JSON object for this schema:
+{{schema_hint}}
+
+It failed to parse/validate with this error:
+{{error}}
+
+Return ONLY the corrected JSON object. Keep all content; fix syntax (quotes, commas, brackets, escaping), wrong field names and wrong types. If the text is truncated, close all open strings, arrays and objects so it becomes valid.
+
+=== INPUT ===
+{{broken}}
+=== END INPUT ===

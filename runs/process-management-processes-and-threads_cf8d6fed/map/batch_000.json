@@ -1,0 +1,210 @@
+[
+  {
+    "segment_id": 0,
+    "segment_ids": [
+      0
+    ],
+    "title": "Process Management — (Processes and Threads)",
+    "summary": "An introduction to process management in operating systems, explaining how programs written in high-level languages are compiled into binary and loaded into memory by the operating system. A passive program becomes an active process the moment it begins execution.",
+    "key_points": [
+      {
+        "text": "Programs are written in high-level languages like C, C++, or Java and converted into binary machine code by a compiler.",
+        "evidence": "speech"
+      },
+      {
+        "text": "The operating system loads the executable program into memory, allocates resources, and initiates its execution.",
+        "evidence": "speech"
+      },
+      {
+        "text": "A process can be thought of as a program in execution.",
+        "evidence": "both"
+      }
+    ],
+    "concepts": [
+      {
+        "term": "Process",
+        "definition": "A program in execution, representing an active entity allocated with computer resources by the operating system."
+      },
+      {
+        "term": "Compiler",
+        "definition": "A tool used to convert high-level language programs into machine code understandable by the computer."
+      }
+    ],
+    "formulas_or_code": [],
+    "examples": [
+      "{'term': 'High-level languages', 'definition': 'C, C++, JAVA'}"
+    ]
+  },
+  {
+    "segment_id": 1,
+    "segment_ids": [
+      1
+    ],
+    "title": "Process Management — (Processes and Threads)",
+    "summary": "Explores the definitions and differences between processes and threads, noting that modern computers support multiple processes and that a single process can contain one or many threads.",
+    "key_points": [
+      {
+        "text": "A process is a program in execution, whereas a thread is the unit of execution within a process.",
+        "evidence": "both"
+      },
+      {
+        "text": "A process can have anywhere from just one thread to many threads.",
+        "evidence": "both"
+      },
+      {
+        "text": "Task Manager in Windows can be used to view running applications and processes.",
+        "evidence": "speech"
+      }
+    ],
+    "concepts": [
+      {
+        "term": "Thread",
+        "definition": "The unit of execution within a process."
+      }
+    ],
+    "formulas_or_code": [],
+    "examples": []
+  },
+  {
+    "segment_id": 2,
+    "segment_ids": [
+      2
+    ],
+    "title": "Optena — 97,276 k",
+    "summary": "Demonstrates the Windows Task Manager applications tab to show currently running programs.",
+    "key_points": [
+      {
+        "text": "The applications tab in Task Manager shows running programs like Microsoft Word and other utilities.",
+        "evidence": "speech"
+      }
+    ],
+    "concepts": [],
+    "formulas_or_code": [],
+    "examples": [
+      "{'term': 'Running applications shown in Task Manager', 'definition': 'Capture Screenshot lite, Microsoft Word, Threads vs. Processes'}"
+    ]
+  },
+  {
+    "segment_id": 3,
+    "segment_ids": [
+      3
+    ],
+    "title": "Window: Task Manager — File Optons Help",
+    "summary": "Examines the processes tab of the Windows Task Manager, listing various active image names, usernames, CPU usage, and memory details.",
+    "key_points": [
+      {
+        "text": "The Task Manager processes tab lists active system processes alongside resource consumption metrics like memory and CPU.",
+        "evidence": "slide"
+      }
+    ],
+    "concepts": [],
+    "formulas_or_code": [],
+    "examples": [
+      "{'term': 'Image Names in Task Manager', 'definition': 'chrome.exe, WINWORD.EXE, explorer.exe, dwm.exe'}"
+    ]
+  },
+  {
+    "segment_id": 4,
+    "segment_ids": [
+      4
+    ],
+    "title": "Windows Task Manager — File Options View Windows Help",
+    "summary": "Illustrates how a single application like the Chromium browser can spawn multiple processes visible in the Task Manager.",
+    "key_points": [
+      {
+        "text": "A single program can have multiple processes associated with it, as seen with multiple chrome.exe instances.",
+        "evidence": "both"
+      }
+    ],
+    "concepts": [],
+    "formulas_or_code": [],
+    "examples": [
+      "{'term': 'Browser processes', 'definition': 'Multiple chrome.exe instances running simultaneously for Chromium'}"
+    ]
+  },
+  {
+    "segment_id": 5,
+    "segment_ids": [
+      5
+    ],
+    "title": "37,656 Oromm — 97,276 K",
+    "summary": "Introduces the Process Explorer tool as a way to view individual threads within system processes when Task Manager does not show them directly.",
+    "key_points": [
+      {
+        "text": "Process Explorer is a small downloadable program used to view threads running for each program and process.",
+        "evidence": "speech"
+      }
+    ],
+    "concepts": [],
+    "formulas_or_code": [],
+    "examples": []
+  },
+  {
+    "segment_id": 6,
+    "segment_ids": [
+      6
+    ],
+    "title": "97,276 K Oroum — Cronam",
+    "summary": "Displays the user interface of the Process Explorer application used for inspecting system processes.",
+    "key_points": [
+      {
+        "text": "Process Explorer provides a detailed view of system processes and processor usage percentages.",
+        "evidence": "both"
+      }
+    ],
+    "concepts": [],
+    "formulas_or_code": [],
+    "examples": []
+  },
+  {
+    "segment_id": 7,
+    "segment_ids": [
+      7
+    ],
+    "title": "Proce CPU Pmale — 0.07 2028",
+    "summary": "Demonstrates how to access process properties within Process Explorer to inspect underlying threads.",
+    "key_points": [
+      {
+        "text": "Right-clicking a process such as chrome.exe and navigating to properties reveals its threads.",
+        "evidence": "speech"
+      }
+    ],
+    "concepts": [],
+    "formulas_or_code": [],
+    "examples": []
+  },
+  {
+    "segment_id": 8,
+    "segment_ids": [
+      8
+    ],
+    "title": "CPU — a Tre2c",
+    "summary": "Shows the threads tab inside the process properties window, displaying the execution units running inside a specific process.",
+    "key_points": [
+      {
+        "text": "The threads tab lists the specific units of execution running within a selected process.",
+        "evidence": "speech"
+      }
+    ],
+    "concepts": [],
+    "formulas_or_code": [],
+    "examples": []
+  },
+  {
+    "segment_id": 9,
+    "segment_ids": [
+      9
+    ],
+    "title": "Process Management — (Processes and Threads)",
+    "summary": "Concludes the introductory lecture on processes and threads, previewing more detailed topics in process management for upcoming lectures.",
+    "key_points": [
+      {
+        "text": "Processes and threads are fundamental topics in operating system process management.",
+        "evidence": "speech"
+      }
+    ],
+    "concepts": [],
+    "formulas_or_code": [],
+    "examples": []
+  }
+]

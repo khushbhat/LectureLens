@@ -1,0 +1,143 @@
+{
+  "source": "local:faster-whisper-base",
+  "model": null,
+  "segments": [
+    {
+      "start": 0.0,
+      "end": 1.8,
+      "text": "Welcome back.",
+      "id": 0
+    },
+    {
+      "start": 1.8,
+      "end": 7.48,
+      "text": "Today we study gradient descent, the workforce optimization algorithm behind most of machine",
+      "id": 1
+    },
+    {
+      "start": 7.48,
+      "end": 8.96,
+      "text": "learning.",
+      "id": 2
+    },
+    {
+      "start": 8.96,
+      "end": 16.09,
+      "text": "We will see what it does, why it works, and how to choose its settings.",
+      "id": 3
+    },
+    {
+      "start": 16.09,
+      "end": 20.41,
+      "text": "Training a model means minimizing a loss function over its parameters.",
+      "id": 4
+    },
+    {
+      "start": 20.41,
+      "end": 25.25,
+      "text": "A common choice is the mean squared error between predictions and targets.",
+      "id": 5
+    },
+    {
+      "start": 25.25,
+      "end": 32.1,
+      "text": "If the loss is convex, every local minimum is also a global minimum.",
+      "id": 6
+    },
+    {
+      "start": 32.1,
+      "end": 34.4,
+      "text": "The idea is simple.",
+      "id": 7
+    },
+    {
+      "start": 34.4,
+      "end": 39.1,
+      "text": "Compute the gradient of the loss, which points in the direction of steepest increase,",
+      "id": 8
+    },
+    {
+      "start": 39.1,
+      "end": 42.5,
+      "text": "and take a small step in the opposite direction.",
+      "id": 9
+    },
+    {
+      "start": 42.5,
+      "end": 48.02,
+      "text": "The size of the step is controlled by the learning rate.",
+      "id": 10
+    },
+    {
+      "start": 48.02,
+      "end": 50.54,
+      "text": "Choosing the learning rate matters a lot.",
+      "id": 11
+    },
+    {
+      "start": 50.54,
+      "end": 54.86,
+      "text": "If it is too large, the iterates oscillate or even diverge.",
+      "id": 12
+    },
+    {
+      "start": 54.86,
+      "end": 59.18,
+      "text": "If it is too small, training converges very slowly.",
+      "id": 13
+    },
+    {
+      "start": 59.18,
+      "end": 64.39,
+      "text": "In practice we often decrease it over time.",
+      "id": 14
+    },
+    {
+      "start": 64.39,
+      "end": 68.79,
+      "text": "the full gradient on a large data set is expensive.",
+      "id": 15
+    },
+    {
+      "start": 68.79,
+      "end": 73.55,
+      "text": "Stochastic gradient descent estimates it from a small mini batch of examples.",
+      "id": 16
+    },
+    {
+      "start": 73.55,
+      "end": 81.53,
+      "text": "The estimate is noisy, but each step is much cheaper, so overall training is faster.",
+      "id": 17
+    },
+    {
+      "start": 81.53,
+      "end": 86.81,
+      "text": "To summarize, gradient descent repeatedly steps along the negative gradient, the learning",
+      "id": 18
+    },
+    {
+      "start": 86.81,
+      "end": 91.89,
+      "text": "rate controls the step size, and stochastic gradient descent makes each step cheap by",
+      "id": 19
+    },
+    {
+      "start": 91.89,
+      "end": 94.29,
+      "text": "using mini batches.",
+      "id": 20
+    },
+    {
+      "start": 94.29,
+      "end": 96.29,
+      "text": "time we will look at regularization.",
+      "id": 21
+    }
+  ],
+  "chunks": 1,
+  "duration": 137.862988,
+  "elapsed_s": 137.12,
+  "real_time_factor": 0.9946,
+  "language": "en"
+}

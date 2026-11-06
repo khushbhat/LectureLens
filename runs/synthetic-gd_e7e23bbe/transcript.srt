@@ -1,0 +1,87 @@
+1
+00:00:00,000 --> 00:00:01,800
+Welcome back.
+
+2
+00:00:01,800 --> 00:00:07,480
+Today we study gradient descent, the workforce optimization algorithm behind most of machine
+
+3
+00:00:07,480 --> 00:00:08,960
+learning.
+
+4
+00:00:08,960 --> 00:00:16,090
+We will see what it does, why it works, and how to choose its settings.
+
+5
+00:00:16,090 --> 00:00:20,410
+Training a model means minimizing a loss function over its parameters.
+
+6
+00:00:20,410 --> 00:00:25,250
+A common choice is the mean squared error between predictions and targets.
+
+7
+00:00:25,250 --> 00:00:32,100
+If the loss is convex, every local minimum is also a global minimum.
+
+8
+00:00:32,100 --> 00:00:34,400
+The idea is simple.
+
+9
+00:00:34,400 --> 00:00:39,100
+Compute the gradient of the loss, which points in the direction of steepest increase,
+
+10
+00:00:39,100 --> 00:00:42,500
+and take a small step in the opposite direction.
+
+11
+00:00:42,500 --> 00:00:48,020
+The size of the step is controlled by the learning rate.
+
+12
+00:00:48,020 --> 00:00:50,540
+Choosing the learning rate matters a lot.
+
+13
+00:00:50,540 --> 00:00:54,860
+If it is too large, the iterates oscillate or even diverge.
+
+14
+00:00:54,860 --> 00:00:59,180
+If it is too small, training converges very slowly.
+
+15
+00:00:59,180 --> 00:01:04,390
+In practice we often decrease it over time.
+
+16
+00:01:04,390 --> 00:01:08,790
+the full gradient on a large data set is expensive.
+
+17
+00:01:08,790 --> 00:01:13,550
+Stochastic gradient descent estimates it from a small mini batch of examples.
+
+18
+00:01:13,550 --> 00:01:21,530
+The estimate is noisy, but each step is much cheaper, so overall training is faster.
+
+19
+00:01:21,530 --> 00:01:26,810
+To summarize, gradient descent repeatedly steps along the negative gradient, the learning
+
+20
+00:01:26,810 --> 00:01:31,890
+rate controls the step size, and stochastic gradient descent makes each step cheap by
+
+21
+00:01:31,890 --> 00:01:34,290
+using mini batches.
+
+22
+00:01:34,290 --> 00:01:36,290
+time we will look at regularization.

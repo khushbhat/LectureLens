@@ -1,0 +1,5 @@
+id,url_or_path,subject,duration_min,has_slides
+synthetic_gd,samples/synthetic_gd.mp4,machine learning,2.3,yes
+neso_process,https://www.youtube.com/watch?v=OrM7nZcxXZU,operating systems,7,yes
+mit_rnn,https://www.youtube.com/watch?v=d02VkQ9MP44,deep learning,57,yes
+carroll_entropy,https://www.youtube.com/watch?v=Sz1n0RHwLqA,physics,6,no

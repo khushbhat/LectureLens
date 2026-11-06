@@ -1,0 +1,69 @@
+{
+  "kind": "youtube",
+  "source": "https://www.youtube.com/watch?v=d02VkQ9MP44",
+  "video_id": "d02VkQ9MP44",
+  "title": "MIT 6.S191: Recurrent Neural Networks, Transformers, and Attention",
+  "channel": "Alexander Amini",
+  "duration": 3454.0,
+  "chapters": [
+    {
+      "title": "Introduction to sequence modeling",
+      "start": 0,
+      "end": 326
+    },
+    {
+      "title": "Neurons with recurrence",
+      "start": 326,
+      "end": 814
+    },
+    {
+      "title": "Understanding RNN mechanics",
+      "start": 814,
+      "end": 1197
+    },
+    {
+      "title": "Implementing RNNs",
+      "start": 1197,
+      "end": 1332
+    },
+    {
+      "title": "Design criteria for sequence data",
+      "start": 1332,
+      "end": 1832
+    },
+    {
+      "title": "Training and limitations of RNNs",
+      "start": 1832,
+      "end": 2198
+    },
+    {
+      "title": "Applications and advanced RNNs",
+      "start": 2198,
+      "end": 2301
+    },
+    {
+      "title": "Moving beyond RNNs",
+      "start": 2301,
+      "end": 2554
+    },
+    {
+      "title": "Attention and transformers",
+      "start": 2554,
+      "end": 3242
+    },
+    {
+      "title": "Transformers in practice",
+      "start": 3242,
+      "end": 3343
+    },
+    {
+      "title": "Concluding remarks",
+      "start": 3343,
+      "end": 3454
+    }
+  ],
+  "video_path": "D:\\PROJECTS\\Generative-AI\\runs\\mit-6-s191-recurrent-neural-networks-tra_5af473bc\\media\\video.mp4",
+  "audio_path": "D:\\PROJECTS\\Generative-AI\\runs\\mit-6-s191-recurrent-neural-networks-tra_5af473bc\\media\\audio.m4a",
+  "subtitle_path": null,
+  "subtitle_kind": null
+}

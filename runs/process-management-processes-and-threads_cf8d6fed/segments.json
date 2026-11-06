@@ -1,0 +1,214 @@
+{
+  "mode": "slide-aligned",
+  "segments": [
+    {
+      "segment_id": 0,
+      "start": 0.0,
+      "end": 146.66,
+      "slide_ids": [
+        0
+      ],
+      "sentence_ids": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26
+      ],
+      "words": 419
+    },
+    {
+      "segment_id": 1,
+      "start": 146.66,
+      "end": 282.31,
+      "slide_ids": [
+        0
+      ],
+      "sentence_ids": [
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56
+      ],
+      "words": 401
+    },
+    {
+      "segment_id": 2,
+      "start": 282.0,
+      "end": 304.0,
+      "slide_ids": [
+        1,
+        2
+      ],
+      "sentence_ids": [
+        57,
+        58,
+        59,
+        60,
+        61
+      ],
+      "words": 69
+    },
+    {
+      "segment_id": 3,
+      "start": 304.0,
+      "end": 310.0,
+      "slide_ids": [
+        3
+      ],
+      "sentence_ids": [
+        62
+      ],
+      "words": 27
+    },
+    {
+      "segment_id": 4,
+      "start": 310.0,
+      "end": 340.0,
+      "slide_ids": [
+        4,
+        5
+      ],
+      "sentence_ids": [
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69
+      ],
+      "words": 93
+    },
+    {
+      "segment_id": 5,
+      "start": 340.0,
+      "end": 362.0,
+      "slide_ids": [
+        6
+      ],
+      "sentence_ids": [
+        70,
+        71,
+        72,
+        73,
+        74
+      ],
+      "words": 80
+    },
+    {
+      "segment_id": 6,
+      "start": 362.0,
+      "end": 378.0,
+      "slide_ids": [
+        7,
+        8
+      ],
+      "sentence_ids": [
+        75,
+        76,
+        77,
+        78,
+        79
+      ],
+      "words": 48
+    },
+    {
+      "segment_id": 7,
+      "start": 378.0,
+      "end": 390.0,
+      "slide_ids": [
+        9
+      ],
+      "sentence_ids": [
+        80,
+        81,
+        82
+      ],
+      "words": 43
+    },
+    {
+      "segment_id": 8,
+      "start": 390.0,
+      "end": 420.0,
+      "slide_ids": [
+        10,
+        11
+      ],
+      "sentence_ids": [
+        83,
+        84,
+        85,
+        86,
+        87
+      ],
+      "words": 87
+    },
+    {
+      "segment_id": 9,
+      "start": 420.0,
+      "end": 452.0,
+      "slide_ids": [
+        12,
+        13
+      ],
+      "sentence_ids": [
+        88,
+        89,
+        90,
+        91,
+        92,
+        93
+      ],
+      "words": 77
+    }
+  ]
+}

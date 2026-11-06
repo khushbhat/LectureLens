@@ -1,0 +1,311 @@
+{
+  "sentences": [
+    {
+      "text": "I think that once you learn about the second law of thermodynamics, it can be a little depressing.",
+      "start": 11.37,
+      "end": 16.8,
+      "id": 0
+    },
+    {
+      "text": "You've been told that there's a fundamental feature of reality: that disorder increases, that things just wind down, right?",
+      "start": 16.8,
+      "end": 24.69,
+      "id": 1
+    },
+    {
+      "text": "That batteries run out, that cream and coffee mix together, that ice cubes melt.",
+      "start": 24.69,
+      "end": 29.88,
+      "id": 2
+    },
+    {
+      "text": "It's kind of a depressing view of the future.",
+      "start": 29.88,
+      "end": 33.45,
+      "id": 3
+    },
+    {
+      "text": "How did all of this interestingness come about in the first place?",
+      "start": 33.45,
+      "end": 37.83,
+      "id": 4
+    },
+    {
+      "text": "If the whole thing that reality does is just move closer and closer to complete disorder, then how did something as exquisitely organized as a human being come about?",
+      "start": 37.83,
+      "end": 49.98,
+      "id": 5
+    },
+    {
+      "text": "This idea that there's this tension between the organization of things in the Universe and the natural evolution of things became a little bit sharper over the course of the 1800s because that's when we put together this idea that entropy increases all the time.",
+      "start": 52.71,
+      "end": 69.69,
+      "id": 6
+    },
+    {
+      "text": "Things tend to go from orderly to disorderly just because there are many more ways to be disorderly.",
+      "start": 69.69,
+      "end": 76.5,
+      "id": 7
+    },
+    {
+      "text": "This is a deep down law of nature.",
+      "start": 76.5,
+      "end": 79.83,
+      "id": 8
+    },
+    {
+      "text": "It implies what we call the 'Heat death of the Universe': that all the stuff you see, the engines, the burning stars, the living beings, these all represent systems that are increasing the overall entropy of the Universe.",
+      "start": 79.83,
+      "end": 94.08,
+      "id": 9
+    },
+    {
+      "text": "And if you think, which is probably true, that there's a maximum entropy you can reach, a maximum level of disorderliness and chaos, eventually we will get there and all the interestingness in the Universe will be gone.",
+      "start": 94.08,
+      "end": 108.36,
+      "id": 10
+    },
+    {
+      "text": "The Universe will reach what we call an 'equilibrium': a state of maximum chaos and nothing interesting happening anymore.",
+      "start": 108.36,
+      "end": 116.31,
+      "id": 11
+    },
+    {
+      "text": "One of the issues with really feeling through the implications of the second law of thermodynamics is that people tend to mix up simple versus complex and orderly versus disorderly.",
+      "start": 116.31,
+      "end": 128.22,
+      "id": 12
+    },
+    {
+      "text": "The truth is these are two different axes, two different ways of thinking about something.",
+      "start": 128.22,
+      "end": 133.2,
+      "id": 13
+    },
+    {
+      "text": "The increase of entropy says that we go from orderly to disorderly, but it says nothing about simple versus complex.",
+      "start": 133.2,
+      "end": 140.37,
+      "id": 14
+    },
+    {
+      "text": "This is a new scientific question that we are facing right now: 'What is the journey from low entropy to high entropy like and how is it affected by the laws of physics so that the actual path it takes leads to complex structures?'",
+      "start": 140.37,
+      "end": 158.82,
+      "id": 15
+    },
+    {
+      "text": "One of the difficulties in figuring out, specifically, how life here on Earth came into being is that it's not just a random sort of complex system.",
+      "start": 161.07,
+      "end": 169.62,
+      "id": 16
+    },
+    {
+      "text": "It's a very specific thing.",
+      "start": 169.62,
+      "end": 171.36,
+      "id": 17
+    },
+    {
+      "text": "And life as we know it now involves different aspects, all of which are important.",
+      "start": 171.36,
+      "end": 176.37,
+      "id": 18
+    },
+    {
+      "text": "You need replication, right?",
+      "start": 176.37,
+      "end": 178.5,
+      "id": 19
+    },
+    {
+      "text": "You need Darwinian evolution.",
+      "start": 178.5,
+      "end": 179.79,
+      "id": 20
+    },
+    {
+      "text": "We have DNA.",
+      "start": 179.79,
+      "end": 180.93,
+      "id": 21
+    },
+    {
+      "text": "We have a genome that gets replicated, not perfectly, but pretty well.",
+      "start": 180.93,
+      "end": 185.52,
+      "id": 22
+    },
+    {
+      "text": "You need compartmentalization.",
+      "start": 185.52,
+      "end": 187.56,
+      "id": 23
+    },
+    {
+      "text": "Every cell has a cell wall so you can separate the living cell from the rest of the world.",
+      "start": 187.56,
+      "end": 192.81,
+      "id": 24
+    },
+    {
+      "text": "And also you need metabolism, right?",
+      "start": 192.81,
+      "end": 194.82,
+      "id": 25
+    },
+    {
+      "text": "You need that fuel, you need that low-entropy energy that we can use to keep ourselves going and then expel to the world in a higher-entropy form.",
+      "start": 194.82,
+      "end": 203.19,
+      "id": 26
+    },
+    {
+      "text": "So, which came first?",
+      "start": 203.19,
+      "end": 205.35,
+      "id": 27
+    },
+    {
+      "text": "This is why explaining the beginning of complex structures is always hard, because they all seem to depend on each other.",
+      "start": 205.35,
+      "end": 212.55,
+      "id": 28
+    },
+    {
+      "text": "There is a replication-first camp in the origin of life studies literature that says, \"Look, clearly the genetic information is necessary to call it life, that must have come first and it must have hooked up to an energy source.\"",
+      "start": 212.55,
+      "end": 226.71,
+      "id": 29
+    },
+    {
+      "text": "But there's also a metabolism-first camp that says, \"Look, it doesn't matter if you have information sitting there, if it's not going someplace, if it's not doing anything, if it's not moving around and metabolizing, you can't call it life.\"",
+      "start": 226.71,
+      "end": 239.28,
+      "id": 30
+    },
+    {
+      "text": "And the nice thing to me about the metabolism-first point of view is that you can kind of see how it might arise out of purely physical, non-biological processes because remember, to maintain its orderliness and its complexity, living beings need to increase the entropy",
+      "start": 239.28,
+      "end": 257.28,
+      "id": 31
+    },
+    {
+      "text": "of the Universe, they need to feed off of low-entropy energy.",
+      "start": 257.28,
+      "end": 261.96,
+      "id": 32
+    },
+    {
+      "text": "So this was an idea that a number of biologists and geologists had.",
+      "start": 262.98,
+      "end": 267.3,
+      "id": 33
+    },
+    {
+      "text": "And on the basis of it, they made predictions.",
+      "start": 267.3,
+      "end": 269.58,
+      "id": 34
+    },
+    {
+      "text": "They said, \"Life is not gonna form in some warm pond.\"",
+      "start": 269.58,
+      "end": 273.27,
+      "id": 35
+    },
+    {
+      "text": "This was Darwin's idea, that maybe you just put all the stuff together, all the ingredients, and eventually a little bug crawls out, okay?",
+      "start": 273.27,
+      "end": 280.38,
+      "id": 36
+    },
+    {
+      "text": "Or a little bacterium.",
+      "start": 280.38,
+      "end": 281.82,
+      "id": 37
+    },
+    {
+      "text": "And they said, \"Look, that's never gonna happen, because there's no increasing entropy.",
+      "start": 281.82,
+      "end": 286.11,
+      "id": 38
+    },
+    {
+      "text": "What you need is just the right biochemical, geological arrangement of things to have these long, sophisticated, complex reactions happen that can then be captured into the first living organism.\"",
+      "start": 286.11,
+      "end": 298.59,
+      "id": 39
+    },
+    {
+      "text": "And they thought about what kind of conditions would they be, and they thought that it might be a warm, hydrothermal vent under the oceans, right?",
+      "start": 298.59,
+      "end": 308.1,
+      "id": 40
+    },
+    {
+      "text": "With certain chemical balances.",
+      "start": 308.1,
+      "end": 309.93,
+      "id": 41
+    },
+    {
+      "text": "And I'm a physicist, I don't know the details and I shouldn't say anything, but the point is these kinds of hydrothermal vents were not known at the time, they had not yet been discovered, but a prediction was made- these must exist in order for life to have come into existence.",
+      "start": 309.93,
+      "end": 325.38,
+      "id": 42
+    },
+    {
+      "text": "And after the prediction was made, we found them.",
+      "start": 325.38,
+      "end": 328.53,
+      "id": 43
+    },
+    {
+      "text": "Famously, the 'Lost City' formation at the bottom of the Atlantic Ocean was found by submersibles going down near the bottom of the ocean floor.",
+      "start": 328.53,
+      "end": 336.42,
+      "id": 44
+    },
+    {
+      "text": "They found exactly the kind of geochemical conditions that had been hypothesized as possible places where life could have formed.",
+      "start": 336.42,
+      "end": 343.59,
+      "id": 45
+    },
+    {
+      "text": "Does that mean it's right?",
+      "start": 343.59,
+      "end": 345.24,
+      "id": 46
+    },
+    {
+      "text": "No, but it's a little bit of evidence that it could be on the right track.",
+      "start": 345.24,
+      "end": 349.17,
+      "id": 47
+    },
+    {
+      "text": "The origin of life, I think, personally, is one of the most important unanswered scientific questions but it's one that we're absolutely making progress on right now.",
+      "start": 349.17,
+      "end": 358.08,
+      "id": 48
+    },
+    {
+      "text": "Get smarter, faster with videos from the world's biggest thinkers.",
+      "start": 360.15,
+      "end": 364.71,
+      "id": 49
+    },
+    {
+      "text": "And to learn even more from the world's biggest thinkers, get Big Think+ for your business.",
+      "start": 364.71,
+      "end": 369.54,
+      "id": 50
+    }
+  ],
+  "text": "I think that once you learn about the second law of thermodynamics, it can be a little depressing. You've been told that there's a fundamental feature of reality: that disorder increases, that things just wind down, right? That batteries run out, that cream and coffee mix together, that ice cubes melt. It's kind of a depressing view of the future. How did all of this interestingness come about in the first place? If the whole thing that reality does is just move closer and closer to complete disorder, then how did something as exquisitely organized as a human being come about? This idea that there's this tension between the organization of things in the Universe and the natural evolution of things became a little bit sharper over the course of the 1800s because that's when we put together this idea that entropy increases all the time. Things tend to go from orderly to disorderly just because there are many more ways to be disorderly. This is a deep down law of nature. It implies what we call the 'Heat death of the Universe': that all the stuff you see, the engines, the burning stars, the living beings, these all represent systems that are increasing the overall entropy of the Universe. And if you think, which is probably true, that there's a maximum entropy you can reach, a maximum level of disorderliness and chaos, eventually we will get there and all the interestingness in the Universe will be gone. The Universe will reach what we call an 'equilibrium': a state of maximum chaos and nothing interesting happening anymore. One of the issues with really feeling through the implications of the second law of thermodynamics is that people tend to mix up simple versus complex and orderly versus disorderly. The truth is these are two different axes, two different ways of thinking about something. The increase of entropy says that we go from orderly to disorderly, but it says nothing about simple versus complex. This is a new scientific question that we are facing right now: 'What is the journey from low entropy to high entropy like and how is it affected by the laws of physics so that the actual path it takes leads to complex structures?' One of the difficulties in figuring out, specifically, how life here on Earth came into being is that it's not just a random sort of complex system. It's a very specific thing. And life as we know it now involves different aspects, all of which are important. You need replication, right? You need Darwinian evolution. We have DNA. We have a genome that gets replicated, not perfectly, but pretty well. You need compartmentalization. Every cell has a cell wall so you can separate the living cell from the rest of the world. And also you need metabolism, right? You need that fuel, you need that low-entropy energy that we can use to keep ourselves going and then expel to the world in a higher-entropy form. So, which came first? This is why explaining the beginning of complex structures is always hard, because they all seem to depend on each other. There is a replication-first camp in the origin of life studies literature that says, \"Look, clearly the genetic information is necessary to call it life, that must have come first and it must have hooked up to an energy source.\" But there's also a metabolism-first camp that says, \"Look, it doesn't matter if you have information sitting there, if it's not going someplace, if it's not doing anything, if it's not moving around and metabolizing, you can't call it life.\" And the nice thing to me about the metabolism-first point of view is that you can kind of see how it might arise out of purely physical, non-biological processes because remember, to maintain its orderliness and its complexity, living beings need to increase the entropy of the Universe, they need to feed off of low-entropy energy. So this was an idea that a number of biologists and geologists had. And on the basis of it, they made predictions. They said, \"Life is not gonna form in some warm pond.\" This was Darwin's idea, that maybe you just put all the stuff together, all the ingredients, and eventually a little bug crawls out, okay? Or a little bacterium. And they said, \"Look, that's never gonna happen, because there's no increasing entropy. What you need is just the right biochemical, geological arrangement of things to have these long, sophisticated, complex reactions happen that can then be captured into the first living organism.\" And they thought about what kind of conditions would they be, and they thought that it might be a warm, hydrothermal vent under the oceans, right? With certain chemical balances. And I'm a physicist, I don't know the details and I shouldn't say anything, but the point is these kinds of hydrothermal vents were not known at the time, they had not yet been discovered, but a prediction was made- these must exist in order for life to have come into existence. And after the prediction was made, we found them. Famously, the 'Lost City' formation at the bottom of the Atlantic Ocean was found by submersibles going down near the bottom of the ocean floor. They found exactly the kind of geochemical conditions that had been hypothesized as possible places where life could have formed. Does that mean it's right? No, but it's a little bit of evidence that it could be on the right track. The origin of life, I think, personally, is one of the most important unanswered scientific questions but it's one that we're absolutely making progress on right now. Get smarter, faster with videos from the world's biggest thinkers. And to learn even more from the world's biggest thinkers, get Big Think+ for your business."
+}

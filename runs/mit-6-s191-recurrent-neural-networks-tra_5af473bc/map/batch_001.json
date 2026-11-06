@@ -1,0 +1,709 @@
+[
+  {
+    "segment_id": 38,
+    "segment_ids": [
+      38
+    ],
+    "title": "The Problem of Long-Term Dependencies",
+    "summary": "The vanishing gradient problem in RNNs creates real implications for tracking long-term dependencies in data. Multiplying many small gradient values together biases the model toward shorter-term dependencies because further back time steps suffer from propagated errors and vanishing gradients.",
+    "key_points": [
+      {
+        "text": "Vanishing gradients make it difficult for RNNs to track long-term dependencies due to multiplying many small numbers together.",
+        "evidence": "both"
+      },
+      {
+        "text": "Bias parameters capture short-term dependencies effectively while posing problems for longer input lengths.",
+        "evidence": "both"
+      }
+    ],
+    "concepts": [
+      {
+        "term": "vanishing gradient problem",
+        "definition": "A phenomenon where multiplying many small gradient values together over time steps causes gradients to shrink, making it difficult to learn long-term dependencies."
+      }
+    ],
+    "formulas_or_code": [],
+    "examples": []
+  },
+  {
+    "segment_id": 39,
+    "segment_ids": [
+      39
+    ],
+    "title": "Gating Mechanisms in Neurons",
+    "summary": "To better control information flow and state updates, internal computations in RNNs can be made more complex using gates. Long Short-Term Memory (LSTM) networks introduced a pioneering gated cell to track information across many time steps.",
+    "key_points": [
+      {
+        "text": "Idea: use gates to selectively add and remove information within each recurrent unit with pointwise multiplication.",
+        "evidence": "slide"
+      },
+      {
+        "text": "Long Short-Term Memory (LSTM) networks rely on a gated cell to track information throughout many time steps.",
+        "evidence": "both"
+      }
+    ],
+    "concepts": [
+      {
+        "term": "Long Short-Term Memory (LSTM)",
+        "definition": "A network architecture relying on a gated cell to track information throughout many time steps."
+      },
+      {
+        "term": "gates",
+        "definition": "Mechanisms that optionally let information through the cell using pointwise multiplication."
+      }
+    ],
+    "formulas_or_code": [],
+    "examples": []
+  },
+  {
+    "segment_id": 40,
+    "segment_ids": [
+      40
+    ],
+    "title": "RNN Applications & Limitations",
+    "summary": "Recurrent neural networks can be applied to multi-output generation problems such as music generation, which is explored in software lab 1. An example includes training a recurrent model to finish Franz Schubert's unfinished symphony.",
+    "key_points": [
+      {
+        "text": "Software lab 1 focuses on multi-output generation problems like music generation.",
+        "evidence": "both"
+      },
+      {
+        "text": "Recurrent models can be trained on classical music to predict and generate new compositions.",
+        "evidence": "speech"
+      }
+    ],
+    "concepts": [],
+    "formulas_or_code": [],
+    "examples": [
+      "{'text': \"Music generation using a recurrent-based model to finish Franz Schubert's unfinished symphony (3rd movement).\", 'evidence': 'both'}"
+    ]
+  },
+  {
+    "segment_id": 41,
+    "segment_ids": [
+      41
+    ],
+    "title": "Limitations of Recurrent Models",
+    "summary": "Moving beyond recurrent models, the lecture examines the technical limitations of RNNs from a sequence modeling perspective to motivate new architectures.",
+    "key_points": [
+      {
+        "text": "Evaluate design criteria and capabilities desired with sequence modeling by looking at technical limitations of RNNs.",
+        "evidence": "speech"
+      }
+    ],
+    "concepts": [],
+    "formulas_or_code": [],
+    "examples": []
+  },
+  {
+    "segment_id": 42,
+    "segment_ids": [
+      42
+    ],
+    "title": "Limitations of Recurrent Models",
+    "summary": "RNNs suffer from an encoding bottleneck where too much information is compressed into the internal state variable. Processing data step-by-step is slow, lacks parallelization, and struggles with long-term memory.",
+    "key_points": [
+      {
+        "text": "Encoding bottleneck is imposed by trying to pack structural data into the internal state variable.",
+        "evidence": "both"
+      },
+      {
+        "text": "Processing time step by time step is slow and not parallelizable.",
+        "evidence": "both"
+      },
+      {
+        "text": "RNNs quickly run into memory issues regarding how long of a dependency can be captured.",
+        "evidence": "speech"
+      }
+    ],
+    "concepts": [
+      {
+        "term": "encoding bottleneck",
+        "definition": "The limitation imposed by packing all sequence information into a single internal state variable."
+      }
+    ],
+    "formulas_or_code": [],
+    "examples": []
+  },
+  {
+    "segment_id": 43,
+    "segment_ids": [
+      43
+    ],
+    "title": "Goal of Sequence Modeling",
+    "summary": "Sequence modeling aims to map a sequence of inputs to a sequence of outputs via learned features. RNNs attempt this using recurrence relations and step-by-step modeling.",
+    "key_points": [
+      {
+        "text": "Goal: take an input sequence and learn features mapping to a sequence of outputs.",
+        "evidence": "speech"
+      },
+      {
+        "text": "RNNs use recurrence relations and step-by-step modeling to track dependencies.",
+        "evidence": "speech"
+      }
+    ],
+    "concepts": [],
+    "formulas_or_code": [],
+    "examples": []
+  },
+  {
+    "segment_id": 44,
+    "segment_ids": [
+      44
+    ],
+    "title": "Goal of Sequence Modeling",
+    "summary": "Ideal sequence modeling capabilities eliminate the encoding bottleneck, treat the sequence as a continuous global stream, allow efficient parallelization, and maintain long memory without processing strictly step-by-step.",
+    "key_points": [
+      {
+        "text": "Desired capabilities include a continuous stream, parallelization, and long memory.",
+        "evidence": "both"
+      },
+      {
+        "text": "Eliminating recurrence entirely is considered as a potential approach to overcome bottlenecks.",
+        "evidence": "speech"
+      }
+    ],
+    "concepts": [],
+    "formulas_or_code": [],
+    "examples": []
+  },
+  {
+    "segment_id": 45,
+    "segment_ids": [
+      45
+    ],
+    "title": "Goal of Sequence Modeling: Feed Everything",
+    "summary": "A naive approach of concatenating all inputs into a single dense network eliminates recurrence but lacks scalability, loses order information, has no temporal dependency, and fails to form long memory.",
+    "key_points": [
+      {
+        "text": "Idea I: Feed everything into a dense network with no recurrence.",
+        "evidence": "slide"
+      },
+      {
+        "text": "Concatenated inputs are not scalable, lose order, and lack long memory.",
+        "evidence": "both"
+      },
+      {
+        "text": "The breakthrough idea is to mathematically devise a way for the network to identify and attend to locally and globally important dependencies.",
+        "evidence": "speech"
+      }
+    ],
+    "concepts": [
+      {
+        "term": "attention",
+        "definition": "A mathematical mechanism allowing a network to learn how to pick up and identify locally and globally important dependencies in a sequence."
+      }
+    ],
+    "formulas_or_code": [],
+    "examples": []
+  },
+  {
+    "segment_id": 46,
+    "segment_ids": [
+      46
+    ],
+    "title": "Attention Is All You Need",
+    "summary": "The attention operation serves as the backbone for transformer architectures like GPT and BERT. It provides an elegant and intuitive mechanism for sequence modeling.",
+    "key_points": [
+      {
+        "text": "Attention is the foundational mechanism behind transformer architectures like GPT and BERT.",
+        "evidence": "speech"
+      }
+    ],
+    "concepts": [
+      {
+        "term": "transformer",
+        "definition": "A neural network architecture whose foundational mechanism is the attention operation."
+      }
+    ],
+    "formulas_or_code": [],
+    "examples": []
+  },
+  {
+    "segment_id": 47,
+    "segment_ids": [
+      47
+    ],
+    "title": "Intuition Behind Self-Attention",
+    "summary": "Self-attention involves identifying the most important parts of an input and extracting features with high attention scores, functioning similarly to a search problem.",
+    "key_points": [
+      {
+        "text": "Attending to the most important parts of an input is similar to a search problem.",
+        "evidence": "both"
+      },
+      {
+        "text": "Step 1 is identifying which parts to attend to, and Step 2 is extracting features with high attention.",
+        "evidence": "speech"
+      }
+    ],
+    "concepts": [],
+    "formulas_or_code": [],
+    "examples": []
+  },
+  {
+    "segment_id": 48,
+    "segment_ids": [
+      48
+    ],
+    "title": "Simple Example: Search",
+    "summary": "A search example illustrates how users look up relevant information in a large database, mapping to the concept of querying and retrieving keys.",
+    "key_points": [
+      {
+        "text": "Searching the internet or YouTube for videos relevant to a query serves as an analogy for attention.",
+        "evidence": "speech"
+      }
+    ],
+    "concepts": [],
+    "formulas_or_code": [],
+    "examples": [
+      "{'text': 'Searching YouTube for videos about neural networks and deep learning.', 'evidence': 'speech'}"
+    ]
+  },
+  {
+    "segment_id": 49,
+    "segment_ids": [
+      49
+    ],
+    "title": "Understanding Attention with Search",
+    "summary": "In a database like YouTube, an attention mask computes the semantic similarity between a query (Q) and multiple keys (K) to determine relevance.",
+    "key_points": [
+      {
+        "text": "Compute an attention mask to see how similar each key is to the desired query.",
+        "evidence": "both"
+      },
+      {
+        "text": "Find semantic overlap between the search query and the keys (titles) of database entries.",
+        "evidence": "speech"
+      }
+    ],
+    "concepts": [
+      {
+        "term": "query (Q)",
+        "definition": "The search input used to probe the database."
+      },
+      {
+        "term": "key (K)",
+        "definition": "Information representing the indices or titles of items in a database."
+      },
+      {
+        "term": "attention mask",
+        "definition": "A weighting metric measuring how similar each key is to the desired query."
+      }
+    ],
+    "formulas_or_code": [],
+    "examples": []
+  },
+  {
+    "segment_id": 50,
+    "segment_ids": [
+      50
+    ],
+    "title": "Understanding Attention with Search: Values",
+    "summary": "Once attention scores identify the correct keys, the corresponding values (the actual content or videos) are extracted based on the highest attention scores.",
+    "key_points": [
+      {
+        "text": "Extract values based on attention by returning the values with the highest attention.",
+        "evidence": "both"
+      }
+    ],
+    "concepts": [
+      {
+        "term": "value",
+        "definition": "The actual content or data item that is extracted based on high attention scores."
+      }
+    ],
+    "formulas_or_code": [],
+    "examples": []
+  },
+  {
+    "segment_id": 51,
+    "segment_ids": [
+      51
+    ],
+    "title": "Learning Self-Attention with Neural Networks",
+    "summary": "Self-attention aims to identify and attend to important features in a sequence fed in all at once, requiring position information to preserve order.",
+    "key_points": [
+      {
+        "text": "Goal: identify and attend to the most important features in input data fed in all at once.",
+        "evidence": "both"
+      },
+      {
+        "text": "Need to encode position information to understand order when data is fed in all at once.",
+        "evidence": "both"
+      }
+    ],
+    "concepts": [],
+    "formulas_or_code": [],
+    "examples": [
+      "{'text': \"Input sentence: 'he tossed the tennis ball to serve'\", 'evidence': 'speech'}"
+    ]
+  },
+  {
+    "segment_id": 52,
+    "segment_ids": [
+      52
+    ],
+    "title": "Position-Aware Encoding",
+    "summary": "Positional embeddings are used to represent inputs in an attention mechanism, mathematically preserving positional relationships in sequence inputs.",
+    "key_points": [
+      {
+        "text": "Positional embeddings represent the input given into an attention mechanism.",
+        "evidence": "speech"
+      },
+      {
+        "text": "Position-aware encoding preserves information about positional relationships in sequence inputs.",
+        "evidence": "both"
+      }
+    ],
+    "concepts": [
+      {
+        "term": "positional embedding",
+        "definition": "An encoding used to represent input and preserve information about positional relationships in a sequence."
+      }
+    ],
+    "formulas_or_code": [],
+    "examples": []
+  },
+  {
+    "segment_id": 53,
+    "segment_ids": [
+      53
+    ],
+    "title": "Query, Key, and Value Components",
+    "summary": "Self-attention applies three transformations to the positional embedding to extract the query, key, and value vectors for assessing internal relationships within a single sequence.",
+    "key_points": [
+      {
+        "text": "Query, key, and value are the fundamental components of the attention mechanism.",
+        "evidence": "speech"
+      },
+      {
+        "text": "Self-attention extracts core relationships within an individual sequence input using three transformations.",
+        "evidence": "speech"
+      }
+    ],
+    "concepts": [],
+    "formulas_or_code": [],
+    "examples": []
+  },
+  {
+    "segment_id": 54,
+    "segment_ids": [
+      54
+    ],
+    "title": "Query Matrix Transformation",
+    "summary": "A learned linear layer transforms the positional embedding into a query matrix.",
+    "key_points": [
+      {
+        "text": "Query is created by a learned linear layer that transforms the positional embedding into a query matrix.",
+        "evidence": "both"
+      }
+    ],
+    "concepts": [],
+    "formulas_or_code": [],
+    "examples": []
+  },
+  {
+    "segment_id": 55,
+    "segment_ids": [
+      55
+    ],
+    "title": "Key and Value Matrix Transformations",
+    "summary": "Separate learned linear layers transform the identical positional embedding into key and value matrices, capturing different types of information.",
+    "key_points": [
+      {
+        "text": "Separate learned layers generate the key matrix and the value matrix from the same positional embedding.",
+        "evidence": "both"
+      },
+      {
+        "text": "The three transformed outputs (query, key, value) capture different information.",
+        "evidence": "speech"
+      }
+    ],
+    "concepts": [],
+    "formulas_or_code": [],
+    "examples": []
+  },
+  {
+    "segment_id": 56,
+    "segment_ids": [
+      56
+    ],
+    "title": "Attention Score Computation",
+    "summary": "Attention scores are computed as the pairwise similarity between each query and key using a scaled dot product operation.",
+    "key_points": [
+      {
+        "text": "Attention score: compute pairwise similarity between each query and key.",
+        "evidence": "slide"
+      },
+      {
+        "text": "Compute how aligned vectors are in space using the dot product between query and key, then scale it.",
+        "evidence": "both"
+      }
+    ],
+    "concepts": [],
+    "formulas_or_code": [
+      "{'formula': 'Q K^T', 'description': 'Dot product between query and key matrices'}"
+    ],
+    "examples": []
+  },
+  {
+    "segment_id": 57,
+    "segment_ids": [
+      57
+    ],
+    "title": "Similarity Metric and Cosine Similarity",
+    "summary": "Applying the dot product and scaling to matrices yields a similarity metric, which is also known as cosine similarity.",
+    "key_points": [
+      {
+        "text": "Apply dot product and scaling to matrices to get a similarity metric, also known as cosine similarity.",
+        "evidence": "both"
+      }
+    ],
+    "concepts": [
+      {
+        "term": "cosine similarity",
+        "definition": "A similarity metric computed via dot product and scaling between query and key."
+      }
+    ],
+    "formulas_or_code": [],
+    "examples": []
+  },
+  {
+    "segment_id": 58,
+    "segment_ids": [
+      58
+    ],
+    "title": "Attention Weighting and Softmax",
+    "summary": "Attention scores are processed via scaling and a softmax function to produce attention weights between zero and one, revealing relative importances and semantic relationships within the sequence.",
+    "key_points": [
+      {
+        "text": "Attention weighting determines how similar the key is to the query and where to attend.",
+        "evidence": "both"
+      },
+      {
+        "text": "Apply the softmax function to squash values between zero and one to get attention weights.",
+        "evidence": "speech"
+      },
+      {
+        "text": "The attention matrix entries give the relative importance of parts of the input sequence relative to each other.",
+        "evidence": "speech"
+      }
+    ],
+    "concepts": [
+      {
+        "term": "softmax",
+        "definition": "A function applied to scaled attention scores to squash values between zero and one."
+      }
+    ],
+    "formulas_or_code": [],
+    "examples": [
+      "{'text': \"Sequence input: 'he tossed the tennis ball to serve', showing high relation between 'ball' and 'toss'.\", 'evidence': 'speech'}"
+    ]
+  },
+  {
+    "segment_id": 59,
+    "segment_ids": [
+      59
+    ],
+    "title": "Extracting Features with Attention",
+    "summary": "The final step of self-attention multiplies the attention weights by the value matrix to extract the desired features.",
+    "key_points": [
+      {
+        "text": "Last step: self-attend to extract features by multiplying attention weighting with the value.",
+        "evidence": "both"
+      }
+    ],
+    "concepts": [],
+    "formulas_or_code": [],
+    "examples": []
+  },
+  {
+    "segment_id": 60,
+    "segment_ids": [
+      60
+    ],
+    "title": "Self-Attention Architecture Overview",
+    "summary": "Architecturally, positional encodings are copied three times and passed through three learned neural network layers to form query, key, and value representations.",
+    "key_points": [
+      {
+        "text": "Architecturally, sequence positional encoding has three copies fed into three learned neural network layers for query, key, and value.",
+        "evidence": "both"
+      }
+    ],
+    "concepts": [],
+    "formulas_or_code": [],
+    "examples": []
+  },
+  {
+    "segment_id": 61,
+    "segment_ids": [
+      61
+    ],
+    "title": "The Attention Head",
+    "summary": "Combining matrix multiplication of queries and keys, scaling, softmax, and multiplication with values forms a self-attention head that plugs into larger transformer networks.",
+    "key_points": [
+      {
+        "text": "Operations include MatMul, Scale, Softmax, and MatMul with Query, Key, and Value.",
+        "evidence": "slide"
+      },
+      {
+        "text": "These operations form an attention head that can plug into a larger network architecture, with each head attending to different parts of the input.",
+        "evidence": "both"
+      }
+    ],
+    "concepts": [
+      {
+        "term": "attention head",
+        "definition": "A foundational module combining query-key similarity, scaling, softmax, and value multiplication that can plug into a larger network."
+      }
+    ],
+    "formulas_or_code": [],
+    "examples": []
+  },
+  {
+    "segment_id": 62,
+    "segment_ids": [
+      62
+    ],
+    "title": "Transformer Building Block",
+    "summary": "Attention serves as the foundational building block of the transformer architecture.",
+    "key_points": [
+      {
+        "text": "Attention is the foundational building block of the Transformer architecture.",
+        "evidence": "both"
+      }
+    ],
+    "concepts": [],
+    "formulas_or_code": [],
+    "examples": []
+  },
+  {
+    "segment_id": 63,
+    "segment_ids": [
+      63
+    ],
+    "title": "Applying Multiple Self-Attention Heads",
+    "summary": "Multiple attention heads can be stacked together within a single network in a parallelizable manner to learn and identify different patterns of importance.",
+    "key_points": [
+      {
+        "text": "Attention heads are very parallelizable and can be stacked together within one network to identify different patterns of importance.",
+        "evidence": "both"
+      }
+    ],
+    "concepts": [],
+    "formulas_or_code": [],
+    "examples": [
+      "{'text': 'Visually picking out Ironman, a building, and an alien spaceship using multiple attention heads.', 'evidence': 'speech'}"
+    ]
+  },
+  {
+    "segment_id": 64,
+    "segment_ids": [
+      64
+    ],
+    "title": "Self-Attention Applied to Language Processing",
+    "summary": "Transformers and large language models like GPT have achieved remarkable capabilities in natural language processing.",
+    "key_points": [
+      {
+        "text": "Transformers and LLMs like GPT have revolutionized natural language processing.",
+        "evidence": "both"
+      }
+    ],
+    "concepts": [],
+    "formulas_or_code": [],
+    "examples": []
+  },
+  {
+    "segment_id": 65,
+    "segment_ids": [
+      65
+    ],
+    "title": "Self-Attention Across Domains",
+    "summary": "Transformer-based architectures are applied across multiple domains, including biological sequences (protein structure models like AlphaFold), natural language processing (GPT), and computer vision (Vision Transformers).",
+    "key_points": [
+      {
+        "text": "Transformers apply to biological sequences (protein structure models), computer vision (Vision Transformers), and natural language processing (LLMs).",
+        "evidence": "both"
+      }
+    ],
+    "concepts": [
+      {
+        "term": "Vision Transformers",
+        "definition": "Transformer models applied to the visual domain for computer vision."
+      }
+    ],
+    "formulas_or_code": [],
+    "examples": [
+      "{'text': 'GPT for language, Protein Structure Models (Jumper et al.), Vision Transformers (Dosovitskiy et al.).', 'evidence': 'slide'}"
+    ]
+  },
+  {
+    "segment_id": 66,
+    "segment_ids": [
+      66
+    ],
+    "title": "Lecture Summary",
+    "summary": "The lecture covered sequence modeling tasks, RNNs with recurrence and backpropagation through time, applications like music generation, and limitations like the encoding bottleneck that motivated self-attention and large language models.",
+    "key_points": [
+      {
+        "text": "RNNs are well-suited for sequence modeling and trained via backpropagation through time.",
+        "evidence": "both"
+      },
+      {
+        "text": "Applications include music generation, classification, and machine translation.",
+        "evidence": "both"
+      },
+      {
+        "text": "Self-attention models sequences without recurrence and forms the basis for many large language models.",
+        "evidence": "both"
+      }
+    ],
+    "concepts": [],
+    "formulas_or_code": [],
+    "examples": []
+  },
+  {
+    "segment_id": 67,
+    "segment_ids": [
+      67
+    ],
+    "title": "Lab Logistics and Office Hours",
+    "summary": "The final hour of class features office hours and software lab assistance. Students can download labs from the GitHub schedule and execute them in Google Colab.",
+    "key_points": [
+      {
+        "text": "Office hours-style sessions are available daily from 3 to 4 PM for TA help and software lab work.",
+        "evidence": "speech"
+      },
+      {
+        "text": "Labs are available via GitHub and executed in Google Colab.",
+        "evidence": "both"
+      }
+    ],
+    "concepts": [],
+    "formulas_or_code": [],
+    "examples": []
+  },
+  {
+    "segment_id": 68,
+    "segment_ids": [
+      68
+    ],
+    "title": "Kickoff Reception",
+    "summary": "A kickoff social reception hosted by John Werner and Link Ventures takes place at One Kendall Square at 5 p.m. with free food and drinks.",
+    "key_points": [
+      {
+        "text": "Kickoff reception at One Kendall Square at 5:00 PM with food and drinks provided.",
+        "evidence": "both"
+      },
+      {
+        "text": "Special thanks to John Werner and Link Ventures for hosting.",
+        "evidence": "both"
+      }
+    ],
+    "concepts": [],
+    "formulas_or_code": [],
+    "examples": [
+      "{'text': 'Kickoff social at One Kendall Square.', 'evidence': 'speech'}"
+    ]
+  }
+]

@@ -1,0 +1,4709 @@
+{
+  "source": "local:faster-whisper-base",
+  "model": null,
+  "segments": [
+    {
+      "start": 11.22,
+      "end": 14.98,
+      "text": "All right, I think we can circle back and get started here.",
+      "id": 0
+    },
+    {
+      "start": 14.98,
+      "end": 19.54,
+      "text": "So I'm Ava and welcome to lecture two of Success 191.",
+      "id": 1
+    },
+    {
+      "start": 19.54,
+      "end": 23.58,
+      "text": "And we're going to focus today in this talk on sequence modeling,",
+      "id": 2
+    },
+    {
+      "start": 23.58,
+      "end": 26.5,
+      "text": "which is a very, very powerful and general paradigm",
+      "id": 3
+    },
+    {
+      "start": 26.5,
+      "end": 29.06,
+      "text": "that has become super relevant today,",
+      "id": 4
+    },
+    {
+      "start": 29.06,
+      "end": 33.62,
+      "text": "especially with the onset of these very powerful language models.",
+      "id": 5
+    },
+    {
+      "start": 33.62,
+      "end": 37.54,
+      "text": "And so just about an hour ago, Alexander introduced us",
+      "id": 6
+    },
+    {
+      "start": 37.54,
+      "end": 40.7,
+      "text": "to this idea of neural networks and built the intuition",
+      "id": 7
+    },
+    {
+      "start": 40.7,
+      "end": 43.22,
+      "text": "about neural networks from the bottom up.",
+      "id": 8
+    },
+    {
+      "start": 43.22,
+      "end": 46.06,
+      "text": "And we focus specifically on these class of models",
+      "id": 9
+    },
+    {
+      "start": 46.06,
+      "end": 48.1,
+      "text": "known as feed-forward models.",
+      "id": 10
+    },
+    {
+      "start": 48.1,
+      "end": 51.3,
+      "text": "And so when we turn our attention to applying neural networks",
+      "id": 11
+    },
+    {
+      "start": 51.3,
+      "end": 54.74,
+      "text": "to sequential processing and sequential modeling of data,",
+      "id": 12
+    },
+    {
+      "start": 54.74,
+      "end": 58.18,
+      "text": "we'll see how this modeling paradigm requires",
+      "id": 13
+    },
+    {
+      "start": 58.18,
+      "end": 59.74,
+      "text": "a different way of thinking, right?",
+      "id": 14
+    },
+    {
+      "start": 59.74,
+      "end": 63.66,
+      "text": "Because we now have data that's resolved in time.",
+      "id": 15
+    },
+    {
+      "start": 63.66,
+      "end": 67.26,
+      "text": "And we'll go through similarly to build up the intuition",
+      "id": 16
+    },
+    {
+      "start": 67.26,
+      "end": 69.3,
+      "text": "and the modeling framework step-by-step",
+      "id": 17
+    },
+    {
+      "start": 69.3,
+      "end": 70.38,
+      "text": "from the ground up.",
+      "id": 18
+    },
+    {
+      "start": 71.38,
+      "end": 73.82,
+      "text": "So with that, we're going to start again",
+      "id": 19
+    },
+    {
+      "start": 73.82,
+      "end": 75.74,
+      "text": "with a very intuitive example,",
+      "id": 20
+    },
+    {
+      "start": 75.74,
+      "end": 78.06,
+      "text": "which as you'll see throughout the course,",
+      "id": 21
+    },
+    {
+      "start": 78.06,
+      "end": 79.78,
+      "text": "is kind of one of our things",
+      "id": 22
+    },
+    {
+      "start": 79.78,
+      "end": 81.94,
+      "text": "that we really hold very near and dear",
+      "id": 23
+    },
+    {
+      "start": 81.94,
+      "end": 85.66,
+      "text": "in terms of building up intuition about these concepts.",
+      "id": 24
+    },
+    {
+      "start": 85.66,
+      "end": 88.94,
+      "text": "So to do that, let's start with this very simple example",
+      "id": 25
+    },
+    {
+      "start": 88.94,
+      "end": 92.06,
+      "text": "where I've given you an image of a ball",
+      "id": 26
+    },
+    {
+      "start": 92.06,
+      "end": 94.3,
+      "text": "in a 2D space here.",
+      "id": 27
+    },
+    {
+      "start": 94.3,
+      "end": 95.74,
+      "text": "And I'm going to ask you, okay,",
+      "id": 28
+    },
+    {
+      "start": 95.74,
+      "end": 100.86,
+      "text": "can you predict where it will go next?",
+      "id": 29
+    },
+    {
+      "start": 100.86,
+      "end": 104.1,
+      "text": "Without any prior information about the ball's history,",
+      "id": 30
+    },
+    {
+      "start": 104.1,
+      "end": 106.9,
+      "text": "anything that you say is going to be a guess",
+      "id": 31
+    },
+    {
+      "start": 106.9,
+      "end": 110.86,
+      "text": "on its next position, a guess, a random proposal",
+      "id": 32
+    },
+    {
+      "start": 110.86,
+      "end": 113.58,
+      "text": "about where the ball is going to travel to.",
+      "id": 33
+    },
+    {
+      "start": 113.58,
+      "end": 116.94,
+      "text": "However, in addition to the current location of the ball,",
+      "id": 34
+    },
+    {
+      "start": 116.94,
+      "end": 121.46,
+      "text": "I were to give you a sequence of information back in time",
+      "id": 35
+    },
+    {
+      "start": 121.46,
+      "end": 125.14,
+      "text": "and ask you to use this in context to now predict",
+      "id": 36
+    },
+    {
+      "start": 125.14,
+      "end": 127.82,
+      "text": "where the ball is going to travel to next,",
+      "id": 37
+    },
+    {
+      "start": 127.82,
+      "end": 130.1,
+      "text": "the problem now becomes much easier.",
+      "id": 38
+    },
+    {
+      "start": 130.1,
+      "end": 132.1,
+      "text": "And I think we can all agree on what's",
+      "id": 39
+    },
+    {
+      "start": 132.1,
+      "end": 135.62,
+      "text": "the most likely next path or trajectory of the ball",
+      "id": 40
+    },
+    {
+      "start": 135.62,
+      "end": 136.98,
+      "text": "in this problem.",
+      "id": 41
+    },
+    {
+      "start": 136.98,
+      "end": 139.98,
+      "text": "So this is really the core idea behind many sequence",
+      "id": 42
+    },
+    {
+      "start": 139.98,
+      "end": 143.3,
+      "text": "modeling problems, where we have this data that's",
+      "id": 43
+    },
+    {
+      "start": 143.3,
+      "end": 146.18,
+      "text": "resolved in time, or can be modeled",
+      "id": 44
+    },
+    {
+      "start": 146.18,
+      "end": 147.82,
+      "text": "as a sequence of information.",
+      "id": 45
+    },
+    {
+      "start": 147.82,
+      "end": 152.34,
+      "text": "And we want to make a prediction about the state of the system.",
+      "id": 46
+    },
+    {
+      "start": 152.34,
+      "end": 155.1,
+      "text": "And so beyond that simple example, sequential data",
+      "id": 47
+    },
+    {
+      "start": 155.1,
+      "end": 158.58,
+      "text": "as Alexander mentioned is truly all around us, right?",
+      "id": 48
+    },
+    {
+      "start": 158.58,
+      "end": 162.18,
+      "text": "As I'm speaking and I'm projecting these audio waveforms,",
+      "id": 49
+    },
+    {
+      "start": 162.18,
+      "end": 164.5,
+      "text": "that is a sequence that can be split up",
+      "id": 50
+    },
+    {
+      "start": 164.5,
+      "end": 167.82,
+      "text": "into a series of chunks of sound waves.",
+      "id": 51
+    },
+    {
+      "start": 167.82,
+      "end": 170.74,
+      "text": "Similarly with text, we can think about",
+      "id": 52
+    },
+    {
+      "start": 170.74,
+      "end": 173.34,
+      "text": "breaking that text up into a sequence",
+      "id": 53
+    },
+    {
+      "start": 173.34,
+      "end": 178.14,
+      "text": "of individual characters or individual words.",
+      "id": 54
+    },
+    {
+      "start": 178.14,
+      "end": 181.02,
+      "text": "And beyond these examples, sequential data",
+      "id": 55
+    },
+    {
+      "start": 181.02,
+      "end": 182.98,
+      "text": "is really, really all around us,",
+      "id": 56
+    },
+    {
+      "start": 182.98,
+      "end": 186.62,
+      "text": "from medical signals to financial time series,",
+      "id": 57
+    },
+    {
+      "start": 186.62,
+      "end": 191.14,
+      "text": "like modeling the stark market, to biology and chemistry",
+      "id": 58
+    },
+    {
+      "start": 191.14,
+      "end": 194.58,
+      "text": "and the life sciences and thinking about biological sequences",
+      "id": 59
+    },
+    {
+      "start": 194.58,
+      "end": 197.34,
+      "text": "and modalities, to patterns of movement,",
+      "id": 60
+    },
+    {
+      "start": 197.34,
+      "end": 200.66,
+      "text": "to videos, to weather, all around us",
+      "id": 61
+    },
+    {
+      "start": 200.66,
+      "end": 202.66,
+      "text": "there are these problems that can be thought of",
+      "id": 62
+    },
+    {
+      "start": 202.66,
+      "end": 204.94,
+      "text": "from a sequential modeling perspective.",
+      "id": 63
+    },
+    {
+      "start": 205.94,
+      "end": 208.5,
+      "text": "And so that gives us a concrete notion",
+      "id": 64
+    },
+    {
+      "start": 208.5,
+      "end": 211.74,
+      "text": "of how we can bring this idea of sequence modeling",
+      "id": 65
+    },
+    {
+      "start": 211.74,
+      "end": 213.32,
+      "text": "to the real world.",
+      "id": 66
+    },
+    {
+      "start": 213.32,
+      "end": 216.98,
+      "text": "But what are some tasks that we now could think about",
+      "id": 67
+    },
+    {
+      "start": 216.98,
+      "end": 221.74,
+      "text": "training neural networks to facilitate in this context?",
+      "id": 68
+    },
+    {
+      "start": 221.74,
+      "end": 225.06,
+      "text": "In lecture one, we talked about this simple example",
+      "id": 69
+    },
+    {
+      "start": 225.06,
+      "end": 227.78,
+      "text": "of classification, binary classification.",
+      "id": 70
+    },
+    {
+      "start": 227.78,
+      "end": 231.18,
+      "text": "Yes or no, will I pass this class,",
+      "id": 71
+    },
+    {
+      "start": 231.18,
+      "end": 234.94,
+      "text": "given a student as input, produce a zero-one prediction",
+      "id": 72
+    },
+    {
+      "start": 234.94,
+      "end": 237.18,
+      "text": "about pass versus fail?",
+      "id": 73
+    },
+    {
+      "start": 237.18,
+      "end": 240.94,
+      "text": "We can also do similar classification type problems",
+      "id": 74
+    },
+    {
+      "start": 240.94,
+      "end": 243.66,
+      "text": "or tasks with sequences, right?",
+      "id": 75
+    },
+    {
+      "start": 243.66,
+      "end": 247.7,
+      "text": "We can think about taking a body of text, let's say a tweet,",
+      "id": 76
+    },
+    {
+      "start": 247.7,
+      "end": 250.7,
+      "text": "and assigning a emotion or a sentiment",
+      "id": 77
+    },
+    {
+      "start": 250.7,
+      "end": 254.58,
+      "text": "as a class label to that text.",
+      "id": 78
+    },
+    {
+      "start": 254.58,
+      "end": 256.66,
+      "text": "On the other hand, we could go rather",
+      "id": 79
+    },
+    {
+      "start": 256.66,
+      "end": 259.1,
+      "text": "from sequence to one output.",
+      "id": 80
+    },
+    {
+      "start": 259.1,
+      "end": 263.02,
+      "text": "We could have one input and produce a sequence of output.",
+      "id": 81
+    },
+    {
+      "start": 263.02,
+      "end": 265.78,
+      "text": "So say in the image captioning world",
+      "id": 82
+    },
+    {
+      "start": 265.78,
+      "end": 269.22,
+      "text": "or the vision language world, where given an image,",
+      "id": 83
+    },
+    {
+      "start": 269.22,
+      "end": 275.66,
+      "text": "we want to train a neural network to produce text describing the content of that image that",
+      "id": 84
+    },
+    {
+      "start": 275.66,
+      "end": 279.82,
+      "text": "also falls into this paradigm of sequence modeling.",
+      "id": 85
+    },
+    {
+      "start": 279.82,
+      "end": 284.78,
+      "text": "And also we can think about many inputs going to many outputs.",
+      "id": 86
+    },
+    {
+      "start": 284.78,
+      "end": 290.78,
+      "text": "So if you want to translate text or audio from one language to another, we have to do this",
+      "id": 87
+    },
+    {
+      "start": 290.78,
+      "end": 298.78,
+      "text": "transformation of learning a function to map English text to, let's say, text in Mandarin.",
+      "id": 88
+    },
+    {
+      "start": 298.78,
+      "end": 307.02,
+      "text": "So these are some three examples of core types of modeling tasks we can bring to the sequence",
+      "id": 89
+    },
+    {
+      "start": 307.02,
+      "end": 308.7,
+      "text": "modeling world.",
+      "id": 90
+    },
+    {
+      "start": 308.7,
+      "end": 315.18,
+      "text": "So today we're going to think about these types of problems and we're going to build up intuition",
+      "id": 91
+    },
+    {
+      "start": 315.18,
+      "end": 320.7,
+      "text": "about how we can actually define different types of neural network architectures to tackle",
+      "id": 92
+    },
+    {
+      "start": 320.7,
+      "end": 327.42,
+      "text": "the unique features of these types of sequence modeling problems.",
+      "id": 93
+    },
+    {
+      "start": 327.42,
+      "end": 334.3,
+      "text": "So the first core part of this lecture is going to be around this idea of building neurons",
+      "id": 94
+    },
+    {
+      "start": 334.3,
+      "end": 340.86,
+      "text": "that have a notion of recurrence that allows them to process time resolved or sequential",
+      "id": 95
+    },
+    {
+      "start": 340.86,
+      "end": 343.6,
+      "text": "data one step at a time.",
+      "id": 96
+    },
+    {
+      "start": 343.6,
+      "end": 348.82,
+      "text": "And I think this topic is something that when I was first learning machine learning and",
+      "id": 97
+    },
+    {
+      "start": 348.82,
+      "end": 353.5,
+      "text": "deep learning was something I myself had a struggle to wrap my head around.",
+      "id": 98
+    },
+    {
+      "start": 353.5,
+      "end": 360.3,
+      "text": "And so what we've tried to do with this next block of content is really build a fundamental",
+      "id": 99
+    },
+    {
+      "start": 360.3,
+      "end": 367.02,
+      "text": "intuition about how this concept works, building from the ground up and connecting back to",
+      "id": 100
+    },
+    {
+      "start": 367.02,
+      "end": 373.74,
+      "text": "what Alexander introduced with feed-forward models to actually build up that intuition effectively.",
+      "id": 101
+    },
+    {
+      "start": 373.74,
+      "end": 377.82,
+      "text": "So to do that, let's first go back to the perceptron, right?",
+      "id": 102
+    },
+    {
+      "start": 377.82,
+      "end": 385.13,
+      "text": "building block of neural networks and go step by step to the sequence modeling world.",
+      "id": 103
+    },
+    {
+      "start": 385.13,
+      "end": 389.21,
+      "text": "When we looked at the perceptron, we had this kind of diagram, right?",
+      "id": 104
+    },
+    {
+      "start": 389.21,
+      "end": 396.09,
+      "text": "This function where we have a set of inputs, let's call them x1 through xm, and we have",
+      "id": 105
+    },
+    {
+      "start": 396.09,
+      "end": 403.65,
+      "text": "an individual perceptron unit that takes these inputs, multiplies each of them by a weight,",
+      "id": 106
+    },
+    {
+      "start": 403.65,
+      "end": 411.85,
+      "text": "non-linearity, non-linear activation function to produce an output Y-Hab.",
+      "id": 107
+    },
+    {
+      "start": 411.85,
+      "end": 418.25,
+      "text": "And so we saw that we can have multiple inputs going in to this perceptron, and you can",
+      "id": 108
+    },
+    {
+      "start": 418.25,
+      "end": 422.05,
+      "text": "think of these as inputs at a particular time.",
+      "id": 109
+    },
+    {
+      "start": 422.05,
+      "end": 428.73,
+      "text": "We also saw how we can stack these individual perceptrons together to build out a layer",
+      "id": 110
+    },
+    {
+      "start": 428.73,
+      "end": 430.73,
+      "text": "of a neural network.",
+      "id": 111
+    },
+    {
+      "start": 430.73,
+      "end": 435.81,
+      "text": "So what you're seeing here is that extension, right, where in green we have this layer of",
+      "id": 112
+    },
+    {
+      "start": 435.81,
+      "end": 444.25,
+      "text": "individual perceptrons where we can map multi-dimensional input to a multi-dimensional output.",
+      "id": 113
+    },
+    {
+      "start": 444.25,
+      "end": 451.01,
+      "text": "But so far even though we have a multi-dimensional input, does this have a notion of time steps",
+      "id": 114
+    },
+    {
+      "start": 451.01,
+      "end": 452.49,
+      "text": "or of sequence?",
+      "id": 115
+    },
+    {
+      "start": 452.49,
+      "end": 454.53,
+      "text": "No, not yet.",
+      "id": 116
+    },
+    {
+      "start": 454.53,
+      "end": 460.69,
+      "text": "And so to get there, let's take this diagram and collapse it down and simplify it a bit.",
+      "id": 117
+    },
+    {
+      "start": 460.69,
+      "end": 466.69,
+      "text": "So all I'm showing you here is that inner layer of the stack of perceptrons collapsed",
+      "id": 118
+    },
+    {
+      "start": 466.69,
+      "end": 471.37,
+      "text": "into this layer-wise block, right, shown here in green.",
+      "id": 119
+    },
+    {
+      "start": 471.37,
+      "end": 479.21,
+      "text": "And our inputs are going to be x of t, x at some time step t, and they're going to be",
+      "id": 120
+    },
+    {
+      "start": 479.21,
+      "end": 484.49,
+      "text": "fed into this layer and producing an output y hat.",
+      "id": 121
+    },
+    {
+      "start": 484.49,
+      "end": 488.89,
+      "text": "But we're still just considering the input at a particular time step.",
+      "id": 122
+    },
+    {
+      "start": 488.89,
+      "end": 492.57,
+      "text": "and we're denoting that by the marker, little t.",
+      "id": 123
+    },
+    {
+      "start": 492.57,
+      "end": 495.23,
+      "text": "This is nothing different than what we saw",
+      "id": 124
+    },
+    {
+      "start": 495.23,
+      "end": 496.57,
+      "text": "in the first lecture, right?",
+      "id": 125
+    },
+    {
+      "start": 496.57,
+      "end": 500.13,
+      "text": "We're just beginning to get this notion",
+      "id": 126
+    },
+    {
+      "start": 500.13,
+      "end": 502.21,
+      "text": "that this is processing information",
+      "id": 127
+    },
+    {
+      "start": 502.21,
+      "end": 503.57,
+      "text": "from just one time step.",
+      "id": 128
+    },
+    {
+      "start": 504.77,
+      "end": 507.51,
+      "text": "Now, let's flip this on its side.",
+      "id": 129
+    },
+    {
+      "start": 507.51,
+      "end": 510.57,
+      "text": "So we've just rotated this 90 degrees,",
+      "id": 130
+    },
+    {
+      "start": 510.57,
+      "end": 512.69,
+      "text": "in perfector going into the layer,",
+      "id": 131
+    },
+    {
+      "start": 512.69,
+      "end": 514.29,
+      "text": "getting our output vector.",
+      "id": 132
+    },
+    {
+      "start": 515.25,
+      "end": 518.85,
+      "text": "What if we had this sequential data over time?",
+      "id": 133
+    },
+    {
+      "start": 518.85,
+      "end": 521.89,
+      "text": "And let's say we took our same feet forward model",
+      "id": 134
+    },
+    {
+      "start": 521.89,
+      "end": 525.33,
+      "text": "and tried to apply it time step by time step",
+      "id": 135
+    },
+    {
+      "start": 525.33,
+      "end": 527.45,
+      "text": "over and over again.",
+      "id": 136
+    },
+    {
+      "start": 527.45,
+      "end": 530.21,
+      "text": "If we did that, we would see something like this",
+      "id": 137
+    },
+    {
+      "start": 530.21,
+      "end": 535.05,
+      "text": "where at time step zero, we take our input,",
+      "id": 138
+    },
+    {
+      "start": 535.05,
+      "end": 537.69,
+      "text": "pass it through our no network layer,",
+      "id": 139
+    },
+    {
+      "start": 537.69,
+      "end": 540.21,
+      "text": "produce an output y hat.",
+      "id": 140
+    },
+    {
+      "start": 540.21,
+      "end": 543.13,
+      "text": "We did this at time step one, do the same thing,",
+      "id": 141
+    },
+    {
+      "start": 543.13,
+      "end": 545.89,
+      "text": "pass in the input, produce an output,",
+      "id": 142
+    },
+    {
+      "start": 545.89,
+      "end": 549.21,
+      "text": "at time step two, so on.",
+      "id": 143
+    },
+    {
+      "start": 549.21,
+      "end": 552.85,
+      "text": "And even if we did this time step to time step,",
+      "id": 144
+    },
+    {
+      "start": 552.85,
+      "end": 555.65,
+      "text": "we'd be applying our neural network function",
+      "id": 145
+    },
+    {
+      "start": 555.65,
+      "end": 558.65,
+      "text": "to the inputs and predicting outputs.",
+      "id": 146
+    },
+    {
+      "start": 558.65,
+      "end": 560.69,
+      "text": "But still, they're not connected at all, right?",
+      "id": 147
+    },
+    {
+      "start": 560.69,
+      "end": 563.09,
+      "text": "These time steps are isolated.",
+      "id": 148
+    },
+    {
+      "start": 563.09,
+      "end": 566.39,
+      "text": "We're just treating x of 0 at time step 0,",
+      "id": 149
+    },
+    {
+      "start": 566.39,
+      "end": 570.61,
+      "text": "x of 1, at time step 1, so on and so forth.",
+      "id": 150
+    },
+    {
+      "start": 570.61,
+      "end": 574.13,
+      "text": "But really the core thing with sequential data",
+      "id": 151
+    },
+    {
+      "start": 574.13,
+      "end": 580.97,
+      "text": "is that there is some relation between the inputs at time step t to the inputs at time",
+      "id": 152
+    },
+    {
+      "start": 580.97,
+      "end": 585.37,
+      "text": "step t minus 1, t minus 2, and so on and so forth.",
+      "id": 153
+    },
+    {
+      "start": 585.37,
+      "end": 587.53,
+      "text": "Just like the example with the ball.",
+      "id": 154
+    },
+    {
+      "start": 587.53,
+      "end": 592.69,
+      "text": "If we treat the time steps in isolation, we have no information about the past trajectory",
+      "id": 155
+    },
+    {
+      "start": 592.69,
+      "end": 593.89,
+      "text": "of the ball.",
+      "id": 156
+    },
+    {
+      "start": 593.89,
+      "end": 599.25,
+      "text": "But if we connect the time steps together, then we can use that past history to make a better",
+      "id": 157
+    },
+    {
+      "start": 599.25,
+      "end": 600.01,
+      "text": "prediction",
+      "id": 158
+    },
+    {
+      "start": 600.01,
+      "end": 604.16,
+      "text": "about the current state or the future state.",
+      "id": 159
+    },
+    {
+      "start": 604.16,
+      "end": 610.28,
+      "text": "And so this to concretize this a little more, what that is saying is that the predicted",
+      "id": 160
+    },
+    {
+      "start": 610.28,
+      "end": 618.36,
+      "text": "output at a later time step, say T equals 2, should depend somehow on the inputs at the",
+      "id": 161
+    },
+    {
+      "start": 618.36,
+      "end": 623.88,
+      "text": "prior time steps, say x of 1, x of 0.",
+      "id": 162
+    },
+    {
+      "start": 623.88,
+      "end": 633.56,
+      "text": "And so we want a way to preserve this information and carry it forward to make predictions at later time steps.",
+      "id": 163
+    },
+    {
+      "start": 633.56,
+      "end": 645.48,
+      "text": "And the idea behind doing this is to link and relate the network's computations at the particular time step to the past history of the prior time steps.",
+      "id": 164
+    },
+    {
+      "start": 645.48,
+      "end": 649.56,
+      "text": "So let's try by doing exactly that.",
+      "id": 165
+    },
+    {
+      "start": 649.56,
+      "end": 658.06,
+      "text": "What this diagram is now showing is by connecting these outputs and the states at these past",
+      "id": 166
+    },
+    {
+      "start": 658.06,
+      "end": 664.76,
+      "text": "time steps, we're linking the computation of the network across time.",
+      "id": 167
+    },
+    {
+      "start": 664.76,
+      "end": 671.24,
+      "text": "Specifically we can introduce this notion of an internal state of the network.",
+      "id": 168
+    },
+    {
+      "start": 671.24,
+      "end": 678.3199999999999,
+      "text": "And we're going to denote this using the variable H, where this is going to be actually maintained",
+      "id": 169
+    },
+    {
+      "start": 678.3199999999999,
+      "end": 683.76,
+      "text": "by the neural network itself and pass on time step to time step.",
+      "id": 170
+    },
+    {
+      "start": 683.76,
+      "end": 690.04,
+      "text": "So we get this idea of sort of memory of this internal state of the neural network that's",
+      "id": 171
+    },
+    {
+      "start": 690.04,
+      "end": 698.96,
+      "text": "going to depend not only on the past computations but also the input at that time step.",
+      "id": 172
+    },
+    {
+      "start": 698.96,
+      "end": 705.86,
+      "text": "What this means very concretely is when the network makes a prediction at time step",
+      "id": 173
+    },
+    {
+      "start": 705.86,
+      "end": 712.86,
+      "text": "that's going to be a function of not only the input at that time step,",
+      "id": 174
+    },
+    {
+      "start": 712.86,
+      "end": 719.86,
+      "text": "but also the past memory or the state that's captured in this variable of state,",
+      "id": 175
+    },
+    {
+      "start": 719.86,
+      "end": 723.86,
+      "text": "H of T minus 1. So that past memory.",
+      "id": 176
+    },
+    {
+      "start": 723.86,
+      "end": 726.86,
+      "text": "And you can see that concretely in this example in the middle,",
+      "id": 177
+    },
+    {
+      "start": 726.86,
+      "end": 731.86,
+      "text": "where prediction at time step 1 depends on input at time step 1,",
+      "id": 178
+    },
+    {
+      "start": 731.86,
+      "end": 736.42,
+      "text": "step one, as well as the past state.",
+      "id": 179
+    },
+    {
+      "start": 736.42,
+      "end": 741.74,
+      "text": "And so this is the score idea of what we think of as recurrence.",
+      "id": 180
+    },
+    {
+      "start": 741.74,
+      "end": 745.94,
+      "text": "Meaning simply, how can we link in just one network, right?",
+      "id": 181
+    },
+    {
+      "start": 745.94,
+      "end": 751.02,
+      "text": "The network is not, you know, we're not creating new networks",
+      "id": 182
+    },
+    {
+      "start": 751.02,
+      "end": 751.8199999999999,
+      "text": "per time set.",
+      "id": 183
+    },
+    {
+      "start": 751.8199999999999,
+      "end": 753.62,
+      "text": "It's still one network.",
+      "id": 184
+    },
+    {
+      "start": 753.62,
+      "end": 757.62,
+      "text": "But we're connecting the information from the past computations",
+      "id": 185
+    },
+    {
+      "start": 757.62,
+      "end": 761.54,
+      "text": "to the predictions at a particular time set.",
+      "id": 186
+    },
+    {
+      "start": 761.54,
+      "end": 764.1800000000001,
+      "text": "And so because this output, this prediction,",
+      "id": 187
+    },
+    {
+      "start": 764.1800000000001,
+      "end": 768.5,
+      "text": "is a function of both the current input and the past memory,",
+      "id": 188
+    },
+    {
+      "start": 768.5,
+      "end": 773.26,
+      "text": "we describe these neural networks via this recurrence relation.",
+      "id": 189
+    },
+    {
+      "start": 773.26,
+      "end": 776.66,
+      "text": "And so you can show this on the left here",
+      "id": 190
+    },
+    {
+      "start": 776.66,
+      "end": 779.94,
+      "text": "where we have this notion of a cycle, this looping,",
+      "id": 191
+    },
+    {
+      "start": 779.94,
+      "end": 783.44,
+      "text": "which shows that h of t is being recurrently",
+      "id": 192
+    },
+    {
+      "start": 783.44,
+      "end": 787.06,
+      "text": "provided to the network at these different time steps",
+      "id": 193
+    },
+    {
+      "start": 787.06,
+      "end": 789.06,
+      "text": "to make the predictions.",
+      "id": 194
+    },
+    {
+      "start": 789.06,
+      "end": 792.0,
+      "text": "And on the right, we just see that kind of rolled out",
+      "id": 195
+    },
+    {
+      "start": 792.0,
+      "end": 793.22,
+      "text": "over these time steps.",
+      "id": 196
+    },
+    {
+      "start": 793.22,
+      "end": 797.36,
+      "text": "It's in a way to me, it's a clearer visualization",
+      "id": 197
+    },
+    {
+      "start": 797.36,
+      "end": 799.12,
+      "text": "of what is actually going on.",
+      "id": 198
+    },
+    {
+      "start": 800.46,
+      "end": 804.76,
+      "text": "And so this core idea of maintaining an internal state,",
+      "id": 199
+    },
+    {
+      "start": 804.76,
+      "end": 808.7,
+      "text": "HFT, updating it per individual time steps",
+      "id": 200
+    },
+    {
+      "start": 808.7,
+      "end": 812.38,
+      "text": "and using that to inform the predicted output",
+      "id": 201
+    },
+    {
+      "start": 812.38,
+      "end": 817.1,
+      "text": "is the core intuitive idea behind a very large class",
+      "id": 202
+    },
+    {
+      "start": 817.1,
+      "end": 822.1,
+      "text": "of neural networks called recurrent neural networks or RNNs.",
+      "id": 203
+    },
+    {
+      "start": 822.86,
+      "end": 825.14,
+      "text": "And this is really the key to understanding",
+      "id": 204
+    },
+    {
+      "start": 825.14,
+      "end": 827.8199999999999,
+      "text": "these frameworks of RNNs.",
+      "id": 205
+    },
+    {
+      "start": 827.8199999999999,
+      "end": 829.94,
+      "text": "So we're going to continue to build up",
+      "id": 206
+    },
+    {
+      "start": 829.94,
+      "end": 833.54,
+      "text": "from this foundation to gain more and more understanding",
+      "id": 207
+    },
+    {
+      "start": 833.54,
+      "end": 836.34,
+      "text": "about the behavior of these neural networks.",
+      "id": 208
+    },
+    {
+      "start": 837.42,
+      "end": 840.22,
+      "text": "So let's formalize this a bit more.",
+      "id": 209
+    },
+    {
+      "start": 840.22,
+      "end": 843.74,
+      "text": "Right, as we saw, this core idea is to maintain",
+      "id": 210
+    },
+    {
+      "start": 843.74,
+      "end": 850.46,
+      "text": "internal state, updated at each time set that this as the sequence is processed dynamically.",
+      "id": 211
+    },
+    {
+      "start": 851.26,
+      "end": 857.74,
+      "text": "And so the way we do this is via this recurrence relation, which defines how that update actually",
+      "id": 212
+    },
+    {
+      "start": 857.74,
+      "end": 866.94,
+      "text": "occurs per unit time. Making this more concrete, this notion of this cell state, H of T,",
+      "id": 213
+    },
+    {
+      "start": 866.94,
+      "end": 873.94,
+      "text": "is going to be a function parameterized by a set of weights, just like with Fienette Forward Networks,",
+      "id": 214
+    },
+    {
+      "start": 873.94,
+      "end": 878.94,
+      "text": "just like with any network we're going to see throughout this course, right?",
+      "id": 215
+    },
+    {
+      "start": 878.94,
+      "end": 883.94,
+      "text": "We always define these updates according to these learnable sets of weights,",
+      "id": 216
+    },
+    {
+      "start": 883.94,
+      "end": 891.94,
+      "text": "and that state update depends on the current input and the prior state from the prior time step.",
+      "id": 217
+    },
+    {
+      "start": 891.94,
+      "end": 893.44,
+      "text": "Right?",
+      "id": 218
+    },
+    {
+      "start": 893.44,
+      "end": 898.9,
+      "text": "Cell state is a function defined by a set of weights w that",
+      "id": 219
+    },
+    {
+      "start": 898.9,
+      "end": 903.3399999999999,
+      "text": "depends on the input and the old state.",
+      "id": 220
+    },
+    {
+      "start": 903.3399999999999,
+      "end": 907.02,
+      "text": "And with an RNN type model, we use that same function",
+      "id": 221
+    },
+    {
+      "start": 907.02,
+      "end": 910.26,
+      "text": "in set of parameters at every time step.",
+      "id": 222
+    },
+    {
+      "start": 910.26,
+      "end": 913.14,
+      "text": "And when we actually train the model, as we'll see,",
+      "id": 223
+    },
+    {
+      "start": 913.14,
+      "end": 918.1800000000001,
+      "text": "those weights get updated per training step.",
+      "id": 224
+    },
+    {
+      "start": 918.1800000000001,
+      "end": 921.78,
+      "text": "So another way to get more intuition from this",
+      "id": 225
+    },
+    {
+      "start": 921.78,
+      "end": 925.22,
+      "text": "is also to look at an example in pseudocode.",
+      "id": 226
+    },
+    {
+      "start": 925.22,
+      "end": 927.8199999999999,
+      "text": "So let's go through that through the algorithm",
+      "id": 227
+    },
+    {
+      "start": 927.8199999999999,
+      "end": 931.14,
+      "text": "for the state update of these state-based models",
+      "id": 228
+    },
+    {
+      "start": 931.14,
+      "end": 934.8199999999999,
+      "text": "and get a better sense of how these networks work.",
+      "id": 229
+    },
+    {
+      "start": 934.8199999999999,
+      "end": 938.06,
+      "text": "So we start by initializing the state to something,",
+      "id": 230
+    },
+    {
+      "start": 938.06,
+      "end": 942.02,
+      "text": "let's say, 0, 0, 0.",
+      "id": 231
+    },
+    {
+      "start": 942.02,
+      "end": 945.86,
+      "text": "And our prediction here is going to look at text.",
+      "id": 232
+    },
+    {
+      "start": 945.86,
+      "end": 949.74,
+      "text": "Text data, we break it up into a sequence of words.",
+      "id": 233
+    },
+    {
+      "start": 949.74,
+      "end": 955.1,
+      "text": "And our task is to predict the next word in the sentence.",
+      "id": 234
+    },
+    {
+      "start": 955.1,
+      "end": 959.86,
+      "text": "So we take our input sentence and we take our initialized RNN",
+      "id": 235
+    },
+    {
+      "start": 959.86,
+      "end": 961.94,
+      "text": "with its initialized state.",
+      "id": 236
+    },
+    {
+      "start": 961.94,
+      "end": 965.98,
+      "text": "And then we iterate time step by time step word by word",
+      "id": 237
+    },
+    {
+      "start": 965.98,
+      "end": 970.54,
+      "text": "in that sentence and call a function of the RNN",
+      "id": 238
+    },
+    {
+      "start": 970.54,
+      "end": 975.3,
+      "text": "to generate a prediction and update the hidden state per word,",
+      "id": 239
+    },
+    {
+      "start": 975.3,
+      "end": 977.3,
+      "text": "right, per time step.",
+      "id": 240
+    },
+    {
+      "start": 977.3,
+      "end": 979.98,
+      "text": "And at the end, once we've stepped through all the words",
+      "id": 241
+    },
+    {
+      "start": 979.98,
+      "end": 983.5799999999999,
+      "text": "so far in the sentence, we can get a prediction for the next",
+      "id": 242
+    },
+    {
+      "start": 983.5799999999999,
+      "end": 988.06,
+      "text": "word by taking the output of the RNN at that last time step.",
+      "id": 243
+    },
+    {
+      "start": 990.06,
+      "end": 993.74,
+      "text": "So this is really a core idea behind this idea",
+      "id": 244
+    },
+    {
+      "start": 993.74,
+      "end": 995.74,
+      "text": "of next word prediction.",
+      "id": 245
+    },
+    {
+      "start": 995.74,
+      "end": 1000.98,
+      "text": "One way to approach it is by going step by step, word by word",
+      "id": 246
+    },
+    {
+      "start": 1000.98,
+      "end": 1003.4200000000001,
+      "text": "through a sentence and predicting the,",
+      "id": 247
+    },
+    {
+      "start": 1003.4200000000001,
+      "end": 1008.4200000000001,
+      "text": "and learning this relation kind of recursively over time.",
+      "id": 248
+    },
+    {
+      "start": 1009.6600000000001,
+      "end": 1013.22,
+      "text": "So as we kind of saw with an RNN,",
+      "id": 249
+    },
+    {
+      "start": 1013.22,
+      "end": 1017.74,
+      "text": "we need to update both the state and predict an output.",
+      "id": 250
+    },
+    {
+      "start": 1017.74,
+      "end": 1022.74,
+      "text": "So to take this to the last level of concreteness",
+      "id": 251
+    },
+    {
+      "start": 1023.06,
+      "end": 1026.32,
+      "text": "and bring a little bit math into this,",
+      "id": 252
+    },
+    {
+      "start": 1026.32,
+      "end": 1029.9,
+      "text": "our relationship here is we're given this input vector.",
+      "id": 253
+    },
+    {
+      "start": 1029.9,
+      "end": 1032.38,
+      "text": "We first update the hidden state",
+      "id": 254
+    },
+    {
+      "start": 1032.38,
+      "end": 1037.06,
+      "text": "And we're going to apply a function to do this.",
+      "id": 255
+    },
+    {
+      "start": 1037.06,
+      "end": 1040.9,
+      "text": "To break this down, it maybe looks a little intimidating at first",
+      "id": 256
+    },
+    {
+      "start": 1040.9,
+      "end": 1044.1,
+      "text": "with multiple variables here, multiple weights.",
+      "id": 257
+    },
+    {
+      "start": 1044.1,
+      "end": 1048.18,
+      "text": "But it's really very similar to the neural net operations",
+      "id": 258
+    },
+    {
+      "start": 1048.18,
+      "end": 1051.74,
+      "text": "that we saw in lecture one that Alexander introduced.",
+      "id": 259
+    },
+    {
+      "start": 1051.74,
+      "end": 1054.62,
+      "text": "Just like before, we have multiplications",
+      "id": 260
+    },
+    {
+      "start": 1054.62,
+      "end": 1056.22,
+      "text": "by weight matrices, right?",
+      "id": 261
+    },
+    {
+      "start": 1056.22,
+      "end": 1060.62,
+      "text": "Sets of weights that are applied to both the past hidden state",
+      "id": 262
+    },
+    {
+      "start": 1060.62,
+      "end": 1064.26,
+      "text": "and the input, and we take those something together",
+      "id": 263
+    },
+    {
+      "start": 1064.26,
+      "end": 1067.02,
+      "text": "and apply a non-linear activation function, right?",
+      "id": 264
+    },
+    {
+      "start": 1067.02,
+      "end": 1071.02,
+      "text": "That's the tan H hyperbolic tangent function here.",
+      "id": 265
+    },
+    {
+      "start": 1071.02,
+      "end": 1074.42,
+      "text": "And that gives our hidden state update.",
+      "id": 266
+    },
+    {
+      "start": 1074.42,
+      "end": 1076.82,
+      "text": "And to do the output prediction,",
+      "id": 267
+    },
+    {
+      "start": 1076.82,
+      "end": 1081.66,
+      "text": "we take another weight matrix and transform the hidden state",
+      "id": 268
+    },
+    {
+      "start": 1081.66,
+      "end": 1083.74,
+      "text": "and predict the output.",
+      "id": 269
+    },
+    {
+      "start": 1083.74,
+      "end": 1087.1,
+      "text": "And importantly, right, these three sets of weight matrices",
+      "id": 270
+    },
+    {
+      "start": 1087.1,
+      "end": 1088.78,
+      "text": "are learned.",
+      "id": 271
+    },
+    {
+      "start": 1088.78,
+      "end": 1090.66,
+      "text": "We start them, we initialize them,",
+      "id": 272
+    },
+    {
+      "start": 1090.66,
+      "end": 1093.5,
+      "text": "and over the course of the training of the RNN,",
+      "id": 273
+    },
+    {
+      "start": 1093.5,
+      "end": 1096.9,
+      "text": "we update the parameters of these weight matrices",
+      "id": 274
+    },
+    {
+      "start": 1096.9,
+      "end": 1100.34,
+      "text": "through gradient descent and the similar algorithms",
+      "id": 275
+    },
+    {
+      "start": 1100.34,
+      "end": 1102.42,
+      "text": "of training the neural network",
+      "id": 276
+    },
+    {
+      "start": 1102.42,
+      "end": 1104.66,
+      "text": "that we saw in lecture one.",
+      "id": 277
+    },
+    {
+      "start": 1106.02,
+      "end": 1108.58,
+      "text": "So putting this all together, right?",
+      "id": 278
+    },
+    {
+      "start": 1108.58,
+      "end": 1111.58,
+      "text": "How does this come together?",
+      "id": 279
+    },
+    {
+      "start": 1111.58,
+      "end": 1116.26,
+      "text": "We have our RNN with this recurrent loop-like relation,",
+      "id": 280
+    },
+    {
+      "start": 1116.26,
+      "end": 1124.26,
+      "text": "And we saw that we can unroll this step by step across these time steps and visualize the RNN that way.",
+      "id": 281
+    },
+    {
+      "start": 1124.26,
+      "end": 1136.26,
+      "text": "When we do that, we break it down from time step zero to time step one, so on and so forth, all the way up to time step T, whatever the length of the input is.",
+      "id": 282
+    },
+    {
+      "start": 1136.26,
+      "end": 1144.26,
+      "text": "And across all these steps, we're making these predictions at these individual time steps.",
+      "id": 283
+    },
+    {
+      "start": 1144.26,
+      "end": 1152.42,
+      "text": "We can make the weight matrices explicit, showing the weight matrix that maps input to the hidden state,",
+      "id": 284
+    },
+    {
+      "start": 1152.42,
+      "end": 1157.06,
+      "text": "the hidden state weight matrix as well as the output.",
+      "id": 285
+    },
+    {
+      "start": 1157.06,
+      "end": 1164.29,
+      "text": "And we reuse the same matrices that every time step.",
+      "id": 286
+    },
+    {
+      "start": 1164.29,
+      "end": 1169.97,
+      "text": "When we make a forward pass, a call through the model to actually generate the prediction,",
+      "id": 287
+    },
+    {
+      "start": 1169.97,
+      "end": 1175.77,
+      "text": "because we're generating predictions at each time step, that means we can compute a loss",
+      "id": 288
+    },
+    {
+      "start": 1175.77,
+      "end": 1178.13,
+      "text": "at each individual time set.",
+      "id": 289
+    },
+    {
+      "start": 1178.13,
+      "end": 1181.69,
+      "text": "And we can sum them together to get an overall loss",
+      "id": 290
+    },
+    {
+      "start": 1181.69,
+      "end": 1184.77,
+      "text": "that gives us the whole predictive loss",
+      "id": 291
+    },
+    {
+      "start": 1184.77,
+      "end": 1187.85,
+      "text": "over the entire sequence.",
+      "id": 292
+    },
+    {
+      "start": 1187.85,
+      "end": 1190.4099999999999,
+      "text": "So that gives us a broken down way",
+      "id": 293
+    },
+    {
+      "start": 1190.4099999999999,
+      "end": 1194.45,
+      "text": "of how this RNN forward pass, a call to the model,",
+      "id": 294
+    },
+    {
+      "start": 1194.45,
+      "end": 1196.81,
+      "text": "actually occurs in practice.",
+      "id": 295
+    },
+    {
+      "start": 1198.41,
+      "end": 1202.41,
+      "text": "We can go through and look at how we could implement this",
+      "id": 296
+    },
+    {
+      "start": 1202.41,
+      "end": 1206.41,
+      "text": "from scratch in a framework like TensorFlow,",
+      "id": 297
+    },
+    {
+      "start": 1206.41,
+      "end": 1209.41,
+      "text": "where we begin by initializing these weight matrices",
+      "id": 298
+    },
+    {
+      "start": 1209.41,
+      "end": 1212.41,
+      "text": "initializing a class for the RNN,",
+      "id": 299
+    },
+    {
+      "start": 1212.41,
+      "end": 1215.41,
+      "text": "and defining this forward pass computation",
+      "id": 300
+    },
+    {
+      "start": 1215.41,
+      "end": 1218.41,
+      "text": "and what we call the call function,",
+      "id": 301
+    },
+    {
+      "start": 1218.41,
+      "end": 1221.41,
+      "text": "which is effectively how you call the neural network.",
+      "id": 302
+    },
+    {
+      "start": 1221.41,
+      "end": 1224.41,
+      "text": "How do you make a forward pass going from input",
+      "id": 303
+    },
+    {
+      "start": 1224.41,
+      "end": 1232.17,
+      "text": "to prediction and using that prediction to get during training to compute a loss and update the loss.",
+      "id": 304
+    },
+    {
+      "start": 1232.17,
+      "end": 1239.01,
+      "text": "And so, again, to reiterate this computation, right, we update the hidden state,",
+      "id": 305
+    },
+    {
+      "start": 1239.01,
+      "end": 1243.25,
+      "text": "we compute the output and return both values back.",
+      "id": 306
+    },
+    {
+      "start": 1243.25,
+      "end": 1249.25,
+      "text": "In practice though, right, very rarely will you actually, or maybe almost never,",
+      "id": 307
+    },
+    {
+      "start": 1249.25,
+      "end": 1253.69,
+      "text": "build up a RNN unit from scratch.",
+      "id": 308
+    },
+    {
+      "start": 1253.69,
+      "end": 1259.33,
+      "text": "In fact, in both TensorFlow and PyTorch and common ML frameworks,",
+      "id": 309
+    },
+    {
+      "start": 1259.33,
+      "end": 1265.53,
+      "text": "there are existing implementations built in, where you can just use these RNN",
+      "id": 310
+    },
+    {
+      "start": 1265.53,
+      "end": 1269.01,
+      "text": "layers in practice in defining your neural network.",
+      "id": 311
+    },
+    {
+      "start": 1269.01,
+      "end": 1276.53,
+      "text": "And you'll get hands-on experience doing this in software lab 1, starting today.",
+      "id": 312
+    },
+    {
+      "start": 1276.53,
+      "end": 1280.23,
+      "text": "Okay, so to recap and put these elements together,",
+      "id": 313
+    },
+    {
+      "start": 1280.23,
+      "end": 1283.31,
+      "text": "we saw that with RNNs, we can,",
+      "id": 314
+    },
+    {
+      "start": 1283.31,
+      "end": 1285.03,
+      "text": "and sequence modeling in general,",
+      "id": 315
+    },
+    {
+      "start": 1285.03,
+      "end": 1287.83,
+      "text": "we have this idea of different types of tasks",
+      "id": 316
+    },
+    {
+      "start": 1287.83,
+      "end": 1290.51,
+      "text": "or problem formulations we can tackle.",
+      "id": 317
+    },
+    {
+      "start": 1290.51,
+      "end": 1292.75,
+      "text": "We can do classification tasks,",
+      "id": 318
+    },
+    {
+      "start": 1292.75,
+      "end": 1296.55,
+      "text": "we can do captioning tasks or text generation tasks,",
+      "id": 319
+    },
+    {
+      "start": 1296.55,
+      "end": 1300.15,
+      "text": "we can do sequence to sequence translation tasks.",
+      "id": 320
+    },
+    {
+      "start": 1300.15,
+      "end": 1304.63,
+      "text": "And that is really with a lot of these generative applications,",
+      "id": 321
+    },
+    {
+      "start": 1304.63,
+      "end": 1310.83,
+      "text": "like in language modeling, machine translation, natural language processing, many of these",
+      "id": 322
+    },
+    {
+      "start": 1310.83,
+      "end": 1315.51,
+      "text": "can be formulated according to these many to many problems.",
+      "id": 323
+    },
+    {
+      "start": 1315.51,
+      "end": 1319.71,
+      "text": "And you'll get hands-on experience with this.",
+      "id": 324
+    },
+    {
+      "start": 1319.71,
+      "end": 1328.59,
+      "text": "So to make this more concrete in terms of what this actually means in terms of a real",
+      "id": 325
+    },
+    {
+      "start": 1328.59,
+      "end": 1332.3899999999999,
+      "text": "use case or problem in the real world.",
+      "id": 326
+    },
+    {
+      "start": 1332.3899999999999,
+      "end": 1337.27,
+      "text": "I want to focus on a very, very pertinent sequence modeling",
+      "id": 327
+    },
+    {
+      "start": 1337.27,
+      "end": 1341.95,
+      "text": "problem, which is the basis for basically all language models,",
+      "id": 328
+    },
+    {
+      "start": 1341.95,
+      "end": 1345.55,
+      "text": "large language models, small language models that we see today,",
+      "id": 329
+    },
+    {
+      "start": 1345.55,
+      "end": 1349.27,
+      "text": "which is this notion of next word prediction.",
+      "id": 330
+    },
+    {
+      "start": 1349.27,
+      "end": 1351.55,
+      "text": "And we're going to use next word prediction",
+      "id": 331
+    },
+    {
+      "start": 1351.55,
+      "end": 1356.91,
+      "text": "to think about and work through core design criteria",
+      "id": 332
+    },
+    {
+      "start": 1356.91,
+      "end": 1360.43,
+      "text": "that we want to build out in any sort of neural network",
+      "id": 333
+    },
+    {
+      "start": 1360.43,
+      "end": 1363.47,
+      "text": "that we build for a sequence modeling problem.",
+      "id": 334
+    },
+    {
+      "start": 1363.47,
+      "end": 1365.79,
+      "text": "And this is a really important task,",
+      "id": 335
+    },
+    {
+      "start": 1365.79,
+      "end": 1369.19,
+      "text": "not only because of the relevance of next word prediction,",
+      "id": 336
+    },
+    {
+      "start": 1369.19,
+      "end": 1372.43,
+      "text": "but in general in thinking about your own deep learning",
+      "id": 337
+    },
+    {
+      "start": 1372.43,
+      "end": 1376.99,
+      "text": "applications or work or research that may be relevant to you,",
+      "id": 338
+    },
+    {
+      "start": 1376.99,
+      "end": 1380.51,
+      "text": "relating those problems back to design criteria",
+      "id": 339
+    },
+    {
+      "start": 1380.51,
+      "end": 1382.91,
+      "text": "in terms of the architectures you choose",
+      "id": 340
+    },
+    {
+      "start": 1382.91,
+      "end": 1385.71,
+      "text": "and the approach you actually take.",
+      "id": 341
+    },
+    {
+      "start": 1385.71,
+      "end": 1392.91,
+      "text": "So, let's say we have this sentence, this morning I took my cat for a walk.",
+      "id": 342
+    },
+    {
+      "start": 1392.91,
+      "end": 1401.03,
+      "text": "The task of next word prediction is given some set of words, let's say this morning I took",
+      "id": 343
+    },
+    {
+      "start": 1401.03,
+      "end": 1406.71,
+      "text": "my cat for a, predict the next word in the sentence.",
+      "id": 344
+    },
+    {
+      "start": 1406.71,
+      "end": 1411.19,
+      "text": "And so to do this, the very first thing we have to consider, whether we're using an",
+      "id": 345
+    },
+    {
+      "start": 1411.19,
+      "end": 1413.79,
+      "text": "and RNN or any other sort of neural network",
+      "id": 346
+    },
+    {
+      "start": 1413.79,
+      "end": 1417.43,
+      "text": "is how are we actually going to represent this data,",
+      "id": 347
+    },
+    {
+      "start": 1417.43,
+      "end": 1419.53,
+      "text": "language data, to the model.",
+      "id": 348
+    },
+    {
+      "start": 1420.95,
+      "end": 1424.87,
+      "text": "The way that we can formalize this is,",
+      "id": 349
+    },
+    {
+      "start": 1424.87,
+      "end": 1428.79,
+      "text": "let's say we have a model and we input the word deep",
+      "id": 350
+    },
+    {
+      "start": 1428.79,
+      "end": 1430.91,
+      "text": "and we want to use the neural network",
+      "id": 351
+    },
+    {
+      "start": 1430.91,
+      "end": 1434.1100000000001,
+      "text": "to predict the next word learning.",
+      "id": 352
+    },
+    {
+      "start": 1434.1100000000001,
+      "end": 1436.03,
+      "text": "What could be the issue here?",
+      "id": 353
+    },
+    {
+      "start": 1436.03,
+      "end": 1439.51,
+      "text": "If we're just trying to pass in words to the model,",
+      "id": 354
+    },
+    {
+      "start": 1439.51,
+      "end": 1447.19,
+      "text": "Will this actually work if not how can we make this work in terms of the data itself?",
+      "id": 355
+    },
+    {
+      "start": 1447.19,
+      "end": 1450.19,
+      "text": "Yes.",
+      "id": 356
+    },
+    {
+      "start": 1450.19,
+      "end": 1451.51,
+      "text": "You have to tokenize the words.",
+      "id": 357
+    },
+    {
+      "start": 1451.51,
+      "end": 1466.66,
+      "text": "Can you say more about what that means?",
+      "id": 358
+    },
+    {
+      "start": 1466.66,
+      "end": 1467.66,
+      "text": "Right.",
+      "id": 359
+    },
+    {
+      "start": 1467.66,
+      "end": 1472.42,
+      "text": "So it gets closer to this idea of can we embed something about the concept of the word",
+      "id": 360
+    },
+    {
+      "start": 1472.42,
+      "end": 1475.98,
+      "text": "to represent the model?",
+      "id": 361
+    },
+    {
+      "start": 1475.98,
+      "end": 1482.06,
+      "text": "It actually is a step earlier than that, which is we can't straight pass in, you know,",
+      "id": 362
+    },
+    {
+      "start": 1482.06,
+      "end": 1487.5,
+      "text": "characters to the model, they have to be represented numerically somehow, right?",
+      "id": 363
+    },
+    {
+      "start": 1487.5,
+      "end": 1494.46,
+      "text": "Because ultimately all these neural networks are, they're operating on numerical data.",
+      "id": 364
+    },
+    {
+      "start": 1494.46,
+      "end": 1499.02,
+      "text": "And so tokenization is one way that we can think about doing this.",
+      "id": 365
+    },
+    {
+      "start": 1499.02,
+      "end": 1508.38,
+      "text": "But regardless of what strategy we use, we have to process the language data to a numerical input.",
+      "id": 366
+    },
+    {
+      "start": 1508.38,
+      "end": 1512.58,
+      "text": "where we have a vector or an array or an index of numbers",
+      "id": 367
+    },
+    {
+      "start": 1512.58,
+      "end": 1515.1399999999999,
+      "text": "to the model that represents, let's say,",
+      "id": 368
+    },
+    {
+      "start": 1515.1399999999999,
+      "end": 1520.1399999999999,
+      "text": "the sequence of words and get a prediction of something",
+      "id": 369
+    },
+    {
+      "start": 1520.54,
+      "end": 1524.94,
+      "text": "that represents the next word but is in numerical form.",
+      "id": 370
+    },
+    {
+      "start": 1524.94,
+      "end": 1527.74,
+      "text": "And then we can map this back to the language space",
+      "id": 371
+    },
+    {
+      "start": 1527.74,
+      "end": 1530.8600000000001,
+      "text": "to actually get what the word prediction was.",
+      "id": 372
+    },
+    {
+      "start": 1530.8600000000001,
+      "end": 1534.7,
+      "text": "And so to formalize this, how do we actually do this?",
+      "id": 373
+    },
+    {
+      "start": 1534.7,
+      "end": 1538.02,
+      "text": "This gets to this idea that you raise in your answer",
+      "id": 374
+    },
+    {
+      "start": 1538.02,
+      "end": 1547.02,
+      "text": "transforming the words into some numerical representation and tokenization gives us one strategy to do that.",
+      "id": 375
+    },
+    {
+      "start": 1547.02,
+      "end": 1553.02,
+      "text": "So this is a concept of, in general, of an embedding or an encoding.",
+      "id": 376
+    },
+    {
+      "start": 1553.02,
+      "end": 1560.02,
+      "text": "And ideally we want this embedding to represent something about the semantic content of the words, right?",
+      "id": 377
+    },
+    {
+      "start": 1560.02,
+      "end": 1567.46,
+      "text": "right? Because language has this very rich structure, so something like learning and education",
+      "id": 378
+    },
+    {
+      "start": 1567.46,
+      "end": 1574.34,
+      "text": "maybe are mapped closer together than learning and tennis, right? So the approach for doing this",
+      "id": 379
+    },
+    {
+      "start": 1574.34,
+      "end": 1581.06,
+      "text": "is to consider the complete vocabulary or the corpus of words that are present in our language.",
+      "id": 380
+    },
+    {
+      "start": 1581.78,
+      "end": 1589.94,
+      "text": "And first start by mapping these words to individual unique indices. Then where do we go from",
+      "id": 381
+    },
+    {
+      "start": 1589.94,
+      "end": 1597.82,
+      "text": "there. A naive approach would be to just map an index to a fixed length vector where you",
+      "id": 382
+    },
+    {
+      "start": 1597.82,
+      "end": 1606.54,
+      "text": "have a single one-hot bit flip where that represents the identity of the word based on the index",
+      "id": 383
+    },
+    {
+      "start": 1606.54,
+      "end": 1613.46,
+      "text": "that's a one versus zero elsewhere. But this is not very informative, right? Because of",
+      "id": 384
+    },
+    {
+      "start": 1613.46,
+      "end": 1618.26,
+      "text": "the fact that we're not capturing anything about the semantics and this rich structure",
+      "id": 385
+    },
+    {
+      "start": 1618.26,
+      "end": 1620.5,
+      "text": "that's present in language.",
+      "id": 386
+    },
+    {
+      "start": 1620.5,
+      "end": 1623.94,
+      "text": "And so a more intelligent way to go about this",
+      "id": 387
+    },
+    {
+      "start": 1623.94,
+      "end": 1626.94,
+      "text": "is to leverage some sort of embedding scheme",
+      "id": 388
+    },
+    {
+      "start": 1626.94,
+      "end": 1631.78,
+      "text": "where there is capture of these semantic relationships.",
+      "id": 389
+    },
+    {
+      "start": 1631.78,
+      "end": 1635.66,
+      "text": "And so this is in general learning and embedding",
+      "id": 390
+    },
+    {
+      "start": 1635.66,
+      "end": 1640.18,
+      "text": "or learning a tokenization strategy to capture this.",
+      "id": 391
+    },
+    {
+      "start": 1640.18,
+      "end": 1644.3,
+      "text": "And in language models today, there are very popular schemes",
+      "id": 392
+    },
+    {
+      "start": 1644.3,
+      "end": 1649.54,
+      "text": "that basically effectively map chunks of words",
+      "id": 393
+    },
+    {
+      "start": 1649.54,
+      "end": 1653.22,
+      "text": "and chunks of language that occur frequently together",
+      "id": 394
+    },
+    {
+      "start": 1653.22,
+      "end": 1656.62,
+      "text": "to certain parts of this embedding space",
+      "id": 395
+    },
+    {
+      "start": 1656.62,
+      "end": 1659.02,
+      "text": "so that we can capture those relationships",
+      "id": 396
+    },
+    {
+      "start": 1659.02,
+      "end": 1662.38,
+      "text": "in terms of co-occurrence of particular characters",
+      "id": 397
+    },
+    {
+      "start": 1662.38,
+      "end": 1666.8600000000001,
+      "text": "or words or chunks in the vocabulary.",
+      "id": 398
+    },
+    {
+      "start": 1666.8600000000001,
+      "end": 1668.94,
+      "text": "So this is really the core idea.",
+      "id": 399
+    },
+    {
+      "start": 1668.94,
+      "end": 1671.54,
+      "text": "But the fundamental point that I want to convey",
+      "id": 400
+    },
+    {
+      "start": 1671.54,
+      "end": 1674.8600000000001,
+      "text": "is that in all cases, in all examples",
+      "id": 401
+    },
+    {
+      "start": 1674.8600000000001,
+      "end": 1677.06,
+      "text": "that we see throughout this class,",
+      "id": 402
+    },
+    {
+      "start": 1677.06,
+      "end": 1680.38,
+      "text": "neural networks operate on numerical inputs.",
+      "id": 403
+    },
+    {
+      "start": 1680.38,
+      "end": 1682.62,
+      "text": "So regardless of your data modality,",
+      "id": 404
+    },
+    {
+      "start": 1682.62,
+      "end": 1685.7,
+      "text": "you have to think about a way to map that data",
+      "id": 405
+    },
+    {
+      "start": 1685.7,
+      "end": 1688.74,
+      "text": "into numerical input to be processed",
+      "id": 406
+    },
+    {
+      "start": 1688.74,
+      "end": 1693.74,
+      "text": "and represented in a way that the neural network can handle.",
+      "id": 407
+    },
+    {
+      "start": 1694.82,
+      "end": 1698.1,
+      "text": "Okay, so that's design criteria number one, right?",
+      "id": 408
+    },
+    {
+      "start": 1698.1,
+      "end": 1701.1,
+      "text": "We need a way to map to numerical inputs,",
+      "id": 409
+    },
+    {
+      "start": 1701.1,
+      "end": 1704.62,
+      "text": "And ideally, we want this mapping to capture something",
+      "id": 410
+    },
+    {
+      "start": 1704.62,
+      "end": 1707.94,
+      "text": "about the structure of language.",
+      "id": 411
+    },
+    {
+      "start": 1707.94,
+      "end": 1711.8200000000002,
+      "text": "The second sort of design criteria that's critical for sequence",
+      "id": 412
+    },
+    {
+      "start": 1711.8200000000002,
+      "end": 1714.94,
+      "text": "modeling and this next word prediction task",
+      "id": 413
+    },
+    {
+      "start": 1714.94,
+      "end": 1719.26,
+      "text": "is being able to handle variable lengths of sequences.",
+      "id": 414
+    },
+    {
+      "start": 1719.26,
+      "end": 1722.94,
+      "text": "Short sentence, medium sentence, long sentence,",
+      "id": 415
+    },
+    {
+      "start": 1722.94,
+      "end": 1726.02,
+      "text": "doesn't matter, we should be able to operate over all",
+      "id": 416
+    },
+    {
+      "start": 1726.02,
+      "end": 1730.05,
+      "text": "of these types of inputs.",
+      "id": 417
+    },
+    {
+      "start": 1730.05,
+      "end": 1733.13,
+      "text": "Feed forward networks break down here, right?",
+      "id": 418
+    },
+    {
+      "start": 1733.13,
+      "end": 1736.97,
+      "text": "Because of the fact that there's a fixed number of inputs.",
+      "id": 419
+    },
+    {
+      "start": 1736.97,
+      "end": 1740.49,
+      "text": "But something like a state-based model like an RNN",
+      "id": 420
+    },
+    {
+      "start": 1740.49,
+      "end": 1744.13,
+      "text": "where we're processing the data time step by time step",
+      "id": 421
+    },
+    {
+      "start": 1744.13,
+      "end": 1749.53,
+      "text": "is inherently designed to process these variable length inputs.",
+      "id": 422
+    },
+    {
+      "start": 1749.53,
+      "end": 1753.49,
+      "text": "A final criteria that we want to think about",
+      "id": 423
+    },
+    {
+      "start": 1753.49,
+      "end": 1757.0900000000001,
+      "text": "is capturing these dependencies and relationships",
+      "id": 424
+    },
+    {
+      "start": 1757.0900000000001,
+      "end": 1761.0900000000001,
+      "text": "that can occur in sequence data like language.",
+      "id": 425
+    },
+    {
+      "start": 1761.0900000000001,
+      "end": 1764.79,
+      "text": "Oftentimes, there's really core information up front",
+      "id": 426
+    },
+    {
+      "start": 1764.79,
+      "end": 1768.33,
+      "text": "in the sentence that informs the next word prediction",
+      "id": 427
+    },
+    {
+      "start": 1768.33,
+      "end": 1770.69,
+      "text": "super downstream in the sentence.",
+      "id": 428
+    },
+    {
+      "start": 1770.69,
+      "end": 1773.8899999999999,
+      "text": "And we want to be able to capture this effectively.",
+      "id": 429
+    },
+    {
+      "start": 1774.8899999999999,
+      "end": 1779.49,
+      "text": "And finally, sequence data is sequential for a reason.",
+      "id": 430
+    },
+    {
+      "start": 1779.49,
+      "end": 1782.29,
+      "text": "That means that differences in the order",
+      "id": 431
+    },
+    {
+      "start": 1782.29,
+      "end": 1785.53,
+      "text": "can completely alter the, you know,",
+      "id": 432
+    },
+    {
+      "start": 1785.53,
+      "end": 1789.73,
+      "text": "what is actually represented in that sample.",
+      "id": 433
+    },
+    {
+      "start": 1789.73,
+      "end": 1793.13,
+      "text": "The food was good, not bad at all, means great.",
+      "id": 434
+    },
+    {
+      "start": 1793.13,
+      "end": 1793.97,
+      "text": "Good food.",
+      "id": 435
+    },
+    {
+      "start": 1793.97,
+      "end": 1796.28,
+      "text": "But if we flip the order of the words in the sentence,",
+      "id": 436
+    },
+    {
+      "start": 1796.28,
+      "end": 1798.12,
+      "text": "we've completely flipped the meaning.",
+      "id": 437
+    },
+    {
+      "start": 1798.12,
+      "end": 1802.04,
+      "text": "The exact words are the same, order matters.",
+      "id": 438
+    },
+    {
+      "start": 1802.04,
+      "end": 1807.44,
+      "text": "And so RNNs are one way to start to get at tackling",
+      "id": 439
+    },
+    {
+      "start": 1807.44,
+      "end": 1811.24,
+      "text": "these design criteria because they can handle variable length",
+      "id": 440
+    },
+    {
+      "start": 1811.24,
+      "end": 1812.68,
+      "text": "sequences.",
+      "id": 441
+    },
+    {
+      "start": 1812.68,
+      "end": 1815.08,
+      "text": "Through this notion of the internal state,",
+      "id": 442
+    },
+    {
+      "start": 1815.08,
+      "end": 1818.24,
+      "text": "we have some way of tracking and preserving",
+      "id": 443
+    },
+    {
+      "start": 1818.24,
+      "end": 1820.76,
+      "text": "information about these dependencies.",
+      "id": 444
+    },
+    {
+      "start": 1820.76,
+      "end": 1825.32,
+      "text": "We're processing the data step by step, so we have a notion of order.",
+      "id": 445
+    },
+    {
+      "start": 1825.32,
+      "end": 1831.56,
+      "text": "And we have this weight sharing that allows this build up of memory over time in the RNN",
+      "id": 446
+    },
+    {
+      "start": 1831.56,
+      "end": 1835.78,
+      "text": "to be able to capture those dependencies.",
+      "id": 447
+    },
+    {
+      "start": 1835.78,
+      "end": 1846.78,
+      "text": "Okay, so the final piece of RNN content that we'll talk about is how we actually train RNNs in practice.",
+      "id": 448
+    },
+    {
+      "start": 1846.78,
+      "end": 1850.98,
+      "text": "And that's based on the core neural network training algorithm",
+      "id": 449
+    },
+    {
+      "start": 1850.98,
+      "end": 1855.02,
+      "text": "that Alexander introduced which is back propagation.",
+      "id": 450
+    },
+    {
+      "start": 1855.02,
+      "end": 1858.1,
+      "text": "So let's do a refresher of how we actually",
+      "id": 451
+    },
+    {
+      "start": 1858.1,
+      "end": 1860.62,
+      "text": "train these feed forward models.",
+      "id": 452
+    },
+    {
+      "start": 1860.62,
+      "end": 1864.58,
+      "text": "We have an input, and we first make a forward pass",
+      "id": 453
+    },
+    {
+      "start": 1864.58,
+      "end": 1867.5,
+      "text": "through the network from input to output",
+      "id": 454
+    },
+    {
+      "start": 1867.5,
+      "end": 1870.1,
+      "text": "to generate a prediction.",
+      "id": 455
+    },
+    {
+      "start": 1870.1,
+      "end": 1872.86,
+      "text": "And then to actually compute the loss,",
+      "id": 456
+    },
+    {
+      "start": 1872.86,
+      "end": 1879.02,
+      "text": "update the parameters of the model, the weights in the model, we backpropagate gradients",
+      "id": 457
+    },
+    {
+      "start": 1879.02,
+      "end": 1885.46,
+      "text": "back through the network where the algorithm was to take the derivative of the loss with",
+      "id": 458
+    },
+    {
+      "start": 1885.46,
+      "end": 1893.14,
+      "text": "respect to the parameters or the weights in the network and then shifting the parameters",
+      "id": 459
+    },
+    {
+      "start": 1893.14,
+      "end": 1897.5,
+      "text": "in order to minimize this loss.",
+      "id": 460
+    },
+    {
+      "start": 1897.5,
+      "end": 1903.5,
+      "text": "Now, let's say we are going to extend this to the context of RNNs.",
+      "id": 461
+    },
+    {
+      "start": 1903.5,
+      "end": 1908.38,
+      "text": "As we saw with RNNs, we have this step-by-step sequential processing.",
+      "id": 462
+    },
+    {
+      "start": 1908.38,
+      "end": 1914.94,
+      "text": "So we can predict outputs at each time step, meaning we can get a loss at each time step,",
+      "id": 463
+    },
+    {
+      "start": 1914.94,
+      "end": 1921.58,
+      "text": "and we can get an aggregate loss by summing the losses at these individual time steps.",
+      "id": 464
+    },
+    {
+      "start": 1921.58,
+      "end": 1927.46,
+      "text": "Now in order to back propagate and make updates to the network, we need to do",
+      "id": 465
+    },
+    {
+      "start": 1927.46,
+      "end": 1929.82,
+      "text": "this over time as well.",
+      "id": 466
+    },
+    {
+      "start": 1929.82,
+      "end": 1933.66,
+      "text": "So instead of backpropagating error through a single feed",
+      "id": 467
+    },
+    {
+      "start": 1933.66,
+      "end": 1937.7,
+      "text": "forward network at a single time step, in RNNs,",
+      "id": 468
+    },
+    {
+      "start": 1937.7,
+      "end": 1941.74,
+      "text": "we backpropagate across these individual time steps",
+      "id": 469
+    },
+    {
+      "start": 1941.74,
+      "end": 1945.9,
+      "text": "and then across time steps from where we are currently back",
+      "id": 470
+    },
+    {
+      "start": 1945.9,
+      "end": 1948.18,
+      "text": "to the beginning of the sequence.",
+      "id": 471
+    },
+    {
+      "start": 1948.18,
+      "end": 1952.1,
+      "text": "And so this is the formulation of this algorithm",
+      "id": 472
+    },
+    {
+      "start": 1952.1,
+      "end": 1956.54,
+      "text": "for training RNNs called backpropagation through time",
+      "id": 473
+    },
+    {
+      "start": 1956.54,
+      "end": 1961.42,
+      "text": "because error is flowing back through time from where we are currently in the sequence",
+      "id": 474
+    },
+    {
+      "start": 1961.42,
+      "end": 1966.7,
+      "text": "back to the beginning time step one or time step zero.",
+      "id": 475
+    },
+    {
+      "start": 1966.7,
+      "end": 1971.66,
+      "text": "And so taking a closer look at how these gradients flow,",
+      "id": 476
+    },
+    {
+      "start": 1971.66,
+      "end": 1977.3,
+      "text": "we actually have to make these very repeated matrix multiplications",
+      "id": 477
+    },
+    {
+      "start": 1977.3,
+      "end": 1985.3,
+      "text": "with the weight matrix W to make because of these cell state updates requiring this passing",
+      "id": 478
+    },
+    {
+      "start": 1985.3,
+      "end": 1988.1399999999999,
+      "text": "of the weight matrix WH.",
+      "id": 479
+    },
+    {
+      "start": 1988.1399999999999,
+      "end": 1990.94,
+      "text": "And in practice, this can get a little tricky",
+      "id": 480
+    },
+    {
+      "start": 1990.94,
+      "end": 1994.02,
+      "text": "because computing the gradient back with respect",
+      "id": 481
+    },
+    {
+      "start": 1994.02,
+      "end": 1997.46,
+      "text": "to the state at the very first time step zero",
+      "id": 482
+    },
+    {
+      "start": 1997.46,
+      "end": 2002.5,
+      "text": "involves many, many repeated factors of WH of H",
+      "id": 483
+    },
+    {
+      "start": 2002.5,
+      "end": 2005.26,
+      "text": "and repeated gradient computations.",
+      "id": 484
+    },
+    {
+      "start": 2005.26,
+      "end": 2009.62,
+      "text": "In practice, if the values of this weight matrix are large,",
+      "id": 485
+    },
+    {
+      "start": 2009.62,
+      "end": 2012.46,
+      "text": "things can blow up very quickly, in problem",
+      "id": 486
+    },
+    {
+      "start": 2012.46,
+      "end": 2014.26,
+      "text": "that we call exploding gradients.",
+      "id": 487
+    },
+    {
+      "start": 2014.26,
+      "end": 2018.06,
+      "text": "And so often in practice, you'll actually clip the values",
+      "id": 488
+    },
+    {
+      "start": 2018.06,
+      "end": 2022.1,
+      "text": "of the gradients to some maximum so that you can scale",
+      "id": 489
+    },
+    {
+      "start": 2022.1,
+      "end": 2024.1,
+      "text": "back big gradients.",
+      "id": 490
+    },
+    {
+      "start": 2024.1,
+      "end": 2026.38,
+      "text": "You can also have the inverse problem",
+      "id": 491
+    },
+    {
+      "start": 2026.38,
+      "end": 2030.1399999999999,
+      "text": "where if the way matrix ends up being very small,",
+      "id": 492
+    },
+    {
+      "start": 2030.1399999999999,
+      "end": 2032.98,
+      "text": "you have repeated multiplications of something",
+      "id": 493
+    },
+    {
+      "start": 2032.98,
+      "end": 2034.78,
+      "text": "very small and things shrink.",
+      "id": 494
+    },
+    {
+      "start": 2034.78,
+      "end": 2038.62,
+      "text": "And then you get very, very little signal to actually learn",
+      "id": 495
+    },
+    {
+      "start": 2038.62,
+      "end": 2039.5,
+      "text": "on.",
+      "id": 496
+    },
+    {
+      "start": 2039.5,
+      "end": 2043.3,
+      "text": "And this is known as the vanishing gradient problem.",
+      "id": 497
+    },
+    {
+      "start": 2043.3,
+      "end": 2050.02,
+      "text": "And there are as well practical tricks in terms of solutions and",
+      "id": 498
+    },
+    {
+      "start": 2050.02,
+      "end": 2054.84,
+      "text": "implementations that people use to mitigate this problem.",
+      "id": 499
+    },
+    {
+      "start": 2054.84,
+      "end": 2055.6,
+      "text": "Yes, questions?",
+      "id": 500
+    },
+    {
+      "start": 2055.6,
+      "end": 2065.75,
+      "text": "So each zero is neither an explicit parameter nor an input.",
+      "id": 501
+    },
+    {
+      "start": 2065.75,
+      "end": 2070.67,
+      "text": "Right, it's this internal state variable, if you will.",
+      "id": 502
+    },
+    {
+      "start": 2070.67,
+      "end": 2076.67,
+      "text": "And it is dependent on the weight matrix parameter and the input.",
+      "id": 503
+    },
+    {
+      "start": 2076.67,
+      "end": 2088.37,
+      "text": "So if you think about the input as being a variable, H0 is a variable that depends on computation involving the weight matrices W.",
+      "id": 504
+    },
+    {
+      "start": 2088.37,
+      "end": 2101.37,
+      "text": "Okay. So in practice, right, this vanishing gradient problem has real implications in particular with respect to our ability to track long term dependencies in the data.",
+      "id": 505
+    },
+    {
+      "start": 2102.37,
+      "end": 2108.29,
+      "text": "And I won't spend too much time on this, but just to give you a sense, when we multiply",
+      "id": 506
+    },
+    {
+      "start": 2108.29,
+      "end": 2116.5299999999997,
+      "text": "many of these small gradient values or matrix values together, it biases the model to try",
+      "id": 507
+    },
+    {
+      "start": 2116.5299999999997,
+      "end": 2123.81,
+      "text": "to capture the shorter term things, because further back you're going to have more propagation",
+      "id": 508
+    },
+    {
+      "start": 2123.81,
+      "end": 2127.61,
+      "text": "of error and more of this vanishing problem.",
+      "id": 509
+    },
+    {
+      "start": 2127.61,
+      "end": 2134.93,
+      "text": "And so while this allows for effective capture of dependencies that are relatively short-term,",
+      "id": 510
+    },
+    {
+      "start": 2134.93,
+      "end": 2141.41,
+      "text": "it poses a problem for important longer-term dependencies where the input length can grow",
+      "id": 511
+    },
+    {
+      "start": 2141.41,
+      "end": 2148.01,
+      "text": "very long in terms of number of time steps and becomes problematic for the RNN to actually",
+      "id": 512
+    },
+    {
+      "start": 2148.01,
+      "end": 2152.37,
+      "text": "keep track of these longer-term dependencies.",
+      "id": 513
+    },
+    {
+      "start": 2152.37,
+      "end": 2160.37,
+      "text": "So in practice, there has been a lot of architecture development around these RNN style models.",
+      "id": 514
+    },
+    {
+      "start": 2160.37,
+      "end": 2166.77,
+      "text": "And in particular, there's this notion of making the internal computation of the RNN more",
+      "id": 515
+    },
+    {
+      "start": 2166.77,
+      "end": 2174.69,
+      "text": "complex to better control the flow of information and the state update equation itself.",
+      "id": 516
+    },
+    {
+      "start": 2174.69,
+      "end": 2182.77,
+      "text": "And one really pioneering solution to this was many years ago, a group led by Yurgen Schmitt",
+      "id": 517
+    },
+    {
+      "start": 2182.77,
+      "end": 2183.77,
+      "text": "Hubert.",
+      "id": 518
+    },
+    {
+      "start": 2183.77,
+      "end": 2191.25,
+      "text": "I introduced this mechanism called Long Short-term Memory that was really a foundational",
+      "id": 519
+    },
+    {
+      "start": 2191.25,
+      "end": 2199.85,
+      "text": "advance in terms of better controlling for these state updates in architectures like RNNs.",
+      "id": 520
+    },
+    {
+      "start": 2199.85,
+      "end": 2205.59,
+      "text": "So brief no on applications of these networks and in particular the one that you're going",
+      "id": 521
+    },
+    {
+      "start": 2205.59,
+      "end": 2213.17,
+      "text": "to experiment with in software lab 1 which is this multi output generation problem focusing",
+      "id": 522
+    },
+    {
+      "start": 2213.17,
+      "end": 2216.45,
+      "text": "on this task of music generation.",
+      "id": 523
+    },
+    {
+      "start": 2216.45,
+      "end": 2223.33,
+      "text": "And every year I like to highlight this example from a few years ago now but the capabilities",
+      "id": 524
+    },
+    {
+      "start": 2223.33,
+      "end": 2228.73,
+      "text": "of deep learning and AI for music generation have now become actually quite remarkable.",
+      "id": 525
+    },
+    {
+      "start": 2228.73,
+      "end": 2234.77,
+      "text": "But still, this is one of my favorite examples where the classical composer, Franz Schubert,",
+      "id": 526
+    },
+    {
+      "start": 2234.77,
+      "end": 2240.69,
+      "text": "had a very symphony that he called his unfinished symphony in a few years back.",
+      "id": 527
+    },
+    {
+      "start": 2240.69,
+      "end": 2248.31,
+      "text": "There was an effort to actually train a recurrent based model on his music to predict and",
+      "id": 528
+    },
+    {
+      "start": 2248.31,
+      "end": 2252.25,
+      "text": "generate new music to finish his unfinished symphony.",
+      "id": 529
+    },
+    {
+      "start": 2252.25,
+      "end": 2274.89,
+      "text": "So this is a sample of that AI-generated third movement, which is pretty compelling, I think,",
+      "id": 530
+    },
+    {
+      "start": 2274.89,
+      "end": 2276.61,
+      "text": "from a musical perspective.",
+      "id": 531
+    },
+    {
+      "start": 2276.61,
+      "end": 2281.69,
+      "text": "And actually, remarkably, I think the quality has even continued to improve.",
+      "id": 532
+    },
+    {
+      "start": 2281.69,
+      "end": 2286.21,
+      "text": "You will actually experiment with these same concepts in software lab 1, which I think",
+      "id": 533
+    },
+    {
+      "start": 2286.21,
+      "end": 2288.89,
+      "text": "is really cool and exciting.",
+      "id": 534
+    },
+    {
+      "start": 2288.89,
+      "end": 2293.81,
+      "text": "And so I'll leave the applications at that for the purposes of time.",
+      "id": 535
+    },
+    {
+      "start": 2293.81,
+      "end": 2300.81,
+      "text": "and hopefully give you enough of a teaser to motivate entries into software lab 1 competition.",
+      "id": 536
+    },
+    {
+      "start": 2300.81,
+      "end": 2308.81,
+      "text": "Okay, so in the final 15 minutes or so, we're going to move beyond recurrent models and think really about",
+      "id": 537
+    },
+    {
+      "start": 2308.81,
+      "end": 2317.81,
+      "text": "taking a step back to, again, the design criteria and capabilities of that we desire with sequence modeling.",
+      "id": 538
+    },
+    {
+      "start": 2317.81,
+      "end": 2321.85,
+      "text": "And thinking about what are the limitations of RNNs",
+      "id": 539
+    },
+    {
+      "start": 2321.85,
+      "end": 2323.17,
+      "text": "from a technical perspective",
+      "id": 540
+    },
+    {
+      "start": 2323.17,
+      "end": 2326.01,
+      "text": "and how this has motivated new advances",
+      "id": 541
+    },
+    {
+      "start": 2326.01,
+      "end": 2329.29,
+      "text": "in architectures for a sequence modeling.",
+      "id": 542
+    },
+    {
+      "start": 2329.29,
+      "end": 2332.65,
+      "text": "So the first fundamental limitation of RNNs",
+      "id": 543
+    },
+    {
+      "start": 2332.65,
+      "end": 2335.77,
+      "text": "is that they have this encoding bottleneck",
+      "id": 544
+    },
+    {
+      "start": 2335.77,
+      "end": 2339.09,
+      "text": "that's imposed by this notion of the internal state,",
+      "id": 545
+    },
+    {
+      "start": 2339.09,
+      "end": 2341.09,
+      "text": "H of T, this variable.",
+      "id": 546
+    },
+    {
+      "start": 2341.09,
+      "end": 2343.5299999999997,
+      "text": "We are trying to pack as much information",
+      "id": 547
+    },
+    {
+      "start": 2343.5299999999997,
+      "end": 2347.29,
+      "text": "about the dependencies and the structure of the data",
+      "id": 548
+    },
+    {
+      "start": 2347.29,
+      "end": 2354.33,
+      "text": "into that internal state, HFT, and use this to carry forward time step by step.",
+      "id": 549
+    },
+    {
+      "start": 2354.33,
+      "end": 2359.73,
+      "text": "Relatedly, right, when we process the data time step by time step, this can be pretty",
+      "id": 550
+    },
+    {
+      "start": 2359.73,
+      "end": 2360.73,
+      "text": "slow.",
+      "id": 551
+    },
+    {
+      "start": 2360.73,
+      "end": 2367.21,
+      "text": "We have to take the individual inputs, the individual slices as individual slices.",
+      "id": 552
+    },
+    {
+      "start": 2367.21,
+      "end": 2370.33,
+      "text": "And so it's not really paralyzable.",
+      "id": 553
+    },
+    {
+      "start": 2370.33,
+      "end": 2376.5299999999997,
+      "text": "And as a result of these two elements, especially that encoding bottleneck, the RNN can really",
+      "id": 554
+    },
+    {
+      "start": 2376.5299999999997,
+      "end": 2384.37,
+      "text": "quickly run into memory issues in terms of how long of a dependency is it able to capture.",
+      "id": 555
+    },
+    {
+      "start": 2384.37,
+      "end": 2390.9700000000003,
+      "text": "And so if we go back again to our fundamental goal of sequence modeling, we want to take",
+      "id": 556
+    },
+    {
+      "start": 2390.9700000000003,
+      "end": 2396.48,
+      "text": "a input that's represented as a sequence and learn some set of features",
+      "id": 557
+    },
+    {
+      "start": 2397.12,
+      "end": 2404.72,
+      "text": "that then map to a sequence of outputs. And RNNs use this notion of a recurrence relation and",
+      "id": 558
+    },
+    {
+      "start": 2404.72,
+      "end": 2413.2,
+      "text": "this step-by-step modeling to try to track these dependencies. But they have these three key bottlenecks",
+      "id": 559
+    },
+    {
+      "start": 2413.2,
+      "end": 2419.52,
+      "text": "that I mentioned. Ideally, we don't have that encoding bottleneck and we're able to look",
+      "id": 560
+    },
+    {
+      "start": 2419.52,
+      "end": 2427.04,
+      "text": "at this sequence globally as a continuous stream of information, but still able to capture",
+      "id": 561
+    },
+    {
+      "start": 2427.04,
+      "end": 2434.32,
+      "text": "local relationships and dependencies in the data. Ideally, we don't have to handle the sequence",
+      "id": 562
+    },
+    {
+      "start": 2434.32,
+      "end": 2440.8,
+      "text": "time step by time step. We're able to parallelize very efficiently so that we can handle long",
+      "id": 563
+    },
+    {
+      "start": 2440.8,
+      "end": 2448.52,
+      "text": "bodies of input. And we want to have this notion of long memory. And so with that experiment",
+      "id": 564
+    },
+    {
+      "start": 2448.52,
+      "end": 2455.52,
+      "text": "and a question is, what if we eliminated the need for recurrence entirely? How could",
+      "id": 565
+    },
+    {
+      "start": 2455.52,
+      "end": 2464.44,
+      "text": "we possibly approach this? One naive approach would be to kind of squash everything together.",
+      "id": 566
+    },
+    {
+      "start": 2464.44,
+      "end": 2472.6,
+      "text": "take one vector input and take the data from all the time points, concatenate them as",
+      "id": 567
+    },
+    {
+      "start": 2472.6,
+      "end": 2476.4,
+      "text": "one input vector, a single input.",
+      "id": 568
+    },
+    {
+      "start": 2476.4,
+      "end": 2482.08,
+      "text": "And feed this into the model and calculate some feature vector and use that to generate",
+      "id": 569
+    },
+    {
+      "start": 2482.08,
+      "end": 2487.16,
+      "text": "an output which we hope makes sense and is sensible.",
+      "id": 570
+    },
+    {
+      "start": 2487.16,
+      "end": 2493.68,
+      "text": "But yes, while we've eliminated this recurrence, we've eliminated this step by step processing",
+      "id": 571
+    },
+    {
+      "start": 2493.68,
+      "end": 2496.84,
+      "text": "this is not going to be scalable, right?",
+      "id": 572
+    },
+    {
+      "start": 2496.84,
+      "end": 2500.6,
+      "text": "Because if we were to build out a dense network to do this,",
+      "id": 573
+    },
+    {
+      "start": 2500.6,
+      "end": 2505.88,
+      "text": "this quickly gets very, very large as the sequence length grows.",
+      "id": 574
+    },
+    {
+      "start": 2505.88,
+      "end": 2508.96,
+      "text": "Importantly, we've lost the order information",
+      "id": 575
+    },
+    {
+      "start": 2508.96,
+      "end": 2512.28,
+      "text": "because those dependencies are gone.",
+      "id": 576
+    },
+    {
+      "start": 2512.28,
+      "end": 2515.56,
+      "text": "And because of that, there's no temporal dependency,",
+      "id": 577
+    },
+    {
+      "start": 2515.56,
+      "end": 2518.92,
+      "text": "so how can we really build out memory?",
+      "id": 578
+    },
+    {
+      "start": 2518.92,
+      "end": 2521.76,
+      "text": "And so that's because when we have",
+      "id": 579
+    },
+    {
+      "start": 2521.76,
+      "end": 2527.84,
+      "text": "fully connected or concatenated inputs. There's no notion of how do we actually pick out and",
+      "id": 580
+    },
+    {
+      "start": 2527.84,
+      "end": 2535.28,
+      "text": "attend to the parts in that input that are going to be important. And so several years ago now there",
+      "id": 581
+    },
+    {
+      "start": 2535.28,
+      "end": 2543.12,
+      "text": "was this breakthrough idea in this field of this notion of can we devise mathematically a way for",
+      "id": 582
+    },
+    {
+      "start": 2543.12,
+      "end": 2550.56,
+      "text": "the network to learn how to pick up and identify those dependencies locally and also globally that",
+      "id": 583
+    },
+    {
+      "start": 2550.56,
+      "end": 2554.08,
+      "text": "that are going to be important in the sequence overall.",
+      "id": 584
+    },
+    {
+      "start": 2554.08,
+      "end": 2556.68,
+      "text": "And this is the notion of attention.",
+      "id": 585
+    },
+    {
+      "start": 2556.68,
+      "end": 2559.52,
+      "text": "And this is a very powerful mechanism",
+      "id": 586
+    },
+    {
+      "start": 2559.52,
+      "end": 2563.16,
+      "text": "for learning in sequence modeling applications",
+      "id": 587
+    },
+    {
+      "start": 2563.16,
+      "end": 2567.8,
+      "text": "and is really the backbone of the transformer architecture.",
+      "id": 588
+    },
+    {
+      "start": 2567.8,
+      "end": 2571.88,
+      "text": "So if you know GPT or other models like BERT,",
+      "id": 589
+    },
+    {
+      "start": 2571.88,
+      "end": 2576.04,
+      "text": "the T in all of these acronyms stands for transformer.",
+      "id": 590
+    },
+    {
+      "start": 2576.04,
+      "end": 2580.2,
+      "text": "And the foundational mechanism behind these transformers",
+      "id": 591
+    },
+    {
+      "start": 2580.2,
+      "end": 2582.8,
+      "text": "is the attention operation.",
+      "id": 592
+    },
+    {
+      "start": 2582.8,
+      "end": 2587.28,
+      "text": "And to me, a very, very elegant and intuitive idea",
+      "id": 593
+    },
+    {
+      "start": 2587.28,
+      "end": 2588.64,
+      "text": "and we're going to break it down",
+      "id": 594
+    },
+    {
+      "start": 2588.64,
+      "end": 2591.0,
+      "text": "both from the intuition point of view",
+      "id": 595
+    },
+    {
+      "start": 2591.0,
+      "end": 2593.96,
+      "text": "and also the math to show you how that works.",
+      "id": 596
+    },
+    {
+      "start": 2595.16,
+      "end": 2598.8,
+      "text": "So the core intuition behind attention",
+      "id": 597
+    },
+    {
+      "start": 2598.8,
+      "end": 2602.8,
+      "text": "is can the neural network learn to identify",
+      "id": 598
+    },
+    {
+      "start": 2602.8,
+      "end": 2606.0,
+      "text": "what parts of an input within itself",
+      "id": 599
+    },
+    {
+      "start": 2606.0,
+      "end": 2609.76,
+      "text": "are most important to representing that input?",
+      "id": 600
+    },
+    {
+      "start": 2609.76,
+      "end": 2616.96,
+      "text": "And I think it's often easier to start with a visual example rather than a text example.",
+      "id": 601
+    },
+    {
+      "start": 2616.96,
+      "end": 2622.0,
+      "text": "But when we think about attention, we can immediately look at this picture and pick out",
+      "id": 602
+    },
+    {
+      "start": 2622.0,
+      "end": 2624.84,
+      "text": "the important parts.",
+      "id": 603
+    },
+    {
+      "start": 2624.84,
+      "end": 2630.76,
+      "text": "One naive way to do this would be to scan the data, pixel by pixel, go across it.",
+      "id": 604
+    },
+    {
+      "start": 2630.76,
+      "end": 2635.32,
+      "text": "But all of us intuitively, we maybe don't necessarily do this.",
+      "id": 605
+    },
+    {
+      "start": 2635.32,
+      "end": 2641.2,
+      "text": "We don't eyeball left or right, we can immediately pick out the important parts.",
+      "id": 606
+    },
+    {
+      "start": 2641.2,
+      "end": 2648.04,
+      "text": "And so the core idea behind this is if we want to identify which parts to attend to, that's",
+      "id": 607
+    },
+    {
+      "start": 2648.04,
+      "end": 2649.36,
+      "text": "step one.",
+      "id": 608
+    },
+    {
+      "start": 2649.36,
+      "end": 2656.08,
+      "text": "And then we use that identification to extract the features or the actual content of the input",
+      "id": 609
+    },
+    {
+      "start": 2656.08,
+      "end": 2660.56,
+      "text": "that have high attention scores or high attention values.",
+      "id": 610
+    },
+    {
+      "start": 2660.56,
+      "end": 2665.94,
+      "text": "And it's really this first part of the problem that's the core, which is very similar to this",
+      "id": 611
+    },
+    {
+      "start": 2665.94,
+      "end": 2668.06,
+      "text": "notion of search.",
+      "id": 612
+    },
+    {
+      "start": 2668.06,
+      "end": 2675.02,
+      "text": "So if we were to do an example walkthrough, let's say many of you probably had this question",
+      "id": 613
+    },
+    {
+      "start": 2675.02,
+      "end": 2679.62,
+      "text": "of how can I learn more about AI and deep learning and neural networks?",
+      "id": 614
+    },
+    {
+      "start": 2679.62,
+      "end": 2685.5,
+      "text": "One way you could approach this in addition to coming to this class is to go to the internet,",
+      "id": 615
+    },
+    {
+      "start": 2685.5,
+      "end": 2692.5,
+      "text": "to something like YouTube and search for videos there that are relevant to this topic of neural",
+      "id": 616
+    },
+    {
+      "start": 2692.5,
+      "end": 2695.26,
+      "text": "networks and deep learning.",
+      "id": 617
+    },
+    {
+      "start": 2695.26,
+      "end": 2699.42,
+      "text": "And so YouTube right is a giant database of many, many videos.",
+      "id": 618
+    },
+    {
+      "start": 2699.42,
+      "end": 2705.74,
+      "text": "How do you actually find and attend to the relevant videos in this database?",
+      "id": 619
+    },
+    {
+      "start": 2705.74,
+      "end": 2709.7,
+      "text": "You're going to go in and put a query in deep learning.",
+      "id": 620
+    },
+    {
+      "start": 2709.7,
+      "end": 2717.0,
+      "text": "And we want to be able to extract some key information about each of these videos that",
+      "id": 621
+    },
+    {
+      "start": 2717.0,
+      "end": 2719.54,
+      "text": "are in this data base.",
+      "id": 622
+    },
+    {
+      "start": 2719.54,
+      "end": 2724.98,
+      "text": "So all of these videos have a title, think about it as the key.",
+      "id": 623
+    },
+    {
+      "start": 2724.98,
+      "end": 2732.26,
+      "text": "And ideally, to complete the search problem, you want to find an overlap, semantically,",
+      "id": 624
+    },
+    {
+      "start": 2732.26,
+      "end": 2737.26,
+      "text": "between your search query and key.",
+      "id": 625
+    },
+    {
+      "start": 2737.26,
+      "end": 2741.7200000000003,
+      "text": "the indices of these videos in these databases.",
+      "id": 626
+    },
+    {
+      "start": 2741.7200000000003,
+      "end": 2748.2200000000003,
+      "text": "And so you're going to compute what we think of practically as some sort of waiting or",
+      "id": 627
+    },
+    {
+      "start": 2748.2200000000003,
+      "end": 2754.7799999999997,
+      "text": "an attention mask, how similar is each of these keys to your query.",
+      "id": 628
+    },
+    {
+      "start": 2754.7799999999997,
+      "end": 2758.66,
+      "text": "And we can do this step by step in this example.",
+      "id": 629
+    },
+    {
+      "start": 2758.66,
+      "end": 2765.56,
+      "text": "A beautiful C-chartle may be very elegant and natural but not similar to the query of deep",
+      "id": 630
+    },
+    {
+      "start": 2765.56,
+      "end": 2773.24,
+      "text": "learning. A video from six years ago about introduction to deep learning. Yes, relevant.",
+      "id": 631
+    },
+    {
+      "start": 2773.24,
+      "end": 2780.44,
+      "text": "A video about the best fade away in all of basketball from the late and great Kobe Bryant.",
+      "id": 632
+    },
+    {
+      "start": 2780.44,
+      "end": 2785.2,
+      "text": "Also very important but not relevant to the query.",
+      "id": 633
+    },
+    {
+      "start": 2785.2,
+      "end": 2792.4,
+      "text": "And so now we've identified the relevant feature or the part of the data. And we want to extract",
+      "id": 634
+    },
+    {
+      "start": 2792.4,
+      "end": 2797.08,
+      "text": "the video itself, what that we want to pay attention to.",
+      "id": 635
+    },
+    {
+      "start": 2797.08,
+      "end": 2799.04,
+      "text": "And this we call the value.",
+      "id": 636
+    },
+    {
+      "start": 2799.04,
+      "end": 2802.92,
+      "text": "And because the search was implemented with a good attention",
+      "id": 637
+    },
+    {
+      "start": 2802.92,
+      "end": 2806.64,
+      "text": "mechanism, we've pulled out best deep learning course,",
+      "id": 638
+    },
+    {
+      "start": 2806.64,
+      "end": 2808.52,
+      "text": "which of course is ours.",
+      "id": 639
+    },
+    {
+      "start": 2808.52,
+      "end": 2810.32,
+      "text": "And I'm sure all of you can relate to this",
+      "id": 640
+    },
+    {
+      "start": 2810.32,
+      "end": 2813.32,
+      "text": "because you're here sitting in this class.",
+      "id": 641
+    },
+    {
+      "start": 2813.32,
+      "end": 2817.0,
+      "text": "And so really, this is an intuition that explains",
+      "id": 642
+    },
+    {
+      "start": 2817.0,
+      "end": 2821.96,
+      "text": "this what this attention operation is actually doing.",
+      "id": 643
+    },
+    {
+      "start": 2821.96,
+      "end": 2829.04,
+      "text": "So to formalize this in practice, how self-attention works in neural networks like transformers.",
+      "id": 644
+    },
+    {
+      "start": 2829.04,
+      "end": 2830.92,
+      "text": "The goal is exactly the same.",
+      "id": 645
+    },
+    {
+      "start": 2830.92,
+      "end": 2836.92,
+      "text": "We want to identify and attend to parts of an input, which can be a sequence of data that",
+      "id": 646
+    },
+    {
+      "start": 2836.92,
+      "end": 2839.0,
+      "text": "are going to be important.",
+      "id": 647
+    },
+    {
+      "start": 2839.0,
+      "end": 2843.84,
+      "text": "So breaking this down, let's say we have this input sentence, he tossed the tennis ball",
+      "id": 648
+    },
+    {
+      "start": 2843.84,
+      "end": 2845.6,
+      "text": "to serve.",
+      "id": 649
+    },
+    {
+      "start": 2845.6,
+      "end": 2851.8,
+      "text": "First, we want to eliminate recurrence, but preserve information about order.",
+      "id": 650
+    },
+    {
+      "start": 2851.8,
+      "end": 2857.7200000000003,
+      "text": "If we're going to feed the data in all at once, we still want a way to encode or represent",
+      "id": 651
+    },
+    {
+      "start": 2857.7200000000003,
+      "end": 2860.2799999999997,
+      "text": "these positional relationships.",
+      "id": 652
+    },
+    {
+      "start": 2860.2799999999997,
+      "end": 2870.16,
+      "text": "And so in practice with attention, there's something that's called a positional embedding",
+      "id": 653
+    },
+    {
+      "start": 2870.16,
+      "end": 2876.36,
+      "text": "that's used to represent the input that's given into an attention mechanism.",
+      "id": 654
+    },
+    {
+      "start": 2876.36,
+      "end": 2882.8,
+      "text": "And we're not going to go into great details about how this position aware encoding is actually",
+      "id": 655
+    },
+    {
+      "start": 2882.8,
+      "end": 2883.8,
+      "text": "implemented.",
+      "id": 656
+    },
+    {
+      "start": 2883.8,
+      "end": 2889.2799999999997,
+      "text": "But the core thing that I'd like for you to take away is that mathematically we can use",
+      "id": 657
+    },
+    {
+      "start": 2889.2799999999997,
+      "end": 2895.88,
+      "text": "this to preserve some information about the positional relationships in this sequence",
+      "id": 658
+    },
+    {
+      "start": 2895.88,
+      "end": 2898.04,
+      "text": "input.",
+      "id": 659
+    },
+    {
+      "start": 2898.04,
+      "end": 2904.8,
+      "text": "The next is really this core step of these three components, query, key, and value.",
+      "id": 660
+    },
+    {
+      "start": 2904.8,
+      "end": 2909.24,
+      "text": "And there are the fundamental components of the attention mechanism.",
+      "id": 661
+    },
+    {
+      "start": 2909.24,
+      "end": 2914.04,
+      "text": "And so we're going to take that position embedding, which is representing our sequence input",
+      "id": 662
+    },
+    {
+      "start": 2914.04,
+      "end": 2915.76,
+      "text": "all at once.",
+      "id": 663
+    },
+    {
+      "start": 2915.76,
+      "end": 2921.04,
+      "text": "And in this case, in this example, we're going to look at self-attention, meaning in",
+      "id": 664
+    },
+    {
+      "start": 2921.04,
+      "end": 2928.76,
+      "text": "an individual sequence input, can we identify those core relationships in that sequence input",
+      "id": 665
+    },
+    {
+      "start": 2928.76,
+      "end": 2931.41,
+      "text": "itself?",
+      "id": 666
+    },
+    {
+      "start": 2931.41,
+      "end": 2939.85,
+      "text": "To extract that, we're going to do three transformations of this embedding to get our query, our key, and our value.",
+      "id": 667
+    },
+    {
+      "start": 2939.85,
+      "end": 2951.81,
+      "text": "The first is a query, and it's going to be done by a learned layer that transforms the positional embedding into a query matrix.",
+      "id": 668
+    },
+    {
+      "start": 2951.81,
+      "end": 2957.69,
+      "text": "And similarly, we will have another learned layer for the key matrix, and",
+      "id": 669
+    },
+    {
+      "start": 2957.69,
+      "end": 2961.69,
+      "text": "third learned layer for the value matrix.",
+      "id": 670
+    },
+    {
+      "start": 2961.69,
+      "end": 2967.45,
+      "text": "Importantly note that the positional embedding is the same for all these three.",
+      "id": 671
+    },
+    {
+      "start": 2967.45,
+      "end": 2973.29,
+      "text": "But those three layers, and therefore the three transformed outputs of query key and",
+      "id": 672
+    },
+    {
+      "start": 2973.29,
+      "end": 2976.89,
+      "text": "value are going to be different, capturing different information.",
+      "id": 673
+    },
+    {
+      "start": 2978.65,
+      "end": 2982.65,
+      "text": "Now we need to actually compute the attention score.",
+      "id": 674
+    },
+    {
+      "start": 2982.65,
+      "end": 2986.09,
+      "text": "How similar is that query to the key?",
+      "id": 675
+    },
+    {
+      "start": 2986.09,
+      "end": 2988.09,
+      "text": "How can we identify those most?",
+      "id": 676
+    },
+    {
+      "start": 2988.09,
+      "end": 2990.12,
+      "text": "important parts?",
+      "id": 677
+    },
+    {
+      "start": 2990.12,
+      "end": 2994.16,
+      "text": "The way we can do this is to compute a mathematical similarity",
+      "id": 678
+    },
+    {
+      "start": 2994.16,
+      "end": 2997.4,
+      "text": "between these two matrices.",
+      "id": 679
+    },
+    {
+      "start": 2997.4,
+      "end": 3002.46,
+      "text": "And mathematically, we can do that through an operation",
+      "id": 680
+    },
+    {
+      "start": 3002.46,
+      "end": 3006.2,
+      "text": "simply that is related to, based on the dot product.",
+      "id": 681
+    },
+    {
+      "start": 3006.2,
+      "end": 3009.32,
+      "text": "Right? So if we have two vectors in space,",
+      "id": 682
+    },
+    {
+      "start": 3009.32,
+      "end": 3012.04,
+      "text": "let's say we represent the query vector in blue",
+      "id": 683
+    },
+    {
+      "start": 3012.04,
+      "end": 3016.32,
+      "text": "and the key vector in orange, using the dot product,",
+      "id": 684
+    },
+    {
+      "start": 3016.32,
+      "end": 3020.88,
+      "text": "we can compute how aligned they are in space.",
+      "id": 685
+    },
+    {
+      "start": 3020.88,
+      "end": 3023.76,
+      "text": "And so we take the dot product between the query",
+      "id": 686
+    },
+    {
+      "start": 3023.76,
+      "end": 3027.0,
+      "text": "and the key and scale it to get this notion",
+      "id": 687
+    },
+    {
+      "start": 3027.0,
+      "end": 3029.28,
+      "text": "of a similarity metric.",
+      "id": 688
+    },
+    {
+      "start": 3029.28,
+      "end": 3032.88,
+      "text": "And this is also known as the cosine similarity, right?",
+      "id": 689
+    },
+    {
+      "start": 3034.28,
+      "end": 3036.16,
+      "text": "And so fundamentally, right,",
+      "id": 690
+    },
+    {
+      "start": 3036.16,
+      "end": 3040.16,
+      "text": "we can apply the same operation to matrices,",
+      "id": 691
+    },
+    {
+      "start": 3040.16,
+      "end": 3046.96,
+      "text": "this dot product and this scaling to get us this similarity metric.",
+      "id": 692
+    },
+    {
+      "start": 3046.96,
+      "end": 3053.4,
+      "text": "If we visualize what the result of this operation could mean, remember we're trying to compute",
+      "id": 693
+    },
+    {
+      "start": 3053.4,
+      "end": 3059.6,
+      "text": "self-attention, meaning within the sequence he tossed the tennis ball to serve, what are",
+      "id": 694
+    },
+    {
+      "start": 3059.6,
+      "end": 3066.16,
+      "text": "the components of that sequence that relate more strongly to each other versus others?",
+      "id": 695
+    },
+    {
+      "start": 3066.16,
+      "end": 3073.48,
+      "text": "If we were to learn attention over this compute attention score over this input, we could look",
+      "id": 696
+    },
+    {
+      "start": 3073.48,
+      "end": 3080.48,
+      "text": "like we could get something similar to this, where in this matrix we for each position",
+      "id": 697
+    },
+    {
+      "start": 3080.48,
+      "end": 3082.88,
+      "text": "right we compute a score.",
+      "id": 698
+    },
+    {
+      "start": 3082.88,
+      "end": 3088.04,
+      "text": "Along the diagonal is going to have the highest relation because the words are the same.",
+      "id": 699
+    },
+    {
+      "start": 3088.04,
+      "end": 3094.48,
+      "text": "But the words that are more semantically related and relationally related should also have",
+      "id": 700
+    },
+    {
+      "start": 3094.48,
+      "end": 3099.6,
+      "text": "high scores, for example, between ball and toss.",
+      "id": 701
+    },
+    {
+      "start": 3099.6,
+      "end": 3105.24,
+      "text": "And so when we compute this stop product of the querying the key, apply the scaling.",
+      "id": 702
+    },
+    {
+      "start": 3105.24,
+      "end": 3112.0,
+      "text": "We finally apply a function, the softmax, to squash these values between zero and one.",
+      "id": 703
+    },
+    {
+      "start": 3112.0,
+      "end": 3114.84,
+      "text": "And this gives us our attention weight.",
+      "id": 704
+    },
+    {
+      "start": 3114.84,
+      "end": 3122.24,
+      "text": "And when you look at the entries of an attention matrix, this gives you a notion of the relative",
+      "id": 705
+    },
+    {
+      "start": 3122.24,
+      "end": 3128.56,
+      "text": "importance of parts of that sequence of input relative to each other.",
+      "id": 706
+    },
+    {
+      "start": 3128.56,
+      "end": 3134.76,
+      "text": "And this attention-weighting is finally what we use to actually extract the features out",
+      "id": 707
+    },
+    {
+      "start": 3134.76,
+      "end": 3141.24,
+      "text": "by multiplying this with the value to get the final output.",
+      "id": 708
+    },
+    {
+      "start": 3141.24,
+      "end": 3146.84,
+      "text": "So putting this all together, right, the core idea of using this attention-weighting to",
+      "id": 709
+    },
+    {
+      "start": 3146.84,
+      "end": 3150.18,
+      "text": "to identify the parts of importance,",
+      "id": 710
+    },
+    {
+      "start": 3150.18,
+      "end": 3154.24,
+      "text": "multiplying it with the value to extract those features,",
+      "id": 711
+    },
+    {
+      "start": 3154.24,
+      "end": 3157.24,
+      "text": "puts us in a great place to now bring this forward,",
+      "id": 712
+    },
+    {
+      "start": 3157.24,
+      "end": 3160.96,
+      "text": "this attention mechanism as a part of a neural network.",
+      "id": 713
+    },
+    {
+      "start": 3160.96,
+      "end": 3163.04,
+      "text": "So to recap, our goal again,",
+      "id": 714
+    },
+    {
+      "start": 3163.04,
+      "end": 3166.16,
+      "text": "identify and attend to the most important features",
+      "id": 715
+    },
+    {
+      "start": 3166.16,
+      "end": 3168.16,
+      "text": "in a sequence input.",
+      "id": 716
+    },
+    {
+      "start": 3168.16,
+      "end": 3170.5,
+      "text": "Architecturally, what this looks like",
+      "id": 717
+    },
+    {
+      "start": 3170.5,
+      "end": 3173.4,
+      "text": "is we take the sequence positional encoding,",
+      "id": 718
+    },
+    {
+      "start": 3173.4,
+      "end": 3175.28,
+      "text": "we have three copies.",
+      "id": 719
+    },
+    {
+      "start": 3175.28,
+      "end": 3183.2,
+      "text": "We have three learned neural network layers that allow for transformation of these encodings",
+      "id": 720
+    },
+    {
+      "start": 3183.2,
+      "end": 3186.4,
+      "text": "to the query key in value.",
+      "id": 721
+    },
+    {
+      "start": 3186.4,
+      "end": 3193.0,
+      "text": "We can use this to compute the similarity score by computing these attention weights between",
+      "id": 722
+    },
+    {
+      "start": 3193.0,
+      "end": 3200.8,
+      "text": "the query and the key, scaling it, applying the softmax to get values between 0 and 1,",
+      "id": 723
+    },
+    {
+      "start": 3200.8,
+      "end": 3206.12,
+      "text": "And finally, extracting the features with high attention via the multiplication with the",
+      "id": 724
+    },
+    {
+      "start": 3206.12,
+      "end": 3209.08,
+      "text": "value matrix.",
+      "id": 725
+    },
+    {
+      "start": 3209.08,
+      "end": 3214.88,
+      "text": "And so together, this operations that I'm showing in the right are the basis of what we call",
+      "id": 726
+    },
+    {
+      "start": 3214.88,
+      "end": 3220.68,
+      "text": "an attention head that can plug into a larger network architecture.",
+      "id": 727
+    },
+    {
+      "start": 3220.68,
+      "end": 3227.64,
+      "text": "And so modern transformers use this attention operation to compute this very similar type",
+      "id": 728
+    },
+    {
+      "start": 3227.64,
+      "end": 3234.6,
+      "text": "of relation to learn these patterns of importance in sequential data.",
+      "id": 729
+    },
+    {
+      "start": 3234.6,
+      "end": 3239.96,
+      "text": "And this is really the core building block of the transformer architecture.",
+      "id": 730
+    },
+    {
+      "start": 3239.96,
+      "end": 3244.64,
+      "text": "What's really powerful is that it's very, very parallelizable.",
+      "id": 731
+    },
+    {
+      "start": 3244.64,
+      "end": 3250.96,
+      "text": "And we can also put together multiple attention heads, stacking them together within one network",
+      "id": 732
+    },
+    {
+      "start": 3250.96,
+      "end": 3255.44,
+      "text": "to identify and learn different patterns of importance.",
+      "id": 733
+    },
+    {
+      "start": 3255.44,
+      "end": 3262.0,
+      "text": "And so you can think of this intuitively as maybe we have multiple attention heads in the",
+      "id": 734
+    },
+    {
+      "start": 3262.0,
+      "end": 3268.24,
+      "text": "network where visually we can pick out Ironman but we can also pick out this building that",
+      "id": 735
+    },
+    {
+      "start": 3268.24,
+      "end": 3273.08,
+      "text": "you know he's hopefully not going to crash into and this alien spaceship looming in the",
+      "id": 736
+    },
+    {
+      "start": 3273.08,
+      "end": 3274.08,
+      "text": "background.",
+      "id": 737
+    },
+    {
+      "start": 3274.08,
+      "end": 3275.08,
+      "text": "Right.",
+      "id": 738
+    },
+    {
+      "start": 3275.08,
+      "end": 3281.04,
+      "text": "So this is just very I want to emphasize that this is an intuitive example to ground you but",
+      "id": 739
+    },
+    {
+      "start": 3281.04,
+      "end": 3285.54,
+      "text": "conceptually this idea of stacking these attention heads is very,",
+      "id": 740
+    },
+    {
+      "start": 3285.54,
+      "end": 3289.54,
+      "text": "very practical in terms of building out these transformer architectures.",
+      "id": 741
+    },
+    {
+      "start": 3290.64,
+      "end": 3298.34,
+      "text": "So today it's truly remarkable how far this architecture has come in terms of",
+      "id": 742
+    },
+    {
+      "start": 3298.34,
+      "end": 3303.34,
+      "text": "the capabilities that we have seen as a result of not only that innovation,",
+      "id": 743
+    },
+    {
+      "start": 3303.34,
+      "end": 3305.34,
+      "text": "but many innovations that have followed.",
+      "id": 744
+    },
+    {
+      "start": 3305.34,
+      "end": 3314.34,
+      "text": "And it's not just in natural language and transformer LLM's like GPT, but also in other domains as well.",
+      "id": 745
+    },
+    {
+      "start": 3314.34,
+      "end": 3325.34,
+      "text": "In biology, in thinking about sequences like proteins or DNA, and how we can learn relationships using transformer-based architectures,",
+      "id": 746
+    },
+    {
+      "start": 3325.34,
+      "end": 3329.1,
+      "text": "and even in the visual domain, where vision transformers",
+      "id": 747
+    },
+    {
+      "start": 3329.1,
+      "end": 3332.84,
+      "text": "have become perhaps the dominant architecture",
+      "id": 748
+    },
+    {
+      "start": 3332.84,
+      "end": 3337.02,
+      "text": "for looking at computer vision and visual data",
+      "id": 749
+    },
+    {
+      "start": 3337.02,
+      "end": 3339.98,
+      "text": "as we'll learn about in lecture three tomorrow.",
+      "id": 750
+    },
+    {
+      "start": 3341.18,
+      "end": 3344.1,
+      "text": "So with that concludes this lecture",
+      "id": 751
+    },
+    {
+      "start": 3344.1,
+      "end": 3346.74,
+      "text": "and to summarize the key points, right?",
+      "id": 752
+    },
+    {
+      "start": 3346.74,
+      "end": 3348.84,
+      "text": "We talked about sequence modeling",
+      "id": 753
+    },
+    {
+      "start": 3348.84,
+      "end": 3351.54,
+      "text": "as this broad class of tasks",
+      "id": 754
+    },
+    {
+      "start": 3351.54,
+      "end": 3353.98,
+      "text": "that are very relevant across domains.",
+      "id": 755
+    },
+    {
+      "start": 3353.98,
+      "end": 3357.46,
+      "text": "We learned about RNNs and how they're well suited",
+      "id": 756
+    },
+    {
+      "start": 3357.46,
+      "end": 3360.7799999999997,
+      "text": "and how we can build out this recurrence relation,",
+      "id": 757
+    },
+    {
+      "start": 3360.7799999999997,
+      "end": 3362.86,
+      "text": "train them using back propagation,",
+      "id": 758
+    },
+    {
+      "start": 3364.1,
+      "end": 3367.76,
+      "text": "applications to music generation, text generation,",
+      "id": 759
+    },
+    {
+      "start": 3367.76,
+      "end": 3370.18,
+      "text": "translation, beyond.",
+      "id": 760
+    },
+    {
+      "start": 3370.18,
+      "end": 3373.18,
+      "text": "And finally, we talked about the limitations",
+      "id": 761
+    },
+    {
+      "start": 3373.18,
+      "end": 3376.42,
+      "text": "of RNNs in terms of the encoding bottleneck",
+      "id": 762
+    },
+    {
+      "start": 3376.42,
+      "end": 3380.5,
+      "text": "and how this has motivated advances in attention",
+      "id": 763
+    },
+    {
+      "start": 3380.5,
+      "end": 3383.54,
+      "text": "to model sequences without recurrence.",
+      "id": 764
+    },
+    {
+      "start": 3383.98,
+      "end": 3390.86,
+      "text": "So with that, we're going to close the lecture portion and a couple of logistics notes",
+      "id": 765
+    },
+    {
+      "start": 3390.86,
+      "end": 3392.36,
+      "text": "and announcements.",
+      "id": 766
+    },
+    {
+      "start": 3392.36,
+      "end": 3399.58,
+      "text": "So the final hour of the class each day, three to four PM is dedicated to an office hours",
+      "id": 767
+    },
+    {
+      "start": 3399.58,
+      "end": 3405.02,
+      "text": "style session where we will be available to answer your questions.",
+      "id": 768
+    },
+    {
+      "start": 3405.02,
+      "end": 3408.2200000000003,
+      "text": "You'll have time to work on the software labs.",
+      "id": 769
+    },
+    {
+      "start": 3408.2200000000003,
+      "end": 3413.54,
+      "text": "We also have our amazing TAs here to help you with practical questions getting started",
+      "id": 770
+    },
+    {
+      "start": 3413.54,
+      "end": 3415.2200000000003,
+      "text": "with the software labs.",
+      "id": 771
+    },
+    {
+      "start": 3415.2200000000003,
+      "end": 3420.02,
+      "text": "And the labs are all available on this link by GitHub",
+      "id": 772
+    },
+    {
+      "start": 3420.02,
+      "end": 3423.58,
+      "text": "and the instructions for starting to execute them",
+      "id": 773
+    },
+    {
+      "start": 3423.58,
+      "end": 3425.14,
+      "text": "are there.",
+      "id": 774
+    },
+    {
+      "start": 3425.14,
+      "end": 3429.42,
+      "text": "And finally, John has been, as you meant earlier,",
+      "id": 775
+    },
+    {
+      "start": 3429.42,
+      "end": 3432.9,
+      "text": "has been very, very gracious in hosting our kickoff",
+      "id": 776
+    },
+    {
+      "start": 3432.9,
+      "end": 3435.46,
+      "text": "social tonight at 5 p.m.",
+      "id": 777
+    },
+    {
+      "start": 3435.46,
+      "end": 3438.82,
+      "text": "If you have a registered already, please do so.",
+      "id": 778
+    },
+    {
+      "start": 3438.82,
+      "end": 3441.74,
+      "text": "So we can help keep track of who's coming.",
+      "id": 779
+    },
+    {
+      "start": 3441.74,
+      "end": 3447.26,
+      "text": "And it's just down the road, one Kendall Square, and there'll be free food and drinks provided.",
+      "id": 780
+    },
+    {
+      "start": 3447.26,
+      "end": 3448.9,
+      "text": "So hope to see you there.",
+      "id": 781
+    },
+    {
+      "start": 3448.9,
+      "end": 3450.38,
+      "text": "And thank you so much for your attention.",
+      "id": 782
+    }
+  ],
+  "chunks": 6,
+  "duration": 3454.0,
+  "elapsed_s": 174.75,
+  "real_time_factor": 0.0506,
+  "language": "en"
+}

@@ -1,0 +1,24 @@
+TASK: reduce
+PROMPT_VERSION: reduce_v1
+
+Below is a JSON list of section summaries covering an ENTIRE lecture titled "{{video_title}}" ({{duration}} long), in chronological order. Each item has segment_id(s), title, summary, key_points (with evidence: slide/speech/both), concepts, formulas_or_code and examples.
+
+Merge them into lecture-level study material. Return ONE JSON object with these fields:
+- title: a descriptive title for the lecture
+- concise_summary: 150–250 words, one paragraph, covering the main ideas in order
+- detailed_summary: 400–900 words, several paragraphs (separate paragraphs with a blank line), covering every major topic
+- key_points: the 8–15 most important points across the lecture; each {"text": ..., "segment_ids": [ids of the input items it comes from], "evidence": "slide" | "speech" | "both"}
+- study_notes_markdown: well-structured Markdown notes: "## " heading per topic in lecture order, bullet points, **bold** key terms with definitions, formulas exactly as given in inline or fenced code, code in fenced code blocks, short examples
+- glossary: [{"term": ..., "definition": ...}] for the key technical terms (deduplicated, 5–25 entries)
+- chapters: [{"title": ..., "segment_ids": [...]}] with 3–10 chapters in chronological order that together cover all segment ids
+- revision_questions: {"mcq": [exactly {{num_mcq}} items {"question": ..., "options": ["A ...", "B ...", "C ...", "D ..."], "answer": "A" | "B" | "C" | "D", "explanation": ...}], "short_answer": [exactly {{num_short}} items {"question": ..., "answer": ...}]}
+
+Rules:
+1. Use ONLY the input. Do not add facts, formulas or examples that are not in it.
+2. Keep formulas, code and technical terms exact.
+3. segment_ids must be ids that appear in the input.
+4. Questions must be answerable from the lecture content; MCQ distractors must be plausible but clearly wrong according to the lecture.
+
+=== INPUT ===
+{{items}}
+=== END INPUT ===
